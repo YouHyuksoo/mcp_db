@@ -8,22 +8,34 @@ Claude Desktop과 Oracle Database를 연결하여 자연어 질의를 SQL로 변
 
 ## ✨ 핵심 기능
 
-### 1️⃣ 메타정보 통합 관리
+### Tier 1: MCP Server (Claude Desktop 통합)
+**1️⃣ 메타정보 통합 관리**
 - **자동 스키마 추출**: Oracle DB에서 테이블, 칼럼, PK, FK, 인덱스 자동 추출
 - **비즈니스 의미 통합**: CSV를 통해 한글 칼럼명, 설명, 코드값 추가
 - **통합 메타데이터 생성**: DB 기술 정보 + 비즈니스 의미를 하나로 통합
 
-### 2️⃣ 자연어 SQL 생성 (2단계 메타데이터 제공)
+**2️⃣ 자연어 SQL 생성 (2단계 메타데이터 제공)**
 - **Stage 1**: 경량 테이블 요약 제공 → Claude가 관련 테이블 선택 (최대 5개)
 - **Stage 2**: 선택된 테이블의 상세 메타데이터 제공 → Claude가 정확한 SQL 생성
 - **Claude Desktop이 직접 SQL 생성**: MCP 서버는 메타데이터만 제공
 - **Oracle SQL 문법**: 날짜 함수, 계층 쿼리, 분석 함수 지원
 
-### 3️⃣ 데이터베이스 관리
+**3️⃣ 데이터베이스 관리**
 - 다중 Database/Schema 관리
 - tnsnames.ora 파싱 및 자동 연결
 - 암호화된 접속 정보 저장
 - 테이블/프로시저 탐색
+
+### Tier 2: Management Backend (선택 사항)
+**4️⃣ Vector DB & Learning Engine**
+- **ChromaDB**: 메타데이터 벡터 검색
+- **패턴 학습**: SQL 생성 패턴 자동 학습 및 개선
+- **유사 쿼리 추천**: 과거 질의 기반 추천
+
+**5️⃣ Legacy Code 분석**
+- **PowerBuilder Parser**: 레거시 코드 분석
+- **데이터 흐름 추적**: 테이블-화면 연관 관계 분석
+- **마이그레이션 지원**: 레거시 → 모던 전환 지원
 
 ---
 
@@ -134,7 +146,7 @@ Claude가 자동으로:
 
 ```
 mcp_db/
-├── src/                              # 소스 코드
+├── src/                              # Tier 1: MCP Server
 │   ├── mcp_server.py                 # MCP 서버 메인
 │   ├── oracle_connector.py           # Oracle DB 연결
 │   ├── metadata_manager.py           # 메타데이터 추출
@@ -142,6 +154,23 @@ mcp_db/
 │   ├── credentials_manager.py        # 접속정보 암호화
 │   ├── tnsnames_parser.py           # tnsnames.ora 파싱
 │   └── sql_executor.py              # SQL 실행
+├── backend/                          # Tier 2: Management Backend
+│   ├── app/
+│   │   ├── main.py                  # FastAPI 메인
+│   │   ├── api/                     # REST API 엔드포인트
+│   │   │   ├── metadata.py          # 메타데이터 API
+│   │   │   ├── patterns.py          # 패턴 학습 API
+│   │   │   └── powerbuilder.py      # PowerBuilder 분석 API
+│   │   ├── core/                    # 핵심 서비스
+│   │   │   ├── vector_store.py      # ChromaDB 관리
+│   │   │   ├── embedding_service.py # 임베딩 생성
+│   │   │   ├── learning_engine.py   # 패턴 학습 엔진
+│   │   │   ├── pattern_matcher.py   # 패턴 매칭
+│   │   │   ├── powerbuilder_parser.py # PB 파서
+│   │   │   └── legacy_analyzer.py   # 레거시 분석
+│   │   └── models/                  # 데이터 모델
+│   ├── requirements.txt             # Backend 의존성
+│   └── README.md                    # Backend 문서
 ├── common_metadata/                  # 공통 메타데이터 (CSV)
 │   ├── <DB_SID>/
 │   │   ├── common_columns.json      # 공통 칼럼 정의
@@ -161,9 +190,29 @@ mcp_db/
 │   ├── METADATA_GUIDE.md            # 메타데이터 가이드
 │   └── archive/                     # 개발 히스토리
 ├── sql_rules.md                     # SQL 작성 규칙
-├── requirements.txt                 # Python 의존성
+├── requirements.txt                 # MCP Server 의존성
+├── docker-compose.yml               # Docker 설정 (Backend)
 └── README.md                        # 이 파일
 ```
+
+### Backend 실행 (선택 사항)
+
+```bash
+# Backend 폴더로 이동
+cd backend
+
+# Backend 의존성 설치
+pip install -r requirements.txt
+
+# Backend 서버 실행
+python -m app.main
+
+# 또는 Docker로 실행
+cd ..
+docker-compose up -d
+```
+
+Backend API 문서: http://localhost:8000/api/docs
 
 ---
 

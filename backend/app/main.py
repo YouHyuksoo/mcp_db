@@ -3,6 +3,7 @@ FastAPI Main Application
 Tier 2: Management Backend for Oracle NL-SQL MCP Server
 """
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -16,28 +17,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Initialize FastAPI app
-app = FastAPI(
-    title="Oracle NL-SQL Management Backend",
-    description="Vector DB, Learning Engine, and PowerBuilder Parser API",
-    version="2.0.0",
-    docs_url="/api/docs",
-    redoc_url="/api/redoc"
-)
 
-# CORS configuration (allow React frontend)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"],  # React dev servers
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-@app.on_event("startup")
-async def startup_event():
-    """Initialize services on startup"""
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan context manager for startup and shutdown events"""
+    # Startup
     logger.info("Starting Oracle NL-SQL Management Backend...")
 
     # Initialize Vector DB
@@ -61,11 +45,30 @@ async def startup_event():
 
     logger.info("Backend startup complete")
 
+    yield
 
-@app.on_event("shutdown")
-async def shutdown_event():
-    """Cleanup on shutdown"""
+    # Shutdown
     logger.info("Shutting down Oracle NL-SQL Management Backend...")
+
+
+# Initialize FastAPI app with lifespan
+app = FastAPI(
+    title="Oracle NL-SQL Management Backend",
+    description="Vector DB, Learning Engine, and PowerBuilder Parser API",
+    version="2.0.0",
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+    lifespan=lifespan
+)
+
+# CORS configuration (allow React frontend)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://localhost:5173"],  # React dev servers
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
