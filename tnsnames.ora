@@ -1,0 +1,980 @@
+#################################################
+# SOLUM INDONESIA
+#################################################
+SOLINPDBEXP =
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 183.81.152.94) (PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SOLINPDB)
+    )
+  )
+
+#################################################
+# SOLUM VIETNAM 내부
+#################################################
+SMVNPDB =
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 107.105.20.170)(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SMVNPDB)
+    )
+  )
+
+#################################################
+# SOLUM VIETNAM 외부
+#################################################
+SMVNPDBext =
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.160.149.212)(PORT = 1588))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SMVNPDB)
+    )
+  )
+
+YOUNYI=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+     ( ADDRESS = (PROTOCOL = TCP)(HOST =  192.168.100.3 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+VTKREMS=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+     ( ADDRESS = (PROTOCOL = TCP)(HOST =  192.168.100.3 )(PORT = 1521))      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+YOUNYIEXT=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+     ( ADDRESS = (PROTOCOL = TCP)(HOST =  14.238.1.4 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+KNPE=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+     ( ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.220 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+KNPEext=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+     ( ADDRESS = (PROTOCOL = TCP)(HOST = 27.68.129.130 )(PORT = 1588))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+#################################################
+# 범진 베트남
+# 192.168.1.201, 하이퐁 사무실
+# SMT 10.10.10.200   administrator / MES2020!@#
+# SET 10.10.20.200   administrator / MES2020!@#
+#################################################
+BJVNDBExt=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+   #   (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.20.200)(PORT = 1521))
+     ( ADDRESS = (PROTOCOL = TCP)(HOST = 113.160.122.85 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+  
+BJVNDB=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.20.200)(PORT = 1521))
+  #   ( ADDRESS = (PROTOCOL = TCP)(HOST = 113.160.122.85 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+  
+BJVNSMT=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.10.200)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = BJVNPDB)
+    )
+  )
+  
+BJVNSMTExt=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 171.242.14.118)(PORT = 1522))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = BJVNPDB)
+    )
+  )  
+
+
+###################################################         
+# 솔루엠 로컬
+# 신공장 201.174.222.243
+################################################### 
+
+SOLUMEXT=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+   #   (ADDRESS = (PROTOCOL = TCP)(HOST = 201.140.134.106 )(PORT = 1588))
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 201.174.222.243 )(PORT = 1588))
+
+     )
+    (CONNECT_DATA =
+      (SID = SMMEXPDB)
+    )
+  )
+
+###################################################         
+# 솔루엠 로컬
+################################################### 
+
+SOLUM=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 20.10.30.231 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SMMEXPDB)
+    )
+  )
+
+SOLUMLED=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 20.10.30.231 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SLEDPDB)
+    )
+  )
+SOLUMLEDEXT=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 201.174.222.243 )(PORT = 1588))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SLEDPDB)
+    )
+  )
+
+
+###################################################         
+#  마크원 PLM
+################################################### 
+
+MOPLM=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 61.34.174.23 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = MK)
+    )
+  )
+
+###################################################         
+#  삼진
+################################################### 
+
+SJINIPDB=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.12.69 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SJINIPDB)
+    )
+  )
+
+SJINIPDBext=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 27.123.3.74 )(PORT = 1588))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = SJINIPDB)
+    )
+  )
+
+
+###################################################         
+# 제이에스텍 112.166.72.40
+###################################################         
+
+JSTECHPDB=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 222.118.208.22 )(PORT = 15534))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = JSTECHPDB)
+    )
+  )
+
+JSTECH=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.200.50 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = JSTECHPDB)
+    )
+  )
+
+JSTECHext=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST =  222.118.208.22 )(PORT = 11521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = JSTECHPDB)
+    )
+  )
+
+
+###################################################         
+# 행성사 베트남 내부 SYS/Passw0rd         
+# VPN접속시 외부접속 Password js3748@#!         
+# SID CDB hsevn, PDB hsevnpdb         
+################################################## 
+        
+HSEVN =         
+(DESCRIPTION =         
+(ADDRESS = (PROTOCOL = TCP)(HOST = 10.7.10.56)(PORT = 1521))         
+(CONNECT_DATA =         
+(SERVER = DEDICATED)         
+(SERVICE_NAME = HSEVN)         
+)         
+)
+
+HSEVNPDB=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.7.10.56 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = HSEVNPDB)
+    )
+  )
+
+##################################################    
+# 오성안산
+##################################################    
+
+OSAS=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.120.111 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = OSAS)
+    )
+  )
+
+#################################################
+# 태진창원 tjcw.iptime.org
+#59.22.164.147
+#################################################
+
+TJCW=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 162.120.184.40 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+#################################################
+# 에디슨
+#################################################
+
+EDISON_DEV =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.110.71)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = edison)
+    )
+  )
+
+EDISON =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.110.240)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = edison)
+    )
+  )
+#################################################
+# 은성전장
+#################################################
+
+ESDB=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.175.100 )(PORT = 1521))
+     )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+ESDBext=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+       (ADDRESS = (PROTOCOL = TCP)(HOST = 61.105.35.54 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+#################################################
+# 미래 인천
+#################################################
+
+MRICN=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 1.215.233.242)(PORT = 1521))
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.150 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = MRICN)
+    )
+  )
+
+
+
+#################################################
+# 베트남 범진 세트 
+#################################################
+
+VTBJDBEXT=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+   #   (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.20.200)(PORT = 1521))
+   # (ADDRESS = (PROTOCOL = TCP)(HOST = 7.248.189.37 )(PORT = 1521))
+     ( ADDRESS = (PROTOCOL = TCP)(HOST = 171.242.14.118 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+#################################################
+#  마크원 베트남
+#  
+#################################################
+MOVNDB=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+   #   (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.210 )(PORT = 1521))
+   #  (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.2.210  )(PORT = 1521))
+     ( ADDRESS = (PROTOCOL = TCP)(HOST = 113.160.131.181  )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+
+##########################
+#
+#########################
+JNSSCOLDext =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.154)(PORT = 1525))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+
+##########################
+# 정남VD
+#########################
+JNVD =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.1)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+##########################
+# VD 바텐더용 내부접속 
+#########################
+JNVDDB =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.154)(PORT = 1524))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+##########################
+# VD 외부접속 
+#########################
+JNVDext =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.154)(PORT = 1524))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+##########################
+#미래코리아 임시외부 Passw0rd 2019!Passw0rd
+#########################
+MRext =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 59.27.194.171)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+
+#################################################
+# 59.13.244.201
+################################################# 
+
+DIDBPDBext =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 59.13.244.203)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SID = XEPDB1)
+    )
+  )
+
+
+DIDBext =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 59.13.244.203)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+  )
+
+DIDB =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.70.2)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+  )
+
+#################################################
+# 
+# 27.72.124.193
+#################################################
+VTKREMSCMext=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 117.4.91.122)(PORT = 1577))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+#################################################
+# 
+# 27.72.124.193 
+#################################################
+VTKREMSFPCB=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.5)(PORT = 1523))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+VTKREMSFPCBext=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 27.72.124.193)(PORT = 1599))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+#################################################
+#  희성 / 모바일 신규서버 
+#  
+#################################################
+VTKREMSSSC=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 27.72.124.193)(PORT = 1577))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+
+#################################################
+#  KREMS VD 
+# 
+#################################################
+KREMS=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 27.72.124.193)(PORT = 1588))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+
+VTKREMSEXT=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 27.72.124.193)(PORT = 1588))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+VTKREMSLOCAL=
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = MESSERVER)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.0.0.2)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.2)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.35.250)(PORT = 1521))
+      (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+)
+
+#################################################
+#  삼처산업
+#  192.168.100.200
+#################################################
+SANCOext=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 106.250.187.234)(PORT = 1521))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+#################################################
+#  
+#  192.168.100.200
+#################################################
+SANCO=
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.200)(PORT = 1521))
+      
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+#################################################
+#1.217.56.14  106.243.199.131
+#################################################
+
+OSCWext=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = os-cw.iptime.org )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = OSCW)
+    )
+  )
+OSCW=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.110.222 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = OSCW)
+    )
+  )
+
+#################################################
+#
+#################################################
+
+ONETEK =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST =121.254.195.22)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+#################################################
+# SMT 
+#################################################
+
+BJDBSMT =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.30.234)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+)
+
+#################################################
+# 
+#################################################
+
+BJDB =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.10.30.232)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+)
+
+#################################################
+#   
+#################################################
+
+BJDBext =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST =116.6.40.222 )(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+)
+
+BJDBSMText =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 116.6.40.222)(PORT = 1522))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+)
+
+#######################################################################
+# 
+#######################################################################
+DDDB=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.2)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = DDDB)
+    )
+  )
+
+DDDBEXT=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 125.93.54.158)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = DDDB)
+    )
+  )
+##########################################################################
+# 
+##########################################################################
+GJDDLEDNEWEXT=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS =
+        (PROTOCOL = TCP)
+        (HOST = 113.108.130.3)
+        (PORT = 1522)
+      )
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+##########################################################################
+# 
+##########################################################################
+GJDDDB=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.16.16)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+GJDDDBEXT=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.3)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+######################################################################
+#
+######################################################################
+
+JNDB =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.2)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+######################################################################
+# 
+######################################################################
+JNDBEXT =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+                                          (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.154)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+
+######################################################################
+# 
+######################################################################
+JNEDGE =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.154)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+
+######################################################################
+# 
+################################################################
+JNDBNEW =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.3)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+######################################################################
+# 
+######################################################################
+JNDBNEWEXT =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.154)(PORT = 1522))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+######################################################################
+#
+######################################################################
+JNDBSSC =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.4)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+JNDBSSCEXT =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 113.108.130.154)(PORT = 1523))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+      (SERVER = DEDICATED)
+    )
+  )
+
+##########################################################################
+# 
+##########################################################################
+YSDB1=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST =10.224.183.11)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = YSDB)
+    )
+  )
+##########################################################################
+# 
+###################################################################
+YSDB1ext=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST =121.67.44.150)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = YSDB)
+    )
+  )
+
+##########################################################################
+# 121.78.112.214 JSIDC
+##########################################################################
+
+JSIDC=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST =121.78.112.214)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+##########################################################################
+# 121.78.112.214 JSIDC
+##########################################################################
+
+JSIDCNEW=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST =139.150.82.207)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = JSIDCPDB)
+    )
+  )
+
+##########################################################################
+# 121.78.112.214 JSIDC
+##########################################################################
+
+JSIDC_XEPDB1=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST =121.78.112.214)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XEPDB1)
+    )
+  )
+
+
+##########################################################################
+# 
+##########################################################################
+hsodbc=
+  (DESCRIPTION =
+      (ADDRESS = (PROTOCOL = TCP)
+      (HOST =localhost)
+      (PORT = 1521))
+      (CONNECT_DATA =(SERVICE_NAME = hsodbc))
+      (HS=OK)
+   )
+
+EXTPROC_CONNECTION_DATA =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1))
+    )
+    (CONNECT_DATA =
+      (SID = PLSExtProc)
+      (PRESENTATION = RO)
+    )
+  )
+
+ORACLR_CONNECTION_DATA = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1)) 
+    ) 
+    (CONNECT_DATA = 
+      (SID = CLRExtProc) 
+      (PRESENTATION = RO) 
+    ) 
+  ) 

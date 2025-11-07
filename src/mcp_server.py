@@ -1,0 +1,2156 @@
+"""
+Oracle Database MCP 서버 메인
+15개 Tools 제공
+"""
+
+import os
+import sys
+import logging
+from pathlib import Path
+from dotenv import load_dotenv
+
+# 현재 디렉토리를 sys.path에 추가
+current_dir = Path(__file__).parent
+sys.path.insert(0, str(current_dir))
+
+# MCP imports
+from mcp.server import Server
+from mcp.server.stdio import stdio_server
+
+# 로컬 모듈 imports
+from oracle_connector import OracleConnector
+from credentials_manager import CredentialsManager
+from csv_parser import CSVParser
+from metadata_manager import MetadataManager
+from sql_executor import SQLExecutor
+from tnsnames_parser import TNSNamesParser
+from common_metadata_manager import CommonMetadataManager
+
+# 환경 변수 로드
+load_dotenv()
+
+# 로깅 설정
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# MCP 서버 생성
+server = Server("oracle-nlsql-mcp")
+
+# 전역 객체들
+credentials_manager = CredentialsManager()
+csv_parser = CSVParser()
+common_metadata_manager = CommonMetadataManager()
+metadata_manager = MetadataManager(common_metadata_manager=common_metadata_manager)
+tnsnames_parser = TNSNamesParser()
+
+# DB 커넥터 캐시
+db_connectors = {}
+
+# tnsnames 캐시 파일 경로
+TNSNAMES_CACHE_FILE = Path(__file__).parent.parent / "tnsnames_cache.json"
+
+
+def get_connector(database_sid: str) -> OracleConnector:
+    """DB 커넥터 가져오기 (캐싱)"""
+    if database_sid not in db_connectors:
+        credentials = credentials_manager.load_credentials(database_sid)
+
+        connector = OracleConnector(
+            host=credentials['host'],
+            port=credentials['port'],
+            service_name=credentials['service_name'],
+            user=credentials['user'],
+            password=credentials['password']
+        )
+
+        connector.connect()
+        db_connectors[database_sid] = connector
+
+    return db_connectors[database_sid]
+
+
+# ============================================
+# Tools 목록 등록
+# ============================================
+@server.list_tools()
+async def list_tools() -> list:
+    """사용 가능한 Tool 목록 반환"""
+    import mcp.types as types
+
+    return [
+        types.Tool(
+            name="register_database_credentials",
+            description="DB 접속 정보를 암호화하여 저장",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "host": {"type": "string", "description": "호스트 주소"},
+                    "port": {"type": "integer", "description": "포트 번호"},
+                    "service_name": {"type": "string", "description": "서비스 이름"},
+                    "user": {"type": "string", "description": "사용자 이름"},
+                    "password": {"type": "string", "description": "비밀번호"}
+                },
+                "required": ["database_sid", "host", "port", "service_name", "user", "password"]
+            }
+        ),
+        types.Tool(
+            name="delete_database",
+            description="등록된 DB 삭제 (접속 정보 및 메타데이터 모두 삭제)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"}
+                },
+                "required": ["database_sid"]
+            }
+        ),
+        types.Tool(
+            name="load_tnsnames",
+            description="tnsnames.ora 파일을 파싱하여 DB 목록 추출 및 캐싱",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "tnsnames_path": {"type": "string", "description": "tnsnames.ora 파일 전체 경로"}
+                },
+                "required": ["tnsnames_path"]
+            }
+        ),
+        types.Tool(
+            name="list_available_databases",
+            description="tnsnames.ora에서 파싱된 DB 목록 조회",
+            inputSchema={"type": "object", "properties": {}}
+        ),
+        types.Tool(
+            name="connect_database",
+            description="특정 DB에 연결 (tnsnames에서 호스트/포트/서비스명 자동 로드)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "user": {"type": "string", "description": "사용자 이름"},
+                    "password": {"type": "string", "description": "비밀번호"}
+                },
+                "required": ["database_sid", "user", "password"]
+            }
+        ),
+        types.Tool(
+            name="register_common_columns",
+            description="공통 칼럼 정보 등록 (DB별)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "columns": {"type": "array", "description": "칼럼 정보 배열"}
+                },
+                "required": ["database_sid", "columns"]
+            }
+        ),
+        types.Tool(
+            name="register_code_values",
+            description="코드 정의 정보 등록 (DB별)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "code_definitions": {"type": "array", "description": "코드 정의 배열"}
+                },
+                "required": ["database_sid", "code_definitions"]
+            }
+        ),
+        types.Tool(
+            name="view_common_metadata",
+            description="등록된 공통 메타데이터 조회 (DB별)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"}
+                },
+                "required": ["database_sid"]
+            }
+        ),
+        types.Tool(
+            name="import_common_columns_csv",
+            description="CSV 파일로부터 공통 칼럼 정보 일괄 등록",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "csv_file_path": {"type": "string", "description": "CSV 파일 경로"}
+                },
+                "required": ["database_sid", "csv_file_path"]
+            }
+        ),
+        types.Tool(
+            name="import_code_definitions_csv",
+            description="CSV 파일로부터 코드 정의 일괄 등록",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "csv_file_path": {"type": "string", "description": "CSV 파일 경로"}
+                },
+                "required": ["database_sid", "csv_file_path"]
+            }
+        ),
+        types.Tool(
+            name="import_table_info_csv",
+            description="CSV 파일로부터 테이블 정보 일괄 등록",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "csv_file_path": {"type": "string", "description": "CSV 파일 경로"}
+                },
+                "required": ["database_sid", "schema_name", "csv_file_path"]
+            }
+        ),
+        types.Tool(
+            name="generate_csv_from_schema",
+            description="DB 스키마에서 CSV 템플릿 자동 생성",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "output_dir": {"type": "string", "description": "출력 디렉토리"}
+                },
+                "required": ["database_sid", "schema_name", "output_dir"]
+            }
+        ),
+        types.Tool(
+            name="extract_and_integrate_metadata",
+            description="DB 스키마 추출 및 공통 메타데이터 통합",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "table_names": {"type": "array", "description": "테이블 이름 목록 (선택)"},
+                    "table_info_csv_path": {"type": "string", "description": "테이블 정보 CSV 경로 (선택)"}
+                },
+                "required": ["database_sid", "schema_name"]
+            }
+        ),
+        types.Tool(
+            name="show_databases",
+            description="등록된 DB 목록 조회",
+            inputSchema={"type": "object", "properties": {}}
+        ),
+        types.Tool(
+            name="show_connection_status",
+            description="접속 가능한 DB 목록과 연결 정보 상태 보고",
+            inputSchema={"type": "object", "properties": {}}
+        ),
+        types.Tool(
+            name="show_schemas",
+            description="특정 DB의 스키마 목록 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"}
+                },
+                "required": ["database_sid"]
+            }
+        ),
+        types.Tool(
+            name="show_tables",
+            description="특정 스키마의 테이블 목록 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "table_filter": {"type": "string", "description": "테이블 이름 필터 (LIKE 패턴, 예: 'ISYS_%', '%_MASTER'). 선택사항."}
+                },
+                "required": ["database_sid", "schema_name"]
+            }
+        ),
+        types.Tool(
+            name="describe_table",
+            description="테이블 구조 상세 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "table_name": {"type": "string", "description": "테이블 이름"}
+                },
+                "required": ["database_sid", "schema_name", "table_name"]
+            }
+        ),
+        types.Tool(
+            name="show_procedures",
+            description="특정 스키마의 프로시저 목록 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"}
+                },
+                "required": ["database_sid", "schema_name"]
+            }
+        ),
+        types.Tool(
+            name="show_procedure_source",
+            description="프로시저 소스 코드 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "procedure_name": {"type": "string", "description": "프로시저 이름"}
+                },
+                "required": ["database_sid", "schema_name", "procedure_name"]
+            }
+        ),
+        types.Tool(
+            name="execute_sql",
+            description="SQL 쿼리 실행",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "sql": {"type": "string", "description": "실행할 SQL"},
+                    "max_rows": {"type": "integer", "description": "최대 조회 행 수"}
+                },
+                "required": ["database_sid", "sql"]
+            }
+        ),
+        types.Tool(
+            name="get_table_summaries_for_query",
+            description="Stage 1: 자연어 질의를 위한 테이블 요약 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"}
+                },
+                "required": ["database_sid", "schema_name"]
+            }
+        ),
+        types.Tool(
+            name="get_detailed_metadata_for_sql",
+            description="Stage 2: SQL 생성을 위한 상세 메타데이터 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "table_names": {"type": "array", "description": "테이블 이름 목록"}
+                },
+                "required": ["database_sid", "schema_name", "table_names"]
+            }
+        ),
+        types.Tool(
+            name="get_table_metadata",
+            description="특정 테이블의 통합 메타데이터 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "table_name": {"type": "string", "description": "테이블 이름"}
+                },
+                "required": ["database_sid", "schema_name", "table_name"]
+            }
+        ),
+        types.Tool(
+            name="view_sql_rules",
+            description="현재 설정된 SQL 작성 규칙 조회",
+            inputSchema={"type": "object", "properties": {}}
+        ),
+        types.Tool(
+            name="update_sql_rules",
+            description="SQL 작성 규칙 업데이트 (Markdown 형식)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "rules_content": {"type": "string", "description": "새로운 SQL 규칙 내용 (Markdown 형식)"}
+                },
+                "required": ["rules_content"]
+            }
+        ),
+    ]
+
+
+# ============================================
+# Tool 실행 라우터
+# ============================================
+@server.call_tool()
+async def handle_call_tool(name: str, arguments: dict):
+    """단일 Tool 라우터 - 모든 Tool 호출을 적절한 함수로 라우팅"""
+    import mcp.types as types
+
+    try:
+        # Tool 이름에 따라 적절한 함수 호출
+        if name == "register_database_credentials":
+            result = await register_database_credentials(**arguments)
+        elif name == "delete_database":
+            result = await delete_database(**arguments)
+        elif name == "load_tnsnames":
+            result = await load_tnsnames(**arguments)
+        elif name == "list_available_databases":
+            result = await list_available_databases(**arguments)
+        elif name == "connect_database":
+            result = await connect_database(**arguments)
+        elif name == "register_common_columns":
+            result = await register_common_columns(**arguments)
+        elif name == "register_code_values":
+            result = await register_code_values(**arguments)
+        elif name == "view_common_metadata":
+            result = await view_common_metadata(**arguments)
+        elif name == "import_common_columns_csv":
+            result = await import_common_columns_csv(**arguments)
+        elif name == "import_code_definitions_csv":
+            result = await import_code_definitions_csv(**arguments)
+        elif name == "import_table_info_csv":
+            result = await import_table_info_csv(**arguments)
+        elif name == "generate_csv_from_schema":
+            result = await generate_csv_from_schema(**arguments)
+        elif name == "extract_and_integrate_metadata":
+            result = await extract_and_integrate_metadata(**arguments)
+        elif name == "show_databases":
+            result = await show_databases(**arguments)
+        elif name == "show_connection_status":
+            result = await show_connection_status(**arguments)
+        elif name == "show_schemas":
+            result = await show_schemas(**arguments)
+        elif name == "show_tables":
+            result = await show_tables(**arguments)
+        elif name == "describe_table":
+            result = await describe_table(**arguments)
+        elif name == "show_procedures":
+            result = await show_procedures(**arguments)
+        elif name == "show_procedure_source":
+            result = await show_procedure_source(**arguments)
+        elif name == "execute_sql":
+            result = await execute_sql(**arguments)
+        elif name == "get_table_summaries_for_query":
+            result = await get_table_summaries_for_query(**arguments)
+        elif name == "get_detailed_metadata_for_sql":
+            result = await get_detailed_metadata_for_sql(**arguments)
+        elif name == "get_table_metadata":
+            result = await get_table_metadata(**arguments)
+        elif name == "view_sql_rules":
+            result = await view_sql_rules(**arguments)
+        elif name == "update_sql_rules":
+            result = await update_sql_rules(**arguments)
+        else:
+            return types.CallToolResult(
+                content=[types.TextContent(type="text", text=f"❌ Unknown tool: {name}")],
+                isError=True
+            )
+
+        # 결과가 이미 list[dict] 형태라면 변환
+        if isinstance(result, list):
+            content = [types.TextContent(type=item.get("type", "text"), text=item.get("text", "")) for item in result]
+            return types.CallToolResult(content=content)
+        else:
+            return types.CallToolResult(
+                content=[types.TextContent(type="text", text=str(result))]
+            )
+
+    except Exception as e:
+        import traceback
+        return types.CallToolResult(
+            content=[types.TextContent(type="text", text=f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}")],
+            isError=True
+        )
+
+
+# ============================================
+# Tool 1: DB 접속 정보 등록
+# ============================================
+async def register_database_credentials(
+    database_sid: str,
+    host: str,
+    port: int,
+    service_name: str,
+    user: str,
+    password: str
+) -> list[dict]:
+    """DB 접속 정보 암호화하여 저장"""
+    try:
+        credentials = {
+            'host': host,
+            'port': port,
+            'service_name': service_name,
+            'user': user,
+            'password': password
+        }
+
+        success = credentials_manager.save_credentials(database_sid, credentials)
+
+        if success:
+            return [{
+                "type": "text",
+                "text": f"✅ DB 접속 정보 저장 완료: {database_sid}"
+            }]
+        else:
+            return [{
+                "type": "text",
+                "text": f"❌ DB 접속 정보 저장 실패: {database_sid}"
+            }]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 2: DB 삭제
+# ============================================
+async def delete_database(database_sid: str) -> list[dict]:
+    """등록된 DB 삭제 (접속 정보 및 모든 메타데이터 삭제)"""
+    try:
+        from pathlib import Path
+        import shutil
+
+        # 1. DB가 등록되어 있는지 확인
+        databases = credentials_manager.list_databases()
+        if database_sid not in databases:
+            return [{
+                "type": "text",
+                "text": f"❌ 등록되지 않은 데이터베이스입니다: {database_sid}"
+            }]
+
+        result_text = f"🗑️ 데이터베이스 삭제: {database_sid}\n\n"
+        deleted_items = []
+
+        # 2. 커넥터 캐시에서 제거
+        if database_sid in db_connectors:
+            try:
+                db_connectors[database_sid].disconnect()
+            except:
+                pass
+            del db_connectors[database_sid]
+            deleted_items.append("✅ 활성 연결 해제")
+
+        # 3. 접속 정보 삭제
+        if credentials_manager.delete_credentials(database_sid):
+            deleted_items.append("✅ 접속 정보 삭제")
+        else:
+            deleted_items.append("⚠️ 접속 정보 삭제 실패 또는 없음")
+
+        # 4. 공통 메타데이터 삭제
+        common_metadata_dir = Path("./common_metadata") / database_sid
+        if common_metadata_dir.exists():
+            shutil.rmtree(common_metadata_dir)
+            deleted_items.append("✅ 공통 메타데이터 삭제")
+        else:
+            deleted_items.append("⚠️ 공통 메타데이터 없음")
+
+        # 5. 통합 메타데이터 삭제
+        metadata_dir = Path("./metadata") / database_sid
+        if metadata_dir.exists():
+            shutil.rmtree(metadata_dir)
+            deleted_items.append("✅ 통합 메타데이터 삭제")
+        else:
+            deleted_items.append("⚠️ 통합 메타데이터 없음")
+
+        result_text += "**삭제 항목**:\n"
+        for item in deleted_items:
+            result_text += f"- {item}\n"
+
+        result_text += f"\n✅ 데이터베이스 '{database_sid}' 삭제 완료"
+
+        return [{
+            "type": "text",
+            "text": result_text
+        }]
+
+    except Exception as e:
+        logger.error(f"DB 삭제 실패: {e}")
+        import traceback
+        return [{
+            "type": "text",
+            "text": f"❌ DB 삭제 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 3: tnsnames.ora 파일 로드
+# ============================================
+
+async def load_tnsnames(
+    tnsnames_path: str
+) -> list[dict]:
+    """
+    tnsnames.ora 파일을 파싱하여 DB 목록 추출 및 캐싱
+
+    Args:
+        tnsnames_path: tnsnames.ora 파일 전체 경로
+    """
+    try:
+        import json
+
+        # tnsnames.ora 파싱
+        databases = tnsnames_parser.parse_file(tnsnames_path)
+
+        # 캐시 파일에 저장
+        with open(TNSNAMES_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(databases, f, ensure_ascii=False, indent=2)
+
+        result_text = f"✅ tnsnames.ora 파싱 완료\n\n"
+        result_text += f"**파일 경로**: {tnsnames_path}\n"
+        result_text += f"**발견된 DB 수**: {len(databases)}개\n"
+        result_text += f"**캐시 저장 위치**: {TNSNAMES_CACHE_FILE}\n\n"
+        result_text += "**다음 단계**: `list_available_databases` Tool을 호출하여 DB 목록을 확인하세요."
+
+        return [{
+            "type": "text",
+            "text": result_text
+        }]
+
+    except FileNotFoundError:
+        return [{
+            "type": "text",
+            "text": f"❌ 파일을 찾을 수 없습니다: {tnsnames_path}"
+        }]
+    except Exception as e:
+        import traceback
+        logger.error(f"tnsnames 로드 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ tnsnames.ora 파싱 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 3: 사용 가능한 DB 목록 조회
+# ============================================
+
+async def list_available_databases(
+    keyword: str = ""
+) -> list[dict]:
+    """
+    tnsnames.ora에서 추출한 DB 목록 조회
+
+    Args:
+        keyword: 검색 키워드 (선택, DB명 또는 설명에서 검색)
+    """
+    try:
+        import json
+
+        # 캐시 파일 확인
+        if not TNSNAMES_CACHE_FILE.exists():
+            return [{
+                "type": "text",
+                "text": "❌ tnsnames 캐시가 없습니다.\n먼저 `load_tnsnames` Tool을 호출하여 tnsnames.ora 파일을 로드하세요."
+            }]
+
+        # 캐시 파일 읽기
+        with open(TNSNAMES_CACHE_FILE, 'r', encoding='utf-8') as f:
+            databases = json.load(f)
+
+        # 키워드 필터링
+        if keyword:
+            keyword_lower = keyword.lower()
+            filtered = {
+                db_sid: info for db_sid, info in databases.items()
+                if keyword_lower in db_sid.lower() or
+                   keyword_lower in info.get('description', '').lower()
+            }
+        else:
+            filtered = databases
+
+        result_text = f"📊 사용 가능한 데이터베이스 목록\n\n"
+
+        if keyword:
+            result_text += f"**검색 키워드**: {keyword}\n"
+            result_text += f"**검색 결과**: {len(filtered)}개\n\n"
+        else:
+            result_text += f"**전체 DB 수**: {len(filtered)}개\n\n"
+
+        # DB 목록 (최대 20개만 표시)
+        count = 0
+        for db_sid in sorted(filtered.keys()):
+            if count >= 20:
+                result_text += f"\n... 외 {len(filtered) - 20}개 더 있음\n"
+                break
+
+            info = filtered[db_sid]
+            result_text += f"### {db_sid}\n"
+            if info.get('description'):
+                result_text += f"  - **설명**: {info['description']}\n"
+            result_text += f"  - **호스트**: {info['host']}:{info['port']}\n"
+            result_text += f"  - **서비스명**: {info['service_name']}\n"
+            result_text += f"  - **연결방식**: {info['connection_type']}\n\n"
+            count += 1
+
+        result_text += "\n**다음 단계**: 사용할 DB를 선택하고 `connect_database` Tool로 연결하세요."
+
+        return [{
+            "type": "text",
+            "text": result_text
+        }]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"DB 목록 조회 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ DB 목록 조회 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 4: 데이터베이스 연결 및 저장
+# ============================================
+
+async def connect_database(
+    database_sid: str,
+    user: str,
+    password: str
+) -> list[dict]:
+    """
+    tnsnames에서 추출한 DB에 연결 및 접속정보 저장
+
+    Args:
+        database_sid: tnsnames의 DB SID (예: SOLUM, JSTECH)
+        user: Oracle 사용자명 (예: scott, system)
+        password: Oracle 비밀번호
+    """
+    try:
+        import json
+
+        # 캐시에서 DB 정보 조회
+        if not TNSNAMES_CACHE_FILE.exists():
+            return [{
+                "type": "text",
+                "text": "❌ tnsnames 캐시가 없습니다.\n먼저 `load_tnsnames` Tool을 호출하세요."
+            }]
+
+        with open(TNSNAMES_CACHE_FILE, 'r', encoding='utf-8') as f:
+            databases = json.load(f)
+
+        if database_sid not in databases:
+            return [{
+                "type": "text",
+                "text": f"❌ DB를 찾을 수 없습니다: {database_sid}\n`list_available_databases` Tool로 DB 목록을 확인하세요."
+            }]
+
+        db_info = databases[database_sid]
+
+        # 연결 테스트
+        connector = OracleConnector(
+            host=db_info['host'],
+            port=db_info['port'],
+            service_name=db_info['service_name'],
+            user=user,
+            password=password
+        )
+
+        connector.connect()
+
+        # 연결 성공 시 credentials 저장
+        credentials = {
+            'host': db_info['host'],
+            'port': db_info['port'],
+            'service_name': db_info['service_name'],
+            'user': user,
+            'password': password
+        }
+
+        success = credentials_manager.save_credentials(database_sid, credentials)
+
+        if success:
+            result_text = f"✅ 데이터베이스 연결 성공 및 저장 완료\n\n"
+            result_text += f"**Database SID**: {database_sid}\n"
+            result_text += f"**호스트**: {db_info['host']}:{db_info['port']}\n"
+            result_text += f"**서비스명**: {db_info['service_name']}\n"
+            result_text += f"**사용자**: {user}\n"
+            if db_info.get('description'):
+                result_text += f"**설명**: {db_info['description']}\n"
+            result_text += f"\n✅ 접속 정보가 암호화되어 저장되었습니다.\n"
+            result_text += f"이제 이 DB를 자동으로 사용할 수 있습니다.\n\n"
+            result_text += "**다음 단계**: \n"
+            result_text += f"- `show_schemas` Tool로 스키마 목록 확인\n"
+            result_text += f"- `extract_and_integrate_metadata` Tool로 메타데이터 추출"
+
+            # 캐시에서 커넥터 제거 (새로 연결하도록)
+            if database_sid in db_connectors:
+                del db_connectors[database_sid]
+
+            return [{
+                "type": "text",
+                "text": result_text
+            }]
+        else:
+            return [{
+                "type": "text",
+                "text": f"❌ 접속 정보 저장 실패: {database_sid}"
+            }]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"DB 연결 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 데이터베이스 연결 실패: {str(e)}\n\n사용자명과 비밀번호를 확인하세요.\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 5: 공통 칼럼 정보 등록
+# ============================================
+
+async def register_common_columns(
+    database_sid: str,
+    columns: list
+) -> list[dict]:
+    """
+    공통 칼럼 정보 등록 (DB별)
+
+    Args:
+        database_sid: Database SID
+        columns: 칼럼 정보 (JSON 형식 문자열)
+            예: '[{"column_name":"STATUS","korean_name":"상태","description":"처리 상태","is_code_column":true,...}]'
+    """
+    try:
+        import json
+
+        # JSON 파싱
+        columns = json.loads(columns)
+
+        # 저장
+        success = common_metadata_manager.save_common_columns(database_sid, columns)
+
+        if success:
+            stats = common_metadata_manager.get_statistics(database_sid)
+
+            result_text = f"✅ 공통 칼럼 정보 등록 완료\n\n"
+            result_text += f"**등록된 칼럼 수**: {len(columns)}개\n"
+            result_text += f"**전체 칼럼 수**: {stats['common_column_count']}개\n\n"
+            result_text += "**등록된 칼럼**:\n"
+            for col in columns:
+                result_text += f"- {col['column_name']}: {col.get('korean_name', 'N/A')}"
+                if col.get('is_code_column'):
+                    result_text += " (코드칼럼)"
+                result_text += "\n"
+
+            result_text += "\n**다음 단계**:\n"
+            result_text += "- 코드 칼럼인 경우 `register_code_values` Tool로 코드 정보 등록\n"
+            result_text += "- `generate_csv_from_schema` Tool로 CSV 파일 자동 생성"
+
+            return [{
+                "type": "text",
+                "text": result_text
+            }]
+        else:
+            return [{
+                "type": "text",
+                "text": "❌ 공통 칼럼 정보 저장 실패"
+            }]
+
+    except json.JSONDecodeError as e:
+        return [{
+            "type": "text",
+            "text": f"❌ JSON 파싱 실패: {str(e)}\n올바른 JSON 형식인지 확인하세요."
+        }]
+    except Exception as e:
+        import traceback
+        logger.error(f"공통 칼럼 등록 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 공통 칼럼 정보 등록 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 6: 코드 정보 등록
+# ============================================
+
+async def register_code_values(
+    database_sid: str,
+    code_definitions: list
+) -> list[dict]:
+    """
+    코드 정보 등록 (DB별)
+
+    Args:
+        database_sid: Database SID
+        code_definitions: 코드 정보 (JSON 형식 문자열)
+            예: '[{"column_name":"STATUS","code_value":"01","code_label":"접수","code_description":"접수됨",...}]'
+    """
+    try:
+        import json
+
+        # JSON 파싱
+        codes = json.loads(code_definitions)
+
+        # 저장
+        success = common_metadata_manager.save_code_definitions(database_sid, codes)
+
+        if success:
+            stats = common_metadata_manager.get_statistics(database_sid)
+
+            # 칼럼별 그룹화
+            by_column = {}
+            for code in codes:
+                col = code['column_name']
+                if col not in by_column:
+                    by_column[col] = []
+                by_column[col].append(code)
+
+            result_text = f"✅ 코드 정보 등록 완료\n\n"
+            result_text += f"**등록된 코드 수**: {len(codes)}개\n"
+            result_text += f"**코드 칼럼 수**: {len(by_column)}개\n"
+            result_text += f"**전체 코드 수**: {stats['total_code_count']}개\n\n"
+            result_text += "**등록된 코드**:\n"
+            for column_name, column_codes in by_column.items():
+                result_text += f"\n### {column_name}\n"
+                for code in sorted(column_codes, key=lambda x: x.get('display_order', 999)):
+                    result_text += f"  - {code['code_value']}: {code.get('code_label', 'N/A')}\n"
+
+            result_text += "\n**다음 단계**:\n"
+            result_text += "`generate_csv_from_schema` Tool로 CSV 파일 자동 생성"
+
+            return [{
+                "type": "text",
+                "text": result_text
+            }]
+        else:
+            return [{
+                "type": "text",
+                "text": "❌ 코드 정보 저장 실패"
+            }]
+
+    except json.JSONDecodeError as e:
+        return [{
+            "type": "text",
+            "text": f"❌ JSON 파싱 실패: {str(e)}\n올바른 JSON 형식인지 확인하세요."
+        }]
+    except Exception as e:
+        import traceback
+        logger.error(f"코드 정보 등록 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 코드 정보 등록 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 7: 공통 메타데이터 조회
+# ============================================
+
+async def view_common_metadata(
+    database_sid: str,
+    metadata_type: str = "all"
+) -> list[dict]:
+    """
+    저장된 공통 메타데이터 조회 (DB별)
+
+    Args:
+        database_sid: Database SID
+        metadata_type: 조회 유형 ("all", "columns", "codes", "stats")
+    """
+    try:
+        import json
+
+        result_text = f"📊 공통 메타데이터 조회 - {database_sid}\n\n"
+
+        if metadata_type in ["all", "stats"]:
+            stats = common_metadata_manager.get_statistics(database_sid)
+            result_text += "## 통계\n"
+            result_text += f"- **공통 칼럼 수**: {stats['common_column_count']}개\n"
+            result_text += f"- **코드 칼럼 수**: {stats['code_column_count']}개\n"
+            result_text += f"- **전체 코드 수**: {stats['total_code_count']}개\n\n"
+
+        if metadata_type in ["all", "columns"]:
+            columns = common_metadata_manager.load_common_columns(database_sid)
+            result_text += "## 공통 칼럼 정보\n\n"
+            for column_name in sorted(columns.keys()):
+                col = columns[column_name]
+                result_text += f"### {column_name}\n"
+                result_text += f"- **한글명**: {col.get('korean_name', 'N/A')}\n"
+                result_text += f"- **설명**: {col.get('description', 'N/A')}\n"
+                result_text += f"- **코드칼럼**: {'예' if col.get('is_code_column') else '아니오'}\n"
+                if col.get('business_rule'):
+                    result_text += f"- **비즈니스 규칙**: {col['business_rule']}\n"
+                result_text += "\n"
+
+        if metadata_type in ["all", "codes"]:
+            code_defs = common_metadata_manager.load_code_definitions(database_sid)
+            result_text += "## 코드 정보\n\n"
+            for column_name in sorted(code_defs.keys()):
+                codes = code_defs[column_name]
+                result_text += f"### {column_name}\n"
+                for code_value in sorted(codes.keys()):
+                    code = codes[code_value]
+                    result_text += f"  - **{code_value}**: {code.get('code_label', 'N/A')} - {code.get('code_description', '')}\n"
+                result_text += "\n"
+
+        return [{
+            "type": "text",
+            "text": result_text
+        }]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"메타데이터 조회 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 메타데이터 조회 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 8: 공통 칼럼 CSV 일괄 등록
+# ============================================
+
+async def import_common_columns_csv(
+    database_sid: str,
+    csv_file_path: str
+) -> list[dict]:
+    """
+    CSV 파일로부터 공통 칼럼 정보 일괄 등록
+
+    Args:
+        database_sid: Database SID
+        csv_file_path: 공통 칼럼 CSV 파일 경로
+            형식: column_name,korean_name,description,is_code_column,sample_values,business_rule,unit,aggregation_functions,is_sensitive
+    """
+    try:
+        import csv
+        from pathlib import Path
+
+        csv_path = Path(csv_file_path)
+        if not csv_path.exists():
+            return [{
+                "type": "text",
+                "text": f"❌ CSV 파일을 찾을 수 없습니다: {csv_file_path}"
+            }]
+
+        columns = []
+        with open(csv_path, 'r', encoding='utf-8-sig') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                column = {
+                    'column_name': row['column_name'],
+                    'korean_name': row.get('korean_name', ''),
+                    'description': row.get('description', ''),
+                    'is_code_column': row.get('is_code_column', 'N').upper() == 'Y',
+                    'sample_values': row.get('sample_values', ''),
+                    'business_rule': row.get('business_rule', ''),
+                    'unit': row.get('unit', ''),
+                    'aggregation_functions': row.get('aggregation_functions', ''),
+                    'is_sensitive': row.get('is_sensitive', 'N').upper() == 'Y'
+                }
+                columns.append(column)
+
+        # 저장
+        success = common_metadata_manager.save_common_columns(database_sid, columns)
+
+        if success:
+            stats = common_metadata_manager.get_statistics(database_sid)
+
+            result_text = f"✅ 공통 칼럼 CSV 일괄 등록 완료\n\n"
+            result_text += f"**Database**: {database_sid}\n"
+            result_text += f"**CSV 파일**: {csv_file_path}\n"
+            result_text += f"**등록된 칼럼 수**: {len(columns)}개\n"
+            result_text += f"**전체 칼럼 수**: {stats['common_column_count']}개\n\n"
+            result_text += "**등록된 칼럼 목록**:\n"
+            for col in columns[:10]:  # 처음 10개만 표시
+                result_text += f"- {col['column_name']}: {col['korean_name']}\n"
+            if len(columns) > 10:
+                result_text += f"- ... 외 {len(columns) - 10}개\n"
+
+            return [{
+                "type": "text",
+                "text": result_text
+            }]
+        else:
+            return [{
+                "type": "text",
+                "text": "❌ 공통 칼럼 CSV 일괄 등록 실패"
+            }]
+
+    except Exception as e:
+        logger.error(f"CSV 일괄 등록 실패: {e}")
+        import traceback
+        return [{
+            "type": "text",
+            "text": f"❌ CSV 일괄 등록 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 9: 코드 정의 CSV 일괄 등록
+# ============================================
+
+async def import_code_definitions_csv(
+    database_sid: str,
+    csv_file_path: str
+) -> list[dict]:
+    """
+    CSV 파일로부터 코드 정의 일괄 등록
+
+    Args:
+        database_sid: Database SID
+        csv_file_path: 코드 정의 CSV 파일 경로
+            형식: column_name,code_value,code_label,code_description,display_order,is_active,parent_code,state_transition
+    """
+    try:
+        import csv
+        from pathlib import Path
+
+        csv_path = Path(csv_file_path)
+        if not csv_path.exists():
+            return [{
+                "type": "text",
+                "text": f"❌ CSV 파일을 찾을 수 없습니다: {csv_file_path}"
+            }]
+
+        codes = []
+        with open(csv_path, 'r', encoding='utf-8-sig') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                code = {
+                    'column_name': row['column_name'],
+                    'code_value': row['code_value'],
+                    'code_label': row.get('code_label', ''),
+                    'code_description': row.get('code_description', ''),
+                    'display_order': int(row.get('display_order', 999)) if row.get('display_order') else 999,
+                    'is_active': row.get('is_active', 'Y').upper() == 'Y',
+                    'parent_code': row.get('parent_code', ''),
+                    'state_transition': row.get('state_transition', '')
+                }
+                codes.append(code)
+
+        # 저장
+        success = common_metadata_manager.save_code_definitions(database_sid, codes)
+
+        if success:
+            stats = common_metadata_manager.get_statistics(database_sid)
+
+            # 칼럼별 그룹화
+            by_column = {}
+            for code in codes:
+                col_name = code['column_name']
+                if col_name not in by_column:
+                    by_column[col_name] = 0
+                by_column[col_name] += 1
+
+            result_text = f"✅ 코드 정의 CSV 일괄 등록 완료\n\n"
+            result_text += f"**Database**: {database_sid}\n"
+            result_text += f"**CSV 파일**: {csv_file_path}\n"
+            result_text += f"**등록된 코드 수**: {len(codes)}개\n"
+            result_text += f"**코드 칼럼 수**: {len(by_column)}개\n\n"
+            result_text += "**칼럼별 코드 수**:\n"
+            for col_name, count in sorted(by_column.items()):
+                result_text += f"- {col_name}: {count}개\n"
+
+            return [{
+                "type": "text",
+                "text": result_text
+            }]
+        else:
+            return [{
+                "type": "text",
+                "text": "❌ 코드 정의 CSV 일괄 등록 실패"
+            }]
+
+    except Exception as e:
+        logger.error(f"CSV 일괄 등록 실패: {e}")
+        import traceback
+        return [{
+            "type": "text",
+            "text": f"❌ CSV 일괄 등록 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 10: 테이블 정보 CSV 일괄 등록
+# ============================================
+
+async def import_table_info_csv(
+    database_sid: str,
+    schema_name: str,
+    csv_file_path: str
+) -> list[dict]:
+    """
+    CSV 파일로부터 테이블 정보 일괄 등록
+
+    Args:
+        database_sid: Database SID
+        schema_name: 스키마 이름
+        csv_file_path: 테이블 정보 CSV 파일 경로
+            형식: table_name,business_purpose,usage_scenario_1,usage_scenario_2,usage_scenario_3,related_tables
+    """
+    try:
+        import csv
+        from pathlib import Path
+
+        csv_path = Path(csv_file_path)
+        if not csv_path.exists():
+            return [{
+                "type": "text",
+                "text": f"❌ CSV 파일을 찾을 수 없습니다: {csv_file_path}"
+            }]
+
+        tables_info = []
+        with open(csv_path, 'r', encoding='utf-8-sig') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # usage_scenarios 리스트 생성
+                usage_scenarios = []
+                for i in range(1, 4):
+                    scenario = row.get(f'usage_scenario_{i}', '').strip()
+                    if scenario:
+                        usage_scenarios.append(scenario)
+
+                # related_tables 리스트 생성
+                related_tables_str = row.get('related_tables', '').strip()
+                related_tables = []
+                if related_tables_str:
+                    related_tables = [t.strip() for t in related_tables_str.split(',') if t.strip()]
+
+                table_info = {
+                    'table_name': row['table_name'],
+                    'business_purpose': row.get('business_purpose', ''),
+                    'usage_scenarios': usage_scenarios,
+                    'related_tables': related_tables
+                }
+                tables_info.append(table_info)
+
+        # 저장
+        success = common_metadata_manager.save_table_info(database_sid, schema_name, tables_info)
+
+        if success:
+            result_text = f"✅ 테이블 정보 CSV 일괄 등록 완료\n\n"
+            result_text += f"**Database**: {database_sid}\n"
+            result_text += f"**Schema**: {schema_name}\n"
+            result_text += f"**CSV 파일**: {csv_file_path}\n"
+            result_text += f"**등록된 테이블 수**: {len(tables_info)}개\n\n"
+            result_text += "**등록된 테이블 목록**:\n"
+            for table in tables_info[:10]:  # 처음 10개만 표시
+                result_text += f"- {table['table_name']}: {table['business_purpose']}\n"
+            if len(tables_info) > 10:
+                result_text += f"- ... 외 {len(tables_info) - 10}개\n"
+
+            return [{
+                "type": "text",
+                "text": result_text
+            }]
+        else:
+            return [{
+                "type": "text",
+                "text": "❌ 테이블 정보 CSV 일괄 등록 실패"
+            }]
+
+    except Exception as e:
+        logger.error(f"CSV 일괄 등록 실패: {e}")
+        import traceback
+        return [{
+            "type": "text",
+            "text": f"❌ CSV 일괄 등록 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 11: CSV 파일 자동 생성
+# ============================================
+
+async def generate_csv_from_schema(
+    database_sid: str,
+    schema_name: str
+) -> list[dict]:
+    """
+    DB 스키마 정보 + 공통 메타데이터 → CSV 파일 자동 생성
+
+    Args:
+        database_sid: Database SID
+        schema_name: 스키마 이름
+    """
+    try:
+        # DB 연결
+        connector = get_connector(database_sid)
+
+        # 테이블 목록 조회
+        tables = connector.list_tables(schema_name)
+
+        if not tables:
+            return [{
+                "type": "text",
+                "text": f"❌ {schema_name} 스키마에 테이블이 없습니다."
+            }]
+
+        # 각 테이블의 칼럼 정보 추출
+        tables_columns = {}
+        for table in tables:
+            table_name = table['table_name']
+            columns = connector.extract_table_columns(schema_name, table_name)
+            tables_columns[table_name] = columns
+
+        # CSV 파일 생성
+        result = common_metadata_manager.generate_csv_files(
+            database_sid,
+            schema_name,
+            tables_columns
+        )
+
+        result_text = f"✅ CSV 파일 자동 생성 완료\n\n"
+        result_text += f"**Database**: {database_sid}\n"
+        result_text += f"**Schema**: {schema_name}\n"
+        result_text += f"**테이블 수**: {len(tables_columns)}개\n\n"
+        result_text += "**생성된 파일**:\n"
+        result_text += f"1. `table_info.csv`: {result['table_info']}\n"
+        result_text += f"   - 비즈니스 목적 등은 직접 입력 필요 ⚠️\n\n"
+        result_text += f"2. `column_info.csv`: {result['column_info']}\n"
+        result_text += f"   - 공통 칼럼 정보 자동 매칭됨 ✅\n\n"
+        result_text += f"3. `code_values.csv`: {result['code_values']}\n"
+        result_text += f"   - 등록된 코드 정보 자동 매칭됨 ✅\n\n"
+        result_text += "**다음 단계**:\n"
+        result_text += "1. `table_info.csv`를 열어 각 테이블의 비즈니스 목적 입력\n"
+        result_text += "2. `column_info.csv` 확인 및 누락된 정보 보완\n"
+        result_text += "3. `extract_and_integrate_metadata` Tool로 메타데이터 통합"
+
+        return [{
+            "type": "text",
+            "text": result_text
+        }]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"CSV 생성 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ CSV 파일 생성 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 9: 메타정보 추출 및 통합
+# ============================================
+
+async def extract_and_integrate_metadata(
+    database_sid: str,
+    schema_name: str,
+    table_info_csv_path: str = None
+) -> list[dict]:
+    """
+    DB 스키마 추출 + 공통 메타데이터 통합
+
+    공통 칼럼 정보와 코드 정보는 register_common_columns/register_code_values로 미리 등록되어야 합니다.
+    테이블별 비즈니스 정보(목적, 시나리오)는 선택사항입니다.
+
+    Args:
+        database_sid: Database SID
+        schema_name: 스키마 이름
+        table_info_csv_path: 테이블 정보 CSV 경로 (선택사항)
+    """
+    try:
+        logger.info(f"\n{'='*60}")
+        logger.info(f"📊 메타정보 추출 시작: {database_sid}.{schema_name}")
+        logger.info(f"{'='*60}\n")
+
+        # DB 연결
+        connector = get_connector(database_sid)
+
+        # 테이블 정보 로드
+        # 1순위: CSV 파일 (파라미터로 제공된 경우)
+        # 2순위: 저장된 테이블 정보 (import_table_info_csv로 등록된 경우)
+        table_info_dict = {}
+
+        if table_info_csv_path:
+            # CSV 파일에서 직접 로드
+            import csv
+            with open(table_info_csv_path, 'r', encoding='utf-8-sig') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    table_info_dict[row['table_name']] = {
+                        'business_purpose': row.get('business_purpose', ''),
+                        'usage_scenarios': [
+                            row.get('usage_scenario_1', ''),
+                            row.get('usage_scenario_2', ''),
+                            row.get('usage_scenario_3', '')
+                        ],
+                        'related_tables': row.get('related_tables', '').split(',') if row.get('related_tables') else []
+                    }
+        else:
+            # 저장된 테이블 정보 로드
+            table_info_dict = common_metadata_manager.load_table_info(database_sid, schema_name)
+
+        # 테이블 목록
+        tables = connector.list_tables(schema_name)
+
+        processed_tables = []
+
+        for table_info in tables:
+            table_name = table_info['TABLE_NAME']
+
+            logger.info(f"처리 중: {table_name}")
+
+            # DB 스키마 추출
+            db_schema = {
+                'columns': connector.extract_table_columns(schema_name, table_name),
+                'primary_keys': connector.extract_primary_keys(schema_name, table_name),
+                'foreign_keys': connector.extract_foreign_keys(schema_name, table_name),
+                'indexes': connector.extract_indexes(schema_name, table_name),
+                'table_comment': connector.get_table_comment(schema_name, table_name)
+            }
+
+            # 메타정보 통합 (공통 메타데이터 자동 매칭)
+            unified_metadata = metadata_manager.integrate_metadata(
+                database_sid,
+                schema_name,
+                table_name,
+                db_schema,
+                table_info=table_info_dict.get(table_name)
+            )
+
+            # 저장
+            metadata_manager.save_unified_metadata(
+                database_sid, schema_name, table_name, unified_metadata
+            )
+
+            processed_tables.append(table_name)
+
+        # 테이블 요약 생성 (Stage 1용)
+        metadata_manager.generate_table_summaries(database_sid, schema_name)
+
+        # 통계
+        stats = common_metadata_manager.get_statistics(database_sid)
+
+        result_text = f"✅ 메타정보 추출 완료\n\n"
+        result_text += f"**데이터베이스**: {database_sid}\n"
+        result_text += f"**스키마**: {schema_name}\n"
+        result_text += f"**처리된 테이블**: {len(processed_tables)}개\n\n"
+        result_text += f"**공통 메타데이터 통계**:\n"
+        result_text += f"- 공통 칼럼: {stats['common_column_count']}개\n"
+        result_text += f"- 코드 칼럼: {stats['code_column_count']}개\n"
+        result_text += f"- 전체 코드 값: {stats['total_code_count']}개\n\n"
+        result_text += "**테이블 목록**:\n"
+        result_text += "\n".join([f"- {t}" for t in processed_tables])
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"메타정보 추출 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 메타정보 추출 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 3: 데이터베이스 목록
+# ============================================
+
+async def show_databases() -> list[dict]:
+    """등록된 모든 데이터베이스 목록"""
+    try:
+        databases = credentials_manager.list_databases()
+
+        if not databases:
+            return [{
+                "type": "text",
+                "text": "등록된 데이터베이스가 없습니다."
+            }]
+
+        result_text = f"📂 등록된 데이터베이스 ({len(databases)}개)\n\n"
+        for db_sid in databases:
+            result_text += f"- {db_sid}\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: 연결 상태 보고
+# ============================================
+
+async def show_connection_status() -> list[dict]:
+    """접속 가능한 DB 목록과 연결 정보, 메타데이터 상태 보고"""
+    try:
+        import json
+        from pathlib import Path
+
+        databases = credentials_manager.list_databases()
+
+        if not databases:
+            return [{
+                "type": "text",
+                "text": "등록된 데이터베이스가 없습니다."
+            }]
+
+        result_text = f"📊 **데이터베이스 연결 상태 보고**\n\n"
+        result_text += f"등록된 데이터베이스: **{len(databases)}개**\n\n"
+        result_text += "=" * 60 + "\n\n"
+
+        for db_sid in databases:
+            result_text += f"## 🗄️ {db_sid}\n\n"
+
+            try:
+                # 1. 연결 정보 로드
+                credentials = credentials_manager.load_credentials(db_sid)
+                result_text += f"### 📡 연결 정보\n"
+                result_text += f"- **호스트**: {credentials['host']}:{credentials['port']}\n"
+                result_text += f"- **서비스명**: {credentials['service_name']}\n"
+                result_text += f"- **사용자**: {credentials['user']}\n"
+                result_text += f"- **비밀번호**: {'*' * len(credentials['password'])}\n\n"
+
+                # 2. 연결 테스트
+                try:
+                    connector = OracleConnector(
+                        host=credentials['host'],
+                        port=credentials['port'],
+                        service_name=credentials['service_name'],
+                        user=credentials['user'],
+                        password=credentials['password']
+                    )
+                    if connector.connect():
+                        result_text += f"- **연결 상태**: ✅ 연결 가능\n\n"
+
+                        # 3. 스키마 목록 조회
+                        try:
+                            schemas = connector.list_schemas()
+                            result_text += f"### 📂 스키마 목록\n"
+                            result_text += f"- **스키마 수**: {len(schemas)}개\n"
+                            result_text += f"- **목록**: {', '.join(schemas[:5])}"
+                            if len(schemas) > 5:
+                                result_text += f" 외 {len(schemas) - 5}개"
+                            result_text += "\n\n"
+                        except Exception as e:
+                            result_text += f"### 📂 스키마 목록\n"
+                            result_text += f"- ⚠️ 조회 실패: {str(e)}\n\n"
+
+                        connector.disconnect()
+                    else:
+                        result_text += f"- **연결 상태**: ❌ 연결 실패\n\n"
+                except Exception as e:
+                    result_text += f"- **연결 상태**: ❌ 연결 실패 ({str(e)})\n\n"
+
+                # 4. 공통 메타데이터 상태
+                result_text += f"### 📋 공통 메타데이터 상태\n"
+                try:
+                    stats = common_metadata_manager.get_statistics(db_sid)
+                    result_text += f"- **공통 칼럼**: {stats['common_column_count']}개\n"
+                    result_text += f"- **코드 칼럼**: {stats['code_column_count']}개\n"
+                    result_text += f"- **전체 코드 값**: {stats['total_code_count']}개\n"
+
+                    if stats['common_column_count'] > 0:
+                        result_text += f"- **상태**: ✅ 설정됨\n"
+                    else:
+                        result_text += f"- **상태**: ⚠️ 미설정\n"
+                except Exception:
+                    result_text += f"- **상태**: ⚠️ 미설정\n"
+                result_text += "\n"
+
+                # 5. 통합 메타데이터 상태
+                result_text += f"### 🗂️ 통합 메타데이터 상태\n"
+                metadata_dir = Path("./metadata") / db_sid
+                if metadata_dir.exists():
+                    schema_dirs = [d for d in metadata_dir.iterdir() if d.is_dir()]
+                    total_tables = 0
+                    schema_info = []
+
+                    for schema_dir in schema_dirs:
+                        table_dirs = [d for d in schema_dir.iterdir() if d.is_dir()]
+                        table_count = len(table_dirs)
+                        total_tables += table_count
+                        if table_count > 0:
+                            schema_info.append(f"{schema_dir.name} ({table_count}개)")
+
+                    if total_tables > 0:
+                        result_text += f"- **생성된 메타데이터**: ✅ {total_tables}개 테이블\n"
+                        result_text += f"- **스키마별**:\n"
+                        for info in schema_info[:5]:
+                            result_text += f"  - {info}\n"
+                        if len(schema_info) > 5:
+                            result_text += f"  - ... 외 {len(schema_info) - 5}개\n"
+                    else:
+                        result_text += f"- **생성된 메타데이터**: ⚠️ 없음\n"
+                else:
+                    result_text += f"- **생성된 메타데이터**: ⚠️ 없음\n"
+                result_text += "\n"
+
+                # 6. CSV 파일 상태
+                result_text += f"### 📄 CSV 파일 상태\n"
+                common_metadata_dir = Path("./common_metadata") / db_sid
+                csv_files = []
+                if common_metadata_dir.exists():
+                    if (common_metadata_dir / "common_columns.json").exists():
+                        csv_files.append("✅ 공통 칼럼 로드됨")
+                    else:
+                        csv_files.append("⚠️ 공통 칼럼 미로드")
+
+                    if (common_metadata_dir / "code_definitions.json").exists():
+                        csv_files.append("✅ 코드 정의 로드됨")
+                    else:
+                        csv_files.append("⚠️ 코드 정의 미로드")
+
+                    # 스키마별 테이블 정보 확인
+                    schema_files = list(common_metadata_dir.glob("*/table_info.json"))
+                    if schema_files:
+                        csv_files.append(f"✅ 테이블 정보 ({len(schema_files)}개 스키마)")
+                    else:
+                        csv_files.append("⚠️ 테이블 정보 미로드")
+                else:
+                    csv_files.append("⚠️ 공통 메타데이터 디렉토리 없음")
+
+                for file_status in csv_files:
+                    result_text += f"- {file_status}\n"
+                result_text += "\n"
+
+            except Exception as e:
+                result_text += f"❌ 정보 조회 실패: {str(e)}\n\n"
+
+            result_text += "=" * 60 + "\n\n"
+
+        result_text += "\n**📌 참고사항**:\n"
+        result_text += "- 공통 메타데이터: `import_common_columns_csv`, `import_code_definitions_csv`로 설정\n"
+        result_text += "- 통합 메타데이터: `extract_and_integrate_metadata`로 생성\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        logger.error(f"연결 상태 조회 실패: {e}")
+        import traceback
+        return [{
+            "type": "text",
+            "text": f"❌ 연결 상태 조회 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 4: 스키마 목록
+# ============================================
+
+async def show_schemas(database_sid: str) -> list[dict]:
+    """특정 DB의 모든 스키마 목록"""
+    try:
+        connector = get_connector(database_sid)
+        schemas = connector.list_schemas()
+
+        result_text = f"📂 {database_sid}의 스키마 목록 ({len(schemas)}개)\n\n"
+        for schema in schemas:
+            result_text += f"- {schema}\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 5: 테이블 목록
+# ============================================
+
+async def show_tables(database_sid: str, schema_name: str, table_filter: str = None) -> list[dict]:
+    """
+    특정 스키마의 테이블 목록
+
+    Args:
+        database_sid: Database SID
+        schema_name: 스키마 이름
+        table_filter: 테이블 이름 필터 (LIKE 패턴, 예: 'ISYS_%', '%_MASTER')
+    """
+    try:
+        connector = get_connector(database_sid)
+        tables = connector.list_tables(schema_name, table_filter)
+
+        if table_filter:
+            result_text = f"📋 {database_sid}.{schema_name}의 테이블 목록 (필터: {table_filter}) ({len(tables)}개)\n\n"
+        else:
+            result_text = f"📋 {database_sid}.{schema_name}의 테이블 목록 ({len(tables)}개)\n\n"
+
+        for table in tables:
+            result_text += f"- {table['TABLE_NAME']}"
+            if table.get('NUM_ROWS'):
+                result_text += f" ({table['NUM_ROWS']:,}개 행)"
+            result_text += "\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 6: 테이블 구조 상세
+# ============================================
+
+async def describe_table(
+    database_sid: str,
+    schema_name: str,
+    table_name: str
+) -> list[dict]:
+    """테이블 구조 상세 조회"""
+    try:
+        connector = get_connector(database_sid)
+
+        # 칼럼 정보
+        columns = connector.extract_table_columns(schema_name, table_name)
+        primary_keys = connector.extract_primary_keys(schema_name, table_name)
+        foreign_keys = connector.extract_foreign_keys(schema_name, table_name)
+        indexes = connector.extract_indexes(schema_name, table_name)
+        comment = connector.get_table_comment(schema_name, table_name)
+
+        result_text = f"📊 테이블 구조: {database_sid}.{schema_name}.{table_name}\n\n"
+
+        if comment:
+            result_text += f"설명: {comment}\n\n"
+
+        result_text += "## 칼럼\n\n"
+        for col in columns:
+            pk_mark = " [PK]" if col['COLUMN_NAME'] in primary_keys else ""
+            nullable = "NULL" if col['NULLABLE'] == 'Y' else "NOT NULL"
+
+            result_text += f"- {col['COLUMN_NAME']}{pk_mark}\n"
+            result_text += f"  타입: {col['DATA_TYPE']}, {nullable}\n"
+            if col.get('COMMENTS'):
+                result_text += f"  설명: {col['COMMENTS']}\n"
+            result_text += "\n"
+
+        if foreign_keys:
+            result_text += "\n## Foreign Keys\n\n"
+            for fk in foreign_keys:
+                result_text += f"- {fk['COLUMN_NAME']} → {fk['REF_TABLE']}.{fk['REF_COLUMN']}\n"
+
+        if indexes:
+            result_text += "\n## Indexes\n\n"
+            for idx in indexes:
+                result_text += f"- {idx['INDEX_NAME']} ({idx['UNIQUENESS']}): {idx['COLUMNS']}\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 7: 프로시저/함수 목록
+# ============================================
+
+async def show_procedures(
+    database_sid: str,
+    schema_name: str
+) -> list[dict]:
+    """프로시저 및 함수 목록"""
+    try:
+        connector = get_connector(database_sid)
+        procedures = connector.list_procedures(schema_name)
+
+        result_text = f"⚙️ {database_sid}.{schema_name}의 프로시저/함수 ({len(procedures)}개)\n\n"
+
+        for proc in procedures:
+            result_text += f"- {proc['OBJECT_NAME']} ({proc['OBJECT_TYPE']})\n"
+            result_text += f"  상태: {proc['STATUS']}, 수정일: {proc['LAST_DDL_TIME']}\n\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 8: 프로시저 소스 코드
+# ============================================
+
+async def show_procedure_source(
+    database_sid: str,
+    schema_name: str,
+    procedure_name: str
+) -> list[dict]:
+    """프로시저/함수 소스 코드"""
+    try:
+        connector = get_connector(database_sid)
+        source = connector.get_procedure_source(schema_name, procedure_name)
+
+        if not source:
+            return [{
+                "type": "text",
+                "text": f"프로시저를 찾을 수 없습니다: {procedure_name}"
+            }]
+
+        result_text = f"📄 프로시저 소스: {database_sid}.{schema_name}.{procedure_name}\n\n"
+        result_text += "```sql\n"
+        result_text += source
+        result_text += "\n```"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 9: SQL 직접 실행
+# ============================================
+
+async def execute_sql(
+    database_sid: str,
+    sql: str,
+    max_rows: int = 1000
+) -> list[dict]:
+    """SQL 쿼리 직접 실행 (SELECT만)"""
+    try:
+        connector = get_connector(database_sid)
+        executor = SQLExecutor(connector)
+
+        result = executor.execute_select(sql, max_rows)
+
+        if result['status'] == 'error':
+            return [{
+                "type": "text",
+                "text": f"❌ {result['message']}"
+            }]
+
+        result_text = f"✅ 쿼리 실행 완료\n\n"
+
+        # 인덱스 최적화 검사 결과 표시
+        optimization_check = result.get('optimization_check', {})
+        violations = optimization_check.get('violations', [])
+        warnings = optimization_check.get('warnings', [])
+
+        if violations or warnings:
+            result_text += "## 🔍 SQL 최적화 검사\n\n"
+
+            if violations:
+                result_text += "### ❌ 위반 사항 (반드시 수정 필요)\n"
+                for v in violations:
+                    result_text += f"{v}\n\n"
+
+            if warnings:
+                result_text += "### ⚠️ 경고 사항 (성능에 영향 가능)\n"
+                for w in warnings:
+                    result_text += f"{w}\n\n"
+
+            result_text += "---\n\n"
+
+        result_text += f"SQL:\n```sql\n{sql}\n```\n\n"
+        result_text += f"결과: {result['row_count']}개 행\n\n"
+
+        # 결과 테이블 형식으로
+        if result['rows']:
+            import json
+            result_text += "```json\n"
+            result_text += json.dumps(result['rows'][:10], ensure_ascii=False, indent=2)
+            result_text += "\n```"
+
+            if len(result['rows']) > 10:
+                result_text += f"\n\n... 외 {len(result['rows']) - 10}개 행"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"SQL 실행 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ SQL 실행 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 10: 자연어 쿼리를 위한 테이블 요약 제공 (Stage 1)
+# ============================================
+
+async def get_table_summaries_for_query(
+    database_sid: str,
+    schema_name: str,
+    natural_query: str = ""
+) -> list[dict]:
+    """
+    자연어 쿼리를 위한 테이블 요약 정보 제공 (Stage 1)
+
+    Claude가 이 정보를 보고 관련 테이블을 선택할 수 있도록 합니다.
+    """
+    try:
+        summaries_data = metadata_manager.load_table_summaries(database_sid, schema_name)
+
+        import json
+        result_text = f"📊 테이블 요약 정보 (Stage 1)\n\n"
+        result_text += f"**질문**: {natural_query}\n\n"
+        result_text += f"**Database**: {database_sid}\n"
+        result_text += f"**Schema**: {schema_name}\n"
+        result_text += f"**전체 테이블 수**: {summaries_data.get('total_tables', 0)}개\n\n"
+        result_text += "**테이블 목록**:\n\n"
+
+        for summary in summaries_data.get('summaries', []):
+            result_text += f"### {summary.get('table_name')}\n"
+            result_text += f"- **설명**: {summary.get('one_line_desc', 'N/A')}\n"
+            result_text += f"- **주요 용도**: {summary.get('primary_use', 'N/A')}\n"
+            result_text += f"- **키워드**: {', '.join(summary.get('keywords', []))}\n\n"
+
+        result_text += "\n---\n\n"
+        result_text += "**다음 단계**: 위 테이블들 중에서 질문에 답하기 위해 필요한 테이블(최대 5개)을 선택하고,\n"
+        result_text += "`get_detailed_metadata_for_sql` Tool을 호출하여 상세 메타데이터를 받아 SQL을 생성하세요.\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except FileNotFoundError:
+        return [{
+            "type": "text",
+            "text": f"❌ 테이블 요약 정보가 없습니다: {database_sid}.{schema_name}\n메타데이터를 먼저 추출해주세요."
+        }]
+    except Exception as e:
+        import traceback
+        logger.error(f"테이블 요약 조회 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 테이블 요약 조회 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool 11: 선택된 테이블들의 상세 메타데이터 제공 (Stage 2)
+# ============================================
+
+async def get_detailed_metadata_for_sql(
+    database_sid: str,
+    schema_name: str,
+    table_names: str,  # 쉼표로 구분된 테이블명
+    natural_query: str = ""
+) -> list[dict]:
+    """
+    선택된 테이블들의 상세 메타데이터 제공 (Stage 2)
+
+    Claude가 이 정보를 보고 정확한 SQL을 생성할 수 있도록 합니다.
+    """
+    try:
+        # 테이블명 파싱
+        selected_tables = [t.strip() for t in table_names.split(',')]
+
+        if len(selected_tables) > 5:
+            return [{
+                "type": "text",
+                "text": f"⚠️ 테이블은 최대 5개까지만 선택할 수 있습니다. (현재: {len(selected_tables)}개)"
+            }]
+
+        import json
+        result_text = f"📊 상세 메타데이터 (Stage 2)\n\n"
+        result_text += f"**질문**: {natural_query}\n\n"
+        result_text += f"**선택된 테이블**: {', '.join(selected_tables)}\n\n"
+        result_text += "---\n\n"
+
+        # 각 테이블의 상세 메타데이터 로드
+        all_metadata = []
+        for table_name in selected_tables:
+            try:
+                metadata = metadata_manager.load_unified_metadata(
+                    database_sid, schema_name, table_name
+                )
+                all_metadata.append(metadata)
+
+                # 간단한 요약 표시
+                result_text += f"### {table_name}\n"
+                result_text += f"- 목적: {metadata.get('table_info', {}).get('business_purpose', 'N/A')}\n"
+                result_text += f"- 칼럼 수: {len(metadata.get('columns', []))}\n\n"
+
+            except FileNotFoundError:
+                result_text += f"### {table_name}\n"
+                result_text += f"⚠️ 메타데이터를 찾을 수 없습니다.\n\n"
+
+        # 전체 메타데이터 JSON 제공
+        result_text += "\n---\n\n"
+        result_text += "**전체 메타데이터 (SQL 생성용)**:\n\n"
+        result_text += "```json\n"
+        result_text += json.dumps(all_metadata, ensure_ascii=False, indent=2)
+        result_text += "\n```\n\n"
+
+        result_text += "---\n\n"
+        result_text += "**다음 단계**: 위 메타데이터를 참고하여 Oracle SQL을 생성한 후,\n"
+        result_text += "`execute_sql` Tool을 호출하여 실행하세요.\n\n"
+        result_text += "**Oracle SQL 생성 가이드**:\n"
+        result_text += "- Schema.Table 형식 사용 (예: SCOTT.ORDERS)\n"
+        result_text += "- Oracle 날짜 함수 사용 (TRUNC, ADD_MONTHS, TO_CHAR 등)\n"
+        result_text += "- 코드 칼럼의 경우 코드값으로 WHERE 조건 작성\n"
+        result_text += "- FK 정보를 참고하여 정확한 JOIN 조건 작성\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"상세 메타데이터 조회 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 상세 메타데이터 조회 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+
+
+# ============================================
+# Tool 12: 테이블 메타정보 조회
+# ============================================
+
+async def get_table_metadata(
+    database_sid: str,
+    schema_name: str,
+    table_name: str
+) -> list[dict]:
+    """통합 메타정보 조회"""
+    try:
+        metadata = metadata_manager.load_unified_metadata(
+            database_sid, schema_name, table_name
+        )
+
+        import json
+        result_text = f"📊 통합 메타정보: {database_sid}.{schema_name}.{table_name}\n\n"
+        result_text += "```json\n"
+        result_text += json.dumps(metadata, ensure_ascii=False, indent=2)
+        result_text += "\n```"
+
+        return [{"type": "text", "text": result_text}]
+
+    except FileNotFoundError:
+        return [{
+            "type": "text",
+            "text": f"❌ 메타정보가 없습니다: {database_sid}.{schema_name}.{table_name}"
+        }]
+    except Exception as e:
+        import traceback
+        logger.error(f"에러 발생: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 에러: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: SQL 규칙 조회
+# ============================================
+
+async def view_sql_rules() -> list[dict]:
+    """현재 설정된 SQL 작성 규칙 조회"""
+    try:
+        from pathlib import Path
+
+        sql_rules_path = Path(__file__).parent.parent / "sql_rules.md"
+
+        if not sql_rules_path.exists():
+            return [{
+                "type": "text",
+                "text": "❌ SQL 규칙 파일이 없습니다.\n`update_sql_rules` Tool을 사용하여 규칙을 생성하세요."
+            }]
+
+        with open(sql_rules_path, 'r', encoding='utf-8') as f:
+            rules_content = f.read()
+
+        result_text = "📋 현재 SQL 작성 규칙\n\n"
+        result_text += f"**파일 위치**: {sql_rules_path}\n\n"
+        result_text += "---\n\n"
+        result_text += rules_content
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"SQL 규칙 조회 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ SQL 규칙 조회 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: SQL 규칙 업데이트
+# ============================================
+
+async def update_sql_rules(rules_content: str) -> list[dict]:
+    """SQL 작성 규칙 업데이트"""
+    try:
+        from pathlib import Path
+
+        sql_rules_path = Path(__file__).parent.parent / "sql_rules.md"
+
+        # 백업 생성 (기존 파일이 있는 경우)
+        if sql_rules_path.exists():
+            import shutil
+            from datetime import datetime
+            backup_path = sql_rules_path.with_suffix(f'.backup_{datetime.now().strftime("%Y%m%d_%H%M%S")}.md')
+            shutil.copy2(sql_rules_path, backup_path)
+            backup_msg = f"✅ 기존 규칙 백업: {backup_path.name}\n"
+        else:
+            backup_msg = ""
+
+        # 새 규칙 저장
+        with open(sql_rules_path, 'w', encoding='utf-8') as f:
+            f.write(rules_content)
+
+        result_text = "✅ SQL 작성 규칙 업데이트 완료\n\n"
+        result_text += backup_msg
+        result_text += f"**파일 위치**: {sql_rules_path}\n"
+        result_text += f"**규칙 길이**: {len(rules_content)} 자\n\n"
+        result_text += "---\n\n"
+        result_text += "**업데이트된 규칙 미리보기**:\n\n"
+        result_text += rules_content[:500]
+        if len(rules_content) > 500:
+            result_text += "\n\n... (생략)"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"SQL 규칙 업데이트 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ SQL 규칙 업데이트 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# 서버 실행
+# ============================================
+async def main():
+    """MCP 서버 실행"""
+    logger.info("="*60)
+    logger.info("🚀 Oracle Database MCP 서버 시작")
+    logger.info("="*60)
+
+    async with stdio_server() as (read_stream, write_stream):
+        await server.run(
+            read_stream,
+            write_stream,
+            server.create_initialization_options()
+        )
+
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
