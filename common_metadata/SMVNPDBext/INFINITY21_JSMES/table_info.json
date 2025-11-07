@@ -1,0 +1,4475 @@
+{
+  "database_sid": "SMVNPDBext",
+  "schema_name": "INFINITY21_JSMES",
+  "last_updated": "2025-11-07T02:16:23.852676",
+  "table_count": 653,
+  "tables": {
+    "IB_LINE_MASTER": {
+      "table_name": "IB_LINE_MASTER",
+      "business_purpose": "SMT¿¿¿¿¿¿¿",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MACHINE_LOCATION": {
+      "table_name": "IB_MACHINE_LOCATION",
+      "business_purpose": "SMT¿¿¿¿¿¿¿¿¿¿¿¿¿¿",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MATERIAL_LOCATION": {
+      "table_name": "IB_MATERIAL_LOCATION",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_AI_CSV": {
+      "table_name": "IB_MNT_AI_CSV",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_BLOCKDATA": {
+      "table_name": "IB_MNT_BLOCKDATA",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_CHIPDATA": {
+      "table_name": "IB_MNT_CHIPDATA",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_CHIPDATA_NMP": {
+      "table_name": "IB_MNT_CHIPDATA_NMP",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PARTLIB_COMPARE_MASTER": {
+      "table_name": "IB_MNT_PARTLIB_COMPARE_MASTER",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 마스터 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PARTLIB_MASTER": {
+      "table_name": "IB_MNT_PARTLIB_MASTER",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 마스터 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PARTLIB_MASTER_WORK": {
+      "table_name": "IB_MNT_PARTLIB_MASTER_WORK",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 마스터 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PARTSLIB": {
+      "table_name": "IB_MNT_PARTSLIB",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PARTSLIB_BM": {
+      "table_name": "IB_MNT_PARTSLIB_BM",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PARTSLIB_NMP": {
+      "table_name": "IB_MNT_PARTSLIB_NMP",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PART_INFORMATION": {
+      "table_name": "IB_MNT_PART_INFORMATION",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_PLANDATA": {
+      "table_name": "IB_MNT_PLANDATA",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 계획 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_POSITIONDATA": {
+      "table_name": "IB_MNT_POSITIONDATA",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_POSITIONDATA_NPM": {
+      "table_name": "IB_MNT_POSITIONDATA_NPM",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_STEP_INFOR": {
+      "table_name": "IB_MNT_STEP_INFOR",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_STOCKDATA": {
+      "table_name": "IB_MNT_STOCKDATA",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_TAPE_FEEDER_INFOR": {
+      "table_name": "IB_MNT_TAPE_FEEDER_INFOR",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MNT_YAMAHA_CSV": {
+      "table_name": "IB_MNT_YAMAHA_CSV",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_MONITORING_MST": {
+      "table_name": "IB_MONITORING_MST",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_PRODUCT_PLANDATA": {
+      "table_name": "IB_PRODUCT_PLANDATA",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 계획 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_PRODUCT_PLANDATA_BACKUP": {
+      "table_name": "IB_PRODUCT_PLANDATA_BACKUP",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 계획 정보, 백업 데이터",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_RECYCLE_CHECKHIST": {
+      "table_name": "IB_RECYCLE_CHECKHIST",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_SMT_BOM_IMAGE": {
+      "table_name": "IB_SMT_BOM_IMAGE",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - BOM 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_SMT_CHECKHIST": {
+      "table_name": "IB_SMT_CHECKHIST",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_SMT_FEEDER_SHAFT": {
+      "table_name": "IB_SMT_FEEDER_SHAFT",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_SMT_FULLCHECK_TIME": {
+      "table_name": "IB_SMT_FULLCHECK_TIME",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_SMT_LINE_ONOFF_HISTORY": {
+      "table_name": "IB_SMT_LINE_ONOFF_HISTORY",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 이력 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_SMT_PRODUCT_MASTER_PLAN": {
+      "table_name": "IB_SMT_PRODUCT_MASTER_PLAN",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리) - 마스터 정보, 계획 정보",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "IB_SMT_SW": {
+      "table_name": "IB_SMT_SW",
+      "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+      "usage_scenarios": ["실장 계획", "Feeder 관리", "실장 데이터 모니터링"],
+      "related_tables": []
+    },
+    "ICOM_CUSTOMER": {
+      "table_name": "ICOM_CUSTOMER",
+      "business_purpose": "CUSTOMER MASTER",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_CUSTOMER_COMPLAINTS": {
+      "table_name": "ICOM_CUSTOMER_COMPLAINTS",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_CUSTOMER_DOCUMENT": {
+      "table_name": "ICOM_CUSTOMER_DOCUMENT",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_DISPLAY_MESSAGE": {
+      "table_name": "ICOM_DISPLAY_MESSAGE",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_DOCUMENT": {
+      "table_name": "ICOM_DOCUMENT",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_EMPLOYEE_ATTENDANCE": {
+      "table_name": "ICOM_EMPLOYEE_ATTENDANCE",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_EMPLOYEE_MASTER": {
+      "table_name": "ICOM_EMPLOYEE_MASTER",
+      "business_purpose": "Common/Integration (공통/통합) - 마스터 정보",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_EXCEL": {
+      "table_name": "ICOM_EXCEL",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_EXCHANGE_RATE": {
+      "table_name": "ICOM_EXCHANGE_RATE",
+      "business_purpose": "??????????????",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_GATHERING_STATUS": {
+      "table_name": "ICOM_GATHERING_STATUS",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_GATHERING_STATUS_HIST": {
+      "table_name": "ICOM_GATHERING_STATUS_HIST",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_INVENTORY_LOCATION": {
+      "table_name": "ICOM_INVENTORY_LOCATION",
+      "business_purpose": "Common/Integration (공통/통합) - 재고 정보",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_MACHINE_INSERT_LOG": {
+      "table_name": "ICOM_MACHINE_INSERT_LOG",
+      "business_purpose": "Common/Integration (공통/통합) - 설비 정보, 로그 정보",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_MES_MOVIE": {
+      "table_name": "ICOM_MES_MOVIE",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_MOUNTER_EVENT_UPLOAD": {
+      "table_name": "ICOM_MOUNTER_EVENT_UPLOAD",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_OBJECT_DETECT": {
+      "table_name": "ICOM_OBJECT_DETECT",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_PBA_ACTUAL_RESULT": {
+      "table_name": "ICOM_PBA_ACTUAL_RESULT",
+      "business_purpose": "Common/Integration (공통/통합) - 실적 정보",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_SUPPLIER": {
+      "table_name": "ICOM_SUPPLIER",
+      "business_purpose": "Vendor Master",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_SUPPLIER_BARCODE": {
+      "table_name": "ICOM_SUPPLIER_BARCODE",
+      "business_purpose": "Common/Integration (공통/통합) - 바코드 정보",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_SUPPLIER_DATA": {
+      "table_name": "ICOM_SUPPLIER_DATA",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_SUPPLIER_DOCUMENT": {
+      "table_name": "ICOM_SUPPLIER_DOCUMENT",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_SYSTEM_ANALYSIS": {
+      "table_name": "ICOM_SYSTEM_ANALYSIS",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_TEMPERATURE_DATA": {
+      "table_name": "ICOM_TEMPERATURE_DATA",
+      "business_purpose": "¿¿¿¿¿¿",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_TEMPERATURE_RAW": {
+      "table_name": "ICOM_TEMPERATURE_RAW",
+      "business_purpose": "Common/Integration (공통/통합) - 임시 데이터",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "ICOM_WORKTIME_RANGES": {
+      "table_name": "ICOM_WORKTIME_RANGES",
+      "business_purpose": "Common/Integration (공통/통합)",
+      "usage_scenarios": ["공통 코드 관리", "문서 관리", "고객/공급사 정보"],
+      "related_tables": []
+    },
+    "IDZ_INTERLOCK_NG_HIS_DAY": {
+      "table_name": "IDZ_INTERLOCK_NG_HIS_DAY",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IDZ_INTERLOCK_NG_HIS_LINE": {
+      "table_name": "IDZ_INTERLOCK_NG_HIS_LINE",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IDZ_INTERLOCK_NG_HIS_TOP10": {
+      "table_name": "IDZ_INTERLOCK_NG_HIS_TOP10",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IDZ_INTERLOCK_NG_HIS_WORKSTAGE": {
+      "table_name": "IDZ_INTERLOCK_NG_HIS_WORKSTAGE",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "ID_CUSTOMER_SET_BOM": {
+      "table_name": "ID_CUSTOMER_SET_BOM",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_CUSTOMER_SET_BOM_EXCEL": {
+      "table_name": "ID_CUSTOMER_SET_BOM_EXCEL",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM": {
+      "table_name": "ID_ENG_BOM",
+      "business_purpose": "DESIGN BOM",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_CUSTOMER": {
+      "table_name": "ID_ENG_BOM_CUSTOMER",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_DRAWING": {
+      "table_name": "ID_ENG_BOM_DRAWING",
+      "business_purpose": "BOM DRAWING",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_ECO_WORKSPACE": {
+      "table_name": "ID_ENG_BOM_ECO_WORKSPACE",
+      "business_purpose": "BOM WORKSPACE",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_ECO_WORKSPACE_HIS": {
+      "table_name": "ID_ENG_BOM_ECO_WORKSPACE_HIS",
+      "business_purpose": "WORKSPACE HISTORY",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_EXCEL": {
+      "table_name": "ID_ENG_BOM_EXCEL",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_EXCEL_2": {
+      "table_name": "ID_ENG_BOM_EXCEL_2",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_EXCEL_3": {
+      "table_name": "ID_ENG_BOM_EXCEL_3",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_EXCEL_ES": {
+      "table_name": "ID_ENG_BOM_EXCEL_ES",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_EXCEL_LG": {
+      "table_name": "ID_ENG_BOM_EXCEL_LG",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_EXCEL_LG_CPR1": {
+      "table_name": "ID_ENG_BOM_EXCEL_LG_CPR1",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_EXCEL_LG_CPR2": {
+      "table_name": "ID_ENG_BOM_EXCEL_LG_CPR2",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_IMPORT": {
+      "table_name": "ID_ENG_BOM_IMPORT",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_LOOP_CHECK": {
+      "table_name": "ID_ENG_BOM_LOOP_CHECK",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_MATERIAL_COST": {
+      "table_name": "ID_ENG_BOM_MATERIAL_COST",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_SMT": {
+      "table_name": "ID_ENG_BOM_SMT",
+      "business_purpose": "DESIGN BOM",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_SMT_BACKUP": {
+      "table_name": "ID_ENG_BOM_SMT_BACKUP",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보, 백업 데이터",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_SMT_BAK": {
+      "table_name": "ID_ENG_BOM_SMT_BAK",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_SMT_EXCEL": {
+      "table_name": "ID_ENG_BOM_SMT_EXCEL",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_SMT_NO_REPLACE": {
+      "table_name": "ID_ENG_BOM_SMT_NO_REPLACE",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_SMT_REPLACE": {
+      "table_name": "ID_ENG_BOM_SMT_REPLACE",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_TEMP": {
+      "table_name": "ID_ENG_BOM_TEMP",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보, 임시 데이터",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_UNIT": {
+      "table_name": "ID_ENG_BOM_UNIT",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_UNIT_QTY_ZERO": {
+      "table_name": "ID_ENG_BOM_UNIT_QTY_ZERO",
+      "business_purpose": "임시백업 소요량 0 인 데이터들 솔루엠 인터페이스",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ENG_BOM_WORKSPACE": {
+      "table_name": "ID_ENG_BOM_WORKSPACE",
+      "business_purpose": "BOM WORKSPACE",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM": {
+      "table_name": "ID_ITEM",
+      "business_purpose": "Item Master",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM_CLASS": {
+      "table_name": "ID_ITEM_CLASS",
+      "business_purpose": "Item Class Master",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM_ES": {
+      "table_name": "ID_ITEM_ES",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리)",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM_HISTORY": {
+      "table_name": "ID_ITEM_HISTORY",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - 이력 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM_IMAGE": {
+      "table_name": "ID_ITEM_IMAGE",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리)",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM_OTP_MASTER": {
+      "table_name": "ID_ITEM_OTP_MASTER",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - 마스터 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM_REPLACE": {
+      "table_name": "ID_ITEM_REPLACE",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리)",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_ITEM_REPLACE_TEMP": {
+      "table_name": "ID_ITEM_REPLACE_TEMP",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - 임시 데이터",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_MFS_BOM": {
+      "table_name": "ID_MFS_BOM",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_MFS_BOM_TEMP": {
+      "table_name": "ID_MFS_BOM_TEMP",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리) - BOM 정보, 임시 데이터",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_PRODUCT_CLASS": {
+      "table_name": "ID_PRODUCT_CLASS",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리)",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "ID_USER": {
+      "table_name": "ID_USER",
+      "business_purpose": "Item/BOM Management (품목/BOM 관리)",
+      "usage_scenarios": ["품목 정보 조회", "BOM 구조 분석", "품목 원가 관리"],
+      "related_tables": []
+    },
+    "IF_KEYT_KEYITEM": {
+      "table_name": "IF_KEYT_KEYITEM",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IF_KF_MATERIAL_LIST": {
+      "table_name": "IF_KF_MATERIAL_LIST",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IMAN_BRING_IN": {
+      "table_name": "IMAN_BRING_IN",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IMAN_CARRYING_OUT": {
+      "table_name": "IMAN_CARRYING_OUT",
+      "business_purpose": "General",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_FIXASSET": {
+      "table_name": "IMCN_FIXASSET",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG": {
+      "table_name": "IMCN_JIG",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_APPLY_MODEL": {
+      "table_name": "IMCN_JIG_APPLY_MODEL",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_BACKUPBLOCK_CHECK": {
+      "table_name": "IMCN_JIG_BACKUPBLOCK_CHECK",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보, 백업 데이터",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_CABLE": {
+      "table_name": "IMCN_JIG_CABLE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_FEEDER_ADJUST": {
+      "table_name": "IMCN_JIG_FEEDER_ADJUST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_INPUT_HIST": {
+      "table_name": "IMCN_JIG_INPUT_HIST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_ISSUE": {
+      "table_name": "IMCN_JIG_ISSUE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 출고 정보, 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_MASK_CHECK": {
+      "table_name": "IMCN_JIG_MASK_CHECK",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_PM_MASTER": {
+      "table_name": "IMCN_JIG_PM_MASTER",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 마스터 정보, 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_PM_MASTER_HIST": {
+      "table_name": "IMCN_JIG_PM_MASTER_HIST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 마스터 정보, 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_REPAIR": {
+      "table_name": "IMCN_JIG_REPAIR",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_REPAIR_IMAGE": {
+      "table_name": "IMCN_JIG_REPAIR_IMAGE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_SQUEZE_CHECK": {
+      "table_name": "IMCN_JIG_SQUEZE_CHECK",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_JIG_TEMP": {
+      "table_name": "IMCN_JIG_TEMP",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 지그/공구 정보, 임시 데이터",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE": {
+      "table_name": "IMCN_MACHINE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_CALIBRATION": {
+      "table_name": "IMCN_MACHINE_CALIBRATION",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_CALIBRATION_IMAGE": {
+      "table_name": "IMCN_MACHINE_CALIBRATION_IMAGE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_DAILY_OPERATION": {
+      "table_name": "IMCN_MACHINE_DAILY_OPERATION",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_PM_MASTER": {
+      "table_name": "IMCN_MACHINE_PM_MASTER",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 마스터 정보, 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_PM_MASTER_HIST": {
+      "table_name": "IMCN_MACHINE_PM_MASTER_HIST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 마스터 정보, 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_REPAIR": {
+      "table_name": "IMCN_MACHINE_REPAIR",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_REPAIR_IMAGE": {
+      "table_name": "IMCN_MACHINE_REPAIR_IMAGE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_SOFT_VERSION": {
+      "table_name": "IMCN_MACHINE_SOFT_VERSION",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MACHINE_WORK_DATA": {
+      "table_name": "IMCN_MACHINE_WORK_DATA",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 설비 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD": {
+      "table_name": "IMCN_MOLD",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_BILL": {
+      "table_name": "IMCN_MOLD_BILL",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_CHECK_HISTORY": {
+      "table_name": "IMCN_MOLD_CHECK_HISTORY",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 이력 정보, 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_ECO_LINK": {
+      "table_name": "IMCN_MOLD_ECO_LINK",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_INVENTORY": {
+      "table_name": "IMCN_MOLD_INVENTORY",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 재고 정보, 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_ISSUE": {
+      "table_name": "IMCN_MOLD_ISSUE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 출고 정보, 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_LOCATION": {
+      "table_name": "IMCN_MOLD_LOCATION",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_PURCHASE_ORDER": {
+      "table_name": "IMCN_MOLD_PURCHASE_ORDER",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 오더 정보, 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_RECEIPT": {
+      "table_name": "IMCN_MOLD_RECEIPT",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 입고 정보, 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_RENT": {
+      "table_name": "IMCN_MOLD_RENT",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_REPAIR": {
+      "table_name": "IMCN_MOLD_REPAIR",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_REPAIR_IMAGE": {
+      "table_name": "IMCN_MOLD_REPAIR_IMAGE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_REPAIR_ITEM": {
+      "table_name": "IMCN_MOLD_REPAIR_ITEM",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_REQUEST": {
+      "table_name": "IMCN_MOLD_REQUEST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_REQUIREMENT_PLAN": {
+      "table_name": "IMCN_MOLD_REQUIREMENT_PLAN",
+      "business_purpose": "???? ???? ?????",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_REQUIR_PLAN_TEMP": {
+      "table_name": "IMCN_MOLD_REQUIR_PLAN_TEMP",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 계획 정보, 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_SHORT_HISTORY": {
+      "table_name": "IMCN_MOLD_SHORT_HISTORY",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 이력 정보, 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_TEMP": {
+      "table_name": "IMCN_MOLD_TEMP",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보, 임시 데이터",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_MOLD_UNIT_PRICE": {
+      "table_name": "IMCN_MOLD_UNIT_PRICE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_PM_CALENDAR": {
+      "table_name": "IMCN_PM_CALENDAR",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_PM_RESULT": {
+      "table_name": "IMCN_PM_RESULT",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 실적 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_SAMPLE": {
+      "table_name": "IMCN_SAMPLE",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_SAMPLE_APPLY_MODEL": {
+      "table_name": "IMCN_SAMPLE_APPLY_MODEL",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_SAMPLE_BCR_INPUT_HIST": {
+      "table_name": "IMCN_SAMPLE_BCR_INPUT_HIST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_SAMPLE_INPUT_HIST": {
+      "table_name": "IMCN_SAMPLE_INPUT_HIST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_SAMPLE_TEST": {
+      "table_name": "IMCN_SAMPLE_TEST",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_SAMPLE_TEST_OLD": {
+      "table_name": "IMCN_SAMPLE_TEST_OLD",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_TEMPERATURE_CHECK_MASTER": {
+      "table_name": "IMCN_TEMPERATURE_CHECK_MASTER",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 마스터 정보, 임시 데이터",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_WEEKLY_PM_CALENDAR": {
+      "table_name": "IMCN_WEEKLY_PM_CALENDAR",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리)",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IMCN_WEEKLY_PM_RESULT": {
+      "table_name": "IMCN_WEEKLY_PM_RESULT",
+      "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 실적 정보",
+      "usage_scenarios": ["설비 가동 현황", "예방 보전", "설비 이력 관리"],
+      "related_tables": []
+    },
+    "IM_ASSY_INVENTORY_CHECK_BCD": {
+      "table_name": "IM_ASSY_INVENTORY_CHECK_BCD",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_INVENTORY_CLOSE_SETTING": {
+      "table_name": "IM_INVENTORY_CLOSE_SETTING",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_ARRIVAL": {
+      "table_name": "IM_ITEM_ARRIVAL",
+      "business_purpose": "ITEM ARRIVAL MASTER",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_ARRIVAL_GEN": {
+      "table_name": "IM_ITEM_ARRIVAL_GEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_ASSEMBLY_REQUIR_ORDER": {
+      "table_name": "IM_ITEM_ASSEMBLY_REQUIR_ORDER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 오더 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_BAD_INVENTORY": {
+      "table_name": "IM_ITEM_BAD_INVENTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_BAKING_MASTER": {
+      "table_name": "IM_ITEM_BAKING_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_BARCODE_XRAY_RETURN": {
+      "table_name": "IM_ITEM_BARCODE_XRAY_RETURN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 바코드 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_BILL_COLLECTION": {
+      "table_name": "IM_ITEM_BILL_COLLECTION",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_BILL_DISBURSE": {
+      "table_name": "IM_ITEM_BILL_DISBURSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_CURRENT_UNIT_PRICE": {
+      "table_name": "IM_ITEM_CURRENT_UNIT_PRICE",
+      "business_purpose": "Item Buy Price Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_CURRENT_UNIT_PRICE_4_S": {
+      "table_name": "IM_ITEM_CURRENT_UNIT_PRICE_4_S",
+      "business_purpose": "Item Buy Price Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_DETAIL_4_PROFIT_COST": {
+      "table_name": "IM_ITEM_DETAIL_4_PROFIT_COST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_DIRECT_ORDER": {
+      "table_name": "IM_ITEM_DIRECT_ORDER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 오더 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_DIVIDE_HIST": {
+      "table_name": "IM_ITEM_DIVIDE_HIST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_EPOXY_INPUT_HIST": {
+      "table_name": "IM_ITEM_EPOXY_INPUT_HIST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_EPOXY_MASTER": {
+      "table_name": "IM_ITEM_EPOXY_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_EXPENSE_COST_DISTRIBUT": {
+      "table_name": "IM_ITEM_EXPENSE_COST_DISTRIBUT",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FBACK_INVENTORY": {
+      "table_name": "IM_ITEM_FBACK_INVENTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FBACK_INVENTORY_CHECK": {
+      "table_name": "IM_ITEM_FBACK_INVENTORY_CHECK",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FBACK_INVENTORY_CLOSE": {
+      "table_name": "IM_ITEM_FBACK_INVENTORY_CLOSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FBACK_INV_CLOSE_MFS": {
+      "table_name": "IM_ITEM_FBACK_INV_CLOSE_MFS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FBACK_ISSUE": {
+      "table_name": "IM_ITEM_FBACK_ISSUE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FBACK_RECEIPT": {
+      "table_name": "IM_ITEM_FBACK_RECEIPT",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_INVENTORY": {
+      "table_name": "IM_ITEM_FREE_INVENTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_INVENTORY_CHECK": {
+      "table_name": "IM_ITEM_FREE_INVENTORY_CHECK",
+      "business_purpose": "Item Inventory Check Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_INVENTORY_CLOSE": {
+      "table_name": "IM_ITEM_FREE_INVENTORY_CLOSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_INVENTORY_MFS": {
+      "table_name": "IM_ITEM_FREE_INVENTORY_MFS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_INV_CLOSE_MFS": {
+      "table_name": "IM_ITEM_FREE_INV_CLOSE_MFS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_ISSUE": {
+      "table_name": "IM_ITEM_FREE_ISSUE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_RCV_4_BASE_INV": {
+      "table_name": "IM_ITEM_FREE_RCV_4_BASE_INV",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_FREE_RECEIPT": {
+      "table_name": "IM_ITEM_FREE_RECEIPT",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY": {
+      "table_name": "IM_ITEM_INVENTORY",
+      "business_purpose": "Item Inventory Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_4_TIME": {
+      "table_name": "IM_ITEM_INVENTORY_4_TIME",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_BACK_MINUS_230614": {
+      "table_name": "IM_ITEM_INVENTORY_BACK_MINUS_230614",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_BARCODE": {
+      "table_name": "IM_ITEM_INVENTORY_BARCODE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보, 바코드 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_CHECK": {
+      "table_name": "IM_ITEM_INVENTORY_CHECK",
+      "business_purpose": "Item Inventory Check Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_CHECK_BCD": {
+      "table_name": "IM_ITEM_INVENTORY_CHECK_BCD",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_CHECK_EXCEL": {
+      "table_name": "IM_ITEM_INVENTORY_CHECK_EXCEL",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_CHECK_MANUAL": {
+      "table_name": "IM_ITEM_INVENTORY_CHECK_MANUAL",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_CLOSE": {
+      "table_name": "IM_ITEM_INVENTORY_CLOSE",
+      "business_purpose": "Item Inventory Close master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_CLOSE_MFS": {
+      "table_name": "IM_ITEM_INVENTORY_CLOSE_MFS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_CLOSE_MV": {
+      "table_name": "IM_ITEM_INVENTORY_CLOSE_MV",
+      "business_purpose": "Item Inventory Close master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_GEN": {
+      "table_name": "IM_ITEM_INVENTORY_GEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_HISTORY": {
+      "table_name": "IM_ITEM_INVENTORY_HISTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보, 이력 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_HOLD": {
+      "table_name": "IM_ITEM_INVENTORY_HOLD",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_LEDGER_REGEN": {
+      "table_name": "IM_ITEM_INVENTORY_LEDGER_REGEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_MERGE": {
+      "table_name": "IM_ITEM_INVENTORY_MERGE",
+      "business_purpose": "Item Inventory Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_MOVE_HIST": {
+      "table_name": "IM_ITEM_INVENTORY_MOVE_HIST",
+      "business_purpose": "Item Inventory Move History Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INVENTORY_SCAN": {
+      "table_name": "IM_ITEM_INVENTORY_SCAN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_INV_CHECK_INPUT_QTY": {
+      "table_name": "IM_ITEM_INV_CHECK_INPUT_QTY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_ISSUE": {
+      "table_name": "IM_ITEM_ISSUE",
+      "business_purpose": "Item Issue Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_ISSUE_LEDGER_REGEN": {
+      "table_name": "IM_ITEM_ISSUE_LEDGER_REGEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_ISSUE_LOSS": {
+      "table_name": "IM_ITEM_ISSUE_LOSS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_ISSUE_RETURN_REQUEST": {
+      "table_name": "IM_ITEM_ISSUE_RETURN_REQUEST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_LEDGER": {
+      "table_name": "IM_ITEM_LEDGER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_LOCATION": {
+      "table_name": "IM_ITEM_LOCATION",
+      "business_purpose": "Item Inventory Location",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_LOCATION_MOVE_HIST": {
+      "table_name": "IM_ITEM_LOCATION_MOVE_HIST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MANUAL_INPUT_HISTORY": {
+      "table_name": "IM_ITEM_MANUAL_INPUT_HISTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 이력 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MASTER": {
+      "table_name": "IM_ITEM_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MASTER_BACKUP": {
+      "table_name": "IM_ITEM_MASTER_BACKUP",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보, 백업 데이터",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MASTER_PLAN_4_PO": {
+      "table_name": "IM_ITEM_MASTER_PLAN_4_PO",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보, 계획 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MASTER_PLAN_4_REQUIR": {
+      "table_name": "IM_ITEM_MASTER_PLAN_4_REQUIR",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보, 계획 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MASTER_PLAN_4_REQUIR_S": {
+      "table_name": "IM_ITEM_MASTER_PLAN_4_REQUIR_S",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보, 계획 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MFS_SHIPPING_4_COST": {
+      "table_name": "IM_ITEM_MFS_SHIPPING_4_COST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_MSL_CHECK_MASTER": {
+      "table_name": "IM_ITEM_MSL_CHECK_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_PURCHASE_ORDER": {
+      "table_name": "IM_ITEM_PURCHASE_ORDER",
+      "business_purpose": "Item Purchase Order master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_PURCHASE_ORDER_GEN": {
+      "table_name": "IM_ITEM_PURCHASE_ORDER_GEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 오더 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_PURCHASE_ORDER_PLAN": {
+      "table_name": "IM_ITEM_PURCHASE_ORDER_PLAN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 계획 정보, 오더 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_PURCHASE_ORDER_WAIT": {
+      "table_name": "IM_ITEM_PURCHASE_ORDER_WAIT",
+      "business_purpose": "Item Purchase Order wait master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_PURCHASE_REQUIR_ORDER": {
+      "table_name": "IM_ITEM_PURCHASE_REQUIR_ORDER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 오더 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RANK_MASTER": {
+      "table_name": "IM_ITEM_RANK_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT": {
+      "table_name": "IM_ITEM_RECEIPT",
+      "business_purpose": "Item Receipt Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_4_BASE_INV": {
+      "table_name": "IM_ITEM_RECEIPT_4_BASE_INV",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_BARCODE": {
+      "table_name": "IM_ITEM_RECEIPT_BARCODE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보, 바코드 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_EXPENSE_COST": {
+      "table_name": "IM_ITEM_RECEIPT_EXPENSE_COST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_INVOICE_MASTER": {
+      "table_name": "IM_ITEM_RECEIPT_INVOICE_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보, 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_LEDGER_REGEN": {
+      "table_name": "IM_ITEM_RECEIPT_LEDGER_REGEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_RETURN_REQUEST": {
+      "table_name": "IM_ITEM_RECEIPT_RETURN_REQUEST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_SLIP": {
+      "table_name": "IM_ITEM_RECEIPT_SLIP",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECEIPT_TEMP": {
+      "table_name": "IM_ITEM_RECEIPT_TEMP",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보, 임시 데이터",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_RECYCLE_INVENTORY": {
+      "table_name": "IM_ITEM_RECYCLE_INVENTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REPAIR_INVENTORY": {
+      "table_name": "IM_ITEM_REPAIR_INVENTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REPAIR_INVENTORY_CHECK": {
+      "table_name": "IM_ITEM_REPAIR_INVENTORY_CHECK",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REPAIR_INVENTORY_CLOSE": {
+      "table_name": "IM_ITEM_REPAIR_INVENTORY_CLOSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REPAIR_INV_CLOSE_MFS": {
+      "table_name": "IM_ITEM_REPAIR_INV_CLOSE_MFS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REPAIR_ISSUE": {
+      "table_name": "IM_ITEM_REPAIR_ISSUE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REPAIR_RECEIPT": {
+      "table_name": "IM_ITEM_REPAIR_RECEIPT",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REQUEST": {
+      "table_name": "IM_ITEM_REQUEST",
+      "business_purpose": "Item Request Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REQUIRMENT_LONGTERM": {
+      "table_name": "IM_ITEM_REQUIRMENT_LONGTERM",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REQUIRMENT_ORDER": {
+      "table_name": "IM_ITEM_REQUIRMENT_ORDER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 오더 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REQUIRMENT_PLAN": {
+      "table_name": "IM_ITEM_REQUIRMENT_PLAN",
+      "business_purpose": "???? ???? ?????",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REQUIRMENT_PLAN_TEMP": {
+      "table_name": "IM_ITEM_REQUIRMENT_PLAN_TEMP",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 계획 정보, 임시 데이터",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_REQUIR_PLAN_TEMP": {
+      "table_name": "IM_ITEM_REQUIR_PLAN_TEMP",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 계획 정보, 임시 데이터",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SALE_INVENTORY": {
+      "table_name": "IM_ITEM_SALE_INVENTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SALE_INVENTORY_CHECK": {
+      "table_name": "IM_ITEM_SALE_INVENTORY_CHECK",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SALE_INVENTORY_CLOSE": {
+      "table_name": "IM_ITEM_SALE_INVENTORY_CLOSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SALE_INVOICE_MASTER": {
+      "table_name": "IM_ITEM_SALE_INVOICE_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SALE_ISSUE": {
+      "table_name": "IM_ITEM_SALE_ISSUE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SALE_PRICE": {
+      "table_name": "IM_ITEM_SALE_PRICE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SALE_RECEIPT": {
+      "table_name": "IM_ITEM_SALE_RECEIPT",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SAP_DATA": {
+      "table_name": "IM_ITEM_SAP_DATA",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SCRAP_INVENTORY_CLOSE": {
+      "table_name": "IM_ITEM_SCRAP_INVENTORY_CLOSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SCRAP_ISSUE": {
+      "table_name": "IM_ITEM_SCRAP_ISSUE",
+      "business_purpose": "Item Issue Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SCRAP_RECEIPT": {
+      "table_name": "IM_ITEM_SCRAP_RECEIPT",
+      "business_purpose": "Item Receipt Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SOLDER_INPUT_HIST": {
+      "table_name": "IM_ITEM_SOLDER_INPUT_HIST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SOLDER_MASTER": {
+      "table_name": "IM_ITEM_SOLDER_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SOLDER_MASTER_HIS": {
+      "table_name": "IM_ITEM_SOLDER_MASTER_HIS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SOLDER_MASTER_SHS": {
+      "table_name": "IM_ITEM_SOLDER_MASTER_SHS",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_SOLDER_TIMECHECK": {
+      "table_name": "IM_ITEM_SOLDER_TIMECHECK",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_TOTAL_4_PROFIT_COST": {
+      "table_name": "IM_ITEM_TOTAL_4_PROFIT_COST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_TOTAL_COST": {
+      "table_name": "IM_ITEM_TOTAL_COST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_TOTAL_INVENTORY": {
+      "table_name": "IM_ITEM_TOTAL_INVENTORY",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_TOTAL_INVENTORY_CLOSE": {
+      "table_name": "IM_ITEM_TOTAL_INVENTORY_CLOSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_TOTAL_INVENTORY_EXP": {
+      "table_name": "IM_ITEM_TOTAL_INVENTORY_EXP",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_TOTAL_INVENTORY_GEN": {
+      "table_name": "IM_ITEM_TOTAL_INVENTORY_GEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_UNIT_PRICE": {
+      "table_name": "IM_ITEM_UNIT_PRICE",
+      "business_purpose": "Item Buy Price Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_UNIT_PRICE_BACK": {
+      "table_name": "IM_ITEM_UNIT_PRICE_BACK",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WEEK": {
+      "table_name": "IM_ITEM_WEEK",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_INVENTORY": {
+      "table_name": "IM_ITEM_WORKSTAGE_INVENTORY",
+      "business_purpose": "Item Inventory Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_INV_CHECK": {
+      "table_name": "IM_ITEM_WORKSTAGE_INV_CHECK",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_INV_CLOSE": {
+      "table_name": "IM_ITEM_WORKSTAGE_INV_CLOSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_INV_EXPAND": {
+      "table_name": "IM_ITEM_WORKSTAGE_INV_EXPAND",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_ISSUE": {
+      "table_name": "IM_ITEM_WORKSTAGE_ISSUE",
+      "business_purpose": "Item Issue Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_ISSUE_GEN": {
+      "table_name": "IM_ITEM_WORKSTAGE_ISSUE_GEN",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 출고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_ISSUE_PLAN": {
+      "table_name": "IM_ITEM_WORKSTAGE_ISSUE_PLAN",
+      "business_purpose": "Item Issue Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORKSTAGE_RECEIPT": {
+      "table_name": "IM_ITEM_WORKSTAGE_RECEIPT",
+      "business_purpose": "Item Issue Master",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WORK_ORDER": {
+      "table_name": "IM_ITEM_WORK_ORDER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 오더 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WS_INVENTORY_REVERSE": {
+      "table_name": "IM_ITEM_WS_INVENTORY_REVERSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WS_INVENTORY_REV_NOUSE": {
+      "table_name": "IM_ITEM_WS_INVENTORY_REV_NOUSE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 재고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WS_INVE_CHECK_EXCEL": {
+      "table_name": "IM_ITEM_WS_INVE_CHECK_EXCEL",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_ITEM_WS_RECEIPT_4_BASE_INV": {
+      "table_name": "IM_ITEM_WS_RECEIPT_4_BASE_INV",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 입고 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_MATERIAL_REEL_IMAGE": {
+      "table_name": "IM_MATERIAL_REEL_IMAGE",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_MATERIAL_REQUEST": {
+      "table_name": "IM_MATERIAL_REQUEST",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리)",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "IM_TOTAL_PAYABLE_MASTER": {
+      "table_name": "IM_TOTAL_PAYABLE_MASTER",
+      "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+      "usage_scenarios": ["입출고 관리", "재고 조회", "자재 소요량 계산"],
+      "related_tables": []
+    },
+    "INTF_B_ITEM_BY_PLANT_FR_ERP": {
+      "table_name": "INTF_B_ITEM_BY_PLANT_FR_ERP",
+      "business_purpose": "Interface (인터페이스) - 계획 정보",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "INTF_B_ITEM_FR_ERP": {
+      "table_name": "INTF_B_ITEM_FR_ERP",
+      "business_purpose": "Interface (인터페이스)",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "INTF_P_BOM": {
+      "table_name": "INTF_P_BOM",
+      "business_purpose": "최신 BOM 유지 ( Parent, Child Unique ) ",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "INTF_P_BOM_DETAIL_FR_ERP": {
+      "table_name": "INTF_P_BOM_DETAIL_FR_ERP",
+      "business_purpose": "BOM History ",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "INTF_P_BOM_HEADER_FR_ERP": {
+      "table_name": "INTF_P_BOM_HEADER_FR_ERP",
+      "business_purpose": "Interface (인터페이스) - BOM 정보",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "INTF_P_PRODUCTION_ORDER_DETAIL_FR_ERP": {
+      "table_name": "INTF_P_PRODUCTION_ORDER_DETAIL_FR_ERP",
+      "business_purpose": "Interface (인터페이스) - 오더 정보",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "INTF_P_PRODUCTION_ORDER_HEADER_FR_ERP": {
+      "table_name": "INTF_P_PRODUCTION_ORDER_HEADER_FR_ERP",
+      "business_purpose": "Interface (인터페이스) - 오더 정보",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "INTF_P_PRODUCTION_RESULTS_FR_MES": {
+      "table_name": "INTF_P_PRODUCTION_RESULTS_FR_MES",
+      "business_purpose": "Interface (인터페이스) - 실적 정보",
+      "usage_scenarios": ["데이터 수신", "데이터 변환", "연동 이력 관리"],
+      "related_tables": []
+    },
+    "IP_ASSEMBLY_ISSUE": {
+      "table_name": "IP_ASSEMBLY_ISSUE",
+      "business_purpose": "Production Management (생산 관리) - 출고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_ASSEMBLY_RESULT": {
+      "table_name": "IP_ASSEMBLY_RESULT",
+      "business_purpose": "Product Actual Result Master",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_ASSEMBLY_RESULT_BARCODE": {
+      "table_name": "IP_ASSEMBLY_RESULT_BARCODE",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보, 바코드 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_ASSEMBLY_RESULT_HISTORY": {
+      "table_name": "IP_ASSEMBLY_RESULT_HISTORY",
+      "business_purpose": "Production Management (생산 관리) - 이력 정보, 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_LABEL_MASTER": {
+      "table_name": "IP_LABEL_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_LINE_DAILY_OPERATION": {
+      "table_name": "IP_LINE_DAILY_OPERATION",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_LINE_DAILY_OPERATION_HIST": {
+      "table_name": "IP_LINE_DAILY_OPERATION_HIST",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_LINE_IDLE_TIME": {
+      "table_name": "IP_LINE_IDLE_TIME",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_MACHINE_DAILY_OPERATION": {
+      "table_name": "IP_MACHINE_DAILY_OPERATION",
+      "business_purpose": "Production Management (생산 관리) - 설비 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_MACHINE_INSPECT_MCN_STATUS": {
+      "table_name": "IP_MACHINE_INSPECT_MCN_STATUS",
+      "business_purpose": "설비데이터 수집 상태 저장 모니터링 용 25.07.18",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_2D_BARCODE": {
+      "table_name": "IP_PRODUCT_2D_BARCODE",
+      "business_purpose": "Production Management (생산 관리) - 바코드 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_2D_BARCODE_DEL": {
+      "table_name": "IP_PRODUCT_2D_BARCODE_DEL",
+      "business_purpose": "Production Management (생산 관리) - 바코드 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_2D_BARCODE_PAIR": {
+      "table_name": "IP_PRODUCT_2D_BARCODE_PAIR",
+      "business_purpose": "Production Management (생산 관리) - 바코드 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_CARRIER_BARCODE": {
+      "table_name": "IP_PRODUCT_CARRIER_BARCODE",
+      "business_purpose": "Production Management (생산 관리) - 바코드 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_COMPANY_CALENDAR": {
+      "table_name": "IP_PRODUCT_COMPANY_CALENDAR",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_DAILY_LINE_CAPACITY": {
+      "table_name": "IP_PRODUCT_DAILY_LINE_CAPACITY",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_DAILY_MCN_CAPACITY": {
+      "table_name": "IP_PRODUCT_DAILY_MCN_CAPACITY",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_DAILY_RESULT": {
+      "table_name": "IP_PRODUCT_DAILY_RESULT",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_DAILY_WS_CAPACITY": {
+      "table_name": "IP_PRODUCT_DAILY_WS_CAPACITY",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_DEFECT": {
+      "table_name": "IP_PRODUCT_DEFECT",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_DELIVERY_MONTH_PLAN": {
+      "table_name": "IP_PRODUCT_DELIVERY_MONTH_PLAN",
+      "business_purpose": "Production Management (생산 관리) - 계획 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_DELIVERY_PLAN": {
+      "table_name": "IP_PRODUCT_DELIVERY_PLAN",
+      "business_purpose": "Production Management (생산 관리) - 계획 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_FG_INVENTORY": {
+      "table_name": "IP_PRODUCT_FG_INVENTORY",
+      "business_purpose": "Production Management (생산 관리) - 재고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_FG_ISSUE": {
+      "table_name": "IP_PRODUCT_FG_ISSUE",
+      "business_purpose": "Production Management (생산 관리) - 출고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_FG_PALLET": {
+      "table_name": "IP_PRODUCT_FG_PALLET",
+      "business_purpose": "¿¿¿ ¿¿ ¿¿¿ ( ¿¿¿¿¿¿ ¿¿)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_FG_RECEIPT": {
+      "table_name": "IP_PRODUCT_FG_RECEIPT",
+      "business_purpose": "Production Management (생산 관리) - 입고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_FT_DAILY_RESULTS": {
+      "table_name": "IP_PRODUCT_FT_DAILY_RESULTS",
+      "business_purpose": "SOLUM FT,TVSET DAILY UPH,PPM",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_INV_4_REQUIREMENT": {
+      "table_name": "IP_PRODUCT_INV_4_REQUIREMENT",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_ISSUE_PID_SCAN": {
+      "table_name": "IP_PRODUCT_ISSUE_PID_SCAN",
+      "business_purpose": "Production Management (생산 관리) - 출고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LASER_MARKING": {
+      "table_name": "IP_PRODUCT_LASER_MARKING",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LINE": {
+      "table_name": "IP_PRODUCT_LINE",
+      "business_purpose": "Product Line Master",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LINE_BARCODE": {
+      "table_name": "IP_PRODUCT_LINE_BARCODE",
+      "business_purpose": "Production Management (생산 관리) - 바코드 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LINE_CALENDAR": {
+      "table_name": "IP_PRODUCT_LINE_CALENDAR",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LINE_CAPACITY": {
+      "table_name": "IP_PRODUCT_LINE_CAPACITY",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LINE_MACHINE_MAP": {
+      "table_name": "IP_PRODUCT_LINE_MACHINE_MAP",
+      "business_purpose": "Production Management (생산 관리) - 설비 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LINE_RESULT": {
+      "table_name": "IP_PRODUCT_LINE_RESULT",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_LINE_TARGET": {
+      "table_name": "IP_PRODUCT_LINE_TARGET",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MAGAZINE": {
+      "table_name": "IP_PRODUCT_MAGAZINE",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MAGAZINE_HIS": {
+      "table_name": "IP_PRODUCT_MAGAZINE_HIS",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MAGAZINE_MASTER": {
+      "table_name": "IP_PRODUCT_MAGAZINE_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MAINFLASH_VERSION": {
+      "table_name": "IP_PRODUCT_MAINFLASH_VERSION",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MAOI_DAILY_RESULTS": {
+      "table_name": "IP_PRODUCT_MAOI_DAILY_RESULTS",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MCN_CALENDAR": {
+      "table_name": "IP_PRODUCT_MCN_CALENDAR",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MI_MONTH_PLAN": {
+      "table_name": "IP_PRODUCT_MI_MONTH_PLAN",
+      "business_purpose": "Production Management (생산 관리) - 계획 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MI_PLAN": {
+      "table_name": "IP_PRODUCT_MI_PLAN",
+      "business_purpose": "Production Management (생산 관리) - 계획 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MOBILIZATION": {
+      "table_name": "IP_PRODUCT_MOBILIZATION",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_CT_MASTER": {
+      "table_name": "IP_PRODUCT_MODEL_CT_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_INSPECTION": {
+      "table_name": "IP_PRODUCT_MODEL_INSPECTION",
+      "business_purpose": "Production Management (생산 관리) - 검사 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_MASTER": {
+      "table_name": "IP_PRODUCT_MODEL_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_MASTER_ATTRIBUTES": {
+      "table_name": "IP_PRODUCT_MODEL_MASTER_ATTRIBUTES",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_MASTER_MD_MODEL": {
+      "table_name": "IP_PRODUCT_MODEL_MASTER_MD_MODEL",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_MICOM_HISOTRY": {
+      "table_name": "IP_PRODUCT_MODEL_MICOM_HISOTRY",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_OTP": {
+      "table_name": "IP_PRODUCT_MODEL_OTP",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MODEL_ST_MASTER": {
+      "table_name": "IP_PRODUCT_MODEL_ST_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_MOLD_CALENDAR": {
+      "table_name": "IP_PRODUCT_MOLD_CALENDAR",
+      "business_purpose": "Production Management (생산 관리) - 금형 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_OEMBOX_MASTER": {
+      "table_name": "IP_PRODUCT_OEMBOX_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PACK_ASSY_MASTER": {
+      "table_name": "IP_PRODUCT_PACK_ASSY_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PACK_MASTER": {
+      "table_name": "IP_PRODUCT_PACK_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PACK_MASTER_DEL": {
+      "table_name": "IP_PRODUCT_PACK_MASTER_DEL",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PACK_SCAN_HISTORY": {
+      "table_name": "IP_PRODUCT_PACK_SCAN_HISTORY",
+      "business_purpose": "Production Management (생산 관리) - 이력 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PACK_SERIAL": {
+      "table_name": "IP_PRODUCT_PACK_SERIAL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PACK_SERIAL_DEL": {
+      "table_name": "IP_PRODUCT_PACK_SERIAL_DEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PCB_DEPARTURE": {
+      "table_name": "IP_PRODUCT_PCB_DEPARTURE",
+      "business_purpose": "협력사에서 출발처리한 PCB정보마스터",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PCB_DEPARTURE_LOAD": {
+      "table_name": "IP_PRODUCT_PCB_DEPARTURE_LOAD",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PCB_PURIFYING": {
+      "table_name": "IP_PRODUCT_PCB_PURIFYING",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PCB_SCAN_MASTER": {
+      "table_name": "IP_PRODUCT_PCB_SCAN_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PCB_SCAN_MASTER_MT": {
+      "table_name": "IP_PRODUCT_PCB_SCAN_MASTER_MT",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PDA_SCAN_MASTER": {
+      "table_name": "IP_PRODUCT_PDA_SCAN_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PIDCHECK_HISTORY": {
+      "table_name": "IP_PRODUCT_PIDCHECK_HISTORY",
+      "business_purpose": "Production Management (생산 관리) - 이력 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PREPARE_IMAGE": {
+      "table_name": "IP_PRODUCT_PREPARE_IMAGE",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PREPARE_LIST": {
+      "table_name": "IP_PRODUCT_PREPARE_LIST",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_PREPARE_MASTER": {
+      "table_name": "IP_PRODUCT_PREPARE_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_REINPUT_RESULT": {
+      "table_name": "IP_PRODUCT_REINPUT_RESULT",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_REPAIR": {
+      "table_name": "IP_PRODUCT_REPAIR",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RESULT": {
+      "table_name": "IP_PRODUCT_RESULT",
+      "business_purpose": "Product Actual Result Master",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RESULT_BARCODE": {
+      "table_name": "IP_PRODUCT_RESULT_BARCODE",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보, 바코드 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RESULT_HISTORY": {
+      "table_name": "IP_PRODUCT_RESULT_HISTORY",
+      "business_purpose": "Production Management (생산 관리) - 이력 정보, 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_REWORK_RESULT": {
+      "table_name": "IP_PRODUCT_REWORK_RESULT",
+      "business_purpose": "Product Actual Result Master",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_ROUTING": {
+      "table_name": "IP_PRODUCT_ROUTING",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_ROUTING_MASTER": {
+      "table_name": "IP_PRODUCT_ROUTING_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUNNING_HIST": {
+      "table_name": "IP_PRODUCT_RUNNING_HIST",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD": {
+      "table_name": "IP_PRODUCT_RUN_CARD",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "작업지시등록",
+        "생산 실적 집계",
+        "Work Order 관리",
+        "런카드마스터 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_CLOSE": {
+      "table_name": "IP_PRODUCT_RUN_CARD_CLOSE",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_DEL": {
+      "table_name": "IP_PRODUCT_RUN_CARD_DEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_DETAIL": {
+      "table_name": "IP_PRODUCT_RUN_CARD_DETAIL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_INV": {
+      "table_name": "IP_PRODUCT_RUN_CARD_INV",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_INV_DEL": {
+      "table_name": "IP_PRODUCT_RUN_CARD_INV_DEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_IO": {
+      "table_name": "IP_PRODUCT_RUN_CARD_IO",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_IO_BACK": {
+      "table_name": "IP_PRODUCT_RUN_CARD_IO_BACK",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_ISSUE": {
+      "table_name": "IP_PRODUCT_RUN_CARD_ISSUE",
+      "business_purpose": "Production Management (생산 관리) - 출고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_ISSUE_DEL": {
+      "table_name": "IP_PRODUCT_RUN_CARD_ISSUE_DEL",
+      "business_purpose": "Production Management (생산 관리) - 출고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_RECEIPT": {
+      "table_name": "IP_PRODUCT_RUN_CARD_RECEIPT",
+      "business_purpose": "Production Management (생산 관리) - 입고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_CARD_RECEIPT_DEL": {
+      "table_name": "IP_PRODUCT_RUN_CARD_RECEIPT_DEL",
+      "business_purpose": "Production Management (생산 관리) - 입고 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_MODEL": {
+      "table_name": "IP_PRODUCT_RUN_MODEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_RUN_MODEL_LOG": {
+      "table_name": "IP_PRODUCT_RUN_MODEL_LOG",
+      "business_purpose": "Production Management (생산 관리) - 로그 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SAOI_DAILY_RESULTS": {
+      "table_name": "IP_PRODUCT_SAOI_DAILY_RESULTS",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SCAN_HISTORY": {
+      "table_name": "IP_PRODUCT_SCAN_HISTORY",
+      "business_purpose": "Production Management (생산 관리) - 이력 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SCAN_INPUT_HISTORY": {
+      "table_name": "IP_PRODUCT_SCAN_INPUT_HISTORY",
+      "business_purpose": "SoluM PBA 자재투입 이력",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SCAN_MAPPING_HISTORY": {
+      "table_name": "IP_PRODUCT_SCAN_MAPPING_HISTORY",
+      "business_purpose": "SoluM PBA Mapping 이력",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SCAN_MAPPING_HIST_DEL": {
+      "table_name": "IP_PRODUCT_SCAN_MAPPING_HIST_DEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SELECTION_DATA_TEMP": {
+      "table_name": "IP_PRODUCT_SELECTION_DATA_TEMP",
+      "business_purpose": "Production Management (생산 관리) - 임시 데이터",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SENSOR_ACTUAL": {
+      "table_name": "IP_PRODUCT_SENSOR_ACTUAL",
+      "business_purpose": "Production Management (생산 관리) - 센서 데이터",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SENSOR_ACTUAL_BACK": {
+      "table_name": "IP_PRODUCT_SENSOR_ACTUAL_BACK",
+      "business_purpose": "Production Management (생산 관리) - 센서 데이터",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SENSOR_ACTUAL_HOUR": {
+      "table_name": "IP_PRODUCT_SENSOR_ACTUAL_HOUR",
+      "business_purpose": "Production Management (생산 관리) - 센서 데이터",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SENSOR_ACTUAL_RUNNO": {
+      "table_name": "IP_PRODUCT_SENSOR_ACTUAL_RUNNO",
+      "business_purpose": "Production Management (생산 관리) - 센서 데이터",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SENSOR_ACTUAL_TIME": {
+      "table_name": "IP_PRODUCT_SENSOR_ACTUAL_TIME",
+      "business_purpose": "Production Management (생산 관리) - 센서 데이터",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SERIAL_RESULT": {
+      "table_name": "IP_PRODUCT_SERIAL_RESULT",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SHIFT_RESULT": {
+      "table_name": "IP_PRODUCT_SHIFT_RESULT",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SMD_MONTH_PLAN": {
+      "table_name": "IP_PRODUCT_SMD_MONTH_PLAN",
+      "business_purpose": "Production Management (생산 관리) - 계획 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SMD_PLAN": {
+      "table_name": "IP_PRODUCT_SMD_PLAN",
+      "business_purpose": "Production Management (생산 관리) - 계획 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SMD_PLAN_ISSUE": {
+      "table_name": "IP_PRODUCT_SMD_PLAN_ISSUE",
+      "business_purpose": "Production Management (생산 관리) - 출고 정보, 계획 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SOFTWARE_EXCEL": {
+      "table_name": "IP_PRODUCT_SOFTWARE_EXCEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SOFTWARE_MASTER": {
+      "table_name": "IP_PRODUCT_SOFTWARE_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SPEC_CONFIRM_DOC": {
+      "table_name": "IP_PRODUCT_SPEC_CONFIRM_DOC",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SPI_DAILY_RESULTS": {
+      "table_name": "IP_PRODUCT_SPI_DAILY_RESULTS",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_SSCD_DATA_CHECK": {
+      "table_name": "IP_PRODUCT_SSCD_DATA_CHECK",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_ST": {
+      "table_name": "IP_PRODUCT_ST",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_VI_QC_IMAGE": {
+      "table_name": "IP_PRODUCT_VI_QC_IMAGE",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORKORDER_DOCUMENT": {
+      "table_name": "IP_PRODUCT_WORKORDER_DOCUMENT",
+      "business_purpose": "Production Management (생산 관리) - 오더 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORKSTAGE": {
+      "table_name": "IP_PRODUCT_WORKSTAGE",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORKSTAGE_INV": {
+      "table_name": "IP_PRODUCT_WORKSTAGE_INV",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORKSTAGE_IO": {
+      "table_name": "IP_PRODUCT_WORKSTAGE_IO",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORKSTAGE_IO_DEL": {
+      "table_name": "IP_PRODUCT_WORKSTAGE_IO_DEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORKSTAGE_RESULT": {
+      "table_name": "IP_PRODUCT_WORKSTAGE_RESULT",
+      "business_purpose": "Production Management (생산 관리) - 실적 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORKSTAGE_REWORK": {
+      "table_name": "IP_PRODUCT_WORKSTAGE_REWORK",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORK_QC": {
+      "table_name": "IP_PRODUCT_WORK_QC",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORK_QC_EXCEL": {
+      "table_name": "IP_PRODUCT_WORK_QC_EXCEL",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORK_QC_IMAGE": {
+      "table_name": "IP_PRODUCT_WORK_QC_IMAGE",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORK_QC_REPAIR_ITEM": {
+      "table_name": "IP_PRODUCT_WORK_QC_REPAIR_ITEM",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WORK_TIME": {
+      "table_name": "IP_PRODUCT_WORK_TIME",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WRONG_COMPONENT": {
+      "table_name": "IP_PRODUCT_WRONG_COMPONENT",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WRONG_RETURN_PID": {
+      "table_name": "IP_PRODUCT_WRONG_RETURN_PID",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WS_CALENDAR": {
+      "table_name": "IP_PRODUCT_WS_CALENDAR",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_WS_CAPACITY": {
+      "table_name": "IP_PRODUCT_WS_CAPACITY",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PRODUCT_YEAR_BASE": {
+      "table_name": "IP_PRODUCT_YEAR_BASE",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_PROD_MATERIAL_TRACKING_KFC": {
+      "table_name": "IP_PROD_MATERIAL_TRACKING_KFC",
+      "business_purpose": "Production Management (생산 관리)",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IP_SHIFT_TIME_MASTER": {
+      "table_name": "IP_SHIFT_TIME_MASTER",
+      "business_purpose": "Production Management (생산 관리) - 마스터 정보",
+      "usage_scenarios": [
+        "생산 계획 수립",
+        "생산 실적 집계",
+        "Work Order 관리"
+      ],
+      "related_tables": []
+    },
+    "IQC_INSPECTION_TEMPLATE": {
+      "table_name": "IQC_INSPECTION_TEMPLATE",
+      "business_purpose": "IQC_INSPECTION_TEMPLATE[¿¿¿¿ ¿¿¿¿]",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IQC_INSPECTION_TIME_CHECK": {
+      "table_name": "IQC_INSPECTION_TIME_CHECK",
+      "business_purpose": "IQC_INSPECTION_TIME_CHECK[¿¿¿¿¿¿¿¿]",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    },
+    "IQ_4M_MASTER": {
+      "table_name": "IQ_4M_MASTER",
+      "business_purpose": "Quality Management (품질 관리) - 마스터 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_CHECK_FOOLPROOF_HISTORY": {
+      "table_name": "IQ_CHECK_FOOLPROOF_HISTORY",
+      "business_purpose": "Quality Management (품질 관리) - 이력 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_DAILY_DASHBOARD": {
+      "table_name": "IQ_DAILY_DASHBOARD",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_DAILY_NOTIFY": {
+      "table_name": "IQ_DAILY_NOTIFY",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INSPECT_MASTER_SAMPLE_LOG": {
+      "table_name": "IQ_INSPECT_MASTER_SAMPLE_LOG",
+      "business_purpose": "Quality Management (품질 관리) - 마스터 정보, 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INSPECT_MAXPOWER_SPEC": {
+      "table_name": "IQ_INSPECT_MAXPOWER_SPEC",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_CHECK_CONDITION": {
+      "table_name": "IQ_INTERLOCK_CHECK_CONDITION",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_CHECK_COND_LOG": {
+      "table_name": "IQ_INTERLOCK_CHECK_COND_LOG",
+      "business_purpose": "Quality Management (품질 관리) - 로그 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_CHECK_ERROR": {
+      "table_name": "IQ_INTERLOCK_CHECK_ERROR",
+      "business_purpose": "Quality Management (품질 관리) - 에러 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_CHECK_RESULT": {
+      "table_name": "IQ_INTERLOCK_CHECK_RESULT",
+      "business_purpose": "Quality Management (품질 관리) - 실적 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_CHECK_RESULT_SUM": {
+      "table_name": "IQ_INTERLOCK_CHECK_RESULT_SUM",
+      "business_purpose": "Quality Management (품질 관리) - 실적 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_REFLOW_DATA": {
+      "table_name": "IQ_INTERLOCK_REFLOW_DATA",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_REFLOW_STATUS": {
+      "table_name": "IQ_INTERLOCK_REFLOW_STATUS",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_INTERLOCK_REQUEST_LOG": {
+      "table_name": "IQ_INTERLOCK_REQUEST_LOG",
+      "business_purpose": "Quality Management (품질 관리) - 로그 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_IQC_DOCUMENT": {
+      "table_name": "IQ_IQC_DOCUMENT",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_IQC_INSPECT_HISTORY": {
+      "table_name": "IQ_IQC_INSPECT_HISTORY",
+      "business_purpose": "Quality Management (품질 관리) - 이력 정보, 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_ITEM_EQUIPMENT_DETAIL": {
+      "table_name": "IQ_ITEM_EQUIPMENT_DETAIL",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_ITEM_INSPECT_GROUP": {
+      "table_name": "IQ_ITEM_INSPECT_GROUP",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_ITEM_IQC": {
+      "table_name": "IQ_ITEM_IQC",
+      "business_purpose": "IQC Inspect Master",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_ITEM_IQC_BAD": {
+      "table_name": "IQ_ITEM_IQC_BAD",
+      "business_purpose": "IQC Inspect Master",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_ITEM_IQC_CRITERION": {
+      "table_name": "IQ_ITEM_IQC_CRITERION",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_ITEM_IQC_RANGE": {
+      "table_name": "IQ_ITEM_IQC_RANGE",
+      "business_purpose": "IQC Master",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_ITEM_OQC_CRITERION": {
+      "table_name": "IQ_ITEM_OQC_CRITERION",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_LED_INSPECT_CONDITION": {
+      "table_name": "IQ_LED_INSPECT_CONDITION",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_AOI_NG_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_AOI_NG_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_AOI_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_AOI_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ATE_DTL_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_ATE_DTL_POWER_DATA_RAW",
+      "business_purpose": "ATE DETAIL OF POWER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ATE_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_ATE_POWER_DATA_RAW",
+      "business_purpose": "ATE OF POWER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ATE_POWER_SUB2_DATA_RAW": {
+      "table_name": "IQ_MACHINE_ATE_POWER_SUB2_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ATE_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_ATE_SERVER_DATA_RAW",
+      "business_purpose": "ATE OF SERVER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_BARCODE_DATA_RAW": {
+      "table_name": "IQ_MACHINE_BARCODE_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 바코드 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_BURNIN_DTL_HYBRID_RAW": {
+      "table_name": "IQ_MACHINE_BURNIN_DTL_HYBRID_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_BURNIN_HYBRID_DATA_RAW": {
+      "table_name": "IQ_MACHINE_BURNIN_HYBRID_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_BURNIN_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_BURNIN_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_BURNIN_SMPS_DATA_RAW": {
+      "table_name": "IQ_MACHINE_BURNIN_SMPS_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_CALIB_DTL_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_CALIB_DTL_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_CALIB_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_CALIB_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_COATING_POWER_DATA": {
+      "table_name": "IQ_MACHINE_COATING_POWER_DATA",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_COATING_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_COATING_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_CPK_ITEM_MASTER": {
+      "table_name": "IQ_MACHINE_CPK_ITEM_MASTER",
+      "business_purpose": "Quality Management (품질 관리) - 마스터 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_CTRL_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_CTRL_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_DATA_RAW": {
+      "table_name": "IQ_MACHINE_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_EEPROM_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_EEPROM_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ESD_DATA_RAW": {
+      "table_name": "IQ_MACHINE_ESD_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FANTEST_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FANTEST_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FCT_DTL_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FCT_DTL_POWER_DATA_RAW",
+      "business_purpose": "FCT DETAIL OF POWER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FCT_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FCT_POWER_DATA_RAW",
+      "business_purpose": "FCT OF POWER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FCT_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FCT_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FT1_DTL_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FT1_DTL_POWER_DATA_RAW",
+      "business_purpose": "FT1 DETAIL OF POWER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FT1_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FT1_POWER_DATA_RAW",
+      "business_purpose": "FT1 OF POWER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FT1_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FT1_SERVER_DATA_RAW",
+      "business_purpose": "FT1 OF SERVER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FT1_SMPS_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FT1_SMPS_DATA_RAW",
+      "business_purpose": "FT1 OF SMPS",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FWACDC_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FWACDC_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FWDCDC_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FWDCDC_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FWDL_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FWDL_POWER_DATA_RAW",
+      "business_purpose": "FWDN Fuction Test OF POWER MODULE",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FWLED_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FWLED_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FW_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FW_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FW_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FW_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_FW_SMPS_DATA_RAW": {
+      "table_name": "IQ_MACHINE_FW_SMPS_DATA_RAW",
+      "business_purpose": "FW OF SMPS",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_HEIGHT_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_HEIGHT_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_HIPOT_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_HIPOT_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_HIPOT_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_HIPOT_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ICT_DTL_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_ICT_DTL_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ICT_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_ICT_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INPSECT_DATA_FEEDERCHECK": {
+      "table_name": "IQ_MACHINE_INPSECT_DATA_FEEDERCHECK",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_AGING": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_AGING",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_AOI": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_AOI",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_AOI_DFT": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_AOI_DFT",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_AOI_NG": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_AOI_NG",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_AOI_TEST": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_AOI_TEST",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_ICT": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_ICT",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_MANUAL": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_MANUAL",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_MAOI": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_MAOI",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_MAOI_DFT": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_MAOI_DFT",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_MAOI_NG": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_MAOI_NG",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_MASK": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_MASK",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_MK": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_MK",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_MOUNTER_EVENT": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_MOUNTER_EVENT",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_M_MASK": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_M_MASK",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_PASS": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_PASS",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_PBA_FT": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_PBA_FT",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_PBA_FT_NG": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_PBA_FT_NG",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_PBA_TVSET": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_PBA_TVSET",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_PICKUP": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_PICKUP",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_REFLOW": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_REFLOW",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_RT": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_RT",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_RW": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_RW",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_SOLDER": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_SOLDER",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_SP": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_SP",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_SPI": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_SPI",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_SPI_DFT": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_SPI_DFT",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_SPI_DTL": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_SPI_DTL",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_SPI_NG": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_SPI_NG",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_DATA_WAVE1": {
+      "table_name": "IQ_MACHINE_INSPECT_DATA_WAVE1",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_MANUAL": {
+      "table_name": "IQ_MACHINE_INSPECT_MANUAL",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_NPM1_RAW": {
+      "table_name": "IQ_MACHINE_INSPECT_NPM1_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_NPM2_RAW": {
+      "table_name": "IQ_MACHINE_INSPECT_NPM2_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_NPM3_RAW": {
+      "table_name": "IQ_MACHINE_INSPECT_NPM3_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_NSNP": {
+      "table_name": "IQ_MACHINE_INSPECT_NSNP",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PBA_TVSET_DTL": {
+      "table_name": "IQ_MACHINE_INSPECT_PBA_TVSET_DTL",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PICKUP": {
+      "table_name": "IQ_MACHINE_INSPECT_PICKUP",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PICKUP_QRY": {
+      "table_name": "IQ_MACHINE_INSPECT_PICKUP_QRY",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PICKUP_RATE": {
+      "table_name": "IQ_MACHINE_INSPECT_PICKUP_RATE",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PMNT1": {
+      "table_name": "IQ_MACHINE_INSPECT_PMNT1",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PMNT2": {
+      "table_name": "IQ_MACHINE_INSPECT_PMNT2",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PMNT3": {
+      "table_name": "IQ_MACHINE_INSPECT_PMNT3",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PMNT4": {
+      "table_name": "IQ_MACHINE_INSPECT_PMNT4",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_PMNT4_ERROR": {
+      "table_name": "IQ_MACHINE_INSPECT_PMNT4_ERROR",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_RESULT": {
+      "table_name": "IQ_MACHINE_INSPECT_RESULT",
+      "business_purpose": "Quality Management (품질 관리) - 실적 정보, 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_SMNT1": {
+      "table_name": "IQ_MACHINE_INSPECT_SMNT1",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_SMNT2": {
+      "table_name": "IQ_MACHINE_INSPECT_SMNT2",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_SMNT_PCBINFO": {
+      "table_name": "IQ_MACHINE_INSPECT_SMNT_PCBINFO",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_SMNT_PCBRESULT": {
+      "table_name": "IQ_MACHINE_INSPECT_SMNT_PCBRESULT",
+      "business_purpose": "Quality Management (품질 관리) - 실적 정보, 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_SPI": {
+      "table_name": "IQ_MACHINE_INSPECT_SPI",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_SPI_NG": {
+      "table_name": "IQ_MACHINE_INSPECT_SPI_NG",
+      "business_purpose": "Quality Management (품질 관리) - 검사 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_YMNT1_RAW": {
+      "table_name": "IQ_MACHINE_INSPECT_YMNT1_RAW",
+      "business_purpose": "YAHAMA마운터 헤더정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_INSPECT_YMNT2_RAW": {
+      "table_name": "IQ_MACHINE_INSPECT_YMNT2_RAW",
+      "business_purpose": "YAHAMA마운터 피더정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_LCR_DATA_RAW": {
+      "table_name": "IQ_MACHINE_LCR_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_LCR_DTL_DATA_RAW": {
+      "table_name": "IQ_MACHINE_LCR_DTL_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_MANUAL_BARCODE_DATA_RAW": {
+      "table_name": "IQ_MACHINE_MANUAL_BARCODE_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 바코드 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_MAN_SCREW3_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_MAN_SCREW3_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_METALMASK_DATA_RAW": {
+      "table_name": "IQ_MACHINE_METALMASK_DATA_RAW",
+      "business_purpose": "MATAL MASK RESULT",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_M_MASK_PAD_DATA_RAW": {
+      "table_name": "IQ_MACHINE_M_MASK_PAD_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_PBACASE_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_PBACASE_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_SCREWPACK_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_SCREWPACK_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_SCREW_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_SCREW_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_SOLDERING_POWER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_SOLDERING_POWER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_SOLDERING_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_SOLDERING_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_SP_DATA_RAW": {
+      "table_name": "IQ_MACHINE_SP_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_STB_SERVER_DATA_RAW": {
+      "table_name": "IQ_MACHINE_STB_SERVER_DATA_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_MACHINE_ZIG_HISTORY_RAW": {
+      "table_name": "IQ_MACHINE_ZIG_HISTORY_RAW",
+      "business_purpose": "Quality Management (품질 관리) - 이력 정보, 설비 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_OQC_INSPECT_HISTORY": {
+      "table_name": "IQ_OQC_INSPECT_HISTORY",
+      "business_purpose": "Quality Management (품질 관리) - 이력 정보, 검사 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_OQC_REQUEST_QMS": {
+      "table_name": "IQ_OQC_REQUEST_QMS",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_OQC_REQUEST_QMS_DETAIL": {
+      "table_name": "IQ_OQC_REQUEST_QMS_DETAIL",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_OQC_REQUEST_QMS_MASTER": {
+      "table_name": "IQ_OQC_REQUEST_QMS_MASTER",
+      "business_purpose": "Quality Management (품질 관리) - 마스터 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_PRODUCT_PERFECT_QC_HISTORY": {
+      "table_name": "IQ_PRODUCT_PERFECT_QC_HISTORY",
+      "business_purpose": "Quality Management (품질 관리) - 이력 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_PRODUCT_TARGET_QC_HISTORY": {
+      "table_name": "IQ_PRODUCT_TARGET_QC_HISTORY",
+      "business_purpose": "Quality Management (품질 관리) - 이력 정보",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_PRODUCT_WQC": {
+      "table_name": "IQ_PRODUCT_WQC",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_SPC_CONTROL_CHART_CONSTANTS": {
+      "table_name": "IQ_SPC_CONTROL_CHART_CONSTANTS",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_SPC_CONTROL_CHART_DAY_DATA": {
+      "table_name": "IQ_SPC_CONTROL_CHART_DAY_DATA",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "IQ_SUPPLIER_LOT_BLOKING": {
+      "table_name": "IQ_SUPPLIER_LOT_BLOKING",
+      "business_purpose": "Quality Management (품질 관리)",
+      "usage_scenarios": ["품질 데이터 수집", "불량 분석", "검사 결과 조회"],
+      "related_tables": []
+    },
+    "ISAL_PRODUCT_INVENTORY": {
+      "table_name": "ISAL_PRODUCT_INVENTORY",
+      "business_purpose": "Sales/Shipping Management (판매/출하 관리) - 재고 정보",
+      "usage_scenarios": ["출하 계획", "재고 관리", "배송 추적"],
+      "related_tables": []
+    },
+    "ISAL_PRODUCT_RECEIPT": {
+      "table_name": "ISAL_PRODUCT_RECEIPT",
+      "business_purpose": "Sales/Shipping Management (판매/출하 관리) - 입고 정보",
+      "usage_scenarios": ["출하 계획", "재고 관리", "배송 추적"],
+      "related_tables": []
+    },
+    "ISAL_PRODUCT_SHIPPING": {
+      "table_name": "ISAL_PRODUCT_SHIPPING",
+      "business_purpose": "Sales/Shipping Management (판매/출하 관리)",
+      "usage_scenarios": ["출하 계획", "재고 관리", "배송 추적"],
+      "related_tables": []
+    },
+    "ISAL_SHIPPING_LOT_DETAIL": {
+      "table_name": "ISAL_SHIPPING_LOT_DETAIL",
+      "business_purpose": "Sales/Shipping Management (판매/출하 관리)",
+      "usage_scenarios": ["출하 계획", "재고 관리", "배송 추적"],
+      "related_tables": []
+    },
+    "ISAL_SHIPPING_LOT_MASTER": {
+      "table_name": "ISAL_SHIPPING_LOT_MASTER",
+      "business_purpose": "Sales/Shipping Management (판매/출하 관리) - 마스터 정보",
+      "usage_scenarios": ["출하 계획", "재고 관리", "배송 추적"],
+      "related_tables": []
+    },
+    "ISYS_ALERT_MASTER": {
+      "table_name": "ISYS_ALERT_MASTER",
+      "business_purpose": "System Management (시스템 관리) - 마스터 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_APP_FILES": {
+      "table_name": "ISYS_APP_FILES",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_AUDIT_MESSAGE": {
+      "table_name": "ISYS_AUDIT_MESSAGE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_AUDIT_MESSAGE_CODE": {
+      "table_name": "ISYS_AUDIT_MESSAGE_CODE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_AUDIT_MESSAGE_FILTER": {
+      "table_name": "ISYS_AUDIT_MESSAGE_FILTER",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_AUDIT_MESSAGE_HISTORY": {
+      "table_name": "ISYS_AUDIT_MESSAGE_HISTORY",
+      "business_purpose": "System Management (시스템 관리) - 이력 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_BASECODE": {
+      "table_name": "ISYS_BASECODE",
+      "business_purpose": "Base code Master Table",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_BASECODE_YTMES": {
+      "table_name": "ISYS_BASECODE_YTMES",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_BATCHJOBERRLOG": {
+      "table_name": "ISYS_BATCHJOBERRLOG",
+      "business_purpose": "System Management (시스템 관리) - 로그 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_BATCH_JOB_STATUS": {
+      "table_name": "ISYS_BATCH_JOB_STATUS",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_CODE_MASTER": {
+      "table_name": "ISYS_CODE_MASTER",
+      "business_purpose": "System Management (시스템 관리) - 마스터 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_COMPANY": {
+      "table_name": "ISYS_COMPANY",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_CONFIG": {
+      "table_name": "ISYS_CONFIG",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DATAOBJECT": {
+      "table_name": "ISYS_DATAOBJECT",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DATA_FILTER": {
+      "table_name": "ISYS_DATA_FILTER",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DEFAULT_12_MONTHS": {
+      "table_name": "ISYS_DEFAULT_12_MONTHS",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DEFAULT_VALUE": {
+      "table_name": "ISYS_DEFAULT_VALUE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DEPARTMENT": {
+      "table_name": "ISYS_DEPARTMENT",
+      "business_purpose": "Department Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DUAL_LANGUAGE": {
+      "table_name": "ISYS_DUAL_LANGUAGE",
+      "business_purpose": "Dual Language Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DUAL_LANGUAGE2": {
+      "table_name": "ISYS_DUAL_LANGUAGE2",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DUAL_LANGUAGE_YTMES": {
+      "table_name": "ISYS_DUAL_LANGUAGE_YTMES",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DUAL_MESSAGE": {
+      "table_name": "ISYS_DUAL_MESSAGE",
+      "business_purpose": "Dual Message Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DUAL_MESSAGE_DIRECT": {
+      "table_name": "ISYS_DUAL_MESSAGE_DIRECT",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DUAL_MESSAGE_YTMES": {
+      "table_name": "ISYS_DUAL_MESSAGE_YTMES",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DWZOOM": {
+      "table_name": "ISYS_DWZOOM",
+      "business_purpose": "Data Window Print Size Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DYNAMIC_MENU": {
+      "table_name": "ISYS_DYNAMIC_MENU",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_DYNAMIC_MENU_SHS": {
+      "table_name": "ISYS_DYNAMIC_MENU_SHS",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_ERROR": {
+      "table_name": "ISYS_ERROR",
+      "business_purpose": "System Management (시스템 관리) - 에러 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_ERROR_TRACE": {
+      "table_name": "ISYS_ERROR_TRACE",
+      "business_purpose": "System Management (시스템 관리) - 에러 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_EXCHANGE_RATE": {
+      "table_name": "ISYS_EXCHANGE_RATE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_HELP_VIDEO": {
+      "table_name": "ISYS_HELP_VIDEO",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_INVENTORY_CLOSE_DATE": {
+      "table_name": "ISYS_INVENTORY_CLOSE_DATE",
+      "business_purpose": "System Management (시스템 관리) - 재고 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_JOB_TIMECHECK": {
+      "table_name": "ISYS_JOB_TIMECHECK",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_LABEL_FORM": {
+      "table_name": "ISYS_LABEL_FORM",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_MACHINE_MONITORING": {
+      "table_name": "ISYS_MACHINE_MONITORING",
+      "business_purpose": "ISYS_MACHINE_MONITORING[수집장치통신확인데이터]",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_MACHINE_MONITORING_OFF_HIST": {
+      "table_name": "ISYS_MACHINE_MONITORING_OFF_HIST",
+      "business_purpose": "System Management (시스템 관리) - 설비 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_MENU": {
+      "table_name": "ISYS_MENU",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_MONITOR": {
+      "table_name": "ISYS_MONITOR",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_OBJECT": {
+      "table_name": "ISYS_OBJECT",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_OBJECT_SOURCE": {
+      "table_name": "ISYS_OBJECT_SOURCE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_ORGANIZATION": {
+      "table_name": "ISYS_ORGANIZATION",
+      "business_purpose": "Organization Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_PRIVILEGE": {
+      "table_name": "ISYS_PRIVILEGE",
+      "business_purpose": "Privilege Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_PUB_BOARD": {
+      "table_name": "ISYS_PUB_BOARD",
+      "business_purpose": "Bulletin Board Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_PUB_WORK_BOARD": {
+      "table_name": "ISYS_PUB_WORK_BOARD",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_REPORT_MENU": {
+      "table_name": "ISYS_REPORT_MENU",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_REPORT_SOURCE": {
+      "table_name": "ISYS_REPORT_SOURCE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_REPORT_SOURCE_WHERE": {
+      "table_name": "ISYS_REPORT_SOURCE_WHERE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_REPORT_WHERE_CONDITION": {
+      "table_name": "ISYS_REPORT_WHERE_CONDITION",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_REPORT_WINDOW_MASTER": {
+      "table_name": "ISYS_REPORT_WINDOW_MASTER",
+      "business_purpose": "System Management (시스템 관리) - 마스터 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_REPORT_WINDOW_PROPERTY": {
+      "table_name": "ISYS_REPORT_WINDOW_PROPERTY",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_ROLE": {
+      "table_name": "ISYS_ROLE",
+      "business_purpose": "User Role Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_SOUND_MENT": {
+      "table_name": "ISYS_SOUND_MENT",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_SYSTEM_ACCESS": {
+      "table_name": "ISYS_SYSTEM_ACCESS",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_SYSTEM_INTERFACE": {
+      "table_name": "ISYS_SYSTEM_INTERFACE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_USERS": {
+      "table_name": "ISYS_USERS",
+      "business_purpose": "User Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_USER_WAREHOUSE": {
+      "table_name": "ISYS_USER_WAREHOUSE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_VERSION": {
+      "table_name": "ISYS_VERSION",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_VERSION_HISTORY": {
+      "table_name": "ISYS_VERSION_HISTORY",
+      "business_purpose": "System Management (시스템 관리) - 이력 정보",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_WINDOW": {
+      "table_name": "ISYS_WINDOW",
+      "business_purpose": "Application Window Master",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_WINDOW_ISO_TAG": {
+      "table_name": "ISYS_WINDOW_ISO_TAG",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_WINDOW_PROPERTY": {
+      "table_name": "ISYS_WINDOW_PROPERTY",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_WINDOW_ROLE": {
+      "table_name": "ISYS_WINDOW_ROLE",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_WINDOW_SHS": {
+      "table_name": "ISYS_WINDOW_SHS",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_WORD_DICTIONARY": {
+      "table_name": "ISYS_WORD_DICTIONARY",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "ISYS_WORK_BOARD": {
+      "table_name": "ISYS_WORK_BOARD",
+      "business_purpose": "System Management (시스템 관리)",
+      "usage_scenarios": ["사용자 관리", "권한 관리", "시스템 설정"],
+      "related_tables": []
+    },
+    "IS_PRODUCT_SALE_PRICE": {
+      "table_name": "IS_PRODUCT_SALE_PRICE",
+      "business_purpose": "Product Work Cost Master",
+      "usage_scenarios": ["데이터 조회", "데이터 등록/수정", "이력 관리"],
+      "related_tables": []
+    }
+  }
+}
