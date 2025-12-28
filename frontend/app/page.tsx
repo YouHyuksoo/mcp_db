@@ -1,104 +1,125 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Database, Table, FileText, Activity, ChevronDown } from "lucide-react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import api from "@/lib/api"
-import { HealthStatus } from "@/lib/types"
-import { DatabaseList } from "@/components/dashboard/DatabaseList"
-import { PatternList } from "@/components/dashboard/PatternList"
-import { Header } from "@/components/layout/Header"
+import { useEffect, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Database, Table, FileText, Activity, ChevronDown } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import api from "@/lib/api";
+import {
+  HealthStatus,
+  RegisteredDatabase as ApiRegisteredDatabase,
+} from "@/lib/types";
+import { DatabaseList } from "@/components/dashboard/DatabaseList";
+import { PatternList } from "@/components/dashboard/PatternList";
+import { Header } from "@/components/layout/Header";
 
-interface RegisteredDatabase {
-  database_sid: string
-  schema_name: string
-  table_count: number
-  last_updated?: string
-  connection_status: string
+interface RegisteredDatabase extends ApiRegisteredDatabase {
+  table_count: number;
+  last_updated?: string;
+  connection_status: string;
 }
 
 interface DatabaseStats {
-  metadata_count: number
-  patterns_count: number
-  business_rules_count: number
+  metadata_count: number;
+  patterns_count: number;
+  business_rules_count: number;
 }
 
 export default function Dashboard() {
-  const [registeredDatabases, setRegisteredDatabases] = useState<RegisteredDatabase[]>([])
-  const [selectedDbKey, setSelectedDbKey] = useState<string>("")
-  const [dbStats, setDbStats] = useState<DatabaseStats | null>(null)
-  const [health, setHealth] = useState<HealthStatus | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [registeredDatabases, setRegisteredDatabases] = useState<
+    RegisteredDatabase[]
+  >([]);
+  const [selectedDbKey, setSelectedDbKey] = useState<string>("");
+  const [dbStats, setDbStats] = useState<DatabaseStats | null>(null);
+  const [health, setHealth] = useState<HealthStatus | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // 등록된 데이터베이스 목록 가져오기
   const fetchRegisteredDatabases = async () => {
     try {
-      const response = await api.databases.list()
-      setRegisteredDatabases(response.databases)
+      const response = await api.databases.list();
+      // API 응답을 로컬 타입에 맞게 변환 (기본값 추가)
+      const databases: RegisteredDatabase[] = response.databases.map((db) => ({
+        ...db,
+        table_count: 0, // TODO: Backend API에서 실제 테이블 수 가져오기
+        connection_status: db.is_connected ? "active" : "inactive",
+      }));
+      setRegisteredDatabases(databases);
 
       // 첫 번째 DB를 자동 선택
-      if (response.databases.length > 0 && !selectedDbKey) {
-        const firstDb = response.databases[0]
-        setSelectedDbKey(`${firstDb.database_sid}:${firstDb.schema_name}`)
+      if (databases.length > 0 && !selectedDbKey) {
+        const firstDb = databases[0];
+        setSelectedDbKey(`${firstDb.database_sid}:${firstDb.schema_name}`);
       }
     } catch (err) {
-      console.error("Failed to fetch registered databases:", err)
+      console.error("Failed to fetch registered databases:", err);
     }
-  }
+  };
 
   // 선택된 DB의 통계 가져오기
   const fetchDatabaseStats = async (dbSid: string, schemaName: string) => {
     try {
-      setLoading(true)
+      setLoading(true);
       // TODO: Backend API에 database_sid와 schema_name으로 필터링된 통계 요청
       // 현재는 임시로 전체 통계를 가져옴
-      const summary = await api.dashboard.getSummary()
+      const summary = await api.dashboard.getSummary();
 
       // 선택된 DB에 해당하는 데이터만 필터링
       const selectedDb = registeredDatabases.find(
-        db => db.database_sid === dbSid && db.schema_name === schemaName
-      )
+        (db) => db.database_sid === dbSid && db.schema_name === schemaName
+      );
 
       if (selectedDb) {
         setDbStats({
           metadata_count: selectedDb.table_count,
           patterns_count: summary.vector_db_stats.patterns_count,
-          business_rules_count: summary.vector_db_stats.business_rules_count
-        })
+          business_rules_count: summary.vector_db_stats.business_rules_count,
+        });
       }
     } catch (err) {
-      console.error("Failed to fetch database stats:", err)
+      console.error("Failed to fetch database stats:", err);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     const init = async () => {
       try {
-        const healthData = await api.health.check()
-        setHealth(healthData)
-        await fetchRegisteredDatabases()
+        const healthData = await api.health.check();
+        setHealth(healthData);
+        await fetchRegisteredDatabases();
       } catch (err) {
-        console.error("Failed to initialize:", err)
-        setError("초기 데이터를 불러오는데 실패했습니다.")
+        console.error("Failed to initialize:", err);
+        setError("초기 데이터를 불러오는데 실패했습니다.");
       }
-    }
-    init()
-  }, [])
+    };
+    init();
+  }, []);
 
   useEffect(() => {
     if (selectedDbKey) {
-      const [dbSid, schemaName] = selectedDbKey.split(":")
-      fetchDatabaseStats(dbSid, schemaName)
+      const [dbSid, schemaName] = selectedDbKey.split(":");
+      fetchDatabaseStats(dbSid, schemaName);
     }
-  }, [selectedDbKey, registeredDatabases])
+  }, [selectedDbKey, registeredDatabases]);
 
-  const selectedDb = registeredDatabases.find(db =>
-    `${db.database_sid}:${db.schema_name}` === selectedDbKey
-  )
+  const selectedDb = registeredDatabases.find(
+    (db) => `${db.database_sid}:${db.schema_name}` === selectedDbKey
+  );
 
   const stats = [
     {
@@ -131,7 +152,7 @@ export default function Dashboard() {
       icon: FileText,
       status: "info",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -159,7 +180,7 @@ export default function Dashboard() {
                 </SelectTrigger>
                 <SelectContent>
                   {registeredDatabases.map((db) => {
-                    const key = `${db.database_sid}:${db.schema_name}`
+                    const key = `${db.database_sid}:${db.schema_name}`;
                     return (
                       <SelectItem key={key} value={key}>
                         <div className="flex items-center justify-between w-full">
@@ -169,7 +190,7 @@ export default function Dashboard() {
                           </span>
                         </div>
                       </SelectItem>
-                    )
+                    );
                   })}
                 </SelectContent>
               </Select>
@@ -212,15 +233,18 @@ export default function Dashboard() {
                   </CardTitle>
                   <div className="text-xs text-muted-foreground">
                     {selectedDb.last_updated &&
-                      `마지막 업데이트: ${new Date(selectedDb.last_updated).toLocaleString("ko-KR")}`
-                    }
+                      `마지막 업데이트: ${new Date(
+                        selectedDb.last_updated
+                      ).toLocaleString("ko-KR")}`}
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-4 gap-4 text-sm">
                   <div>
-                    <p className="text-muted-foreground text-xs">Database SID</p>
+                    <p className="text-muted-foreground text-xs">
+                      Database SID
+                    </p>
                     <p className="font-medium">{selectedDb.database_sid}</p>
                   </div>
                   <div>
@@ -233,7 +257,9 @@ export default function Dashboard() {
                   </div>
                   <div>
                     <p className="text-muted-foreground text-xs">연결 상태</p>
-                    <p className="font-medium">{selectedDb.connection_status}</p>
+                    <p className="font-medium">
+                      {selectedDb.connection_status}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -242,9 +268,12 @@ export default function Dashboard() {
             {/* Stats Grid */}
             <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {stats.map((stat) => {
-                const Icon = stat.icon
+                const Icon = stat.icon;
                 return (
-                  <Card key={stat.title} className="transition-all hover:shadow-md">
+                  <Card
+                    key={stat.title}
+                    className="transition-all hover:shadow-md"
+                  >
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                       <CardTitle className="text-xs font-medium text-muted-foreground">
                         {stat.title}
@@ -277,7 +306,7 @@ export default function Dashboard() {
                       </div>
                     </CardContent>
                   </Card>
-                )
+                );
               })}
             </div>
 
@@ -296,11 +325,15 @@ export default function Dashboard() {
                     <p className="font-medium">2.0.0</p>
                   </div>
                   <div className="space-y-0.5">
-                    <p className="text-muted-foreground text-[10px]">임베딩 모델</p>
+                    <p className="text-muted-foreground text-[10px]">
+                      임베딩 모델
+                    </p>
                     <p className="font-medium">MiniLM-L6</p>
                   </div>
                   <div className="space-y-0.5">
-                    <p className="text-muted-foreground text-[10px]">Vector DB</p>
+                    <p className="text-muted-foreground text-[10px]">
+                      Vector DB
+                    </p>
                     <p className="font-medium">ChromaDB</p>
                   </div>
                   <div className="space-y-0.5">
@@ -308,11 +341,15 @@ export default function Dashboard() {
                     <p className="font-medium">:8000</p>
                   </div>
                   <div className="space-y-0.5">
-                    <p className="text-muted-foreground text-[10px]">Frontend</p>
+                    <p className="text-muted-foreground text-[10px]">
+                      Frontend
+                    </p>
                     <p className="font-medium">Next.js 16</p>
                   </div>
                   <div className="space-y-0.5">
-                    <p className="text-muted-foreground text-[10px]">MCP Server</p>
+                    <p className="text-muted-foreground text-[10px]">
+                      MCP Server
+                    </p>
                     <p className="font-medium">17 Tools</p>
                   </div>
                   <div className="space-y-0.5">
@@ -332,5 +369,5 @@ export default function Dashboard() {
         )}
       </div>
     </div>
-  )
+  );
 }

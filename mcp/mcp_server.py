@@ -27,7 +27,6 @@ from oracle_connector import OracleConnector
 from credentials_manager import CredentialsManager
 from metadata_manager import MetadataManager
 from sql_executor import SQLExecutor
-from tnsnames_parser import TNSNamesParser
 from vector_db_client import get_vector_db
 
 # 로깅 설정
@@ -52,13 +51,9 @@ credentials_manager = CredentialsManager(credentials_dir=str(credentials_dir))
 metadata_manager = MetadataManager(
     metadata_dir=str(metadata_dir)
 )
-tnsnames_parser = TNSNamesParser()
 
 # DB 커넥터 캐시
 db_connectors = {}
-
-# tnsnames 캐시 파일 경로
-TNSNAMES_CACHE_FILE = Path(__file__).parent.parent / "tnsnames_cache.json"
 
 
 def get_connector(database_sid: str) -> OracleConnector:
@@ -107,12 +102,17 @@ async def list_tools() -> list:
         ),
         types.Tool(
             name="list_available_databases",
-            description="tnsnames.ora에서 파싱된 DB 목록 조회",
-            inputSchema={"type": "object", "properties": {}}
+            description="이미 등록된 데이터베이스 목록 조회",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "keyword": {"type": "string", "description": "검색 키워드 (선택, DB SID에서 검색)"}
+                }
+            }
         ),
         types.Tool(
             name="connect_database",
-            description="특정 DB에 연결 (tnsnames에서 호스트/포트/서비스명 자동 로드)",
+            description="등록된 DB에 연결 및 접속정보 저장",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -389,37 +389,35 @@ async def list_available_databases(
     keyword: str = ""
 ) -> list[dict]:
     """
-    tnsnames.ora에서 추출한 DB 목록 조회
+    이미 등록된 데이터베이스 목록 조회
 
     Args:
-        keyword: 검색 키워드 (선택, DB명 또는 설명에서 검색)
+        keyword: 검색 키워드 (선택, DB SID에서 검색)
     """
     try:
-        import json
+        # 등록된 credentials 목록 조회
+        registered_dbs = credentials_manager.list_databases()
 
-        # 캐시 파일 확인
-        if not TNSNAMES_CACHE_FILE.exists():
+        if not registered_dbs:
             return [{
                 "type": "text",
-                "text": "❌ tnsnames 캐시가 없습니다.\nBackend Web UI에서 tnsnames.ora 파일을 업로드하세요."
+                "text": "❌ 등록된 데이터베이스가 없습니다.\n\n"
+                       "다음 중 하나를 시도하세요:\n"
+                       "1. `register_database_credentials` Tool로 수동 등록\n"
+                       "2. Backend Web UI에서 tnsnames.ora 파일을 파싱하여 등록"
             }]
-
-        # 캐시 파일 읽기
-        with open(TNSNAMES_CACHE_FILE, 'r', encoding='utf-8') as f:
-            databases = json.load(f)
 
         # 키워드 필터링
         if keyword:
             keyword_lower = keyword.lower()
-            filtered = {
-                db_sid: info for db_sid, info in databases.items()
-                if keyword_lower in db_sid.lower() or
-                   keyword_lower in info.get('description', '').lower()
-            }
+            filtered = [
+                db_sid for db_sid in registered_dbs
+                if keyword_lower in db_sid.lower()
+            ]
         else:
-            filtered = databases
+            filtered = registered_dbs
 
-        result_text = f"📊 사용 가능한 데이터베이스 목록\n\n"
+        result_text = f"📊 등록된 데이터베이스 목록\n\n"
 
         if keyword:
             result_text += f"**검색 키워드**: {keyword}\n"
@@ -429,21 +427,24 @@ async def list_available_databases(
 
         # DB 목록 (최대 20개만 표시)
         count = 0
-        for db_sid in sorted(filtered.keys()):
+        for db_sid in sorted(filtered):
             if count >= 20:
                 result_text += f"\n... 외 {len(filtered) - 20}개 더 있음\n"
                 break
 
-            info = filtered[db_sid]
-            result_text += f"### {db_sid}\n"
-            if info.get('description'):
-                result_text += f"  - **설명**: {info['description']}\n"
-            result_text += f"  - **호스트**: {info['host']}:{info['port']}\n"
-            result_text += f"  - **서비스명**: {info['service_name']}\n"
-            result_text += f"  - **연결방식**: {info['connection_type']}\n\n"
+            try:
+                # 등록된 credentials 정보 조회 (비밀번호 제외)
+                creds = credentials_manager.load_credentials(db_sid)
+                result_text += f"### {db_sid}\n"
+                result_text += f"  - **호스트**: {creds['host']}:{creds['port']}\n"
+                result_text += f"  - **서비스명**: {creds['service_name']}\n"
+                result_text += f"  - **사용자**: {creds.get('user', 'N/A')}\n\n"
+            except Exception as e:
+                result_text += f"### {db_sid}\n"
+                result_text += f"  - **상태**: 정보 조회 실패\n\n"
             count += 1
 
-        result_text += "\n**다음 단계**: 사용할 DB를 선택하고 `connect_database` Tool로 연결하세요."
+        result_text += "\n**다음 단계**: `connect_database` Tool로 연결하거나 `register_database_credentials` Tool로 새로 등록하세요."
 
         return [{
             "type": "text",
@@ -469,33 +470,31 @@ async def connect_database(
     password: str
 ) -> list[dict]:
     """
-    tnsnames에서 추출한 DB에 연결 및 접속정보 저장
+    DB에 연결 및 접속정보 저장 (이미 등록된 credentials 사용)
 
     Args:
-        database_sid: tnsnames의 DB SID (예: SOLUM, JSTECH)
+        database_sid: DB SID (예: SOLUM, JSTECH)
         user: Oracle 사용자명 (예: scott, system)
         password: Oracle 비밀번호
     """
     try:
-        import json
-
-        # 캐시에서 DB 정보 조회
-        if not TNSNAMES_CACHE_FILE.exists():
+        # 등록된 credentials 확인
+        try:
+            existing_credentials = credentials_manager.load_credentials(database_sid)
+            db_info = {
+                'host': existing_credentials['host'],
+                'port': existing_credentials['port'],
+                'service_name': existing_credentials['service_name']
+            }
+            logger.info(f"이미 등록된 credentials 사용: {database_sid}")
+        except Exception as e:
+            # 등록된 credentials 없음
             return [{
                 "type": "text",
-                "text": "❌ tnsnames 캐시가 없습니다.\nBackend Web UI에서 tnsnames.ora 파일을 업로드하세요."
+                "text": f"❌ DB를 찾을 수 없습니다: {database_sid}\n\n"
+                       f"먼저 `register_database_credentials` Tool로 DB 접속 정보를 등록하세요.\n"
+                       f"또는 Backend Web UI에서 tnsnames.ora 파일을 파싱하여 등록할 수 있습니다."
             }]
-
-        with open(TNSNAMES_CACHE_FILE, 'r', encoding='utf-8') as f:
-            databases = json.load(f)
-
-        if database_sid not in databases:
-            return [{
-                "type": "text",
-                "text": f"❌ DB를 찾을 수 없습니다: {database_sid}\n`list_available_databases` Tool로 DB 목록을 확인하세요."
-            }]
-
-        db_info = databases[database_sid]
 
         # 연결 테스트
         connector = OracleConnector(
@@ -506,9 +505,13 @@ async def connect_database(
             password=password
         )
 
-        connector.connect()
+        if not connector.connect():
+            return [{
+                "type": "text",
+                "text": f"❌ DB 연결 실패: {database_sid}\n\n사용자명과 비밀번호를 확인하세요."
+            }]
 
-        # 연결 성공 시 credentials 저장
+        # 연결 성공 시 credentials 저장 (비밀번호 업데이트 포함)
         credentials = {
             'host': db_info['host'],
             'port': db_info['port'],
@@ -525,8 +528,6 @@ async def connect_database(
             result_text += f"**호스트**: {db_info['host']}:{db_info['port']}\n"
             result_text += f"**서비스명**: {db_info['service_name']}\n"
             result_text += f"**사용자**: {user}\n"
-            if db_info.get('description'):
-                result_text += f"**설명**: {db_info['description']}\n"
             result_text += f"\n✅ 접속 정보가 암호화되어 저장되었습니다.\n"
             result_text += f"이제 이 DB를 자동으로 사용할 수 있습니다.\n\n"
             result_text += "**다음 단계**: \n"

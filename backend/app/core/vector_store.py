@@ -12,6 +12,12 @@ import os
 
 logger = logging.getLogger(__name__)
 
+# ChromaDB telemetry 오류 필터링
+logging.getLogger("chromadb.telemetry.product.posthog").setLevel(logging.CRITICAL)
+
+# ChromaDB telemetry 완전 비활성화 (환경 변수)
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
+
 
 class VectorStore:
     """ChromaDB Vector Store for semantic search"""

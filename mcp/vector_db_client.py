@@ -8,8 +8,15 @@ from chromadb.config import Settings
 from typing import List, Dict, Any, Optional
 import logging
 from pathlib import Path
+import os
 
 logger = logging.getLogger(__name__)
+
+# ChromaDB telemetry 오류 필터링
+logging.getLogger("chromadb.telemetry.product.posthog").setLevel(logging.CRITICAL)
+
+# ChromaDB telemetry 완전 비활성화 (환경 변수)
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 
 
 class VectorDBClient:
@@ -35,9 +42,16 @@ class VectorDBClient:
                 )
             )
 
-            # Get collections
-            self.metadata_collection = self.client.get_collection("oracle_metadata")
-            logger.info(f"✓ Vector DB connected: {self.metadata_collection.count()} tables")
+            # Get collections (컬렉션이 없으면 생성하지 않고 None으로 설정)
+            try:
+                self.metadata_collection = self.client.get_collection("oracle_metadata")
+                table_count = self.metadata_collection.count()
+                logger.info(f"✓ Vector DB connected: {table_count} tables in oracle_metadata collection")
+            except Exception as collection_error:
+                # 컬렉션이 없는 경우
+                logger.warning(f"⚠️ oracle_metadata collection not found: {collection_error}")
+                logger.warning("   → Backend를 통해 먼저 데이터를 학습시켜야 합니다.")
+                self.metadata_collection = None
 
         except Exception as e:
             logger.error(f"✗ Vector DB connection failed: {e}")
