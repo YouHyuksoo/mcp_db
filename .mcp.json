@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "oracle-nlsql": {
+      "command": "D:\\Project\\mcp_db\\venv\\Scripts\\python.exe",
+      "args": [
+        "D:\\Project\\mcp_db\\mcp\\mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "D:\\Project\\mcp_db\\mcp",
+        "ENCRYPTION_KEY": "vbyI1_o9ho1Ayv_bTsLXdpEWqGnDdIgMGDSKMDLHHNU="
+      }
+    }
+  }
+}

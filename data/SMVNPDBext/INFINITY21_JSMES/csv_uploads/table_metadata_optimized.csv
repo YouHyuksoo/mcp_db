@@ -1,0 +1,654 @@
+﻿table_name,table_description_ko,table_description_en,domain,keywords,sample_queries
+IB_LINE_MASTER,라인 마스터 테이블. 라인 정보를 관리한다.,Line master table. Manages line information.,SMT/실장,LINE MASTER SMT 라인 마스터 실장,라인 정보 조회|라인 목록|SMT 현황
+IB_MACHINE_LOCATION,설비 위치 테이블. 설비 관련 정보를 관리한다.,Machine Location table. Manages machine location information.,SMT/실장,LOCATION MACHINE SMT 설비 실장 위치,설비 정보 조회|설비 현황|SMT 현황
+IB_MATERIAL_LOCATION,자재 위치 테이블. 자재 관련 정보를 관리한다.,Material Location table. Manages material location information.,SMT/실장,LOCATION MATERIAL SMT 실장 위치 자재,자재 정보 조회|자재 현황|SMT 현황
+IB_MNT_AI_CSV,실장 AI CSV 데이터 테이블. 실장 관련 정보를 관리한다.,Mounting AI CSV Data table. Manages mounting ai csv data information.,SMT/실장,AI CSV CSV 데이터 MNT SMT 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_BLOCKDATA,실장 BLOCKDATA 테이블. 실장 관련 정보를 관리한다.,Mounting BLOCKDATA table. Manages mounting blockdata information.,SMT/실장,BLOCKDATA MNT SMT 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_CHIPDATA,실장 CHIPDATA 테이블. 실장 관련 정보를 관리한다.,Mounting CHIPDATA table. Manages mounting chipdata information.,SMT/실장,CHIPDATA MNT SMT 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_CHIPDATA_NMP,실장 CHIPDATA NMP 테이블. 실장 관련 정보를 관리한다.,Mounting CHIPDATA NMP table. Manages mounting chipdata nmp information.,SMT/실장,CHIPDATA MNT NMP SMT 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_PARTLIB_COMPARE_MASTER,실장 부품 라이브러리 비교 마스터 테이블. 실장 부품 라이브러리 비교 정보를 관리한다.,Mounting Part Library Compare master table. Manages mounting part library compare information.,SMT/실장,COMPARE MASTER MNT PARTLIB SMT 마스터 부품 라이브러리 비교 실장,실장 정보 조회|실장 목록|SMT 현황
+IB_MNT_PARTLIB_MASTER,실장 부품 라이브러리 마스터 테이블. 실장 부품 라이브러리 정보를 관리한다.,Mounting Part Library master table. Manages mounting part library information.,SMT/실장,MASTER MNT PARTLIB SMT 마스터 부품 라이브러리 실장,실장 정보 조회|실장 목록|SMT 현황
+IB_MNT_PARTLIB_MASTER_WORK,실장 부품 라이브러리 마스터 테이블. 실장 부품 라이브러리 정보를 관리한다.,Mounting Part Library master table. Manages mounting part library information.,SMT/실장,MASTER MNT PARTLIB SMT WORK 마스터 부품 라이브러리 실장 작업,실장 정보 조회|실장 목록|SMT 현황
+IB_MNT_PARTSLIB,실장 부품 라이브러리 테이블. 실장 관련 정보를 관리한다.,Mounting Parts Library table. Manages mounting parts library information.,SMT/실장,MNT PARTSLIB SMT 부품 라이브러리 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_PARTSLIB_BM,실장 부품 라이브러리 BM 테이블. 실장 관련 정보를 관리한다.,Mounting Parts Library BM table. Manages mounting parts library bm information.,SMT/실장,BM MNT PARTSLIB SMT 부품 라이브러리 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_PARTSLIB_NMP,실장 부품 라이브러리 NMP 테이블. 실장 관련 정보를 관리한다.,Mounting Parts Library NMP table. Manages mounting parts library nmp information.,SMT/실장,MNT NMP PARTSLIB SMT 부품 라이브러리 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_PART_INFORMATION,실장 부품 INFORMATION 테이블. 실장 관련 정보를 관리한다.,Mounting Part INFORMATION table. Manages mounting part information information.,SMT/실장,INFORMATION MNT PART SMT 부품 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_PLANDATA,실장 계획 데이터 테이블. 실장 관련 정보를 관리한다.,Mounting Plan Data table. Manages mounting plan data information.,SMT/실장,MNT PLANDATA SMT 계획 데이터 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_POSITIONDATA,실장 POSITIONDATA 테이블. 실장 관련 정보를 관리한다.,Mounting POSITIONDATA table. Manages mounting positiondata information.,SMT/실장,MNT POSITIONDATA SMT 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_POSITIONDATA_NPM,실장 POSITIONDATA NPM 테이블. 실장 관련 정보를 관리한다.,Mounting POSITIONDATA NPM table. Manages mounting positiondata npm information.,SMT/실장,MNT NPM POSITIONDATA SMT 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_STEP_INFOR,실장 스텝 정보 테이블. 실장 관련 정보를 관리한다.,Mounting Step Information table. Manages mounting step information information.,SMT/실장,INFOR MNT SMT STEP 스텝 실장 정보,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_STOCKDATA,실장 STOCKDATA 테이블. 실장 관련 정보를 관리한다.,Mounting STOCKDATA table. Manages mounting stockdata information.,SMT/실장,MNT SMT STOCKDATA 실장,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_TAPE_FEEDER_INFOR,실장 테이프 피더 정보 테이블. 실장 관련 정보를 관리한다.,Mounting Tape Feeder table. Manages mounting tape feeder information.,SMT/실장,FEEDER INFOR MNT SMT TAPE 실장 정보 테이프 피더,실장 정보 조회|실장 현황|SMT 현황
+IB_MNT_YAMAHA_CSV,실장 야마하 CSV 데이터 테이블. 실장 관련 정보를 관리한다.,Mounting Yamaha CSV Data table. Manages mounting yamaha csv data information.,SMT/실장,CSV CSV 데이터 MNT SMT YAMAHA 실장 야마하,실장 정보 조회|실장 현황|SMT 현황
+IB_MONITORING_MST,모니터링 마스터 테이블. 모니터링 정보를 관리한다.,Monitoring master table. Manages monitoring information.,SMT/실장,MONITORING MST SMT 마스터 모니터링 실장,모니터링 정보 조회|모니터링 목록|SMT 현황
+IB_PRODUCT_PLANDATA,제품 계획 데이터 테이블. 제품 관련 정보를 관리한다.,Product Plan Data table. Manages product plan data information.,SMT/실장,PLANDATA PRODUCT SMT 계획 데이터 실장 제품,제품 정보 조회|제품 현황|SMT 현황
+IB_PRODUCT_PLANDATA_BACKUP,제품 계획 데이터 백업 테이블. 변경 전 제품 계획 데이터 데이터를 보관한다.,Product Plan Data backup table. Stores backup of product plan data data.,SMT/실장,BACKUP PLANDATA PRODUCT SMT 계획 데이터 백업 실장 제품,제품 정보 조회|제품 현황|SMT 현황
+IB_RECYCLE_CHECKHIST,재활용 CHECKHIST 테이블. 재활용 관련 정보를 관리한다.,Recycle CHECKHIST table. Manages recycle checkhist information.,SMT/실장,CHECKHIST RECYCLE SMT 실장 재활용,재활용 정보 조회|재활용 현황|SMT 현황
+IB_SMT_BOM_IMAGE,SMT BOM 이미지 테이블. SMT 관련 정보를 관리한다.,SMT BOM Image table. Manages smt bom image information.,SMT/실장,BOM IMAGE SMT 실장 이미지,SMT 정보 조회|SMT 현황|SMT 현황
+IB_SMT_CHECKHIST,SMT CHECKHIST 테이블. SMT 관련 정보를 관리한다.,SMT CHECKHIST table. Manages smt checkhist information.,SMT/실장,CHECKHIST SMT 실장,SMT 정보 조회|SMT 현황|SMT 현황
+IB_SMT_FEEDER_SHAFT,SMT 피더 샤프트 테이블. SMT 관련 정보를 관리한다.,SMT Feeder Shaft table. Manages smt feeder shaft information.,SMT/실장,FEEDER SHAFT SMT 샤프트 실장 피더,SMT 정보 조회|SMT 현황|SMT 현황
+IB_SMT_FULLCHECK_TIME,SMT 전수검사 TIME 테이블. SMT 관련 정보를 관리한다.,SMT Full Check TIME table. Manages smt full check time information.,SMT/실장,FULLCHECK SMT TIME 실장 전수검사,SMT 검사 결과|SMT 검사 현황|SMT 현황
+IB_SMT_LINE_ONOFF_HISTORY,SMT 라인 ONOFF 이력 테이블. SMT 라인 ONOFF 변경/처리 이력을 기록한다.,SMT Line ONOFF history table. Records smt line onoff change history.,SMT/실장,HISTORY LINE ONOFF SMT 라인 실장 이력,SMT 이력 조회|SMT 변경 이력|SMT 현황
+IB_SMT_PRODUCT_MASTER_PLAN,SMT 제품 마스터 테이블. SMT 제품 정보를 관리한다.,SMT Product master table. Manages smt product information.,SMT/실장,MASTER PLAN PRODUCT SMT 계획 마스터 실장 제품,SMT 계획 조회|당일 SMT 계획|SMT 현황
+IB_SMT_SW,SMT SW 테이블. SMT 관련 정보를 관리한다.,SMT SW table. Manages smt sw information.,SMT/실장,SMT SW 실장,SMT 정보 조회|SMT 현황|SMT 현황
+ICOM_CUSTOMER,고객 테이블. 고객 관련 정보를 관리한다.,Customer table. Manages customer information.,공통,CUSTOMER 고객 공통 마스터,고객 정보 조회|고객 현황
+ICOM_CUSTOMER_COMPLAINTS,고객 COMPLAINTS 테이블. 고객 관련 정보를 관리한다.,Customer COMPLAINTS table. Manages customer complaints information.,공통,COMPLAINTS CUSTOMER 고객 공통 마스터,고객 정보 조회|고객 현황
+ICOM_CUSTOMER_DOCUMENT,고객 DOCUMENT 테이블. 고객 관련 정보를 관리한다.,Customer DOCUMENT table. Manages customer document information.,공통,CUSTOMER DOCUMENT 고객 공통 마스터,고객 정보 조회|고객 현황
+ICOM_DISPLAY_MESSAGE,DISPLAY 메시지 테이블. DISPLAY 관련 정보를 관리한다.,DISPLAY Message table. Manages display message information.,공통,DISPLAY MESSAGE 공통 마스터 메시지,DISPLAY 정보 조회|DISPLAY 현황
+ICOM_DOCUMENT,DOCUMENT 테이블. DOCUMENT 관련 정보를 관리한다.,DOCUMENT table. Manages document information.,공통,DOCUMENT 공통 마스터,DOCUMENT 정보 조회|DOCUMENT 현황
+ICOM_EMPLOYEE_ATTENDANCE,직원 ATTENDANCE 테이블. 직원 관련 정보를 관리한다.,Employee ATTENDANCE table. Manages employee attendance information.,공통,ATTENDANCE EMPLOYEE 공통 마스터 직원,직원 정보 조회|직원 현황
+ICOM_EMPLOYEE_MASTER,직원 마스터 테이블. 직원 정보를 관리한다.,Employee master table. Manages employee information.,공통,EMPLOYEE MASTER 공통 마스터 직원,직원 정보 조회|직원 목록
+ICOM_EXCEL,EXCEL 테이블. EXCEL 관련 정보를 관리한다.,EXCEL table. Manages excel information.,공통,EXCEL 공통 마스터,EXCEL 정보 조회|EXCEL 현황
+ICOM_EXCHANGE_RATE,EXCHANGE RATE 테이블. EXCHANGE 관련 정보를 관리한다.,EXCHANGE RATE table. Manages exchange rate information.,공통,EXCHANGE RATE 공통 마스터,EXCHANGE 정보 조회|EXCHANGE 현황
+ICOM_GATHERING_STATUS,GATHERING 상태 테이블. GATHERING 관련 정보를 관리한다.,GATHERING Status table. Manages gathering status information.,공통,GATHERING STATUS 공통 마스터 상태,GATHERING 정보 조회|GATHERING 현황
+ICOM_GATHERING_STATUS_HIST,GATHERING 상태 이력 테이블. GATHERING 상태 변경/처리 이력을 기록한다.,GATHERING Status history table. Records gathering status change history.,공통,GATHERING HIST STATUS 공통 마스터 상태 이력,GATHERING 이력 조회|GATHERING 변경 이력
+ICOM_INVENTORY_LOCATION,재고 위치 테이블. 재고 관련 정보를 관리한다.,Inventory Location table. Manages inventory location information.,공통,INVENTORY LOCATION 공통 마스터 위치 재고,재고 정보 조회|재고 현황
+ICOM_MACHINE_INSERT_LOG,설비 INSERT 로그 테이블. 설비 INSERT 변경/처리 이력을 기록한다.,Machine INSERT log table. Records machine insert change history.,공통,INSERT LOG MACHINE 공통 로그 마스터 설비,설비 이력 조회|설비 변경 이력
+ICOM_MES_MOVIE,MES MOVIE 테이블. MES 관련 정보를 관리한다.,MES MOVIE table. Manages mes movie information.,공통,MES MOVIE 공통 마스터,MES 정보 조회|MES 현황
+ICOM_MOUNTER_EVENT_UPLOAD,MOUNTER EVENT UPLOAD 테이블. MOUNTER 관련 정보를 관리한다.,MOUNTER EVENT UPLOAD table. Manages mounter event upload information.,공통,EVENT MOUNTER UPLOAD 공통 마스터,MOUNTER 정보 조회|MOUNTER 현황
+ICOM_OBJECT_DETECT,OBJECT DETECT 테이블. OBJECT 관련 정보를 관리한다.,OBJECT DETECT table. Manages object detect information.,공통,DETECT OBJECT 공통 마스터,OBJECT 정보 조회|OBJECT 현황
+ICOM_PBA_ACTUAL_RESULT,PBA 실적 실적 테이블. PBA 실적 실적 데이터를 기록한다.,PBA Actual result table. Stores pba actual result data.,공통,ACTUAL PBA RESULT 공통 마스터 실적,PBA 실적 조회|일일 PBA 실적
+ICOM_SUPPLIER,공급업체 테이블. 공급업체 관련 정보를 관리한다.,Supplier table. Manages supplier information.,공통,SUPPLIER 공급업체 공통 마스터,공급업체 정보 조회|공급업체 현황
+ICOM_SUPPLIER_BARCODE,공급업체 바코드 테이블. 공급업체 관련 정보를 관리한다.,Supplier Barcode table. Manages supplier barcode information.,공통,BARCODE SUPPLIER 공급업체 공통 마스터 바코드,공급업체 정보 조회|공급업체 현황
+ICOM_SUPPLIER_DATA,공급업체 데이터 테이블. 공급업체 관련 데이터를 저장한다.,Supplier data table. Stores supplier data.,공통,DATA SUPPLIER 공급업체 공통 데이터 마스터,공급업체 정보 조회|공급업체 현황
+ICOM_SUPPLIER_DOCUMENT,공급업체 DOCUMENT 테이블. 공급업체 관련 정보를 관리한다.,Supplier DOCUMENT table. Manages supplier document information.,공통,DOCUMENT SUPPLIER 공급업체 공통 마스터,공급업체 정보 조회|공급업체 현황
+ICOM_SYSTEM_ANALYSIS,시스템 분석 테이블. 시스템 관련 정보를 관리한다.,System Analysis table. Manages system analysis information.,공통,ANALYSIS SYSTEM 공통 마스터 분석 시스템,시스템 정보 조회|시스템 현황
+ICOM_TEMPERATURE_DATA,TEMPERATURE 데이터 테이블. TEMPERATURE 관련 데이터를 저장한다.,TEMPERATURE data table. Stores temperature data.,공통,DATA TEMPERATURE 공통 데이터 마스터,TEMPERATURE 정보 조회|TEMPERATURE 현황
+ICOM_TEMPERATURE_RAW,TEMPERATURE RAW 테이블. TEMPERATURE 관련 정보를 관리한다.,TEMPERATURE RAW table. Manages temperature raw information.,공통,RAW TEMPERATURE 공통 마스터,TEMPERATURE 정보 조회|TEMPERATURE 현황
+ICOM_WORKTIME_RANGES,WORKTIME RANGES 테이블. WORKTIME 관련 정보를 관리한다.,WORKTIME RANGES table. Manages worktime ranges information.,공통,RANGES WORKTIME 공통 마스터,WORKTIME 정보 조회|WORKTIME 현황
+IDZ_INTERLOCK_NG_HIS_DAY,INTERLOCK 불량 HIS DAY 테이블. INTERLOCK 관련 정보를 관리한다.,INTERLOCK NG HIS table. Manages interlock ng his information.,기타,DAY HIS INTERLOCK 불량,INTERLOCK 정보 조회|INTERLOCK 현황
+IDZ_INTERLOCK_NG_HIS_LINE,INTERLOCK 불량 HIS 라인 테이블. INTERLOCK 관련 정보를 관리한다.,INTERLOCK NG HIS table. Manages interlock ng his information.,기타,HIS INTERLOCK LINE 라인 불량,INTERLOCK 정보 조회|INTERLOCK 현황
+IDZ_INTERLOCK_NG_HIS_TOP10,INTERLOCK 불량 HIS TOP10 테이블. INTERLOCK 관련 정보를 관리한다.,INTERLOCK NG HIS table. Manages interlock ng his information.,기타,HIS INTERLOCK TOP10 불량,INTERLOCK 정보 조회|INTERLOCK 현황
+IDZ_INTERLOCK_NG_HIS_WORKSTAGE,INTERLOCK 불량 HIS 공정 테이블. INTERLOCK 관련 정보를 관리한다.,INTERLOCK NG HIS table. Manages interlock ng his information.,기타,HIS INTERLOCK WORKSTAGE 공정 불량,INTERLOCK 정보 조회|INTERLOCK 현황
+ID_CUSTOMER_SET_BOM,고객 SET BOM 테이블. 고객 관련 정보를 관리한다.,Customer SET BOM table. Manages customer set bom information.,BOM/설계,BOM CUSTOMER SET 고객 설계,고객 정보 조회|고객 현황
+ID_CUSTOMER_SET_BOM_EXCEL,고객 SET BOM EXCEL 테이블. 고객 관련 정보를 관리한다.,Customer SET BOM table. Manages customer set bom information.,BOM/설계,BOM CUSTOMER EXCEL SET 고객 설계,고객 정보 조회|고객 현황
+ID_ENG_BOM,설계 BOM 테이블. 설계 관련 정보를 관리한다.,Engineering BOM table. Manages engineering bom information.,BOM/설계,BOM ENG 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_CUSTOMER,설계 BOM 고객 테이블. 설계 관련 정보를 관리한다.,Engineering BOM Customer table. Manages engineering bom customer information.,BOM/설계,BOM CUSTOMER ENG 고객 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_DRAWING,설계 BOM 도면 테이블. 설계 관련 정보를 관리한다.,Engineering BOM Drawing table. Manages engineering bom drawing information.,BOM/설계,BOM DRAWING ENG 도면 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_ECO_WORKSPACE,설계 BOM ECO WORKSPACE 테이블. 설계 관련 정보를 관리한다.,Engineering BOM ECO table. Manages engineering bom eco information.,BOM/설계,BOM ECO ENG WORKSPACE 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_ECO_WORKSPACE_HIS,설계 BOM ECO WORKSPACE 테이블. 설계 관련 정보를 관리한다.,Engineering BOM ECO table. Manages engineering bom eco information.,BOM/설계,BOM ECO ENG HIS WORKSPACE 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_EXCEL,설계 BOM EXCEL 테이블. 설계 관련 정보를 관리한다.,Engineering BOM EXCEL table. Manages engineering bom excel information.,BOM/설계,BOM ENG EXCEL 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_EXCEL_2,설계 BOM EXCEL 테이블. 설계 관련 정보를 관리한다.,Engineering BOM EXCEL table. Manages engineering bom excel information.,BOM/설계,BOM ENG EXCEL 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_EXCEL_3,설계 BOM EXCEL 테이블. 설계 관련 정보를 관리한다.,Engineering BOM EXCEL table. Manages engineering bom excel information.,BOM/설계,BOM ENG EXCEL 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_EXCEL_ES,설계 BOM EXCEL ES 테이블. 설계 관련 정보를 관리한다.,Engineering BOM EXCEL table. Manages engineering bom excel information.,BOM/설계,BOM ENG ES EXCEL 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_EXCEL_LG,설계 BOM EXCEL LG 테이블. 설계 관련 정보를 관리한다.,Engineering BOM EXCEL table. Manages engineering bom excel information.,BOM/설계,BOM ENG EXCEL LG 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_EXCEL_LG_CPR1,설계 BOM EXCEL LG 테이블. 설계 관련 정보를 관리한다.,Engineering BOM EXCEL table. Manages engineering bom excel information.,BOM/설계,BOM CPR1 ENG EXCEL LG 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_EXCEL_LG_CPR2,설계 BOM EXCEL LG 테이블. 설계 관련 정보를 관리한다.,Engineering BOM EXCEL table. Manages engineering bom excel information.,BOM/설계,BOM CPR2 ENG EXCEL LG 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_IMPORT,설계 BOM IMPORT 테이블. 설계 관련 정보를 관리한다.,Engineering BOM IMPORT table. Manages engineering bom import information.,BOM/설계,BOM ENG IMPORT 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_LOOP_CHECK,설계 BOM LOOP 검사/확인 테이블. 설계 검사 결과를 기록한다.,Engineering BOM LOOP table. Manages engineering bom loop information.,BOM/설계,BOM CHECK ENG LOOP 검사 설계,설계 검사 결과|설계 검사 현황
+ID_ENG_BOM_MATERIAL_COST,설계 BOM 자재 COST 테이블. 설계 관련 정보를 관리한다.,Engineering BOM Material table. Manages engineering bom material information.,BOM/설계,BOM COST ENG MATERIAL 설계 자재,설계 정보 조회|설계 현황
+ID_ENG_BOM_SMT,설계 BOM SMT 테이블. 설계 관련 정보를 관리한다.,Engineering BOM SMT table. Manages engineering bom smt information.,BOM/설계,BOM ENG SMT 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_SMT_BACKUP,설계 BOM SMT 백업 테이블. 변경 전 설계 BOM SMT 데이터를 보관한다.,Engineering BOM SMT backup table. Stores backup of engineering bom smt data.,BOM/설계,BACKUP BOM ENG SMT 백업 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_SMT_BAK,설계 BOM SMT BAK 테이블. 설계 관련 정보를 관리한다.,Engineering BOM SMT table. Manages engineering bom smt information.,BOM/설계,BAK BOM ENG SMT 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_SMT_EXCEL,설계 BOM SMT EXCEL 테이블. 설계 관련 정보를 관리한다.,Engineering BOM SMT table. Manages engineering bom smt information.,BOM/설계,BOM ENG EXCEL SMT 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_SMT_NO_REPLACE,설계 BOM SMT NO 테이블. 설계 관련 정보를 관리한다.,Engineering BOM SMT table. Manages engineering bom smt information.,BOM/설계,BOM ENG NO REPLACE SMT 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_SMT_REPLACE,설계 BOM SMT REPLACE 테이블. 설계 관련 정보를 관리한다.,Engineering BOM SMT table. Manages engineering bom smt information.,BOM/설계,BOM ENG REPLACE SMT 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_TEMP,설계 BOM 온도 테이블. 설계 관련 정보를 관리한다.,Engineering BOM Temperature table. Manages engineering bom temperature information.,BOM/설계,BOM ENG TEMP 설계 온도,설계 정보 조회|설계 현황
+ID_ENG_BOM_UNIT,설계 BOM UNIT 테이블. 설계 관련 정보를 관리한다.,Engineering BOM UNIT table. Manages engineering bom unit information.,BOM/설계,BOM ENG UNIT 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_UNIT_QTY_ZERO,설계 BOM UNIT QTY 테이블. 설계 관련 정보를 관리한다.,Engineering BOM UNIT table. Manages engineering bom unit information.,BOM/설계,BOM ENG QTY UNIT ZERO 설계,설계 정보 조회|설계 현황
+ID_ENG_BOM_WORKSPACE,설계 BOM WORKSPACE 테이블. 설계 관련 정보를 관리한다.,Engineering BOM WORKSPACE table. Manages engineering bom workspace information.,BOM/설계,BOM ENG WORKSPACE 설계,설계 정보 조회|설계 현황
+ID_ITEM,품목 테이블. 품목 관련 정보를 관리한다.,Item table. Manages item information.,BOM/설계,BOM ITEM 설계 품목,품목 정보 조회|품목 현황
+ID_ITEM_CLASS,품목 CLASS 테이블. 품목 관련 정보를 관리한다.,Item CLASS table. Manages item class information.,BOM/설계,BOM CLASS ITEM 설계 품목,품목 정보 조회|품목 현황
+ID_ITEM_ES,품목 ES 테이블. 품목 관련 정보를 관리한다.,Item ES table. Manages item es information.,BOM/설계,BOM ES ITEM 설계 품목,품목 정보 조회|품목 현황
+ID_ITEM_HISTORY,품목 이력 테이블. 품목 변경/처리 이력을 기록한다.,Item history table. Records item change history.,BOM/설계,BOM HISTORY ITEM 설계 이력 품목,품목 이력 조회|품목 변경 이력
+ID_ITEM_IMAGE,품목 이미지 테이블. 품목 관련 정보를 관리한다.,Item Image table. Manages item image information.,BOM/설계,BOM IMAGE ITEM 설계 이미지 품목,품목 정보 조회|품목 현황
+ID_ITEM_OTP_MASTER,품목 OTP 마스터 테이블. 품목 OTP 정보를 관리한다.,Item OTP master table. Manages item otp information.,BOM/설계,BOM ITEM MASTER OTP 마스터 설계 품목,품목 정보 조회|품목 목록
+ID_ITEM_REPLACE,품목 REPLACE 테이블. 품목 관련 정보를 관리한다.,Item REPLACE table. Manages item replace information.,BOM/설계,BOM ITEM REPLACE 설계 품목,품목 정보 조회|품목 현황
+ID_ITEM_REPLACE_TEMP,품목 REPLACE 온도 테이블. 품목 관련 정보를 관리한다.,Item REPLACE Temperature table. Manages item replace temperature information.,BOM/설계,BOM ITEM REPLACE TEMP 설계 온도 품목,품목 정보 조회|품목 현황
+ID_MFS_BOM,MFS BOM 테이블. MFS 관련 정보를 관리한다.,MFS BOM table. Manages mfs bom information.,BOM/설계,BOM MFS 설계,MFS 정보 조회|MFS 현황
+ID_MFS_BOM_TEMP,MFS BOM 온도 테이블. MFS 관련 정보를 관리한다.,MFS BOM Temperature table. Manages mfs bom temperature information.,BOM/설계,BOM MFS TEMP 설계 온도,MFS 정보 조회|MFS 현황
+ID_PRODUCT_CLASS,제품 CLASS 테이블. 제품 관련 정보를 관리한다.,Product CLASS table. Manages product class information.,BOM/설계,BOM CLASS PRODUCT 설계 제품,제품 정보 조회|제품 현황
+ID_USER,사용자 테이블. 사용자 관련 정보를 관리한다.,User table. Manages user information.,BOM/설계,BOM USER 사용자 설계,사용자 정보 조회|사용자 현황
+IF_KEYT_KEYITEM,KEYT KEYITEM 테이블. KEYT 관련 정보를 관리한다.,KEYT KEYITEM table. Manages keyt keyitem information.,기타,KEYITEM KEYT,KEYT 정보 조회|KEYT 현황
+IF_KF_MATERIAL_LIST,KF 자재 LIST 테이블. KF 관련 정보를 관리한다.,KF Material LIST table. Manages kf material list information.,기타,KF LIST MATERIAL 자재,KF 정보 조회|KF 현황
+IMAN_BRING_IN,BRING IN 테이블. BRING 관련 정보를 관리한다.,BRING IN table. Manages bring in information.,기타,BRING IN,BRING 정보 조회|BRING 현황
+IMAN_CARRYING_OUT,CARRYING OUT 테이블. CARRYING 관련 정보를 관리한다.,CARRYING OUT table. Manages carrying out information.,기타,CARRYING OUT,CARRYING 정보 조회|CARRYING 현황
+IMCN_FIXASSET,FIXASSET 테이블. FIXASSET 관련 정보를 관리한다.,FIXASSET table. Manages fixasset information.,설비/보전,FIXASSET 설비 장비,FIXASSET 정보 조회|FIXASSET 현황
+IMCN_JIG,지그 테이블. 지그 관련 정보를 관리한다.,JIG table. Manages jig information.,설비/보전,JIG 설비 장비 지그,지그 정보 조회|지그 현황
+IMCN_JIG_APPLY_MODEL,지그 APPLY 모델 테이블. 지그 관련 정보를 관리한다.,JIG APPLY Model table. Manages jig apply model information.,설비/보전,APPLY JIG MODEL 모델 설비 장비 지그,지그 정보 조회|지그 현황
+IMCN_JIG_BACKUPBLOCK_CHECK,지그 BACKUPBLOCK 검사/확인 테이블. 지그 검사 결과를 기록한다.,JIG BACKUPBLOCK Check table. Manages jig backupblock check information.,설비/보전,BACKUPBLOCK CHECK JIG 검사 설비 장비 지그,지그 검사 결과|지그 검사 현황
+IMCN_JIG_CABLE,지그 CABLE 테이블. 지그 관련 정보를 관리한다.,JIG CABLE table. Manages jig cable information.,설비/보전,CABLE JIG 설비 장비 지그,지그 정보 조회|지그 현황
+IMCN_JIG_FEEDER_ADJUST,지그 피더 조정 테이블. 지그 관련 정보를 관리한다.,JIG Feeder Adjustment table. Manages jig feeder adjustment information.,설비/보전,ADJUST FEEDER JIG 설비 장비 조정 지그 피더,지그 정보 조회|지그 현황
+IMCN_JIG_INPUT_HIST,지그 INPUT 이력 테이블. 지그 INPUT 변경/처리 이력을 기록한다.,JIG INPUT history table. Records jig input change history.,설비/보전,HIST INPUT JIG 설비 이력 장비 지그,지그 이력 조회|지그 변경 이력
+IMCN_JIG_ISSUE,지그 출고 테이블. 지그 관련 정보를 관리한다.,JIG Issue table. Manages jig issue information.,설비/보전,ISSUE JIG 설비 장비 지그 출고,지그 정보 조회|지그 현황
+IMCN_JIG_MASK_CHECK,지그 MASK 검사/확인 테이블. 지그 검사 결과를 기록한다.,JIG MASK Check table. Manages jig mask check information.,설비/보전,CHECK JIG MASK 검사 설비 장비 지그,지그 검사 결과|지그 검사 현황
+IMCN_JIG_PM_MASTER,지그 예방보전 마스터 테이블. 지그 예방보전 정보를 관리한다.,JIG Preventive Maintenance master table. Manages jig preventive maintenance information.,설비/보전,JIG MASTER 마스터 설비 예방보전 장비 지그,지그 정보 조회|지그 목록
+IMCN_JIG_PM_MASTER_HIST,지그 예방보전 마스터 테이블. 지그 예방보전 정보를 관리한다.,JIG Preventive Maintenance master table. Manages jig preventive maintenance information.,설비/보전,HIST JIG MASTER 마스터 설비 예방보전 이력 장비 지그,지그 이력 조회|지그 변경 이력
+IMCN_JIG_REPAIR,지그 수리 테이블. 지그 관련 정보를 관리한다.,JIG Repair table. Manages jig repair information.,설비/보전,JIG REPAIR 설비 수리 장비 지그,지그 정보 조회|지그 현황
+IMCN_JIG_REPAIR_IMAGE,지그 수리 이미지 테이블. 지그 관련 정보를 관리한다.,JIG Repair Image table. Manages jig repair image information.,설비/보전,IMAGE JIG REPAIR 설비 수리 이미지 장비 지그,지그 정보 조회|지그 현황
+IMCN_JIG_SQUEZE_CHECK,지그 SQUEZE 검사/확인 테이블. 지그 검사 결과를 기록한다.,JIG SQUEZE Check table. Manages jig squeze check information.,설비/보전,CHECK JIG SQUEZE 검사 설비 장비 지그,지그 검사 결과|지그 검사 현황
+IMCN_JIG_TEMP,지그 온도 테이블. 지그 관련 정보를 관리한다.,JIG Temperature table. Manages jig temperature information.,설비/보전,JIG TEMP 설비 온도 장비 지그,지그 정보 조회|지그 현황
+IMCN_MACHINE,설비 테이블. 설비 관련 정보를 관리한다.,Machine table. Manages machine information.,설비/보전,MACHINE 설비 장비,설비 정보 조회|설비 현황
+IMCN_MACHINE_CALIBRATION,설비 교정 테이블. 설비 관련 정보를 관리한다.,Machine Calibration table. Manages machine calibration information.,설비/보전,CALIBRATION MACHINE 교정 설비 장비,설비 정보 조회|설비 현황
+IMCN_MACHINE_CALIBRATION_IMAGE,설비 교정 이미지 테이블. 설비 관련 정보를 관리한다.,Machine Calibration Image table. Manages machine calibration image information.,설비/보전,CALIBRATION IMAGE MACHINE 교정 설비 이미지 장비,설비 정보 조회|설비 현황
+IMCN_MACHINE_DAILY_OPERATION,설비 일일 OPERATION 테이블. 설비 관련 정보를 관리한다.,Machine Daily OPERATION table. Manages machine daily operation information.,설비/보전,DAILY MACHINE OPERATION 설비 일일 장비,설비 정보 조회|설비 현황
+IMCN_MACHINE_PM_MASTER,설비 예방보전 마스터 테이블. 설비 예방보전 정보를 관리한다.,Machine Preventive Maintenance master table. Manages machine preventive maintenance information.,설비/보전,MACHINE MASTER 마스터 설비 예방보전 장비,설비 정보 조회|설비 목록
+IMCN_MACHINE_PM_MASTER_HIST,설비 예방보전 마스터 테이블. 설비 예방보전 정보를 관리한다.,Machine Preventive Maintenance master table. Manages machine preventive maintenance information.,설비/보전,HIST MACHINE MASTER 마스터 설비 예방보전 이력 장비,설비 이력 조회|설비 변경 이력
+IMCN_MACHINE_REPAIR,설비 수리 테이블. 설비 관련 정보를 관리한다.,Machine Repair table. Manages machine repair information.,설비/보전,MACHINE REPAIR 설비 수리 장비,설비 정보 조회|설비 현황
+IMCN_MACHINE_REPAIR_IMAGE,설비 수리 이미지 테이블. 설비 관련 정보를 관리한다.,Machine Repair Image table. Manages machine repair image information.,설비/보전,IMAGE MACHINE REPAIR 설비 수리 이미지 장비,설비 정보 조회|설비 현황
+IMCN_MACHINE_SOFT_VERSION,설비 SOFT 버전 테이블. 설비 관련 정보를 관리한다.,Machine SOFT Version table. Manages machine soft version information.,설비/보전,MACHINE SOFT VERSION 버전 설비 장비,설비 정보 조회|설비 현황
+IMCN_MACHINE_WORK_DATA,설비 작업 데이터 테이블. 설비 작업 관련 데이터를 저장한다.,Machine Work data table. Stores machine work data.,설비/보전,DATA MACHINE WORK 데이터 설비 작업 장비,설비 정보 조회|설비 현황
+IMCN_MOLD,금형 테이블. 금형 관련 정보를 관리한다.,Mold table. Manages mold information.,설비/보전,MOLD 금형 설비 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_BILL,금형 BILL 테이블. 금형 관련 정보를 관리한다.,Mold BILL table. Manages mold bill information.,설비/보전,BILL MOLD 금형 설비 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_CHECK_HISTORY,금형 검사/확인 이력 테이블. 금형 검사/확인 변경/처리 이력을 기록한다.,Mold Check history table. Records mold check change history.,설비/보전,CHECK HISTORY MOLD 검사 금형 설비 이력 장비,금형 이력 조회|금형 변경 이력
+IMCN_MOLD_ECO_LINK,금형 ECO LINK 테이블. 금형 관련 정보를 관리한다.,Mold ECO LINK table. Manages mold eco link information.,설비/보전,ECO LINK MOLD 금형 설비 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_INVENTORY,금형 재고 테이블. 금형 관련 정보를 관리한다.,Mold Inventory table. Manages mold inventory information.,설비/보전,INVENTORY MOLD 금형 설비 장비 재고,금형 정보 조회|금형 현황
+IMCN_MOLD_ISSUE,금형 출고 테이블. 금형 관련 정보를 관리한다.,Mold Issue table. Manages mold issue information.,설비/보전,ISSUE MOLD 금형 설비 장비 출고,금형 정보 조회|금형 현황
+IMCN_MOLD_LOCATION,금형 위치 테이블. 금형 관련 정보를 관리한다.,Mold Location table. Manages mold location information.,설비/보전,LOCATION MOLD 금형 설비 위치 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_PURCHASE_ORDER,금형 구매 발주 테이블. 금형 관련 정보를 관리한다.,Mold Purchase Order table. Manages mold purchase order information.,설비/보전,MOLD ORDER PURCHASE 구매 금형 발주 설비 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_RECEIPT,금형 입고 테이블. 금형 관련 정보를 관리한다.,Mold Receipt table. Manages mold receipt information.,설비/보전,MOLD RECEIPT 금형 설비 입고 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_RENT,금형 RENT 테이블. 금형 관련 정보를 관리한다.,Mold RENT table. Manages mold rent information.,설비/보전,MOLD RENT 금형 설비 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_REPAIR,금형 수리 테이블. 금형 관련 정보를 관리한다.,Mold Repair table. Manages mold repair information.,설비/보전,MOLD REPAIR 금형 설비 수리 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_REPAIR_IMAGE,금형 수리 이미지 테이블. 금형 관련 정보를 관리한다.,Mold Repair Image table. Manages mold repair image information.,설비/보전,IMAGE MOLD REPAIR 금형 설비 수리 이미지 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_REPAIR_ITEM,금형 수리 품목 테이블. 금형 관련 정보를 관리한다.,Mold Repair Item table. Manages mold repair item information.,설비/보전,ITEM MOLD REPAIR 금형 설비 수리 장비 품목,금형 정보 조회|금형 현황
+IMCN_MOLD_REQUEST,금형 REQUEST 테이블. 금형 관련 정보를 관리한다.,Mold REQUEST table. Manages mold request information.,설비/보전,MOLD REQUEST 금형 설비 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_REQUIREMENT_PLAN,금형 REQUIREMENT 계획 테이블. 금형 계획 정보를 관리한다.,Mold REQUIREMENT Plan table. Manages mold requirement plan information.,설비/보전,MOLD PLAN REQUIREMENT 계획 금형 설비 장비,금형 계획 조회|당일 금형 계획
+IMCN_MOLD_REQUIR_PLAN_TEMP,금형 REQUIR 계획 온도 테이블. 금형 계획 정보를 관리한다.,Mold REQUIR Plan table. Manages mold requir plan information.,설비/보전,MOLD PLAN REQUIR TEMP 계획 금형 설비 온도 장비,금형 계획 조회|당일 금형 계획
+IMCN_MOLD_SHORT_HISTORY,금형 SHORT 이력 테이블. 금형 SHORT 변경/처리 이력을 기록한다.,Mold SHORT history table. Records mold short change history.,설비/보전,HISTORY MOLD SHORT 금형 설비 이력 장비,금형 이력 조회|금형 변경 이력
+IMCN_MOLD_TEMP,금형 온도 테이블. 금형 관련 정보를 관리한다.,Mold Temperature table. Manages mold temperature information.,설비/보전,MOLD TEMP 금형 설비 온도 장비,금형 정보 조회|금형 현황
+IMCN_MOLD_UNIT_PRICE,금형 UNIT PRICE 테이블. 금형 관련 정보를 관리한다.,Mold UNIT PRICE table. Manages mold unit price information.,설비/보전,MOLD PRICE UNIT 금형 설비 장비,금형 정보 조회|금형 현황
+IMCN_PM_CALENDAR,예방보전 CALENDAR 테이블. 예방보전 관련 정보를 관리한다.,Preventive Maintenance CALENDAR table. Manages preventive maintenance calendar information.,설비/보전,CALENDAR 설비 예방보전 장비,예방보전 정보 조회|예방보전 현황
+IMCN_PM_RESULT,예방보전 실적 테이블. 예방보전 실적 데이터를 기록한다.,Preventive Maintenance result table. Stores preventive maintenance result data.,설비/보전,RESULT 설비 실적 예방보전 장비,예방보전 실적 조회|일일 예방보전 실적
+IMCN_SAMPLE,SAMPLE 테이블. SAMPLE 관련 정보를 관리한다.,SAMPLE table. Manages sample information.,설비/보전,SAMPLE 설비 장비,SAMPLE 정보 조회|SAMPLE 현황
+IMCN_SAMPLE_APPLY_MODEL,SAMPLE APPLY 모델 테이블. SAMPLE 관련 정보를 관리한다.,SAMPLE APPLY Model table. Manages sample apply model information.,설비/보전,APPLY MODEL SAMPLE 모델 설비 장비,SAMPLE 정보 조회|SAMPLE 현황
+IMCN_SAMPLE_BCR_INPUT_HIST,SAMPLE BCR INPUT 이력 테이블. SAMPLE BCR INPUT 변경/처리 이력을 기록한다.,SAMPLE BCR INPUT history table. Records sample bcr input change history.,설비/보전,BCR HIST INPUT SAMPLE 설비 이력 장비,SAMPLE 이력 조회|SAMPLE 변경 이력
+IMCN_SAMPLE_INPUT_HIST,SAMPLE INPUT 이력 테이블. SAMPLE INPUT 변경/처리 이력을 기록한다.,SAMPLE INPUT history table. Records sample input change history.,설비/보전,HIST INPUT SAMPLE 설비 이력 장비,SAMPLE 이력 조회|SAMPLE 변경 이력
+IMCN_SAMPLE_TEST,SAMPLE TEST 테이블. SAMPLE 관련 정보를 관리한다.,SAMPLE TEST table. Manages sample test information.,설비/보전,SAMPLE TEST 설비 장비,SAMPLE 정보 조회|SAMPLE 현황
+IMCN_SAMPLE_TEST_OLD,SAMPLE TEST OLD 테이블. SAMPLE 관련 정보를 관리한다.,SAMPLE TEST OLD table. Manages sample test old information.,설비/보전,OLD SAMPLE TEST 설비 장비,SAMPLE 정보 조회|SAMPLE 현황
+IMCN_TEMPERATURE_CHECK_MASTER,TEMPERATURE 검사/확인 마스터 테이블. TEMPERATURE 검사/확인 정보를 관리한다.,TEMPERATURE Check master table. Manages temperature check information.,설비/보전,CHECK MASTER TEMPERATURE 검사 마스터 설비 장비,TEMPERATURE 정보 조회|TEMPERATURE 목록
+IMCN_WEEKLY_PM_CALENDAR,WEEKLY 예방보전 CALENDAR 테이블. WEEKLY 관련 정보를 관리한다.,WEEKLY Preventive Maintenance CALENDAR table. Manages weekly preventive maintenance calendar information.,설비/보전,CALENDAR WEEKLY 설비 예방보전 장비,WEEKLY 정보 조회|WEEKLY 현황
+IMCN_WEEKLY_PM_RESULT,WEEKLY 예방보전 실적 테이블. WEEKLY 예방보전 실적 데이터를 기록한다.,WEEKLY Preventive Maintenance result table. Stores weekly preventive maintenance result data.,설비/보전,RESULT WEEKLY 설비 실적 예방보전 장비,WEEKLY 실적 조회|일일 WEEKLY 실적
+IM_ASSY_INVENTORY_CHECK_BCD,ASSY 재고 검사/확인 BCD 테이블. ASSY 검사 결과를 기록한다.,ASSY Inventory Check table. Manages assy inventory check information.,기타,ASSY BCD CHECK INVENTORY 검사 재고,ASSY 검사 결과|ASSY 검사 현황
+IM_INVENTORY_CLOSE_SETTING,재고 CLOSE 설정 테이블. 재고 관련 정보를 관리한다.,Inventory CLOSE Setting table. Manages inventory close setting information.,기타,CLOSE INVENTORY SETTING 설정 재고,재고 정보 조회|재고 현황
+IM_ITEM_ARRIVAL,품목 도착 테이블. 품목 관련 정보를 관리한다.,Item Arrival table. Manages item arrival information.,재고,ARRIVAL ITEM 도착 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_ARRIVAL_GEN,품목 도착 GEN 테이블. 품목 관련 정보를 관리한다.,Item Arrival GEN table. Manages item arrival gen information.,재고,ARRIVAL GEN ITEM 도착 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_ASSEMBLY_REQUIR_ORDER,품목 ASSEMBLY REQUIR 발주 테이블. 품목 관련 정보를 관리한다.,Item ASSEMBLY REQUIR table. Manages item assembly requir information.,재고,ASSEMBLY ITEM ORDER REQUIR 발주 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_BAD_INVENTORY,품목 BAD 재고 테이블. 품목 관련 정보를 관리한다.,Item BAD Inventory table. Manages item bad inventory information.,재고,BAD INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_BAKING_MASTER,품목 베이킹 마스터 테이블. 품목 베이킹 정보를 관리한다.,Item Baking master table. Manages item baking information.,재고,BAKING ITEM MASTER 마스터 베이킹 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_BARCODE_XRAY_RETURN,품목 바코드 XRAY RETURN 테이블. 품목 관련 정보를 관리한다.,Item Barcode XRAY table. Manages item barcode xray information.,재고,BARCODE ITEM RETURN XRAY 바코드 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_BILL_COLLECTION,품목 BILL COLLECTION 테이블. 품목 관련 정보를 관리한다.,Item BILL COLLECTION table. Manages item bill collection information.,재고,BILL COLLECTION ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_BILL_DISBURSE,품목 BILL DISBURSE 테이블. 품목 관련 정보를 관리한다.,Item BILL DISBURSE table. Manages item bill disburse information.,재고,BILL DISBURSE ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_CURRENT_UNIT_PRICE,품목 CURRENT UNIT PRICE 테이블. 품목 관련 정보를 관리한다.,Item CURRENT UNIT table. Manages item current unit information.,재고,CURRENT ITEM PRICE UNIT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_CURRENT_UNIT_PRICE_4_S,품목 CURRENT UNIT PRICE 테이블. 품목 관련 정보를 관리한다.,Item CURRENT UNIT table. Manages item current unit information.,재고,CURRENT ITEM PRICE UNIT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_DETAIL_4_PROFIT_COST,품목 상세 PROFIT COST 테이블. 품목 관련 정보를 관리한다.,Item Detail PROFIT table. Manages item detail profit information.,재고,COST DETAIL ITEM PROFIT 상세 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_DIRECT_ORDER,품목 DIRECT 발주 테이블. 품목 관련 정보를 관리한다.,Item DIRECT Order table. Manages item direct order information.,재고,DIRECT ITEM ORDER 발주 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_DIVIDE_HIST,품목 DIVIDE 이력 테이블. 품목 DIVIDE 변경/처리 이력을 기록한다.,Item DIVIDE history table. Records item divide change history.,재고,DIVIDE HIST ITEM 이력 입고 재고 품목,품목 이력 조회|품목 변경 이력|재고 현황 조회
+IM_ITEM_EPOXY_INPUT_HIST,품목 EPOXY INPUT 이력 테이블. 품목 EPOXY INPUT 변경/처리 이력을 기록한다.,Item EPOXY INPUT history table. Records item epoxy input change history.,재고,EPOXY HIST INPUT ITEM 이력 입고 재고 품목,품목 이력 조회|품목 변경 이력|재고 현황 조회
+IM_ITEM_EPOXY_MASTER,품목 EPOXY 마스터 테이블. 품목 EPOXY 정보를 관리한다.,Item EPOXY master table. Manages item epoxy information.,재고,EPOXY ITEM MASTER 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_EXPENSE_COST_DISTRIBUT,품목 EXPENSE COST DISTRIBUT 테이블. 품목 관련 정보를 관리한다.,Item EXPENSE COST table. Manages item expense cost information.,재고,COST DISTRIBUT EXPENSE ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FBACK_INVENTORY,품목 FBACK 재고 테이블. 품목 관련 정보를 관리한다.,Item FBACK Inventory table. Manages item fback inventory information.,재고,FBACK INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FBACK_INVENTORY_CHECK,품목 FBACK 재고 검사/확인 테이블. 품목 검사 결과를 기록한다.,Item FBACK Inventory table. Manages item fback inventory information.,재고,CHECK FBACK INVENTORY ITEM 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_FBACK_INVENTORY_CLOSE,품목 FBACK 재고 CLOSE 테이블. 품목 관련 정보를 관리한다.,Item FBACK Inventory table. Manages item fback inventory information.,재고,CLOSE FBACK INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FBACK_INV_CLOSE_MFS,품목 FBACK INV CLOSE 테이블. 품목 관련 정보를 관리한다.,Item FBACK INV table. Manages item fback inv information.,재고,CLOSE FBACK INV ITEM MFS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FBACK_ISSUE,품목 FBACK 출고 테이블. 품목 관련 정보를 관리한다.,Item FBACK Issue table. Manages item fback issue information.,재고,FBACK ISSUE ITEM 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FBACK_RECEIPT,품목 FBACK 입고 테이블. 품목 관련 정보를 관리한다.,Item FBACK Receipt table. Manages item fback receipt information.,재고,FBACK ITEM RECEIPT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FREE_INVENTORY,품목 FREE 재고 테이블. 품목 관련 정보를 관리한다.,Item FREE Inventory table. Manages item free inventory information.,재고,FREE INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FREE_INVENTORY_CHECK,품목 FREE 재고 검사/확인 테이블. 품목 검사 결과를 기록한다.,Item FREE Inventory table. Manages item free inventory information.,재고,CHECK FREE INVENTORY ITEM 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_FREE_INVENTORY_CLOSE,품목 FREE 재고 CLOSE 테이블. 품목 관련 정보를 관리한다.,Item FREE Inventory table. Manages item free inventory information.,재고,CLOSE FREE INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FREE_INVENTORY_MFS,품목 FREE 재고 MFS 테이블. 품목 관련 정보를 관리한다.,Item FREE Inventory table. Manages item free inventory information.,재고,FREE INVENTORY ITEM MFS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FREE_INV_CLOSE_MFS,품목 FREE INV CLOSE 테이블. 품목 관련 정보를 관리한다.,Item FREE INV table. Manages item free inv information.,재고,CLOSE FREE INV ITEM MFS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FREE_ISSUE,품목 FREE 출고 테이블. 품목 관련 정보를 관리한다.,Item FREE Issue table. Manages item free issue information.,재고,FREE ISSUE ITEM 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FREE_RCV_4_BASE_INV,품목 FREE RCV BASE 테이블. 품목 관련 정보를 관리한다.,Item FREE RCV table. Manages item free rcv information.,재고,BASE FREE INV ITEM RCV 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_FREE_RECEIPT,품목 FREE 입고 테이블. 품목 관련 정보를 관리한다.,Item FREE Receipt table. Manages item free receipt information.,재고,FREE ITEM RECEIPT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY,품목 재고 테이블. 품목 관련 정보를 관리한다.,Item Inventory table. Manages item inventory information.,재고,INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_4_TIME,품목 재고 TIME 테이블. 품목 관련 정보를 관리한다.,Item Inventory TIME table. Manages item inventory time information.,재고,INVENTORY ITEM TIME 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_BACK_MINUS_230614,품목 재고 BACK MINUS 테이블. 품목 관련 정보를 관리한다.,Item Inventory BACK table. Manages item inventory back information.,재고,230614 BACK INVENTORY ITEM MINUS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_BARCODE,품목 재고 바코드 테이블. 품목 관련 정보를 관리한다.,Item Inventory Barcode table. Manages item inventory barcode information.,재고,BARCODE INVENTORY ITEM 바코드 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_CHECK,품목 재고 검사/확인 테이블. 품목 검사 결과를 기록한다.,Item Inventory Check table. Manages item inventory check information.,재고,CHECK INVENTORY ITEM 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_INVENTORY_CHECK_BCD,품목 재고 검사/확인 BCD 테이블. 품목 검사 결과를 기록한다.,Item Inventory Check table. Manages item inventory check information.,재고,BCD CHECK INVENTORY ITEM 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_INVENTORY_CHECK_EXCEL,품목 재고 검사/확인 EXCEL 테이블. 품목 검사 결과를 기록한다.,Item Inventory Check table. Manages item inventory check information.,재고,CHECK EXCEL INVENTORY ITEM 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_INVENTORY_CHECK_MANUAL,품목 재고 검사/확인 MANUAL 테이블. 품목 검사 결과를 기록한다.,Item Inventory Check table. Manages item inventory check information.,재고,CHECK INVENTORY ITEM MANUAL 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_INVENTORY_CLOSE,품목 재고 CLOSE 테이블. 품목 관련 정보를 관리한다.,Item Inventory CLOSE table. Manages item inventory close information.,재고,CLOSE INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_CLOSE_MFS,품목 재고 CLOSE MFS 테이블. 품목 관련 정보를 관리한다.,Item Inventory CLOSE table. Manages item inventory close information.,재고,CLOSE INVENTORY ITEM MFS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_CLOSE_MV,품목 재고 CLOSE MV 테이블. 품목 관련 정보를 관리한다.,Item Inventory CLOSE table. Manages item inventory close information.,재고,CLOSE INVENTORY ITEM MV 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_GEN,품목 재고 GEN 테이블. 품목 관련 정보를 관리한다.,Item Inventory GEN table. Manages item inventory gen information.,재고,GEN INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_HISTORY,품목 재고 이력 테이블. 품목 재고 변경/처리 이력을 기록한다.,Item Inventory history table. Records item inventory change history.,재고,HISTORY INVENTORY ITEM 이력 입고 재고 품목,품목 이력 조회|품목 변경 이력|재고 현황 조회
+IM_ITEM_INVENTORY_HOLD,품목 재고 HOLD 테이블. 품목 관련 정보를 관리한다.,Item Inventory HOLD table. Manages item inventory hold information.,재고,HOLD INVENTORY ITEM 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_LEDGER_REGEN,품목 재고 LEDGER REGEN 테이블. 품목 관련 정보를 관리한다.,Item Inventory LEDGER table. Manages item inventory ledger information.,재고,INVENTORY ITEM LEDGER REGEN 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_MERGE,품목 재고 MERGE 테이블. 품목 관련 정보를 관리한다.,Item Inventory MERGE table. Manages item inventory merge information.,재고,INVENTORY ITEM MERGE 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INVENTORY_MOVE_HIST,품목 재고 MOVE 이력 테이블. 품목 재고 MOVE 변경/처리 이력을 기록한다.,Item Inventory MOVE history table. Records item inventory move change history.,재고,HIST INVENTORY ITEM MOVE 이력 입고 재고 품목,품목 이력 조회|품목 변경 이력|재고 현황 조회
+IM_ITEM_INVENTORY_SCAN,품목 재고 SCAN 테이블. 품목 관련 정보를 관리한다.,Item Inventory SCAN table. Manages item inventory scan information.,재고,INVENTORY ITEM SCAN 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_INV_CHECK_INPUT_QTY,품목 INV 검사/확인 INPUT 테이블. 품목 검사 결과를 기록한다.,Item INV Check table. Manages item inv check information.,재고,CHECK INPUT INV ITEM QTY 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_ISSUE,품목 출고 테이블. 품목 관련 정보를 관리한다.,Item Issue table. Manages item issue information.,재고,ISSUE ITEM 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_ISSUE_LEDGER_REGEN,품목 출고 LEDGER REGEN 테이블. 품목 관련 정보를 관리한다.,Item Issue LEDGER table. Manages item issue ledger information.,재고,ISSUE ITEM LEDGER REGEN 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_ISSUE_LOSS,품목 출고 LOSS 테이블. 품목 관련 정보를 관리한다.,Item Issue LOSS table. Manages item issue loss information.,재고,ISSUE ITEM LOSS 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_ISSUE_RETURN_REQUEST,품목 출고 RETURN REQUEST 테이블. 품목 관련 정보를 관리한다.,Item Issue RETURN table. Manages item issue return information.,재고,ISSUE ITEM REQUEST RETURN 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_LEDGER,품목 LEDGER 테이블. 품목 관련 정보를 관리한다.,Item LEDGER table. Manages item ledger information.,재고,ITEM LEDGER 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_LOCATION,품목 위치 테이블. 품목 관련 정보를 관리한다.,Item Location table. Manages item location information.,재고,ITEM LOCATION 위치 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_LOCATION_MOVE_HIST,품목 위치 MOVE 이력 테이블. 품목 위치 MOVE 변경/처리 이력을 기록한다.,Item Location MOVE history table. Records item location move change history.,재고,HIST ITEM LOCATION MOVE 위치 이력 입고 재고 품목,품목 이력 조회|품목 변경 이력|재고 현황 조회
+IM_ITEM_MANUAL_INPUT_HISTORY,품목 MANUAL INPUT 이력 테이블. 품목 MANUAL INPUT 변경/처리 이력을 기록한다.,Item MANUAL INPUT history table. Records item manual input change history.,재고,HISTORY INPUT ITEM MANUAL 이력 입고 재고 품목,품목 이력 조회|품목 변경 이력|재고 현황 조회
+IM_ITEM_MASTER,품목 마스터 테이블. 품목 정보를 관리한다.,Item master table. Manages item information.,재고,ITEM MASTER 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_MASTER_BACKUP,품목 백업 마스터 테이블. 품목 백업 정보를 관리한다.,Item Backup master table. Manages item backup information.,재고,BACKUP ITEM MASTER 마스터 백업 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_MASTER_PLAN_4_PO,품목 계획 마스터 테이블. 품목 계획 정보를 관리한다.,Item Plan master table. Manages item plan information.,재고,ITEM MASTER PLAN PO 계획 마스터 입고 재고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_MASTER_PLAN_4_REQUIR,품목 계획 마스터 테이블. 품목 계획 정보를 관리한다.,Item Plan master table. Manages item plan information.,재고,ITEM MASTER PLAN REQUIR 계획 마스터 입고 재고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_MASTER_PLAN_4_REQUIR_S,품목 계획 마스터 테이블. 품목 계획 정보를 관리한다.,Item Plan master table. Manages item plan information.,재고,ITEM MASTER PLAN REQUIR 계획 마스터 입고 재고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_MFS_SHIPPING_4_COST,품목 MFS SHIPPING COST 테이블. 품목 관련 정보를 관리한다.,Item MFS SHIPPING table. Manages item mfs shipping information.,재고,COST ITEM MFS SHIPPING 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_MSL_CHECK_MASTER,품목 MSL 검사/확인 마스터 테이블. 품목 MSL 검사/확인 정보를 관리한다.,Item MSL Check master table. Manages item msl check information.,재고,CHECK ITEM MASTER MSL 검사 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_PURCHASE_ORDER,품목 구매 발주 테이블. 품목 관련 정보를 관리한다.,Item Purchase Order table. Manages item purchase order information.,재고,ITEM ORDER PURCHASE 구매 발주 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_PURCHASE_ORDER_GEN,품목 구매 발주 GEN 테이블. 품목 관련 정보를 관리한다.,Item Purchase Order table. Manages item purchase order information.,재고,GEN ITEM ORDER PURCHASE 구매 발주 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_PURCHASE_ORDER_PLAN,품목 구매 발주 계획 테이블. 품목 계획 정보를 관리한다.,Item Purchase Order table. Manages item purchase order information.,재고,ITEM ORDER PLAN PURCHASE 계획 구매 발주 입고 재고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_PURCHASE_ORDER_WAIT,품목 구매 발주 WAIT 테이블. 품목 관련 정보를 관리한다.,Item Purchase Order table. Manages item purchase order information.,재고,ITEM ORDER PURCHASE WAIT 구매 발주 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_PURCHASE_REQUIR_ORDER,품목 구매 REQUIR 발주 테이블. 품목 관련 정보를 관리한다.,Item Purchase REQUIR table. Manages item purchase requir information.,재고,ITEM ORDER PURCHASE REQUIR 구매 발주 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RANK_MASTER,품목 RANK 마스터 테이블. 품목 RANK 정보를 관리한다.,Item RANK master table. Manages item rank information.,재고,ITEM MASTER RANK 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_RECEIPT,품목 입고 테이블. 품목 관련 정보를 관리한다.,Item Receipt table. Manages item receipt information.,재고,ITEM RECEIPT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECEIPT_4_BASE_INV,품목 입고 BASE INV 테이블. 품목 관련 정보를 관리한다.,Item Receipt BASE table. Manages item receipt base information.,재고,BASE INV ITEM RECEIPT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECEIPT_BARCODE,품목 입고 바코드 테이블. 품목 관련 정보를 관리한다.,Item Receipt Barcode table. Manages item receipt barcode information.,재고,BARCODE ITEM RECEIPT 바코드 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECEIPT_EXPENSE_COST,품목 입고 EXPENSE COST 테이블. 품목 관련 정보를 관리한다.,Item Receipt EXPENSE table. Manages item receipt expense information.,재고,COST EXPENSE ITEM RECEIPT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECEIPT_INVOICE_MASTER,품목 입고 INVOICE 마스터 테이블. 품목 입고 INVOICE 정보를 관리한다.,Item Receipt INVOICE master table. Manages item receipt invoice information.,재고,INVOICE ITEM MASTER RECEIPT 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_RECEIPT_LEDGER_REGEN,품목 입고 LEDGER REGEN 테이블. 품목 관련 정보를 관리한다.,Item Receipt LEDGER table. Manages item receipt ledger information.,재고,ITEM LEDGER RECEIPT REGEN 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECEIPT_RETURN_REQUEST,품목 입고 RETURN REQUEST 테이블. 품목 관련 정보를 관리한다.,Item Receipt RETURN table. Manages item receipt return information.,재고,ITEM RECEIPT REQUEST RETURN 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECEIPT_SLIP,품목 입고 SLIP 테이블. 품목 관련 정보를 관리한다.,Item Receipt SLIP table. Manages item receipt slip information.,재고,ITEM RECEIPT SLIP 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECEIPT_TEMP,품목 입고 온도 테이블. 품목 관련 정보를 관리한다.,Item Receipt Temperature table. Manages item receipt temperature information.,재고,ITEM RECEIPT TEMP 온도 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_RECYCLE_INVENTORY,품목 재활용 재고 테이블. 품목 관련 정보를 관리한다.,Item Recycle Inventory table. Manages item recycle inventory information.,재고,INVENTORY ITEM RECYCLE 입고 재고 재활용 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REPAIR_INVENTORY,품목 수리 재고 테이블. 품목 관련 정보를 관리한다.,Item Repair Inventory table. Manages item repair inventory information.,재고,INVENTORY ITEM REPAIR 수리 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REPAIR_INVENTORY_CHECK,품목 수리 재고 검사/확인 테이블. 품목 검사 결과를 기록한다.,Item Repair Inventory table. Manages item repair inventory information.,재고,CHECK INVENTORY ITEM REPAIR 검사 수리 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_REPAIR_INVENTORY_CLOSE,품목 수리 재고 CLOSE 테이블. 품목 관련 정보를 관리한다.,Item Repair Inventory table. Manages item repair inventory information.,재고,CLOSE INVENTORY ITEM REPAIR 수리 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REPAIR_INV_CLOSE_MFS,품목 수리 INV CLOSE 테이블. 품목 관련 정보를 관리한다.,Item Repair INV table. Manages item repair inv information.,재고,CLOSE INV ITEM MFS REPAIR 수리 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REPAIR_ISSUE,품목 수리 출고 테이블. 품목 관련 정보를 관리한다.,Item Repair Issue table. Manages item repair issue information.,재고,ISSUE ITEM REPAIR 수리 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REPAIR_RECEIPT,품목 수리 입고 테이블. 품목 관련 정보를 관리한다.,Item Repair Receipt table. Manages item repair receipt information.,재고,ITEM RECEIPT REPAIR 수리 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REQUEST,품목 REQUEST 테이블. 품목 관련 정보를 관리한다.,Item REQUEST table. Manages item request information.,재고,ITEM REQUEST 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REQUIRMENT_LONGTERM,품목 REQUIRMENT LONGTERM 테이블. 품목 관련 정보를 관리한다.,Item REQUIRMENT LONGTERM table. Manages item requirment longterm information.,재고,ITEM LONGTERM REQUIRMENT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REQUIRMENT_ORDER,품목 REQUIRMENT 발주 테이블. 품목 관련 정보를 관리한다.,Item REQUIRMENT Order table. Manages item requirment order information.,재고,ITEM ORDER REQUIRMENT 발주 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_REQUIRMENT_PLAN,품목 REQUIRMENT 계획 테이블. 품목 계획 정보를 관리한다.,Item REQUIRMENT Plan table. Manages item requirment plan information.,재고,ITEM PLAN REQUIRMENT 계획 입고 재고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_REQUIRMENT_PLAN_TEMP,품목 REQUIRMENT 계획 온도 테이블. 품목 계획 정보를 관리한다.,Item REQUIRMENT Plan table. Manages item requirment plan information.,재고,ITEM PLAN REQUIRMENT TEMP 계획 온도 입고 재고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_REQUIR_PLAN_TEMP,품목 REQUIR 계획 온도 테이블. 품목 계획 정보를 관리한다.,Item REQUIR Plan table. Manages item requir plan information.,재고,ITEM PLAN REQUIR TEMP 계획 온도 입고 재고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_SALE_INVENTORY,품목 SALE 재고 테이블. 품목 관련 정보를 관리한다.,Item SALE Inventory table. Manages item sale inventory information.,재고,INVENTORY ITEM SALE 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SALE_INVENTORY_CHECK,품목 SALE 재고 검사/확인 테이블. 품목 검사 결과를 기록한다.,Item SALE Inventory table. Manages item sale inventory information.,재고,CHECK INVENTORY ITEM SALE 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_SALE_INVENTORY_CLOSE,품목 SALE 재고 CLOSE 테이블. 품목 관련 정보를 관리한다.,Item SALE Inventory table. Manages item sale inventory information.,재고,CLOSE INVENTORY ITEM SALE 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SALE_INVOICE_MASTER,품목 SALE INVOICE 마스터 테이블. 품목 SALE INVOICE 정보를 관리한다.,Item SALE INVOICE master table. Manages item sale invoice information.,재고,INVOICE ITEM MASTER SALE 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_SALE_ISSUE,품목 SALE 출고 테이블. 품목 관련 정보를 관리한다.,Item SALE Issue table. Manages item sale issue information.,재고,ISSUE ITEM SALE 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SALE_PRICE,품목 SALE PRICE 테이블. 품목 관련 정보를 관리한다.,Item SALE PRICE table. Manages item sale price information.,재고,ITEM PRICE SALE 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SALE_RECEIPT,품목 SALE 입고 테이블. 품목 관련 정보를 관리한다.,Item SALE Receipt table. Manages item sale receipt information.,재고,ITEM RECEIPT SALE 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SAP_DATA,품목 SAP 데이터 테이블. 품목 SAP 관련 데이터를 저장한다.,Item SAP data table. Stores item sap data.,재고,DATA ITEM SAP 데이터 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SCRAP_INVENTORY_CLOSE,품목 SCRAP 재고 CLOSE 테이블. 품목 관련 정보를 관리한다.,Item SCRAP Inventory table. Manages item scrap inventory information.,재고,CLOSE INVENTORY ITEM SCRAP 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SCRAP_ISSUE,품목 SCRAP 출고 테이블. 품목 관련 정보를 관리한다.,Item SCRAP Issue table. Manages item scrap issue information.,재고,ISSUE ITEM SCRAP 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SCRAP_RECEIPT,품목 SCRAP 입고 테이블. 품목 관련 정보를 관리한다.,Item SCRAP Receipt table. Manages item scrap receipt information.,재고,ITEM RECEIPT SCRAP 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_SOLDER_INPUT_HIST,품목 SOLDER INPUT 이력 테이블. 품목 SOLDER INPUT 변경/처리 이력을 기록한다.,Item SOLDER INPUT history table. Records item solder input change history.,재고,HIST INPUT ITEM SOLDER 이력 입고 재고 품목,품목 이력 조회|품목 변경 이력|재고 현황 조회
+IM_ITEM_SOLDER_MASTER,품목 SOLDER 마스터 테이블. 품목 SOLDER 정보를 관리한다.,Item SOLDER master table. Manages item solder information.,재고,ITEM MASTER SOLDER 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_SOLDER_MASTER_HIS,품목 SOLDER 마스터 테이블. 품목 SOLDER 정보를 관리한다.,Item SOLDER master table. Manages item solder information.,재고,HIS ITEM MASTER SOLDER 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_SOLDER_MASTER_SHS,품목 SOLDER 마스터 테이블. 품목 SOLDER 정보를 관리한다.,Item SOLDER master table. Manages item solder information.,재고,ITEM MASTER SHS SOLDER 마스터 입고 재고 품목,품목 정보 조회|품목 목록|재고 현황 조회
+IM_ITEM_SOLDER_TIMECHECK,품목 SOLDER TIMECHECK 테이블. 품목 관련 정보를 관리한다.,Item SOLDER TIMECHECK table. Manages item solder timecheck information.,재고,ITEM SOLDER TIMECHECK 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_TOTAL_4_PROFIT_COST,품목 TOTAL PROFIT COST 테이블. 품목 관련 정보를 관리한다.,Item TOTAL PROFIT table. Manages item total profit information.,재고,COST ITEM PROFIT TOTAL 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_TOTAL_COST,품목 TOTAL COST 테이블. 품목 관련 정보를 관리한다.,Item TOTAL COST table. Manages item total cost information.,재고,COST ITEM TOTAL 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_TOTAL_INVENTORY,품목 TOTAL 재고 테이블. 품목 관련 정보를 관리한다.,Item TOTAL Inventory table. Manages item total inventory information.,재고,INVENTORY ITEM TOTAL 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_TOTAL_INVENTORY_CLOSE,품목 TOTAL 재고 CLOSE 테이블. 품목 관련 정보를 관리한다.,Item TOTAL Inventory table. Manages item total inventory information.,재고,CLOSE INVENTORY ITEM TOTAL 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_TOTAL_INVENTORY_EXP,품목 TOTAL 재고 EXP 테이블. 품목 관련 정보를 관리한다.,Item TOTAL Inventory table. Manages item total inventory information.,재고,EXP INVENTORY ITEM TOTAL 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_TOTAL_INVENTORY_GEN,품목 TOTAL 재고 GEN 테이블. 품목 관련 정보를 관리한다.,Item TOTAL Inventory table. Manages item total inventory information.,재고,GEN INVENTORY ITEM TOTAL 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_UNIT_PRICE,품목 UNIT PRICE 테이블. 품목 관련 정보를 관리한다.,Item UNIT PRICE table. Manages item unit price information.,재고,ITEM PRICE UNIT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_UNIT_PRICE_BACK,품목 UNIT PRICE BACK 테이블. 품목 관련 정보를 관리한다.,Item UNIT PRICE table. Manages item unit price information.,재고,BACK ITEM PRICE UNIT 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WEEK,품목 WEEK 테이블. 품목 관련 정보를 관리한다.,Item WEEK table. Manages item week information.,재고,ITEM WEEK 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WORKSTAGE_INVENTORY,품목 공정 재고 테이블. 품목 관련 정보를 관리한다.,Item Work Stage Inventory table. Manages item work stage inventory information.,재고,INVENTORY ITEM WORKSTAGE 공정 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WORKSTAGE_INV_CHECK,품목 공정 INV 검사/확인 테이블. 품목 검사 결과를 기록한다.,Item Work Stage INV table. Manages item work stage inv information.,재고,CHECK INV ITEM WORKSTAGE 검사 공정 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_WORKSTAGE_INV_CLOSE,품목 공정 INV CLOSE 테이블. 품목 관련 정보를 관리한다.,Item Work Stage INV table. Manages item work stage inv information.,재고,CLOSE INV ITEM WORKSTAGE 공정 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WORKSTAGE_INV_EXPAND,품목 공정 INV EXPAND 테이블. 품목 관련 정보를 관리한다.,Item Work Stage INV table. Manages item work stage inv information.,재고,EXPAND INV ITEM WORKSTAGE 공정 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WORKSTAGE_ISSUE,품목 공정 출고 테이블. 품목 관련 정보를 관리한다.,Item Work Stage Issue table. Manages item work stage issue information.,재고,ISSUE ITEM WORKSTAGE 공정 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WORKSTAGE_ISSUE_GEN,품목 공정 출고 GEN 테이블. 품목 관련 정보를 관리한다.,Item Work Stage Issue table. Manages item work stage issue information.,재고,GEN ISSUE ITEM WORKSTAGE 공정 입고 재고 출고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WORKSTAGE_ISSUE_PLAN,품목 공정 출고 계획 테이블. 품목 계획 정보를 관리한다.,Item Work Stage Issue table. Manages item work stage issue information.,재고,ISSUE ITEM PLAN WORKSTAGE 계획 공정 입고 재고 출고 품목,품목 계획 조회|당일 품목 계획|재고 현황 조회
+IM_ITEM_WORKSTAGE_RECEIPT,품목 공정 입고 테이블. 품목 관련 정보를 관리한다.,Item Work Stage Receipt table. Manages item work stage receipt information.,재고,ITEM RECEIPT WORKSTAGE 공정 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WORK_ORDER,품목 작업 발주 테이블. 품목 관련 정보를 관리한다.,Item Work Order table. Manages item work order information.,재고,ITEM ORDER WORK 발주 입고 작업 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WS_INVENTORY_REVERSE,품목 WS 재고 REVERSE 테이블. 품목 관련 정보를 관리한다.,Item WS Inventory table. Manages item ws inventory information.,재고,INVENTORY ITEM REVERSE WS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WS_INVENTORY_REV_NOUSE,품목 WS 재고 REV 테이블. 품목 관련 정보를 관리한다.,Item WS Inventory table. Manages item ws inventory information.,재고,INVENTORY ITEM NOUSE REV WS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_ITEM_WS_INVE_CHECK_EXCEL,품목 WS INVE 검사/확인 테이블. 품목 검사 결과를 기록한다.,Item WS INVE table. Manages item ws inve information.,재고,CHECK EXCEL INVE ITEM WS 검사 입고 재고 품목,품목 검사 결과|품목 검사 현황|재고 현황 조회
+IM_ITEM_WS_RECEIPT_4_BASE_INV,품목 WS 입고 BASE 테이블. 품목 관련 정보를 관리한다.,Item WS Receipt table. Manages item ws receipt information.,재고,BASE INV ITEM RECEIPT WS 입고 재고 품목,품목 정보 조회|품목 현황|재고 현황 조회
+IM_MATERIAL_REEL_IMAGE,자재 릴 이미지 테이블. 자재 관련 정보를 관리한다.,Material Reel Image table. Manages material reel image information.,기타,IMAGE MATERIAL REEL 이미지 자재,자재 정보 조회|자재 현황
+IM_MATERIAL_REQUEST,자재 REQUEST 테이블. 자재 관련 정보를 관리한다.,Material REQUEST table. Manages material request information.,기타,MATERIAL REQUEST 자재,자재 정보 조회|자재 현황
+IM_TOTAL_PAYABLE_MASTER,TOTAL PAYABLE 마스터 테이블. TOTAL PAYABLE 정보를 관리한다.,TOTAL PAYABLE master table. Manages total payable information.,기타,MASTER PAYABLE TOTAL 마스터,TOTAL 정보 조회|TOTAL 목록
+INTF_B_ITEM_BY_PLANT_FR_ERP,품목 BY PLANT FR 테이블. 품목 관련 정보를 관리한다.,Item BY PLANT table. Manages item by plant information.,기타,BY ERP FR ITEM PLANT 품목,품목 정보 조회|품목 현황
+INTF_B_ITEM_FR_ERP,품목 FR ERP 테이블. 품목 관련 정보를 관리한다.,Item FR ERP table. Manages item fr erp information.,기타,ERP FR ITEM 품목,품목 정보 조회|품목 현황
+INTF_P_BOM,BOM 테이블. BOM 관련 정보를 관리한다.,BOM table. Manages bom information.,기타,BOM,BOM 정보 조회|BOM 현황
+INTF_P_BOM_DETAIL_FR_ERP,BOM 상세 FR ERP 테이블. BOM 관련 정보를 관리한다.,BOM Detail FR table. Manages bom detail fr information.,기타,BOM DETAIL ERP FR 상세,BOM 정보 조회|BOM 현황
+INTF_P_BOM_HEADER_FR_ERP,BOM HEADER FR ERP 테이블. BOM 관련 정보를 관리한다.,BOM HEADER FR table. Manages bom header fr information.,기타,BOM ERP FR HEADER,BOM 정보 조회|BOM 현황
+INTF_P_PRODUCTION_ORDER_DETAIL_FR_ERP,PRODUCTION 발주 상세 FR 테이블. PRODUCTION 관련 정보를 관리한다.,PRODUCTION Order Detail table. Manages production order detail information.,기타,DETAIL ERP FR ORDER PRODUCTION 발주 상세,PRODUCTION 정보 조회|PRODUCTION 현황
+INTF_P_PRODUCTION_ORDER_HEADER_FR_ERP,PRODUCTION 발주 HEADER FR 테이블. PRODUCTION 관련 정보를 관리한다.,PRODUCTION Order HEADER table. Manages production order header information.,기타,ERP FR HEADER ORDER PRODUCTION 발주,PRODUCTION 정보 조회|PRODUCTION 현황
+INTF_P_PRODUCTION_RESULTS_FR_MES,PRODUCTION RESULTS FR MES 테이블. PRODUCTION 관련 정보를 관리한다.,PRODUCTION RESULTS FR table. Manages production results fr information.,기타,FR MES PRODUCTION RESULTS,PRODUCTION 정보 조회|PRODUCTION 현황
+IP_ASSEMBLY_ISSUE,ASSEMBLY 출고 테이블. ASSEMBLY 관련 정보를 관리한다.,ASSEMBLY Issue table. Manages assembly issue information.,생산,ASSEMBLY ISSUE 라인 생산 출고,ASSEMBLY 정보 조회|ASSEMBLY 현황
+IP_ASSEMBLY_RESULT,ASSEMBLY 실적 테이블. ASSEMBLY 실적 데이터를 기록한다.,ASSEMBLY result table. Stores assembly result data.,생산,ASSEMBLY RESULT 라인 생산 실적,ASSEMBLY 실적 조회|일일 ASSEMBLY 실적
+IP_ASSEMBLY_RESULT_BARCODE,ASSEMBLY 바코드 실적 테이블. ASSEMBLY 바코드 실적 데이터를 기록한다.,ASSEMBLY Barcode result table. Stores assembly barcode result data.,생산,ASSEMBLY BARCODE RESULT 라인 바코드 생산 실적,ASSEMBLY 실적 조회|일일 ASSEMBLY 실적
+IP_ASSEMBLY_RESULT_HISTORY,ASSEMBLY 실적/결과 이력 테이블. ASSEMBLY 실적/결과 변경/처리 이력을 기록한다.,ASSEMBLY Result history table. Records assembly result change history.,생산,ASSEMBLY HISTORY RESULT 라인 생산 실적 이력,ASSEMBLY 이력 조회|ASSEMBLY 변경 이력
+IP_LABEL_MASTER,라벨 마스터 테이블. 라벨 정보를 관리한다.,Label master table. Manages label information.,생산,LABEL MASTER 라벨 라인 마스터 생산,라벨 정보 조회|라벨 목록
+IP_LINE_DAILY_OPERATION,라인 일일 OPERATION 테이블. 라인 관련 정보를 관리한다.,Line Daily OPERATION table. Manages line daily operation information.,생산,DAILY LINE OPERATION 라인 생산 일일,라인 정보 조회|라인 현황
+IP_LINE_DAILY_OPERATION_HIST,라인 일일 OPERATION 이력 테이블. 라인 일일 OPERATION 변경/처리 이력을 기록한다.,Line Daily OPERATION history table. Records line daily operation change history.,생산,DAILY HIST LINE OPERATION 라인 생산 이력 일일,라인 이력 조회|라인 변경 이력
+IP_LINE_IDLE_TIME,라인 IDLE TIME 테이블. 라인 관련 정보를 관리한다.,Line IDLE TIME table. Manages line idle time information.,생산,IDLE LINE TIME 라인 생산,라인 정보 조회|라인 현황
+IP_MACHINE_DAILY_OPERATION,설비 일일 OPERATION 테이블. 설비 관련 정보를 관리한다.,Machine Daily OPERATION table. Manages machine daily operation information.,생산,DAILY MACHINE OPERATION 라인 생산 설비 일일,설비 정보 조회|설비 현황
+IP_MACHINE_INSPECT_MCN_STATUS,설비 검사 MCN 상태 테이블. 설비 검사 결과를 기록한다.,Machine Inspection MCN table. Manages machine inspection mcn information.,생산,INSPECT MACHINE MCN STATUS 검사 라인 상태 생산 설비,설비 검사 결과|설비 검사 현황
+IP_PRODUCT_2D_BARCODE,제품 2D 바코드 테이블. 제품 관련 정보를 관리한다.,Product 2D Barcode table. Manages product 2d barcode information.,생산,2D BARCODE PRODUCT 라인 바코드 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_2D_BARCODE_DEL,제품 2D 바코드 DEL 테이블. 제품 관련 정보를 관리한다.,Product 2D Barcode table. Manages product 2d barcode information.,생산,2D BARCODE DEL PRODUCT 라인 바코드 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_2D_BARCODE_PAIR,제품 2D 바코드 PAIR 테이블. 제품 관련 정보를 관리한다.,Product 2D Barcode table. Manages product 2d barcode information.,생산,2D BARCODE PAIR PRODUCT 라인 바코드 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_CARRIER_BARCODE,제품 CARRIER 바코드 테이블. 제품 관련 정보를 관리한다.,Product CARRIER Barcode table. Manages product carrier barcode information.,생산,BARCODE CARRIER PRODUCT 라인 바코드 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_COMPANY_CALENDAR,제품 COMPANY CALENDAR 테이블. 제품 관련 정보를 관리한다.,Product COMPANY CALENDAR table. Manages product company calendar information.,생산,CALENDAR COMPANY PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_DAILY_LINE_CAPACITY,제품 일일 라인 CAPACITY 테이블. 제품 관련 정보를 관리한다.,Product Daily Line table. Manages product daily line information.,생산,CAPACITY DAILY LINE PRODUCT 라인 생산 일일 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_DAILY_MCN_CAPACITY,제품 일일 MCN CAPACITY 테이블. 제품 관련 정보를 관리한다.,Product Daily MCN table. Manages product daily mcn information.,생산,CAPACITY DAILY MCN PRODUCT 라인 생산 일일 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_DAILY_RESULT,제품 일일 실적 테이블. 제품 일일 실적 데이터를 기록한다.,Product Daily result table. Stores product daily result data.,생산,DAILY PRODUCT RESULT 라인 생산 실적 일일 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_DAILY_WS_CAPACITY,제품 일일 WS CAPACITY 테이블. 제품 관련 정보를 관리한다.,Product Daily WS table. Manages product daily ws information.,생산,CAPACITY DAILY PRODUCT WS 라인 생산 일일 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_DEFECT,제품 불량 테이블. 제품 관련 정보를 관리한다.,Product Defect table. Manages product defect information.,생산,DEFECT PRODUCT 라인 불량 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_DELIVERY_MONTH_PLAN,제품 출하 MONTH 계획 테이블. 제품 계획 정보를 관리한다.,Product Delivery MONTH table. Manages product delivery month information.,생산,DELIVERY MONTH PLAN PRODUCT 계획 라인 생산 제품 출하,제품 계획 조회|당일 제품 계획
+IP_PRODUCT_DELIVERY_PLAN,제품 출하 계획 테이블. 제품 계획 정보를 관리한다.,Product Delivery Plan table. Manages product delivery plan information.,생산,DELIVERY PLAN PRODUCT 계획 라인 생산 제품 출하,제품 계획 조회|당일 제품 계획
+IP_PRODUCT_FG_INVENTORY,제품 FG 재고 테이블. 제품 관련 정보를 관리한다.,Product FG Inventory table. Manages product fg inventory information.,생산,FG INVENTORY PRODUCT 라인 생산 재고 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_FG_ISSUE,제품 FG 출고 테이블. 제품 관련 정보를 관리한다.,Product FG Issue table. Manages product fg issue information.,생산,FG ISSUE PRODUCT 라인 생산 제품 출고,제품 정보 조회|제품 현황
+IP_PRODUCT_FG_PALLET,제품 FG PALLET 테이블. 제품 관련 정보를 관리한다.,Product FG PALLET table. Manages product fg pallet information.,생산,FG PALLET PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_FG_RECEIPT,제품 FG 입고 테이블. 제품 관련 정보를 관리한다.,Product FG Receipt table. Manages product fg receipt information.,생산,FG PRODUCT RECEIPT 라인 생산 입고 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_FT_DAILY_RESULTS,제품 FT 일일 RESULTS 테이블. 제품 관련 정보를 관리한다.,Product FT Daily table. Manages product ft daily information.,생산,DAILY FT PRODUCT RESULTS 라인 생산 일일 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_INV_4_REQUIREMENT,제품 INV REQUIREMENT 테이블. 제품 관련 정보를 관리한다.,Product INV REQUIREMENT table. Manages product inv requirement information.,생산,INV PRODUCT REQUIREMENT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_ISSUE_PID_SCAN,제품 출고 PID SCAN 테이블. 제품 관련 정보를 관리한다.,Product Issue PID table. Manages product issue pid information.,생산,ISSUE PID PRODUCT SCAN 라인 생산 제품 출고,제품 정보 조회|제품 현황
+IP_PRODUCT_LASER_MARKING,제품 LASER MARKING 테이블. 제품 관련 정보를 관리한다.,Product LASER MARKING table. Manages product laser marking information.,생산,LASER MARKING PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_LINE,제품 라인 테이블. 제품 관련 정보를 관리한다.,Product Line table. Manages product line information.,생산,LINE PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_LINE_BARCODE,제품 라인 바코드 테이블. 제품 관련 정보를 관리한다.,Product Line Barcode table. Manages product line barcode information.,생산,BARCODE LINE PRODUCT 라인 바코드 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_LINE_CALENDAR,제품 라인 CALENDAR 테이블. 제품 관련 정보를 관리한다.,Product Line CALENDAR table. Manages product line calendar information.,생산,CALENDAR LINE PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_LINE_CAPACITY,제품 라인 CAPACITY 테이블. 제품 관련 정보를 관리한다.,Product Line CAPACITY table. Manages product line capacity information.,생산,CAPACITY LINE PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_LINE_MACHINE_MAP,제품 라인 설비 MAP 테이블. 제품 관련 정보를 관리한다.,Product Line Machine table. Manages product line machine information.,생산,LINE MACHINE MAP PRODUCT 라인 생산 설비 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_LINE_RESULT,제품 라인 실적 테이블. 제품 라인 실적 데이터를 기록한다.,Product Line result table. Stores product line result data.,생산,LINE PRODUCT RESULT 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_LINE_TARGET,제품 라인 목표 테이블. 제품 관련 정보를 관리한다.,Product Line Target table. Manages product line target information.,생산,LINE PRODUCT TARGET 라인 목표 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MAGAZINE,제품 MAGAZINE 테이블. 제품 관련 정보를 관리한다.,Product MAGAZINE table. Manages product magazine information.,생산,MAGAZINE PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MAGAZINE_HIS,제품 MAGAZINE HIS 테이블. 제품 관련 정보를 관리한다.,Product MAGAZINE HIS table. Manages product magazine his information.,생산,HIS MAGAZINE PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MAGAZINE_MASTER,제품 MAGAZINE 마스터 테이블. 제품 MAGAZINE 정보를 관리한다.,Product MAGAZINE master table. Manages product magazine information.,생산,MAGAZINE MASTER PRODUCT 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_MAINFLASH_VERSION,제품 MAINFLASH 버전 테이블. 제품 관련 정보를 관리한다.,Product MAINFLASH Version table. Manages product mainflash version information.,생산,MAINFLASH PRODUCT VERSION 라인 버전 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MAOI_DAILY_RESULTS,제품 MAOI 일일 RESULTS 테이블. 제품 관련 정보를 관리한다.,Product MAOI Daily table. Manages product maoi daily information.,생산,DAILY MAOI PRODUCT RESULTS 라인 생산 일일 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MCN_CALENDAR,제품 MCN CALENDAR 테이블. 제품 관련 정보를 관리한다.,Product MCN CALENDAR table. Manages product mcn calendar information.,생산,CALENDAR MCN PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MI_MONTH_PLAN,제품 MI MONTH 계획 테이블. 제품 계획 정보를 관리한다.,Product MI MONTH table. Manages product mi month information.,생산,MI MONTH PLAN PRODUCT 계획 라인 생산 제품,제품 계획 조회|당일 제품 계획
+IP_PRODUCT_MI_PLAN,제품 MI 계획 테이블. 제품 계획 정보를 관리한다.,Product MI Plan table. Manages product mi plan information.,생산,MI PLAN PRODUCT 계획 라인 생산 제품,제품 계획 조회|당일 제품 계획
+IP_PRODUCT_MOBILIZATION,제품 MOBILIZATION 테이블. 제품 관련 정보를 관리한다.,Product MOBILIZATION table. Manages product mobilization information.,생산,MOBILIZATION PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MODEL_CT_MASTER,제품 모델 CT 마스터 테이블. 제품 모델 CT 정보를 관리한다.,Product Model CT master table. Manages product model ct information.,생산,CT MASTER MODEL PRODUCT 라인 마스터 모델 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_MODEL_INSPECTION,제품 모델 INSPECTION 테이블. 제품 관련 정보를 관리한다.,Product Model INSPECTION table. Manages product model inspection information.,생산,INSPECTION MODEL PRODUCT 라인 모델 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MODEL_MASTER,제품 모델 마스터 테이블. 제품 모델 정보를 관리한다.,Product Model master table. Manages product model information.,생산,MASTER MODEL PRODUCT 라인 마스터 모델 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_MODEL_MASTER_ATTRIBUTES,제품 모델 마스터 테이블. 제품 모델 정보를 관리한다.,Product Model master table. Manages product model information.,생산,ATTRIBUTES MASTER MODEL PRODUCT 라인 마스터 모델 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_MODEL_MASTER_MD_MODEL,제품 모델 마스터 테이블. 제품 모델 정보를 관리한다.,Product Model master table. Manages product model information.,생산,MASTER MD MODEL PRODUCT 라인 마스터 모델 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_MODEL_MICOM_HISOTRY,제품 모델 MICOM HISOTRY 테이블. 제품 관련 정보를 관리한다.,Product Model MICOM table. Manages product model micom information.,생산,HISOTRY MICOM MODEL PRODUCT 라인 모델 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MODEL_OTP,제품 모델 OTP 테이블. 제품 관련 정보를 관리한다.,Product Model OTP table. Manages product model otp information.,생산,MODEL OTP PRODUCT 라인 모델 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_MODEL_ST_MASTER,제품 모델 ST 마스터 테이블. 제품 모델 ST 정보를 관리한다.,Product Model ST master table. Manages product model st information.,생산,MASTER MODEL PRODUCT ST 라인 마스터 모델 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_MOLD_CALENDAR,제품 금형 CALENDAR 테이블. 제품 관련 정보를 관리한다.,Product Mold CALENDAR table. Manages product mold calendar information.,생산,CALENDAR MOLD PRODUCT 금형 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_OEMBOX_MASTER,제품 OEMBOX 마스터 테이블. 제품 OEMBOX 정보를 관리한다.,Product OEMBOX master table. Manages product oembox information.,생산,MASTER OEMBOX PRODUCT 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_PACK_ASSY_MASTER,제품 PACK ASSY 마스터 테이블. 제품 PACK ASSY 정보를 관리한다.,Product PACK ASSY master table. Manages product pack assy information.,생산,ASSY MASTER PACK PRODUCT 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_PACK_MASTER,제품 PACK 마스터 테이블. 제품 PACK 정보를 관리한다.,Product PACK master table. Manages product pack information.,생산,MASTER PACK PRODUCT 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_PACK_MASTER_DEL,제품 PACK 마스터 테이블. 제품 PACK 정보를 관리한다.,Product PACK master table. Manages product pack information.,생산,DEL MASTER PACK PRODUCT 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_PACK_SCAN_HISTORY,제품 PACK SCAN 이력 테이블. 제품 PACK SCAN 변경/처리 이력을 기록한다.,Product PACK SCAN history table. Records product pack scan change history.,생산,HISTORY PACK PRODUCT SCAN 라인 생산 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_PACK_SERIAL,제품 PACK SERIAL 테이블. 제품 관련 정보를 관리한다.,Product PACK SERIAL table. Manages product pack serial information.,생산,PACK PRODUCT SERIAL 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_PACK_SERIAL_DEL,제품 PACK SERIAL DEL 테이블. 제품 관련 정보를 관리한다.,Product PACK SERIAL table. Manages product pack serial information.,생산,DEL PACK PRODUCT SERIAL 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_PCB_DEPARTURE,제품 PCB DEPARTURE 테이블. 제품 관련 정보를 관리한다.,Product PCB DEPARTURE table. Manages product pcb departure information.,생산,DEPARTURE PCB PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_PCB_DEPARTURE_LOAD,제품 PCB DEPARTURE LOAD 테이블. 제품 관련 정보를 관리한다.,Product PCB DEPARTURE table. Manages product pcb departure information.,생산,DEPARTURE LOAD PCB PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_PCB_PURIFYING,제품 PCB PURIFYING 테이블. 제품 관련 정보를 관리한다.,Product PCB PURIFYING table. Manages product pcb purifying information.,생산,PCB PRODUCT PURIFYING 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_PCB_SCAN_MASTER,제품 PCB SCAN 마스터 테이블. 제품 PCB SCAN 정보를 관리한다.,Product PCB SCAN master table. Manages product pcb scan information.,생산,MASTER PCB PRODUCT SCAN 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_PCB_SCAN_MASTER_MT,제품 PCB SCAN 마스터 테이블. 제품 PCB SCAN 정보를 관리한다.,Product PCB SCAN master table. Manages product pcb scan information.,생산,MASTER MT PCB PRODUCT SCAN 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_PDA_SCAN_MASTER,제품 PDA SCAN 마스터 테이블. 제품 PDA SCAN 정보를 관리한다.,Product PDA SCAN master table. Manages product pda scan information.,생산,MASTER PDA PRODUCT SCAN 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_PIDCHECK_HISTORY,제품 PIDCHECK 이력 테이블. 제품 PIDCHECK 변경/처리 이력을 기록한다.,Product PIDCHECK history table. Records product pidcheck change history.,생산,HISTORY PIDCHECK PRODUCT 라인 생산 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_PREPARE_IMAGE,제품 PREPARE 이미지 테이블. 제품 관련 정보를 관리한다.,Product PREPARE Image table. Manages product prepare image information.,생산,IMAGE PREPARE PRODUCT 라인 생산 이미지 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_PREPARE_LIST,제품 PREPARE LIST 테이블. 제품 관련 정보를 관리한다.,Product PREPARE LIST table. Manages product prepare list information.,생산,LIST PREPARE PRODUCT 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_PREPARE_MASTER,제품 PREPARE 마스터 테이블. 제품 PREPARE 정보를 관리한다.,Product PREPARE master table. Manages product prepare information.,생산,MASTER PREPARE PRODUCT 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_REINPUT_RESULT,제품 REINPUT 실적 테이블. 제품 REINPUT 실적 데이터를 기록한다.,Product REINPUT result table. Stores product reinput result data.,생산,PRODUCT REINPUT RESULT 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_REPAIR,제품 수리 테이블. 제품 관련 정보를 관리한다.,Product Repair table. Manages product repair information.,생산,PRODUCT REPAIR 라인 생산 수리 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_RESULT,제품 실적 테이블. 제품 실적 데이터를 기록한다.,Product result table. Stores product result data.,생산,PRODUCT RESULT 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_RESULT_BARCODE,제품 바코드 실적 테이블. 제품 바코드 실적 데이터를 기록한다.,Product Barcode result table. Stores product barcode result data.,생산,BARCODE PRODUCT RESULT 라인 바코드 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_RESULT_HISTORY,제품 실적/결과 이력 테이블. 제품 실적/결과 변경/처리 이력을 기록한다.,Product Result history table. Records product result change history.,생산,HISTORY PRODUCT RESULT 라인 생산 실적 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_REWORK_RESULT,제품 REWORK 실적 테이블. 제품 REWORK 실적 데이터를 기록한다.,Product REWORK result table. Stores product rework result data.,생산,PRODUCT RESULT REWORK 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_ROUTING,제품 ROUTING 테이블. 제품 관련 정보를 관리한다.,Product ROUTING table. Manages product routing information.,생산,PRODUCT ROUTING 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_ROUTING_MASTER,제품 ROUTING 마스터 테이블. 제품 ROUTING 정보를 관리한다.,Product ROUTING master table. Manages product routing information.,생산,MASTER PRODUCT ROUTING 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_RUNNING_HIST,제품 RUNNING 이력 테이블. 제품 RUNNING 변경/처리 이력을 기록한다.,Product RUNNING history table. Records product running change history.,생산,HIST PRODUCT RUNNING 라인 생산 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_RUN_CARD,제품 런 카드 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD PRODUCT RUN 라인 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_CLOSE,제품 런 카드 CLOSE 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD CLOSE PRODUCT RUN 라인 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_DEL,제품 런 카드 DEL 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD DEL PRODUCT RUN 라인 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_DETAIL,제품 런 카드 상세 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD DETAIL PRODUCT RUN 라인 상세 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_INV,제품 런 카드 INV 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD INV PRODUCT RUN 라인 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_INV_DEL,제품 런 카드 INV 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD DEL INV PRODUCT RUN 라인 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_IO,제품 런 카드 IO 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD IO PRODUCT RUN 라인 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_IO_BACK,제품 런 카드 IO 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,BACK CARD IO PRODUCT RUN 라인 생산 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_ISSUE,제품 런 카드 출고 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD ISSUE PRODUCT RUN 라인 생산 제품 출고 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_ISSUE_DEL,제품 런 카드 출고 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD DEL ISSUE PRODUCT RUN 라인 생산 제품 출고 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_RECEIPT,제품 런 카드 입고 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD PRODUCT RECEIPT RUN 라인 생산 입고 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_CARD_RECEIPT_DEL,제품 런 카드 입고 테이블. 제품 관련 정보를 관리한다.,Product Run Card table. Manages product run card information.,생산,CARD DEL PRODUCT RECEIPT RUN 라인 생산 입고 제품 카드,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_MODEL,제품 런 모델 테이블. 제품 관련 정보를 관리한다.,Product Run Model table. Manages product run model information.,생산,MODEL PRODUCT RUN 라인 모델 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_RUN_MODEL_LOG,제품 런 모델 로그 테이블. 제품 런 모델 변경/처리 이력을 기록한다.,Product Run Model log table. Records product run model change history.,생산,LOG MODEL PRODUCT RUN 라인 로그 모델 생산 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_SAOI_DAILY_RESULTS,제품 SAOI 일일 RESULTS 테이블. 제품 관련 정보를 관리한다.,Product SAOI Daily table. Manages product saoi daily information.,생산,DAILY PRODUCT RESULTS SAOI 라인 생산 일일 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_SCAN_HISTORY,제품 SCAN 이력 테이블. 제품 SCAN 변경/처리 이력을 기록한다.,Product SCAN history table. Records product scan change history.,생산,HISTORY PRODUCT SCAN 라인 생산 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_SCAN_INPUT_HISTORY,제품 SCAN INPUT 이력 테이블. 제품 SCAN INPUT 변경/처리 이력을 기록한다.,Product SCAN INPUT history table. Records product scan input change history.,생산,HISTORY INPUT PRODUCT SCAN 라인 생산 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_SCAN_MAPPING_HISTORY,제품 SCAN MAPPING 이력 테이블. 제품 SCAN MAPPING 변경/처리 이력을 기록한다.,Product SCAN MAPPING history table. Records product scan mapping change history.,생산,HISTORY MAPPING PRODUCT SCAN 라인 생산 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_SCAN_MAPPING_HIST_DEL,제품 SCAN MAPPING 이력 테이블. 제품 SCAN MAPPING 변경/처리 이력을 기록한다.,Product SCAN MAPPING history table. Records product scan mapping change history.,생산,DEL HIST MAPPING PRODUCT SCAN 라인 생산 이력 제품,제품 이력 조회|제품 변경 이력
+IP_PRODUCT_SELECTION_DATA_TEMP,제품 SELECTION 데이터 테이블. 제품 SELECTION 관련 데이터를 저장한다.,Product SELECTION data table. Stores product selection data.,생산,DATA PRODUCT SELECTION TEMP 데이터 라인 생산 온도 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_SENSOR_ACTUAL,제품 SENSOR 실적 테이블. 제품 관련 정보를 관리한다.,Product SENSOR Actual table. Manages product sensor actual information.,생산,ACTUAL PRODUCT SENSOR 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_SENSOR_ACTUAL_BACK,제품 SENSOR 실적 BACK 테이블. 제품 관련 정보를 관리한다.,Product SENSOR Actual table. Manages product sensor actual information.,생산,ACTUAL BACK PRODUCT SENSOR 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_SENSOR_ACTUAL_HOUR,제품 SENSOR 실적 HOUR 테이블. 제품 관련 정보를 관리한다.,Product SENSOR Actual table. Manages product sensor actual information.,생산,ACTUAL HOUR PRODUCT SENSOR 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_SENSOR_ACTUAL_RUNNO,제품 SENSOR 실적 RUNNO 테이블. 제품 관련 정보를 관리한다.,Product SENSOR Actual table. Manages product sensor actual information.,생산,ACTUAL PRODUCT RUNNO SENSOR 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_SENSOR_ACTUAL_TIME,제품 SENSOR 실적 TIME 테이블. 제품 관련 정보를 관리한다.,Product SENSOR Actual table. Manages product sensor actual information.,생산,ACTUAL PRODUCT SENSOR TIME 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_SERIAL_RESULT,제품 SERIAL 실적 테이블. 제품 SERIAL 실적 데이터를 기록한다.,Product SERIAL result table. Stores product serial result data.,생산,PRODUCT RESULT SERIAL 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_SHIFT_RESULT,제품 SHIFT 실적 테이블. 제품 SHIFT 실적 데이터를 기록한다.,Product SHIFT result table. Stores product shift result data.,생산,PRODUCT RESULT SHIFT 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_SMD_MONTH_PLAN,제품 SMD MONTH 계획 테이블. 제품 계획 정보를 관리한다.,Product SMD MONTH table. Manages product smd month information.,생산,MONTH PLAN PRODUCT SMD 계획 라인 생산 제품,제품 계획 조회|당일 제품 계획
+IP_PRODUCT_SMD_PLAN,제품 SMD 계획 테이블. 제품 계획 정보를 관리한다.,Product SMD Plan table. Manages product smd plan information.,생산,PLAN PRODUCT SMD 계획 라인 생산 제품,제품 계획 조회|당일 제품 계획
+IP_PRODUCT_SMD_PLAN_ISSUE,제품 SMD 계획 출고 테이블. 제품 계획 정보를 관리한다.,Product SMD Plan table. Manages product smd plan information.,생산,ISSUE PLAN PRODUCT SMD 계획 라인 생산 제품 출고,제품 계획 조회|당일 제품 계획
+IP_PRODUCT_SOFTWARE_EXCEL,제품 SOFTWARE EXCEL 테이블. 제품 관련 정보를 관리한다.,Product SOFTWARE EXCEL table. Manages product software excel information.,생산,EXCEL PRODUCT SOFTWARE 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_SOFTWARE_MASTER,제품 SOFTWARE 마스터 테이블. 제품 SOFTWARE 정보를 관리한다.,Product SOFTWARE master table. Manages product software information.,생산,MASTER PRODUCT SOFTWARE 라인 마스터 생산 제품,제품 정보 조회|제품 목록
+IP_PRODUCT_SPEC_CONFIRM_DOC,제품 스펙 CONFIRM DOC 테이블. 제품 관련 정보를 관리한다.,Product Specification CONFIRM table. Manages product specification confirm information.,생산,CONFIRM DOC PRODUCT SPEC 라인 생산 스펙 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_SPI_DAILY_RESULTS,제품 SPI 일일 RESULTS 테이블. 제품 관련 정보를 관리한다.,Product SPI Daily table. Manages product spi daily information.,생산,DAILY PRODUCT RESULTS SPI 라인 생산 일일 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_SSCD_DATA_CHECK,제품 SSCD 데이터 테이블. 제품 SSCD 관련 데이터를 저장한다.,Product SSCD data table. Stores product sscd data.,생산,CHECK DATA PRODUCT SSCD 검사 데이터 라인 생산 제품,제품 검사 결과|제품 검사 현황
+IP_PRODUCT_ST,제품 ST 테이블. 제품 관련 정보를 관리한다.,Product ST table. Manages product st information.,생산,PRODUCT ST 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_VI_QC_IMAGE,제품 VI 품질관리 이미지 테이블. 제품 관련 정보를 관리한다.,Product VI Quality Control table. Manages product vi quality control information.,생산,IMAGE PRODUCT VI 라인 생산 이미지 제품 품질관리,제품 정보 조회|제품 현황
+IP_PRODUCT_WORKORDER_DOCUMENT,제품 WORKORDER DOCUMENT 테이블. 제품 관련 정보를 관리한다.,Product WORKORDER DOCUMENT table. Manages product workorder document information.,생산,DOCUMENT PRODUCT WORKORDER 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WORKSTAGE,제품 공정 테이블. 제품 관련 정보를 관리한다.,Product Work Stage table. Manages product work stage information.,생산,PRODUCT WORKSTAGE 공정 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WORKSTAGE_INV,제품 공정 INV 테이블. 제품 관련 정보를 관리한다.,Product Work Stage INV table. Manages product work stage inv information.,생산,INV PRODUCT WORKSTAGE 공정 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WORKSTAGE_IO,제품 공정 IO 테이블. 제품 관련 정보를 관리한다.,Product Work Stage IO table. Manages product work stage io information.,생산,IO PRODUCT WORKSTAGE 공정 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WORKSTAGE_IO_DEL,제품 공정 IO DEL 테이블. 제품 관련 정보를 관리한다.,Product Work Stage IO table. Manages product work stage io information.,생산,DEL IO PRODUCT WORKSTAGE 공정 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WORKSTAGE_RESULT,제품 공정 실적 테이블. 제품 공정 실적 데이터를 기록한다.,Product Work Stage result table. Stores product work stage result data.,생산,PRODUCT RESULT WORKSTAGE 공정 라인 생산 실적 제품,제품 실적 조회|일일 제품 실적
+IP_PRODUCT_WORKSTAGE_REWORK,제품 공정 REWORK 테이블. 제품 관련 정보를 관리한다.,Product Work Stage REWORK table. Manages product work stage rework information.,생산,PRODUCT REWORK WORKSTAGE 공정 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WORK_QC,제품 작업 품질관리 테이블. 제품 관련 정보를 관리한다.,Product Work Quality Control table. Manages product work quality control information.,생산,PRODUCT WORK 라인 생산 작업 제품 품질관리,제품 정보 조회|제품 현황
+IP_PRODUCT_WORK_QC_EXCEL,제품 작업 품질관리 EXCEL 테이블. 제품 관련 정보를 관리한다.,Product Work Quality Control table. Manages product work quality control information.,생산,EXCEL PRODUCT WORK 라인 생산 작업 제품 품질관리,제품 정보 조회|제품 현황
+IP_PRODUCT_WORK_QC_IMAGE,제품 작업 품질관리 이미지 테이블. 제품 관련 정보를 관리한다.,Product Work Quality Control table. Manages product work quality control information.,생산,IMAGE PRODUCT WORK 라인 생산 이미지 작업 제품 품질관리,제품 정보 조회|제품 현황
+IP_PRODUCT_WORK_QC_REPAIR_ITEM,제품 작업 품질관리 수리 테이블. 제품 관련 정보를 관리한다.,Product Work Quality Control table. Manages product work quality control information.,생산,ITEM PRODUCT REPAIR WORK 라인 생산 수리 작업 제품 품목 품질관리,제품 정보 조회|제품 현황
+IP_PRODUCT_WORK_TIME,제품 작업 TIME 테이블. 제품 관련 정보를 관리한다.,Product Work TIME table. Manages product work time information.,생산,PRODUCT TIME WORK 라인 생산 작업 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WRONG_COMPONENT,제품 WRONG COMPONENT 테이블. 제품 관련 정보를 관리한다.,Product WRONG COMPONENT table. Manages product wrong component information.,생산,COMPONENT PRODUCT WRONG 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WRONG_RETURN_PID,제품 WRONG RETURN PID 테이블. 제품 관련 정보를 관리한다.,Product WRONG RETURN table. Manages product wrong return information.,생산,PID PRODUCT RETURN WRONG 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WS_CALENDAR,제품 WS CALENDAR 테이블. 제품 관련 정보를 관리한다.,Product WS CALENDAR table. Manages product ws calendar information.,생산,CALENDAR PRODUCT WS 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_WS_CAPACITY,제품 WS CAPACITY 테이블. 제품 관련 정보를 관리한다.,Product WS CAPACITY table. Manages product ws capacity information.,생산,CAPACITY PRODUCT WS 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PRODUCT_YEAR_BASE,제품 YEAR BASE 테이블. 제품 관련 정보를 관리한다.,Product YEAR BASE table. Manages product year base information.,생산,BASE PRODUCT YEAR 라인 생산 제품,제품 정보 조회|제품 현황
+IP_PROD_MATERIAL_TRACKING_KFC,PROD 자재 TRACKING KFC 테이블. PROD 관련 정보를 관리한다.,PROD Material TRACKING table. Manages prod material tracking information.,생산,KFC MATERIAL PROD TRACKING 라인 생산 자재,PROD 정보 조회|PROD 현황
+IP_SHIFT_TIME_MASTER,SHIFT TIME 마스터 테이블. SHIFT TIME 정보를 관리한다.,SHIFT TIME master table. Manages shift time information.,생산,MASTER SHIFT TIME 라인 마스터 생산,SHIFT 정보 조회|SHIFT 목록
+IQC_INSPECTION_TEMPLATE,INSPECTION TEMPLATE 테이블. INSPECTION 관련 정보를 관리한다.,INSPECTION TEMPLATE table. Manages inspection template information.,기타,INSPECTION TEMPLATE,INSPECTION 정보 조회|INSPECTION 현황
+IQC_INSPECTION_TIME_CHECK,INSPECTION TIME 검사/확인 테이블. INSPECTION 검사 결과를 기록한다.,INSPECTION TIME Check table. Manages inspection time check information.,기타,CHECK INSPECTION TIME 검사,INSPECTION 검사 결과|INSPECTION 검사 현황
+IQ_4M_MASTER,4M 마스터 테이블. 4M 정보를 관리한다.,4M master table. Manages 4m information.,품질,4M MASTER 검사 마스터 품질,4M 정보 조회|4M 목록|품질 검사 현황
+IQ_CHECK_FOOLPROOF_HISTORY,검사/확인 FOOLPROOF 이력 테이블. 검사/확인 FOOLPROOF 변경/처리 이력을 기록한다.,Check FOOLPROOF history table. Records check foolproof change history.,품질,CHECK FOOLPROOF HISTORY 검사 이력 품질,검사 이력 조회|검사 변경 이력|품질 검사 현황
+IQ_DAILY_DASHBOARD,일일 DASHBOARD 테이블. 일일 관련 정보를 관리한다.,Daily DASHBOARD table. Manages daily dashboard information.,품질,DAILY DASHBOARD 검사 일일 품질,일일 정보 조회|일일 현황|품질 검사 현황
+IQ_DAILY_NOTIFY,일일 NOTIFY 테이블. 일일 관련 정보를 관리한다.,Daily NOTIFY table. Manages daily notify information.,품질,DAILY NOTIFY 검사 일일 품질,일일 정보 조회|일일 현황|품질 검사 현황
+IQ_INSPECT_MASTER_SAMPLE_LOG,검사 SAMPLE 마스터 테이블. 검사 SAMPLE 정보를 관리한다.,Inspection SAMPLE master table. Manages inspection sample information.,품질,INSPECT LOG MASTER SAMPLE 검사 로그 마스터 품질,검사 이력 조회|검사 변경 이력|품질 검사 현황
+IQ_INSPECT_MAXPOWER_SPEC,검사 MAXPOWER 스펙 테이블. 검사 검사 결과를 기록한다.,Inspection MAXPOWER Specification table. Manages inspection maxpower specification information.,품질,INSPECT MAXPOWER SPEC 검사 스펙 품질,검사 검사 결과|검사 검사 현황|품질 검사 현황
+IQ_INTERLOCK_CHECK_CONDITION,INTERLOCK 검사/확인 CONDITION 테이블. INTERLOCK 검사 결과를 기록한다.,INTERLOCK Check CONDITION table. Manages interlock check condition information.,품질,CHECK CONDITION INTERLOCK 검사 품질,INTERLOCK 검사 결과|INTERLOCK 검사 현황|품질 검사 현황
+IQ_INTERLOCK_CHECK_COND_LOG,INTERLOCK 검사/확인 COND 로그 테이블. INTERLOCK 검사/확인 COND 변경/처리 이력을 기록한다.,INTERLOCK Check COND log table. Records interlock check cond change history.,품질,CHECK COND INTERLOCK LOG 검사 로그 품질,INTERLOCK 이력 조회|INTERLOCK 변경 이력|품질 검사 현황
+IQ_INTERLOCK_CHECK_ERROR,INTERLOCK 검사/확인 에러 테이블. INTERLOCK 검사 결과를 기록한다.,INTERLOCK Check Error table. Manages interlock check error information.,품질,CHECK ERROR INTERLOCK 검사 에러 품질,INTERLOCK 검사 결과|INTERLOCK 검사 현황|품질 검사 현황
+IQ_INTERLOCK_CHECK_RESULT,INTERLOCK 검사/확인 실적 테이블. INTERLOCK 검사/확인 실적 데이터를 기록한다.,INTERLOCK Check result table. Stores interlock check result data.,품질,CHECK INTERLOCK RESULT 검사 실적 품질,INTERLOCK 실적 조회|일일 INTERLOCK 실적|품질 검사 현황
+IQ_INTERLOCK_CHECK_RESULT_SUM,INTERLOCK 검사/확인 실적 테이블. INTERLOCK 검사/확인 실적 데이터를 기록한다.,INTERLOCK Check result table. Stores interlock check result data.,품질,CHECK INTERLOCK RESULT SUM 검사 실적 품질,INTERLOCK 실적 조회|일일 INTERLOCK 실적|품질 검사 현황
+IQ_INTERLOCK_REFLOW_DATA,INTERLOCK REFLOW 데이터 테이블. INTERLOCK REFLOW 관련 데이터를 저장한다.,INTERLOCK REFLOW data table. Stores interlock reflow data.,품질,DATA INTERLOCK REFLOW 검사 데이터 품질,INTERLOCK 정보 조회|INTERLOCK 현황|품질 검사 현황
+IQ_INTERLOCK_REFLOW_STATUS,INTERLOCK REFLOW 상태 테이블. INTERLOCK 관련 정보를 관리한다.,INTERLOCK REFLOW Status table. Manages interlock reflow status information.,품질,INTERLOCK REFLOW STATUS 검사 상태 품질,INTERLOCK 정보 조회|INTERLOCK 현황|품질 검사 현황
+IQ_INTERLOCK_REQUEST_LOG,INTERLOCK REQUEST 로그 테이블. INTERLOCK REQUEST 변경/처리 이력을 기록한다.,INTERLOCK REQUEST log table. Records interlock request change history.,품질,INTERLOCK LOG REQUEST 검사 로그 품질,INTERLOCK 이력 조회|INTERLOCK 변경 이력|품질 검사 현황
+IQ_IQC_DOCUMENT,수입검사 DOCUMENT 테이블. 수입검사 관련 정보를 관리한다.,Incoming QC DOCUMENT table. Manages incoming qc document information.,품질,DOCUMENT IQC 검사 수입검사 품질,수입검사 검사 결과|수입검사 검사 현황|품질 검사 현황
+IQ_IQC_INSPECT_HISTORY,수입검사 검사 이력 테이블. 수입검사 검사 변경/처리 이력을 기록한다.,Incoming QC Inspection history table. Records incoming qc inspection change history.,품질,HISTORY INSPECT IQC 검사 수입검사 이력 품질,수입검사 이력 조회|수입검사 변경 이력|품질 검사 현황
+IQ_ITEM_EQUIPMENT_DETAIL,품목 EQUIPMENT 상세 테이블. 품목 관련 정보를 관리한다.,Item EQUIPMENT Detail table. Manages item equipment detail information.,품질,DETAIL EQUIPMENT ITEM 검사 상세 품목 품질,품목 정보 조회|품목 현황|품질 검사 현황
+IQ_ITEM_INSPECT_GROUP,품목 검사 GROUP 테이블. 품목 검사 결과를 기록한다.,Item Inspection GROUP table. Manages item inspection group information.,품질,GROUP INSPECT ITEM 검사 품목 품질,품목 검사 결과|품목 검사 현황|품질 검사 현황
+IQ_ITEM_IQC,품목 수입검사 테이블. 품목 관련 정보를 관리한다.,Item Incoming QC table. Manages item incoming qc information.,품질,IQC ITEM 검사 수입검사 품목 품질,품목 검사 결과|품목 검사 현황|품질 검사 현황
+IQ_ITEM_IQC_BAD,품목 수입검사 BAD 테이블. 품목 관련 정보를 관리한다.,Item Incoming QC BAD table. Manages item incoming qc bad information.,품질,BAD IQC ITEM 검사 수입검사 품목 품질,품목 검사 결과|품목 검사 현황|품질 검사 현황
+IQ_ITEM_IQC_CRITERION,품목 수입검사 CRITERION 테이블. 품목 관련 정보를 관리한다.,Item Incoming QC CRITERION table. Manages item incoming qc criterion information.,품질,CRITERION IQC ITEM 검사 수입검사 품목 품질,품목 검사 결과|품목 검사 현황|품질 검사 현황
+IQ_ITEM_IQC_RANGE,품목 수입검사 RANGE 테이블. 품목 관련 정보를 관리한다.,Item Incoming QC RANGE table. Manages item incoming qc range information.,품질,IQC ITEM RANGE 검사 수입검사 품목 품질,품목 검사 결과|품목 검사 현황|품질 검사 현황
+IQ_ITEM_OQC_CRITERION,품목 출하검사 CRITERION 테이블. 품목 관련 정보를 관리한다.,Item Outgoing QC CRITERION table. Manages item outgoing qc criterion information.,품질,CRITERION ITEM OQC 검사 출하검사 품목 품질,품목 검사 결과|품목 검사 현황|품질 검사 현황
+IQ_LED_INSPECT_CONDITION,LED 검사 CONDITION 테이블. LED 검사 결과를 기록한다.,LED Inspection CONDITION table. Manages led inspection condition information.,품질,CONDITION INSPECT LED 검사 품질,LED 검사 결과|LED 검사 현황|품질 검사 현황
+IQ_MACHINE_AOI_NG_POWER_DATA_RAW,설비 AOI 불량 데이터 테이블. 설비 AOI 불량 관련 데이터를 저장한다.,Machine AOI NG data table. Stores machine aoi ng data.,품질,AOI DATA MACHINE POWER RAW 검사 데이터 불량 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_AOI_POWER_DATA_RAW,설비 AOI POWER 데이터 테이블. 설비 AOI POWER 관련 데이터를 저장한다.,Machine AOI POWER data table. Stores machine aoi power data.,품질,AOI DATA MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ATE_DTL_POWER_DATA_RAW,설비 ATE DTL 데이터 테이블. 설비 ATE DTL 관련 데이터를 저장한다.,Machine ATE DTL data table. Stores machine ate dtl data.,품질,ATE DATA DTL MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ATE_POWER_DATA_RAW,설비 ATE POWER 데이터 테이블. 설비 ATE POWER 관련 데이터를 저장한다.,Machine ATE POWER data table. Stores machine ate power data.,품질,ATE DATA MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ATE_POWER_SUB2_DATA_RAW,설비 ATE POWER 데이터 테이블. 설비 ATE POWER 관련 데이터를 저장한다.,Machine ATE POWER data table. Stores machine ate power data.,품질,ATE DATA MACHINE POWER RAW SUB2 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ATE_SERVER_DATA_RAW,설비 ATE SERVER 데이터 테이블. 설비 ATE SERVER 관련 데이터를 저장한다.,Machine ATE SERVER data table. Stores machine ate server data.,품질,ATE DATA MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_BARCODE_DATA_RAW,설비 바코드 데이터 테이블. 설비 바코드 관련 데이터를 저장한다.,Machine Barcode data table. Stores machine barcode data.,품질,BARCODE DATA MACHINE RAW 검사 데이터 바코드 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_BURNIN_DTL_HYBRID_RAW,설비 BURNIN DTL HYBRID 테이블. 설비 관련 정보를 관리한다.,Machine BURNIN DTL table. Manages machine burnin dtl information.,품질,BURNIN DTL HYBRID MACHINE RAW 검사 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_BURNIN_HYBRID_DATA_RAW,설비 BURNIN HYBRID 데이터 테이블. 설비 BURNIN HYBRID 관련 데이터를 저장한다.,Machine BURNIN HYBRID data table. Stores machine burnin hybrid data.,품질,BURNIN DATA HYBRID MACHINE RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_BURNIN_POWER_DATA_RAW,설비 BURNIN POWER 데이터 테이블. 설비 BURNIN POWER 관련 데이터를 저장한다.,Machine BURNIN POWER data table. Stores machine burnin power data.,품질,BURNIN DATA MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_BURNIN_SMPS_DATA_RAW,설비 BURNIN SMPS 데이터 테이블. 설비 BURNIN SMPS 관련 데이터를 저장한다.,Machine BURNIN SMPS data table. Stores machine burnin smps data.,품질,BURNIN DATA MACHINE RAW SMPS 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_CALIB_DTL_POWER_DATA_RAW,설비 CALIB DTL 데이터 테이블. 설비 CALIB DTL 관련 데이터를 저장한다.,Machine CALIB DTL data table. Stores machine calib dtl data.,품질,CALIB DATA DTL MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_CALIB_POWER_DATA_RAW,설비 CALIB POWER 데이터 테이블. 설비 CALIB POWER 관련 데이터를 저장한다.,Machine CALIB POWER data table. Stores machine calib power data.,품질,CALIB DATA MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_COATING_POWER_DATA,설비 COATING POWER 데이터 테이블. 설비 COATING POWER 관련 데이터를 저장한다.,Machine COATING POWER data table. Stores machine coating power data.,품질,COATING DATA MACHINE POWER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_COATING_POWER_DATA_RAW,설비 COATING POWER 데이터 테이블. 설비 COATING POWER 관련 데이터를 저장한다.,Machine COATING POWER data table. Stores machine coating power data.,품질,COATING DATA MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_CPK_ITEM_MASTER,설비 CPK 품목 마스터 테이블. 설비 CPK 품목 정보를 관리한다.,Machine CPK Item master table. Manages machine cpk item information.,품질,CPK ITEM MACHINE MASTER 검사 마스터 설비 품목 품질,설비 정보 조회|설비 목록|품질 검사 현황
+IQ_MACHINE_CTRL_SERVER_DATA_RAW,설비 CTRL SERVER 데이터 테이블. 설비 CTRL SERVER 관련 데이터를 저장한다.,Machine CTRL SERVER data table. Stores machine ctrl server data.,품질,CTRL DATA MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_DATA_RAW,설비 RAW 데이터 테이블. 설비 RAW 관련 데이터를 저장한다.,Machine RAW data table. Stores machine raw data.,품질,DATA MACHINE RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_EEPROM_SERVER_DATA_RAW,설비 EEPROM SERVER 데이터 테이블. 설비 EEPROM SERVER 관련 데이터를 저장한다.,Machine EEPROM SERVER data table. Stores machine eeprom server data.,품질,DATA EEPROM MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ESD_DATA_RAW,설비 ESD 데이터 테이블. 설비 ESD 관련 데이터를 저장한다.,Machine ESD data table. Stores machine esd data.,품질,DATA ESD MACHINE RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FANTEST_POWER_DATA_RAW,설비 FANTEST POWER 데이터 테이블. 설비 FANTEST POWER 관련 데이터를 저장한다.,Machine FANTEST POWER data table. Stores machine fantest power data.,품질,DATA FANTEST MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FCT_DTL_POWER_DATA_RAW,설비 FCT DTL 데이터 테이블. 설비 FCT DTL 관련 데이터를 저장한다.,Machine FCT DTL data table. Stores machine fct dtl data.,품질,DATA DTL FCT MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FCT_POWER_DATA_RAW,설비 FCT POWER 데이터 테이블. 설비 FCT POWER 관련 데이터를 저장한다.,Machine FCT POWER data table. Stores machine fct power data.,품질,DATA FCT MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FCT_SERVER_DATA_RAW,설비 FCT SERVER 데이터 테이블. 설비 FCT SERVER 관련 데이터를 저장한다.,Machine FCT SERVER data table. Stores machine fct server data.,품질,DATA FCT MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FT1_DTL_POWER_DATA_RAW,설비 FT1 DTL 데이터 테이블. 설비 FT1 DTL 관련 데이터를 저장한다.,Machine FT1 DTL data table. Stores machine ft1 dtl data.,품질,DATA DTL FT1 MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FT1_POWER_DATA_RAW,설비 FT1 POWER 데이터 테이블. 설비 FT1 POWER 관련 데이터를 저장한다.,Machine FT1 POWER data table. Stores machine ft1 power data.,품질,DATA FT1 MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FT1_SERVER_DATA_RAW,설비 FT1 SERVER 데이터 테이블. 설비 FT1 SERVER 관련 데이터를 저장한다.,Machine FT1 SERVER data table. Stores machine ft1 server data.,품질,DATA FT1 MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FT1_SMPS_DATA_RAW,설비 FT1 SMPS 데이터 테이블. 설비 FT1 SMPS 관련 데이터를 저장한다.,Machine FT1 SMPS data table. Stores machine ft1 smps data.,품질,DATA FT1 MACHINE RAW SMPS 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FWACDC_POWER_DATA_RAW,설비 FWACDC POWER 데이터 테이블. 설비 FWACDC POWER 관련 데이터를 저장한다.,Machine FWACDC POWER data table. Stores machine fwacdc power data.,품질,DATA FWACDC MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FWDCDC_POWER_DATA_RAW,설비 FWDCDC POWER 데이터 테이블. 설비 FWDCDC POWER 관련 데이터를 저장한다.,Machine FWDCDC POWER data table. Stores machine fwdcdc power data.,품질,DATA FWDCDC MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FWDL_POWER_DATA_RAW,설비 FWDL POWER 데이터 테이블. 설비 FWDL POWER 관련 데이터를 저장한다.,Machine FWDL POWER data table. Stores machine fwdl power data.,품질,DATA FWDL MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FWLED_POWER_DATA_RAW,설비 FWLED POWER 데이터 테이블. 설비 FWLED POWER 관련 데이터를 저장한다.,Machine FWLED POWER data table. Stores machine fwled power data.,품질,DATA FWLED MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FW_POWER_DATA_RAW,설비 FW POWER 데이터 테이블. 설비 FW POWER 관련 데이터를 저장한다.,Machine FW POWER data table. Stores machine fw power data.,품질,DATA FW MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FW_SERVER_DATA_RAW,설비 FW SERVER 데이터 테이블. 설비 FW SERVER 관련 데이터를 저장한다.,Machine FW SERVER data table. Stores machine fw server data.,품질,DATA FW MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_FW_SMPS_DATA_RAW,설비 FW SMPS 데이터 테이블. 설비 FW SMPS 관련 데이터를 저장한다.,Machine FW SMPS data table. Stores machine fw smps data.,품질,DATA FW MACHINE RAW SMPS 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_HEIGHT_POWER_DATA_RAW,설비 HEIGHT POWER 데이터 테이블. 설비 HEIGHT POWER 관련 데이터를 저장한다.,Machine HEIGHT POWER data table. Stores machine height power data.,품질,DATA HEIGHT MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_HIPOT_POWER_DATA_RAW,설비 HIPOT POWER 데이터 테이블. 설비 HIPOT POWER 관련 데이터를 저장한다.,Machine HIPOT POWER data table. Stores machine hipot power data.,품질,DATA HIPOT MACHINE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_HIPOT_SERVER_DATA_RAW,설비 HIPOT SERVER 데이터 테이블. 설비 HIPOT SERVER 관련 데이터를 저장한다.,Machine HIPOT SERVER data table. Stores machine hipot server data.,품질,DATA HIPOT MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ICT_DTL_SERVER_DATA_RAW,설비 ICT DTL 데이터 테이블. 설비 ICT DTL 관련 데이터를 저장한다.,Machine ICT DTL data table. Stores machine ict dtl data.,품질,DATA DTL ICT MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ICT_SERVER_DATA_RAW,설비 ICT SERVER 데이터 테이블. 설비 ICT SERVER 관련 데이터를 저장한다.,Machine ICT SERVER data table. Stores machine ict server data.,품질,DATA ICT MACHINE RAW SERVER 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_INPSECT_DATA_FEEDERCHECK,설비 INPSECT 데이터 테이블. 설비 INPSECT 관련 데이터를 저장한다.,Machine INPSECT data table. Stores machine inpsect data.,품질,DATA FEEDERCHECK INPSECT MACHINE 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_AGING,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,AGING DATA INSPECT MACHINE 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_AOI,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,AOI DATA INSPECT MACHINE 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_AOI_DFT,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,AOI DATA DFT INSPECT MACHINE 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_AOI_NG,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,AOI DATA INSPECT MACHINE 검사 데이터 불량 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_AOI_TEST,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,AOI DATA INSPECT MACHINE TEST 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_ICT,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA ICT INSPECT MACHINE 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_MANUAL,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE MANUAL 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_MAOI,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE MAOI 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_MAOI_DFT,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA DFT INSPECT MACHINE MAOI 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_MAOI_NG,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE MAOI 검사 데이터 불량 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_MASK,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE MASK 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_MK,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE MK 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_MOUNTER_EVENT,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA EVENT INSPECT MACHINE MOUNTER 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_M_MASK,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE MASK 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_PASS,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE PASS 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_PBA_FT,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA FT INSPECT MACHINE PBA 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_PBA_FT_NG,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA FT INSPECT MACHINE PBA 검사 데이터 불량 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_PBA_TVSET,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE PBA TVSET 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_PICKUP,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE PICKUP 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_REFLOW,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE REFLOW 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_RT,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE RT 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_RW,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE RW 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_SOLDER,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE SOLDER 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_SP,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE SP 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_SPI,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE SPI 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_SPI_DFT,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA DFT INSPECT MACHINE SPI 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_SPI_DTL,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA DTL INSPECT MACHINE SPI 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_SPI_NG,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE SPI 검사 데이터 불량 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_DATA_WAVE1,설비 검사 데이터 테이블. 설비 검사 관련 데이터를 저장한다.,Machine Inspection data table. Stores machine inspection data.,품질,DATA INSPECT MACHINE WAVE1 검사 데이터 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_MANUAL,설비 검사 MANUAL 테이블. 설비 검사 결과를 기록한다.,Machine Inspection MANUAL table. Manages machine inspection manual information.,품질,INSPECT MACHINE MANUAL 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_NPM1_RAW,설비 검사 NPM1 RAW 테이블. 설비 검사 결과를 기록한다.,Machine Inspection NPM1 table. Manages machine inspection npm1 information.,품질,INSPECT MACHINE NPM1 RAW 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_NPM2_RAW,설비 검사 NPM2 RAW 테이블. 설비 검사 결과를 기록한다.,Machine Inspection NPM2 table. Manages machine inspection npm2 information.,품질,INSPECT MACHINE NPM2 RAW 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_NPM3_RAW,설비 검사 NPM3 RAW 테이블. 설비 검사 결과를 기록한다.,Machine Inspection NPM3 table. Manages machine inspection npm3 information.,품질,INSPECT MACHINE NPM3 RAW 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_NSNP,설비 검사 NSNP 테이블. 설비 검사 결과를 기록한다.,Machine Inspection NSNP table. Manages machine inspection nsnp information.,품질,INSPECT MACHINE NSNP 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PBA_TVSET_DTL,설비 검사 PBA TVSET 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PBA table. Manages machine inspection pba information.,품질,DTL INSPECT MACHINE PBA TVSET 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PICKUP,설비 검사 PICKUP 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PICKUP table. Manages machine inspection pickup information.,품질,INSPECT MACHINE PICKUP 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PICKUP_QRY,설비 검사 PICKUP QRY 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PICKUP table. Manages machine inspection pickup information.,품질,INSPECT MACHINE PICKUP QRY 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PICKUP_RATE,설비 검사 PICKUP RATE 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PICKUP table. Manages machine inspection pickup information.,품질,INSPECT MACHINE PICKUP RATE 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PMNT1,설비 검사 PMNT1 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PMNT1 table. Manages machine inspection pmnt1 information.,품질,INSPECT MACHINE PMNT1 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PMNT2,설비 검사 PMNT2 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PMNT2 table. Manages machine inspection pmnt2 information.,품질,INSPECT MACHINE PMNT2 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PMNT3,설비 검사 PMNT3 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PMNT3 table. Manages machine inspection pmnt3 information.,품질,INSPECT MACHINE PMNT3 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PMNT4,설비 검사 PMNT4 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PMNT4 table. Manages machine inspection pmnt4 information.,품질,INSPECT MACHINE PMNT4 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_PMNT4_ERROR,설비 검사 PMNT4 에러 테이블. 설비 검사 결과를 기록한다.,Machine Inspection PMNT4 table. Manages machine inspection pmnt4 information.,품질,ERROR INSPECT MACHINE PMNT4 검사 설비 에러 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_RESULT,설비 검사 실적 테이블. 설비 검사 실적 데이터를 기록한다.,Machine Inspection result table. Stores machine inspection result data.,품질,INSPECT MACHINE RESULT 검사 설비 실적 품질,설비 실적 조회|일일 설비 실적|품질 검사 현황
+IQ_MACHINE_INSPECT_SMNT1,설비 검사 SMNT1 테이블. 설비 검사 결과를 기록한다.,Machine Inspection SMNT1 table. Manages machine inspection smnt1 information.,품질,INSPECT MACHINE SMNT1 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_SMNT2,설비 검사 SMNT2 테이블. 설비 검사 결과를 기록한다.,Machine Inspection SMNT2 table. Manages machine inspection smnt2 information.,품질,INSPECT MACHINE SMNT2 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_SMNT_PCBINFO,설비 검사 SMNT PCBINFO 테이블. 설비 검사 결과를 기록한다.,Machine Inspection SMNT table. Manages machine inspection smnt information.,품질,INSPECT MACHINE PCBINFO SMNT 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_SMNT_PCBRESULT,설비 검사 SMNT PCBRESULT 테이블. 설비 검사 결과를 기록한다.,Machine Inspection SMNT table. Manages machine inspection smnt information.,품질,INSPECT MACHINE PCBRESULT SMNT 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_SPI,설비 검사 SPI 테이블. 설비 검사 결과를 기록한다.,Machine Inspection SPI table. Manages machine inspection spi information.,품질,INSPECT MACHINE SPI 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_SPI_NG,설비 검사 SPI 불량 테이블. 설비 검사 결과를 기록한다.,Machine Inspection SPI table. Manages machine inspection spi information.,품질,INSPECT MACHINE SPI 검사 불량 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_YMNT1_RAW,설비 검사 YMNT1 RAW 테이블. 설비 검사 결과를 기록한다.,Machine Inspection YMNT1 table. Manages machine inspection ymnt1 information.,품질,INSPECT MACHINE RAW YMNT1 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_INSPECT_YMNT2_RAW,설비 검사 YMNT2 RAW 테이블. 설비 검사 결과를 기록한다.,Machine Inspection YMNT2 table. Manages machine inspection ymnt2 information.,품질,INSPECT MACHINE RAW YMNT2 검사 설비 품질,설비 검사 결과|설비 검사 현황|품질 검사 현황
+IQ_MACHINE_LCR_DATA_RAW,설비 LCR 데이터 테이블. 설비 LCR 관련 데이터를 저장한다.,Machine LCR data table. Stores machine lcr data.,품질,DATA LCR MACHINE RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_LCR_DTL_DATA_RAW,설비 LCR DTL 데이터 테이블. 설비 LCR DTL 관련 데이터를 저장한다.,Machine LCR DTL data table. Stores machine lcr dtl data.,품질,DATA DTL LCR MACHINE RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_MANUAL_BARCODE_DATA_RAW,설비 MANUAL 바코드 데이터 테이블. 설비 MANUAL 바코드 관련 데이터를 저장한다.,Machine MANUAL Barcode data table. Stores machine manual barcode data.,품질,BARCODE DATA MACHINE MANUAL RAW 검사 데이터 바코드 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_MAN_SCREW3_POWER_DATA_RAW,설비 MAN SCREW3 데이터 테이블. 설비 MAN SCREW3 관련 데이터를 저장한다.,Machine MAN SCREW3 data table. Stores machine man screw3 data.,품질,DATA MACHINE MAN POWER RAW SCREW3 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_METALMASK_DATA_RAW,설비 METALMASK 데이터 테이블. 설비 METALMASK 관련 데이터를 저장한다.,Machine METALMASK data table. Stores machine metalmask data.,품질,DATA MACHINE METALMASK RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_M_MASK_PAD_DATA_RAW,설비 MASK PAD 데이터 테이블. 설비 MASK PAD 관련 데이터를 저장한다.,Machine MASK PAD data table. Stores machine mask pad data.,품질,DATA MACHINE MASK PAD RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_PBACASE_POWER_DATA_RAW,설비 PBACASE POWER 데이터 테이블. 설비 PBACASE POWER 관련 데이터를 저장한다.,Machine PBACASE POWER data table. Stores machine pbacase power data.,품질,DATA MACHINE PBACASE POWER RAW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_SCREWPACK_POWER_DATA_RAW,설비 SCREWPACK POWER 데이터 테이블. 설비 SCREWPACK POWER 관련 데이터를 저장한다.,Machine SCREWPACK POWER data table. Stores machine screwpack power data.,품질,DATA MACHINE POWER RAW SCREWPACK 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_SCREW_POWER_DATA_RAW,설비 SCREW POWER 데이터 테이블. 설비 SCREW POWER 관련 데이터를 저장한다.,Machine SCREW POWER data table. Stores machine screw power data.,품질,DATA MACHINE POWER RAW SCREW 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_SOLDERING_POWER_DATA_RAW,설비 SOLDERING POWER 데이터 테이블. 설비 SOLDERING POWER 관련 데이터를 저장한다.,Machine SOLDERING POWER data table. Stores machine soldering power data.,품질,DATA MACHINE POWER RAW SOLDERING 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_SOLDERING_SERVER_DATA_RAW,설비 SOLDERING SERVER 데이터 테이블. 설비 SOLDERING SERVER 관련 데이터를 저장한다.,Machine SOLDERING SERVER data table. Stores machine soldering server data.,품질,DATA MACHINE RAW SERVER SOLDERING 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_SP_DATA_RAW,설비 SP 데이터 테이블. 설비 SP 관련 데이터를 저장한다.,Machine SP data table. Stores machine sp data.,품질,DATA MACHINE RAW SP 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_STB_SERVER_DATA_RAW,설비 STB SERVER 데이터 테이블. 설비 STB SERVER 관련 데이터를 저장한다.,Machine STB SERVER data table. Stores machine stb server data.,품질,DATA MACHINE RAW SERVER STB 검사 데이터 설비 품질,설비 정보 조회|설비 현황|품질 검사 현황
+IQ_MACHINE_ZIG_HISTORY_RAW,설비 ZIG 이력 테이블. 설비 ZIG 변경/처리 이력을 기록한다.,Machine ZIG history table. Records machine zig change history.,품질,HISTORY MACHINE RAW ZIG 검사 설비 이력 품질,설비 이력 조회|설비 변경 이력|품질 검사 현황
+IQ_OQC_INSPECT_HISTORY,출하검사 검사 이력 테이블. 출하검사 검사 변경/처리 이력을 기록한다.,Outgoing QC Inspection history table. Records outgoing qc inspection change history.,품질,HISTORY INSPECT OQC 검사 이력 출하검사 품질,출하검사 이력 조회|출하검사 변경 이력|품질 검사 현황
+IQ_OQC_REQUEST_QMS,출하검사 REQUEST QMS 테이블. 출하검사 관련 정보를 관리한다.,Outgoing QC REQUEST QMS table. Manages outgoing qc request qms information.,품질,OQC QMS REQUEST 검사 출하검사 품질,출하검사 검사 결과|출하검사 검사 현황|품질 검사 현황
+IQ_OQC_REQUEST_QMS_DETAIL,출하검사 REQUEST QMS 상세 테이블. 출하검사 관련 정보를 관리한다.,Outgoing QC REQUEST QMS table. Manages outgoing qc request qms information.,품질,DETAIL OQC QMS REQUEST 검사 상세 출하검사 품질,출하검사 검사 결과|출하검사 검사 현황|품질 검사 현황
+IQ_OQC_REQUEST_QMS_MASTER,출하검사 REQUEST QMS 마스터 테이블. 출하검사 REQUEST QMS 정보를 관리한다.,Outgoing QC REQUEST QMS master table. Manages outgoing qc request qms information.,품질,MASTER OQC QMS REQUEST 검사 마스터 출하검사 품질,출하검사 정보 조회|출하검사 목록|품질 검사 현황
+IQ_PRODUCT_PERFECT_QC_HISTORY,제품 PERFECT 품질관리 이력 테이블. 제품 PERFECT 품질관리 변경/처리 이력을 기록한다.,Product PERFECT Quality Control history table. Records product perfect quality control change history.,품질,HISTORY PERFECT PRODUCT 검사 이력 제품 품질 품질관리,제품 이력 조회|제품 변경 이력|품질 검사 현황
+IQ_PRODUCT_TARGET_QC_HISTORY,제품 목표 품질관리 이력 테이블. 제품 목표 품질관리 변경/처리 이력을 기록한다.,Product Target Quality Control history table. Records product target quality control change history.,품질,HISTORY PRODUCT TARGET 검사 목표 이력 제품 품질 품질관리,제품 이력 조회|제품 변경 이력|품질 검사 현황
+IQ_PRODUCT_WQC,제품 WQC 테이블. 제품 관련 정보를 관리한다.,Product WQC table. Manages product wqc information.,품질,PRODUCT WQC 검사 제품 품질,제품 정보 조회|제품 현황|품질 검사 현황
+IQ_SPC_CONTROL_CHART_CONSTANTS,SPC CONTROL CHART CONSTANTS 테이블. SPC 관련 정보를 관리한다.,SPC CONTROL CHART table. Manages spc control chart information.,품질,CHART CONSTANTS CONTROL SPC 검사 품질,SPC 정보 조회|SPC 현황|품질 검사 현황
+IQ_SPC_CONTROL_CHART_DAY_DATA,SPC CONTROL CHART 데이터 테이블. SPC CONTROL CHART 관련 데이터를 저장한다.,SPC CONTROL CHART data table. Stores spc control chart data.,품질,CHART CONTROL DATA DAY SPC 검사 데이터 품질,SPC 정보 조회|SPC 현황|품질 검사 현황
+IQ_SUPPLIER_LOT_BLOKING,공급업체 LOT BLOKING 테이블. 공급업체 관련 정보를 관리한다.,Supplier Lot BLOKING table. Manages supplier lot bloking information.,품질,BLOKING LOT SUPPLIER 검사 공급업체 품질,공급업체 정보 조회|공급업체 현황|품질 검사 현황
+ISAL_PRODUCT_INVENTORY,제품 재고 테이블. 제품 관련 정보를 관리한다.,Product Inventory table. Manages product inventory information.,기타,INVENTORY PRODUCT 재고 제품,제품 정보 조회|제품 현황
+ISAL_PRODUCT_RECEIPT,제품 입고 테이블. 제품 관련 정보를 관리한다.,Product Receipt table. Manages product receipt information.,기타,PRODUCT RECEIPT 입고 제품,제품 정보 조회|제품 현황
+ISAL_PRODUCT_SHIPPING,제품 SHIPPING 테이블. 제품 관련 정보를 관리한다.,Product SHIPPING table. Manages product shipping information.,기타,PRODUCT SHIPPING 제품,제품 정보 조회|제품 현황
+ISAL_SHIPPING_LOT_DETAIL,SHIPPING LOT 상세 테이블. SHIPPING 관련 정보를 관리한다.,SHIPPING Lot Detail table. Manages shipping lot detail information.,기타,DETAIL LOT SHIPPING 상세,SHIPPING 정보 조회|SHIPPING 현황
+ISAL_SHIPPING_LOT_MASTER,SHIPPING LOT 마스터 테이블. SHIPPING LOT 정보를 관리한다.,SHIPPING Lot master table. Manages shipping lot information.,기타,LOT MASTER SHIPPING 마스터,SHIPPING 정보 조회|SHIPPING 목록
+ISYS_ALERT_MASTER,경고 마스터 테이블. 경고 정보를 관리한다.,Alert master table. Manages alert information.,시스템,ALERT MASTER 경고 마스터 사용자 시스템,경고 정보 조회|경고 목록
+ISYS_APP_FILES,APP FILES 테이블. APP 관련 정보를 관리한다.,APP FILES table. Manages app files information.,시스템,APP FILES 사용자 시스템,APP 정보 조회|APP 현황
+ISYS_AUDIT_MESSAGE,AUDIT 메시지 테이블. AUDIT 관련 정보를 관리한다.,AUDIT Message table. Manages audit message information.,시스템,AUDIT MESSAGE 메시지 사용자 시스템,AUDIT 정보 조회|AUDIT 현황
+ISYS_AUDIT_MESSAGE_CODE,AUDIT 메시지 코드 테이블. AUDIT 관련 정보를 관리한다.,AUDIT Message Code table. Manages audit message code information.,시스템,AUDIT CODE MESSAGE 메시지 사용자 시스템 코드,AUDIT 정보 조회|AUDIT 현황
+ISYS_AUDIT_MESSAGE_FILTER,AUDIT 메시지 FILTER 테이블. AUDIT 관련 정보를 관리한다.,AUDIT Message FILTER table. Manages audit message filter information.,시스템,AUDIT FILTER MESSAGE 메시지 사용자 시스템,AUDIT 정보 조회|AUDIT 현황
+ISYS_AUDIT_MESSAGE_HISTORY,AUDIT 메시지 이력 테이블. AUDIT 메시지 변경/처리 이력을 기록한다.,AUDIT Message history table. Records audit message change history.,시스템,AUDIT HISTORY MESSAGE 메시지 사용자 시스템 이력,AUDIT 이력 조회|AUDIT 변경 이력
+ISYS_BASECODE,기준코드 테이블. 기준코드 관련 정보를 관리한다.,Base Code table. Manages base code information.,시스템,BASECODE 기준코드 사용자 시스템,기준코드 정보 조회|기준코드 현황
+ISYS_BASECODE_YTMES,기준코드 YTMES 테이블. 기준코드 관련 정보를 관리한다.,Base Code YTMES table. Manages base code ytmes information.,시스템,BASECODE YTMES 기준코드 사용자 시스템,기준코드 정보 조회|기준코드 현황
+ISYS_BATCHJOBERRLOG,BATCHJOBERRLOG 테이블. BATCHJOBERRLOG 관련 정보를 관리한다.,BATCHJOBERRLOG table. Manages batchjoberrlog information.,시스템,BATCHJOBERRLOG 사용자 시스템,BATCHJOBERRLOG 정보 조회|BATCHJOBERRLOG 현황
+ISYS_BATCH_JOB_STATUS,배치 JOB 상태 테이블. 배치 관련 정보를 관리한다.,Batch JOB Status table. Manages batch job status information.,시스템,BATCH JOB STATUS 배치 사용자 상태 시스템,배치 정보 조회|배치 현황
+ISYS_CODE_MASTER,코드 마스터 테이블. 코드 정보를 관리한다.,Code master table. Manages code information.,시스템,CODE MASTER 마스터 사용자 시스템 코드,코드 정보 조회|코드 목록
+ISYS_COMPANY,COMPANY 테이블. COMPANY 관련 정보를 관리한다.,COMPANY table. Manages company information.,시스템,COMPANY 사용자 시스템,COMPANY 정보 조회|COMPANY 현황
+ISYS_CONFIG,설정 테이블. 설정 관련 정보를 관리한다.,Configuration table. Manages configuration information.,시스템,CONFIG 사용자 설정 시스템,설정 정보 조회|설정 현황
+ISYS_DATAOBJECT,DATAOBJECT 테이블. DATAOBJECT 관련 정보를 관리한다.,DATAOBJECT table. Manages dataobject information.,시스템,DATAOBJECT 사용자 시스템,DATAOBJECT 정보 조회|DATAOBJECT 현황
+ISYS_DATA_FILTER,FILTER 데이터 테이블. FILTER 관련 데이터를 저장한다.,FILTER data table. Stores filter data.,시스템,DATA FILTER 데이터 사용자 시스템,데이터 정보 조회|데이터 현황
+ISYS_DEFAULT_12_MONTHS,DEFAULT 12 MONTHS 테이블. DEFAULT 관련 정보를 관리한다.,DEFAULT 12 MONTHS table. Manages default 12 months information.,시스템,12 DEFAULT MONTHS 사용자 시스템,DEFAULT 정보 조회|DEFAULT 현황
+ISYS_DEFAULT_VALUE,DEFAULT VALUE 테이블. DEFAULT 관련 정보를 관리한다.,DEFAULT VALUE table. Manages default value information.,시스템,DEFAULT VALUE 사용자 시스템,DEFAULT 정보 조회|DEFAULT 현황
+ISYS_DEPARTMENT,DEPARTMENT 테이블. DEPARTMENT 관련 정보를 관리한다.,DEPARTMENT table. Manages department information.,시스템,DEPARTMENT 사용자 시스템,DEPARTMENT 정보 조회|DEPARTMENT 현황
+ISYS_DUAL_LANGUAGE,DUAL LANGUAGE 테이블. DUAL 관련 정보를 관리한다.,DUAL LANGUAGE table. Manages dual language information.,시스템,DUAL LANGUAGE 사용자 시스템,DUAL 정보 조회|DUAL 현황
+ISYS_DUAL_LANGUAGE2,DUAL LANGUAGE2 테이블. DUAL 관련 정보를 관리한다.,DUAL LANGUAGE2 table. Manages dual language2 information.,시스템,DUAL LANGUAGE2 사용자 시스템,DUAL 정보 조회|DUAL 현황
+ISYS_DUAL_LANGUAGE_YTMES,DUAL LANGUAGE YTMES 테이블. DUAL 관련 정보를 관리한다.,DUAL LANGUAGE YTMES table. Manages dual language ytmes information.,시스템,DUAL LANGUAGE YTMES 사용자 시스템,DUAL 정보 조회|DUAL 현황
+ISYS_DUAL_MESSAGE,DUAL 메시지 테이블. DUAL 관련 정보를 관리한다.,DUAL Message table. Manages dual message information.,시스템,DUAL MESSAGE 메시지 사용자 시스템,DUAL 정보 조회|DUAL 현황
+ISYS_DUAL_MESSAGE_DIRECT,DUAL 메시지 DIRECT 테이블. DUAL 관련 정보를 관리한다.,DUAL Message DIRECT table. Manages dual message direct information.,시스템,DIRECT DUAL MESSAGE 메시지 사용자 시스템,DUAL 정보 조회|DUAL 현황
+ISYS_DUAL_MESSAGE_YTMES,DUAL 메시지 YTMES 테이블. DUAL 관련 정보를 관리한다.,DUAL Message YTMES table. Manages dual message ytmes information.,시스템,DUAL MESSAGE YTMES 메시지 사용자 시스템,DUAL 정보 조회|DUAL 현황
+ISYS_DWZOOM,DWZOOM 테이블. DWZOOM 관련 정보를 관리한다.,DWZOOM table. Manages dwzoom information.,시스템,DWZOOM 사용자 시스템,DWZOOM 정보 조회|DWZOOM 현황
+ISYS_DYNAMIC_MENU,DYNAMIC 메뉴 테이블. DYNAMIC 관련 정보를 관리한다.,DYNAMIC Menu table. Manages dynamic menu information.,시스템,DYNAMIC MENU 메뉴 사용자 시스템,DYNAMIC 정보 조회|DYNAMIC 현황
+ISYS_DYNAMIC_MENU_SHS,DYNAMIC 메뉴 SHS 테이블. DYNAMIC 관련 정보를 관리한다.,DYNAMIC Menu SHS table. Manages dynamic menu shs information.,시스템,DYNAMIC MENU SHS 메뉴 사용자 시스템,DYNAMIC 정보 조회|DYNAMIC 현황
+ISYS_ERROR,에러 테이블. 에러 관련 정보를 관리한다.,Error table. Manages error information.,시스템,ERROR 사용자 시스템 에러,에러 정보 조회|에러 현황
+ISYS_ERROR_TRACE,에러 TRACE 테이블. 에러 관련 정보를 관리한다.,Error TRACE table. Manages error trace information.,시스템,ERROR TRACE 사용자 시스템 에러,에러 정보 조회|에러 현황
+ISYS_EXCHANGE_RATE,EXCHANGE RATE 테이블. EXCHANGE 관련 정보를 관리한다.,EXCHANGE RATE table. Manages exchange rate information.,시스템,EXCHANGE RATE 사용자 시스템,EXCHANGE 정보 조회|EXCHANGE 현황
+ISYS_HELP_VIDEO,HELP VIDEO 테이블. HELP 관련 정보를 관리한다.,HELP VIDEO table. Manages help video information.,시스템,HELP VIDEO 사용자 시스템,HELP 정보 조회|HELP 현황
+ISYS_INVENTORY_CLOSE_DATE,재고 CLOSE DATE 테이블. 재고 관련 정보를 관리한다.,Inventory CLOSE DATE table. Manages inventory close date information.,시스템,CLOSE DATE INVENTORY 사용자 시스템 재고,재고 정보 조회|재고 현황
+ISYS_JOB_TIMECHECK,JOB TIMECHECK 테이블. JOB 관련 정보를 관리한다.,JOB TIMECHECK table. Manages job timecheck information.,시스템,JOB TIMECHECK 사용자 시스템,JOB 정보 조회|JOB 현황
+ISYS_LABEL_FORM,라벨 FORM 테이블. 라벨 관련 정보를 관리한다.,Label FORM table. Manages label form information.,시스템,FORM LABEL 라벨 사용자 시스템,라벨 정보 조회|라벨 현황
+ISYS_MACHINE_MONITORING,설비 모니터링 테이블. 설비 관련 정보를 관리한다.,Machine Monitoring table. Manages machine monitoring information.,시스템,MACHINE MONITORING 모니터링 사용자 설비 시스템,설비 정보 조회|설비 현황
+ISYS_MACHINE_MONITORING_OFF_HIST,설비 모니터링 OFF 이력 테이블. 설비 모니터링 OFF 변경/처리 이력을 기록한다.,Machine Monitoring OFF history table. Records machine monitoring off change history.,시스템,HIST MACHINE MONITORING OFF 모니터링 사용자 설비 시스템 이력,설비 이력 조회|설비 변경 이력
+ISYS_MENU,메뉴 테이블. 메뉴 관련 정보를 관리한다.,Menu table. Manages menu information.,시스템,MENU 메뉴 사용자 시스템,메뉴 정보 조회|메뉴 현황
+ISYS_MONITOR,MONITOR 테이블. MONITOR 관련 정보를 관리한다.,MONITOR table. Manages monitor information.,시스템,MONITOR 사용자 시스템,MONITOR 정보 조회|MONITOR 현황
+ISYS_OBJECT,OBJECT 테이블. OBJECT 관련 정보를 관리한다.,OBJECT table. Manages object information.,시스템,OBJECT 사용자 시스템,OBJECT 정보 조회|OBJECT 현황
+ISYS_OBJECT_SOURCE,OBJECT SOURCE 테이블. OBJECT 관련 정보를 관리한다.,OBJECT SOURCE table. Manages object source information.,시스템,OBJECT SOURCE 사용자 시스템,OBJECT 정보 조회|OBJECT 현황
+ISYS_ORGANIZATION,ORGANIZATION 테이블. ORGANIZATION 관련 정보를 관리한다.,ORGANIZATION table. Manages organization information.,시스템,ORGANIZATION 사용자 시스템,ORGANIZATION 정보 조회|ORGANIZATION 현황
+ISYS_PRIVILEGE,PRIVILEGE 테이블. PRIVILEGE 관련 정보를 관리한다.,PRIVILEGE table. Manages privilege information.,시스템,PRIVILEGE 사용자 시스템,PRIVILEGE 정보 조회|PRIVILEGE 현황
+ISYS_PUB_BOARD,PUB BOARD 테이블. PUB 관련 정보를 관리한다.,PUB BOARD table. Manages pub board information.,시스템,BOARD PUB 사용자 시스템,PUB 정보 조회|PUB 현황
+ISYS_PUB_WORK_BOARD,PUB 작업 BOARD 테이블. PUB 관련 정보를 관리한다.,PUB Work BOARD table. Manages pub work board information.,시스템,BOARD PUB WORK 사용자 시스템 작업,PUB 정보 조회|PUB 현황
+ISYS_REPORT_MENU,리포트 메뉴 테이블. 리포트 관련 정보를 관리한다.,Report Menu table. Manages report menu information.,시스템,MENU REPORT 리포트 메뉴 사용자 시스템,리포트 정보 조회|리포트 현황
+ISYS_REPORT_SOURCE,리포트 SOURCE 테이블. 리포트 관련 정보를 관리한다.,Report SOURCE table. Manages report source information.,시스템,REPORT SOURCE 리포트 사용자 시스템,리포트 정보 조회|리포트 현황
+ISYS_REPORT_SOURCE_WHERE,리포트 SOURCE WHERE 테이블. 리포트 관련 정보를 관리한다.,Report SOURCE WHERE table. Manages report source where information.,시스템,REPORT SOURCE WHERE 리포트 사용자 시스템,리포트 정보 조회|리포트 현황
+ISYS_REPORT_WHERE_CONDITION,리포트 WHERE CONDITION 테이블. 리포트 관련 정보를 관리한다.,Report WHERE CONDITION table. Manages report where condition information.,시스템,CONDITION REPORT WHERE 리포트 사용자 시스템,리포트 정보 조회|리포트 현황
+ISYS_REPORT_WINDOW_MASTER,리포트 WINDOW 마스터 테이블. 리포트 WINDOW 정보를 관리한다.,Report WINDOW master table. Manages report window information.,시스템,MASTER REPORT WINDOW 리포트 마스터 사용자 시스템,리포트 정보 조회|리포트 목록
+ISYS_REPORT_WINDOW_PROPERTY,리포트 WINDOW PROPERTY 테이블. 리포트 관련 정보를 관리한다.,Report WINDOW PROPERTY table. Manages report window property information.,시스템,PROPERTY REPORT WINDOW 리포트 사용자 시스템,리포트 정보 조회|리포트 현황
+ISYS_ROLE,역할 테이블. 역할 관련 정보를 관리한다.,Role table. Manages role information.,시스템,ROLE 사용자 시스템 역할,역할 정보 조회|역할 현황
+ISYS_SOUND_MENT,SOUND MENT 테이블. SOUND 관련 정보를 관리한다.,SOUND MENT table. Manages sound ment information.,시스템,MENT SOUND 사용자 시스템,SOUND 정보 조회|SOUND 현황
+ISYS_SYSTEM_ACCESS,시스템 ACCESS 테이블. 시스템 관련 정보를 관리한다.,System ACCESS table. Manages system access information.,시스템,ACCESS SYSTEM 사용자 시스템,시스템 정보 조회|시스템 현황
+ISYS_SYSTEM_INTERFACE,시스템 INTERFACE 테이블. 시스템 관련 정보를 관리한다.,System INTERFACE table. Manages system interface information.,시스템,INTERFACE SYSTEM 사용자 시스템,시스템 정보 조회|시스템 현황
+ISYS_USERS,사용자 테이블. 사용자 관련 정보를 관리한다.,Users table. Manages users information.,시스템,USERS 사용자 시스템,사용자 정보 조회|사용자 현황
+ISYS_USER_WAREHOUSE,사용자 창고 테이블. 사용자 관련 정보를 관리한다.,User Warehouse table. Manages user warehouse information.,시스템,USER WAREHOUSE 사용자 시스템 창고,사용자 정보 조회|사용자 현황
+ISYS_VERSION,버전 테이블. 버전 관련 정보를 관리한다.,Version table. Manages version information.,시스템,VERSION 버전 사용자 시스템,버전 정보 조회|버전 현황
+ISYS_VERSION_HISTORY,버전 이력 테이블. 버전 변경/처리 이력을 기록한다.,Version history table. Records version change history.,시스템,HISTORY VERSION 버전 사용자 시스템 이력,버전 이력 조회|버전 변경 이력
+ISYS_WINDOW,WINDOW 테이블. WINDOW 관련 정보를 관리한다.,WINDOW table. Manages window information.,시스템,WINDOW 사용자 시스템,WINDOW 정보 조회|WINDOW 현황
+ISYS_WINDOW_ISO_TAG,WINDOW ISO TAG 테이블. WINDOW 관련 정보를 관리한다.,WINDOW ISO TAG table. Manages window iso tag information.,시스템,ISO TAG WINDOW 사용자 시스템,WINDOW 정보 조회|WINDOW 현황
+ISYS_WINDOW_PROPERTY,WINDOW PROPERTY 테이블. WINDOW 관련 정보를 관리한다.,WINDOW PROPERTY table. Manages window property information.,시스템,PROPERTY WINDOW 사용자 시스템,WINDOW 정보 조회|WINDOW 현황
+ISYS_WINDOW_ROLE,WINDOW 역할 테이블. WINDOW 관련 정보를 관리한다.,WINDOW Role table. Manages window role information.,시스템,ROLE WINDOW 사용자 시스템 역할,WINDOW 정보 조회|WINDOW 현황
+ISYS_WINDOW_SHS,WINDOW SHS 테이블. WINDOW 관련 정보를 관리한다.,WINDOW SHS table. Manages window shs information.,시스템,SHS WINDOW 사용자 시스템,WINDOW 정보 조회|WINDOW 현황
+ISYS_WORD_DICTIONARY,WORD DICTIONARY 테이블. WORD 관련 정보를 관리한다.,WORD DICTIONARY table. Manages word dictionary information.,시스템,DICTIONARY WORD 사용자 시스템,WORD 정보 조회|WORD 현황
+ISYS_WORK_BOARD,작업 BOARD 테이블. 작업 관련 정보를 관리한다.,Work BOARD table. Manages work board information.,시스템,BOARD WORK 사용자 시스템 작업,작업 정보 조회|작업 현황
+IS_PRODUCT_SALE_PRICE,제품 SALE PRICE 테이블. 제품 관련 정보를 관리한다.,Product SALE PRICE table. Manages product sale price information.,기타,PRICE PRODUCT SALE 제품,제품 정보 조회|제품 현황

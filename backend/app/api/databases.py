@@ -64,6 +64,8 @@ class RegisteredDatabase(BaseModel):
     service_name: str
     user: str
     is_connected: bool = False
+    table_count: int = 0
+    last_updated: Optional[str] = None
 
 
 class DatabaseListResponse(BaseModel):
@@ -72,37 +74,65 @@ class DatabaseListResponse(BaseModel):
     total_count: int
 
 
+# Import OracleConnector
+oracle_connector_spec = importlib.util.spec_from_file_location(
+    "oracle_connector",
+    mcp_path / "oracle_connector.py"
+)
+if oracle_connector_spec and oracle_connector_spec.loader:
+    oracle_connector_module = importlib.util.module_from_spec(oracle_connector_spec)
+    oracle_connector_spec.loader.exec_module(oracle_connector_module)
+    OracleConnector = oracle_connector_module.OracleConnector  # type: ignore
+
 @router.get("/list", response_model=DatabaseListResponse)
 async def list_registered_databases():
     """
-    Get list of registered databases from credentials manager
-
-    **사용 시나리오:**
-    1. 시스템에 등록된 모든 DB 목록 조회
-    2. 왼쪽 사이드바에 표시할 DB 목록
-    3. 각 DB의 연결 정보 확인
-
-    **출력:**
-    - 등록된 모든 DB의 SID, Host, Port, Service Name, User
+    Get list of registered databases with connection status
     """
     try:
-        # Get list of database SIDs
         database_sids = credentials_manager.list_databases()
+
+        # Get Vector DB metadata for table counts
+        from app.main import app_instance  # Assuming we can get it or just use a local VectorStore
+        # Alternative: use req.app.state.vector_store if we have request, but this is a simple get
+        # For simplicity, let's use the global vector_store if available or re-instantiate
+        from app.core.vector_store import VectorStore
+        vector_store = VectorStore() # It uses the default persist_directory
+        databases_raw = vector_store.get_all_databases()
+        vector_db_map = {f"{db['database_sid']}": db for db in databases_raw}
 
         databases = []
         for sid in database_sids:
             try:
-                # Load credentials (without password for security)
                 credentials = credentials_manager.load_credentials(sid)
+                vector_info = vector_db_map.get(sid, {})
+                
+                # Check connection status
+                is_connected = False
+                try:
+                    connector = OracleConnector(
+                        host=credentials['host'],
+                        port=credentials['port'],
+                        service_name=credentials['service_name'],
+                        user=credentials['user'],
+                        password=credentials['password']
+                    )
+                    is_connected = connector.connect()
+                    if is_connected:
+                        connector.disconnect()
+                except:
+                    is_connected = False
 
                 databases.append(RegisteredDatabase(
                     database_sid=sid,
-                    schema_name=credentials.get('schema_name', credentials.get('user', 'unknown').upper()),  # Default to uppercase user
+                    schema_name=credentials.get('schema_name', credentials.get('user', 'unknown').upper()),
                     host=credentials.get('host', 'unknown'),
                     port=credentials.get('port', 0),
                     service_name=credentials.get('service_name', 'unknown'),
                     user=credentials.get('user', 'unknown'),
-                    is_connected=False  # TODO: Check actual connection status
+                    is_connected=is_connected,
+                    table_count=vector_info.get("table_count", 0),
+                    last_updated=vector_info.get("last_updated")
                 ))
             except Exception as e:
                 logger.error(f"Failed to load credentials for {sid}: {e}")

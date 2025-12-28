@@ -1,47 +1,29 @@
 import sys
-import os
-from dotenv import load_dotenv
+sys.path.insert(0, 'D:\\Project\\mcp_db\\mcp')
 
-# 프로젝트 루트를 Python 경로에 추가
-sys.path.insert(0, 'D:\\Project\\mcp_db')
-os.chdir('D:\\Project\\mcp_db')
+from credentials_manager import CredentialsManager
 
-# .env 파일 로드
-load_dotenv()
+cm = CredentialsManager('D:\\Project\\mcp_db\\data\\credentials')
 
-# 환경 변수 확인
-encryption_key = os.getenv('ENCRYPTION_KEY')
-print(f'ENCRYPTION_KEY 로드: {encryption_key[:20]}...' if encryption_key else 'ENCRYPTION_KEY 없음')
+credentials = {
+    'host': '61.106.96.94',
+    'port': 1521,
+    'service_name': 'xe',
+    'user': 'INFINITY21_JSMES',
+    'password': 'INFINITY21_JSMES'
+}
 
-from mcp.credentials_manager import CredentialsManager
+result = cm.save_credentials('ESDBext', credentials)
 
-try:
-    # CredentialsManager 초기화
-    manager = CredentialsManager(credentials_dir='./data/credentials')
-    print('✅ CredentialsManager 초기화 성공')
-    
-    # DB 접속 정보
-    credentials = {
-        'host': '121.78.112.214',
-        'port': 1521,
-        'service_name': 'XEPDB1',
-        'user': 'INFINITY21_JSFMS',
-        'password': 'INFINITY21_JSFMS'
-    }
-    
-    # DB 등록
-    result = manager.save_credentials(
-        database_sid='FMS-JSIDC-XEPDB1',
-        credentials=credentials
-    )
-    
-    if result:
-        print('✅ DB 등록 성공: FMS-JSIDC-XEPDB1')
-        print(f'저장 위치: data/credentials/FMS-JSIDC-XEPDB1.json.enc')
-    else:
-        print('❌ DB 등록 실패')
-        
-except Exception as e:
-    print(f'❌ 에러 발생: {e}')
-    import traceback
-    traceback.print_exc()
+if result:
+    print('✓ ESDBext 데이터베이스가 성공적으로 등록되었습니다.')
+    print(f'  - Host: {credentials["host"]}')
+    print(f'  - Port: {credentials["port"]}')
+    print(f'  - Service: {credentials["service_name"]}')
+    print(f'  - User: {credentials["user"]}')
+else:
+    print('✗ 데이터베이스 등록에 실패했습니다.')
+
+# 등록된 DB 목록 확인
+dbs = cm.list_databases()
+print(f'\n현재 등록된 데이터베이스 목록: {dbs}')

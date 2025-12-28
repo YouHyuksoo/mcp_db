@@ -1,6 +1,18 @@
 """
-Vector DB Direct Client for MCP Server
-Backend 없이 ChromaDB에 직접 접근
+* @file mcp/vector_db_client.py
+* @description
+* 이 파일은 MCP 서버가 백엔드 서버 없이도 Vector DB(ChromaDB)에 직접 접근하여
+* 의미 기반 검색을 수행할 수 있도록 돕는 클라이언트 모듈입니다.
+* 백엔드와 동일한 임베딩 모델(all-MiniLM-L6-v2)을 내장하고 있습니다.
+*
+* 초보자 가이드:
+* 1. **`search_tables` 함수**: 사용자의 자연어 질문을 벡터로 변환하여 
+*    가장 관련 있는 Oracle 테이블들을 찾아줍니다. 반드시 DB SID와 스키마명으로 필터링합니다.
+* 2. **임베딩 일관성**: 이 파일에서 사용하는 모델은 백엔드의 `EmbeddingService`와 동일해야 합니다.
+*
+* 유지보수 팁:
+* - 검색 결과 수 조정: `search_tables`의 `n_results` 파라미터를 변경하세요.
+* - 모델 변경 시: `backend/app/core/embedding_service.py`와 함께 수정해야 정확도가 유지됩니다.
 """
 
 import chromadb
@@ -24,14 +36,21 @@ class VectorDBClient:
 
     def __init__(self, vector_db_path: str = None):
         """
-        Initialize ChromaDB client
-
-        Args:
-            vector_db_path: Vector DB 디렉토리 경로 (default: ../vector_db)
+        Initialize ChromaDB client and Embedding model
         """
         if vector_db_path is None:
             project_root = Path(__file__).parent.parent
             vector_db_path = str(project_root / "data" / "vector_db")
+
+        # Load Embedding Model (Consistent with Backend)
+        self.model_name = "sentence-transformers/all-MiniLM-L6-v2"
+        try:
+            from sentence_transformers import SentenceTransformer
+            self.model = SentenceTransformer(self.model_name)
+            logger.info(f"✓ Embedding model loaded: {self.model_name}")
+        except Exception as e:
+            logger.error(f"✗ Failed to load embedding model: {e}")
+            self.model = None
 
         try:
             self.client = chromadb.PersistentClient(
@@ -42,15 +61,13 @@ class VectorDBClient:
                 )
             )
 
-            # Get collections (컬렉션이 없으면 생성하지 않고 None으로 설정)
+            # Get collections
             try:
                 self.metadata_collection = self.client.get_collection("oracle_metadata")
                 table_count = self.metadata_collection.count()
-                logger.info(f"✓ Vector DB connected: {table_count} tables in oracle_metadata collection")
+                logger.info(f"✓ Vector DB connected: {table_count} tables")
             except Exception as collection_error:
-                # 컬렉션이 없는 경우
                 logger.warning(f"⚠️ oracle_metadata collection not found: {collection_error}")
-                logger.warning("   → Backend를 통해 먼저 데이터를 학습시켜야 합니다.")
                 self.metadata_collection = None
 
         except Exception as e:
@@ -59,8 +76,8 @@ class VectorDBClient:
             self.metadata_collection = None
 
     def is_available(self) -> bool:
-        """Vector DB가 사용 가능한지 확인"""
-        return self.metadata_collection is not None
+        """Vector DB와 임베딩 모델이 모두 사용 가능한지 확인"""
+        return self.metadata_collection is not None and self.model is not None
 
     def search_tables(
         self,
@@ -70,29 +87,21 @@ class VectorDBClient:
         n_results: int = 10
     ) -> List[Dict[str, Any]]:
         """
-        의미 기반 테이블 검색
-
-        ★ 필수: database_sid와 schema_name으로 필터링 (다중 DB 관리)
-
-        Args:
-            question: 자연어 질문
-            database_sid: 데이터베이스 SID (필수)
-            schema_name: 스키마 이름 (필수)
-            n_results: 결과 수
-
-        Returns:
-            관련 테이블 목록 (enhanced metadata 포함)
+        의미 기반 테이블 검색 (백엔드와 동일한 임베딩 사용)
         """
         if not self.is_available():
-            raise RuntimeError("Vector DB not available. Please run backend to initialize data.")
+            raise RuntimeError("Vector DB or Embedding model not available.")
 
-        # Query Vector DB with mandatory DB/Schema filter
+        # 1. 태스크에 맞는 임베딩 생성 (백엔드와 동일한 로직)
+        query_embedding = self.model.encode(question).tolist()
+
+        # 2. 직접 생성한 임베딩으로 검색
         results = self.metadata_collection.query(
-            query_texts=[question],
+            query_embeddings=[query_embedding],
             n_results=n_results,
             where={
-                "database_sid": database_sid,  # ★ 필수 필터
-                "schema_name": schema_name      # ★ 필수 필터
+                "database_sid": database_sid,
+                "schema_name": schema_name
             }
         )
 

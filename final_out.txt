@@ -1,0 +1,5 @@
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Total collections: 3
+Collection: oracle_metadata, Items: 0
+Collection: business_rules, Items: 0
+Collection: sql_patterns, Items: 0

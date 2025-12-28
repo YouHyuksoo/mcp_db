@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Card,
   CardContent,
@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Database, Table, FileText, Activity, ChevronDown } from "lucide-react";
+import { Database, Table, FileText, Activity } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -21,15 +21,10 @@ import {
   HealthStatus,
   RegisteredDatabase as ApiRegisteredDatabase,
 } from "@/lib/types";
-import { DatabaseList } from "@/components/dashboard/DatabaseList";
 import { PatternList } from "@/components/dashboard/PatternList";
 import { Header } from "@/components/layout/Header";
 
-interface RegisteredDatabase extends ApiRegisteredDatabase {
-  table_count: number;
-  last_updated?: string;
-  connection_status: string;
-}
+// RegisteredDatabase is now used directly from lib/types
 
 interface DatabaseStats {
   metadata_count: number;
@@ -39,7 +34,7 @@ interface DatabaseStats {
 
 export default function Dashboard() {
   const [registeredDatabases, setRegisteredDatabases] = useState<
-    RegisteredDatabase[]
+    ApiRegisteredDatabase[]
   >([]);
   const [selectedDbKey, setSelectedDbKey] = useState<string>("");
   const [dbStats, setDbStats] = useState<DatabaseStats | null>(null);
@@ -48,53 +43,52 @@ export default function Dashboard() {
   const [error, setError] = useState<string | null>(null);
 
   // 등록된 데이터베이스 목록 가져오기
-  const fetchRegisteredDatabases = async () => {
+  const fetchRegisteredDatabases = useCallback(async () => {
     try {
       const response = await api.databases.list();
-      // API 응답을 로컬 타입에 맞게 변환 (기본값 추가)
-      const databases: RegisteredDatabase[] = response.databases.map((db) => ({
-        ...db,
-        table_count: 0, // TODO: Backend API에서 실제 테이블 수 가져오기
-        connection_status: db.is_connected ? "active" : "inactive",
-      }));
+      const databases = response.databases;
       setRegisteredDatabases(databases);
 
       // 첫 번째 DB를 자동 선택
-      if (databases.length > 0 && !selectedDbKey) {
+      if (databases.length > 0) {
         const firstDb = databases[0];
         setSelectedDbKey(`${firstDb.database_sid}:${firstDb.schema_name}`);
       }
     } catch (err) {
       console.error("Failed to fetch registered databases:", err);
     }
-  };
+  }, []);
 
   // 선택된 DB의 통계 가져오기
-  const fetchDatabaseStats = async (dbSid: string, schemaName: string) => {
-    try {
-      setLoading(true);
-      // TODO: Backend API에 database_sid와 schema_name으로 필터링된 통계 요청
-      // 현재는 임시로 전체 통계를 가져옴
-      const summary = await api.dashboard.getSummary();
+  const fetchDatabaseStats = useCallback(
+    async (dbSid: string, schemaName: string) => {
+      try {
+        setLoading(true);
+        // TODO: Backend API에 database_sid와 schema_name으로 필터링된 통계 요청
+        // 현재는 임시로 전체 통계를 가져옴
+        const summary = await api.dashboard.getSummary();
 
-      // 선택된 DB에 해당하는 데이터만 필터링
-      const selectedDb = registeredDatabases.find(
-        (db) => db.database_sid === dbSid && db.schema_name === schemaName
-      );
+        // 선택된 DB에 해당하는 데이터만 필터링
+        const foundDb = registeredDatabases.find(
+          (db) => db.database_sid === dbSid && db.schema_name === schemaName
+        );
 
-      if (selectedDb) {
-        setDbStats({
-          metadata_count: selectedDb.table_count,
-          patterns_count: summary.vector_db_stats.patterns_count,
-          business_rules_count: summary.vector_db_stats.business_rules_count,
-        });
+        if (foundDb) {
+          setDbStats({
+            metadata_count: foundDb.table_count || 0,
+            patterns_count: summary.vector_db_stats.patterns_count || 0,
+            business_rules_count:
+              summary.vector_db_stats.business_rules_count || 0,
+          });
+        }
+      } catch (err) {
+        console.error("Failed to fetch database stats:", err);
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      console.error("Failed to fetch database stats:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+    [registeredDatabases]
+  );
 
   useEffect(() => {
     const init = async () => {
@@ -108,14 +102,14 @@ export default function Dashboard() {
       }
     };
     init();
-  }, []);
+  }, [fetchRegisteredDatabases]);
 
   useEffect(() => {
     if (selectedDbKey) {
       const [dbSid, schemaName] = selectedDbKey.split(":");
       fetchDatabaseStats(dbSid, schemaName);
     }
-  }, [selectedDbKey, registeredDatabases]);
+  }, [selectedDbKey, registeredDatabases, fetchDatabaseStats]);
 
   const selectedDb = registeredDatabases.find(
     (db) => `${db.database_sid}:${db.schema_name}` === selectedDbKey
@@ -258,7 +252,7 @@ export default function Dashboard() {
                   <div>
                     <p className="text-muted-foreground text-xs">연결 상태</p>
                     <p className="font-medium">
-                      {selectedDb.connection_status}
+                      {selectedDb.is_connected ? "연결됨" : "연결 안됨"}
                     </p>
                   </div>
                 </div>

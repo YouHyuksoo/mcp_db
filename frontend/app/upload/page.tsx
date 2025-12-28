@@ -1,3 +1,19 @@
+/**
+ * @file frontend/app/upload/page.tsx
+ * @description
+ * 이 페이지는 메타데이터 학습을 위한 CSV 파일 업로드 기능을 담당합니다.
+ * 사용자는 등록된 DB를 선택하고, 테이블 정보/공통 칼럼/코드 정의 CSV를 업로드하여
+ * 시스템이 데이터를 학습(임베딩 및 Vector DB 저장)하도록 요청합니다.
+ *
+ * 초보자 가이드:
+ * 1. **DB 선택**: 상단 셀렉트 박스에서 학습시킬 대상 DB를 먼저 선택해야 합니다.
+ * 2. **CSV 파일**: 템플릿 양식에 맞는 3종의 파일을 모두 선택한 후 '학습 시작' 버튼을 누르세요.
+ * 3. **진행 상태**: 업로드부터 Vector DB 저장까지의 단계별 상태가 카드로 표시됩니다.
+ *
+ * 유지보수 팁:
+ * - 처리 단계 추가/변경: `processingSteps` 상태값과 `handleProcess` 함수 내 로직을 수정하세요.
+ * - API 연동: `api.metadata.process` 호출 부분을 확인하세요.
+ */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -30,11 +46,7 @@ import { Header } from "@/components/layout/Header";
 import api from "@/lib/api";
 import { RegisteredDatabase as ApiRegisteredDatabase } from "@/lib/types";
 
-interface RegisteredDatabase extends ApiRegisteredDatabase {
-  table_count: number;
-  last_updated?: string;
-  connection_status: string;
-}
+// RegisteredDatabase interface is now imported from lib/types
 
 interface UploadedFile {
   name: string;
@@ -50,6 +62,9 @@ interface ProcessingStep {
 }
 
 export default function UploadPage() {
+  // RegisteredDatabase 타입 정의 (API 타입 사용)
+  type RegisteredDatabase = ApiRegisteredDatabase;
+
   const [registeredDatabases, setRegisteredDatabases] = useState<
     RegisteredDatabase[]
   >([]);
@@ -58,18 +73,12 @@ export default function UploadPage() {
 
   // CSV 파일 상태
   const [files, setFiles] = useState<{
-    tableInfo: UploadedFile;
-    commonColumns: UploadedFile;
-    codeDefinitions: UploadedFile;
+    tableMetadata: UploadedFile;
+    columnDefinitions: UploadedFile;
   }>({
-    tableInfo: { name: "table_info_template.csv", file: null, uploaded: false },
-    commonColumns: {
-      name: "common_columns_template.csv",
-      file: null,
-      uploaded: false,
-    },
-    codeDefinitions: {
-      name: "code_definitions_template.csv",
+    tableMetadata: { name: "table_metadata.csv", file: null, uploaded: false },
+    columnDefinitions: {
+      name: "column_definitions.csv",
       file: null,
       uploaded: false,
     },
@@ -95,13 +104,7 @@ export default function UploadPage() {
         setIsLoadingDatabases(true);
         const response = await api.databases.list();
         // API 응답을 로컬 타입에 맞게 변환 (기본값 추가)
-        const databases: RegisteredDatabase[] = response.databases.map(
-          (db) => ({
-            ...db,
-            table_count: 0, // TODO: Backend API에서 실제 테이블 수 가져오기
-            connection_status: db.is_connected ? "active" : "inactive",
-          })
-        );
+        const databases: ApiRegisteredDatabase[] = response.databases;
         setRegisteredDatabases(databases);
 
         // 첫 번째 DB를 자동 선택
@@ -118,11 +121,12 @@ export default function UploadPage() {
     };
 
     fetchDatabases();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 파일 선택 핸들러
   const handleFileSelect = (
-    fileType: "tableInfo" | "commonColumns" | "codeDefinitions"
+    fileType: "tableMetadata" | "columnDefinitions"
   ) => {
     const input = document.createElement("input");
     input.type = "file";
@@ -161,12 +165,8 @@ export default function UploadPage() {
       return;
     }
 
-    if (
-      !files.tableInfo.file ||
-      !files.commonColumns.file ||
-      !files.codeDefinitions.file
-    ) {
-      setErrorMessage("모든 CSV 파일을 업로드해주세요.");
+    if (!files.tableMetadata.file || !files.columnDefinitions.file) {
+      setErrorMessage("모두 CSV 파일을 업로드해주세요.");
       return;
     }
 
@@ -181,24 +181,14 @@ export default function UploadPage() {
     console.log("  selectedDbKey:", selectedDbKey);
     console.log("  dbSid:", dbSid);
     console.log("  schemaName:", schemaName);
-    console.log("  selectedDb:", selectedDb);
-    console.log("  registeredDatabases:", registeredDatabases);
 
-    // Validate schemaName - TEMPORARY: Allow "undefined" for debugging
-    if (!schemaName) {
+    // Validate schemaName
+    if (!schemaName || schemaName === "undefined") {
       setErrorMessage(
-        "선택한 데이터베이스에 스키마 정보가 없습니다. TNSNames 페이지에서 데이터베이스를 다시 등록해주세요."
+        "선택한 데이터베이스에 스키마 정보가 없습니다. 데이터베이스 등록 시 스키마 정보를 정확히 입력해주세요."
       );
       setIsProcessing(false);
       return;
-    }
-
-    // Warn but continue if schemaName is "undefined"
-    if (schemaName === "undefined") {
-      console.warn(
-        "⚠️ WARNING: schemaName is 'undefined' - this may cause issues!"
-      );
-      console.warn("⚠️ Continuing anyway for debugging purposes...");
     }
 
     try {
@@ -208,11 +198,10 @@ export default function UploadPage() {
 
       // FormData 생성
       const formData = new FormData();
-      formData.append("database_sid", dbSid);
-      formData.append("schema_name", schemaName);
-      formData.append("table_info", files.tableInfo.file);
-      formData.append("common_columns", files.commonColumns.file);
-      formData.append("code_definitions", files.codeDefinitions.file);
+      formData.append("db_key", dbSid); // API expects db_key (SID)
+      // schema_name is fetched from credentials in backend using db_key
+      formData.append("table_metadata", files.tableMetadata.file);
+      formData.append("column_definitions", files.columnDefinitions.file);
 
       updateStep("validation", "completed", "CSV 파일 형식 확인 완료");
       setProgress(20);
@@ -236,13 +225,13 @@ export default function UploadPage() {
 
         updateStep("integration", "in_progress");
         setProgress(60);
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // 시뮬레이션
+        await new Promise((resolve) => setTimeout(resolve, 500)); // 시뮬레이션
         updateStep("integration", "completed", "메타정보 통합 완료");
         setProgress(70);
 
         updateStep("embedding", "in_progress");
         setProgress(80);
-        await new Promise((resolve) => setTimeout(resolve, 1500)); // 시뮬레이션
+        await new Promise((resolve) => setTimeout(resolve, 500)); // 시뮬레이션
         updateStep(
           "embedding",
           "completed",
@@ -252,7 +241,7 @@ export default function UploadPage() {
 
         updateStep("vectordb", "in_progress");
         setProgress(95);
-        await new Promise((resolve) => setTimeout(resolve, 800)); // 시뮬레이션
+        await new Promise((resolve) => setTimeout(resolve, 500)); // 시뮬레이션
         updateStep("vectordb", "completed", "Vector DB 저장 완료");
         setProgress(100);
 
@@ -264,18 +253,13 @@ export default function UploadPage() {
 
         // 파일 상태 초기화
         setFiles({
-          tableInfo: {
-            name: "table_info_template.csv",
+          tableMetadata: {
+            name: "table_metadata.csv",
             file: null,
             uploaded: false,
           },
-          commonColumns: {
-            name: "common_columns_template.csv",
-            file: null,
-            uploaded: false,
-          },
-          codeDefinitions: {
-            name: "code_definitions_template.csv",
+          columnDefinitions: {
+            name: "column_definitions.csv",
             file: null,
             uploaded: false,
           },
@@ -283,19 +267,21 @@ export default function UploadPage() {
       } else {
         throw new Error(response.error || "처리 중 오류가 발생했습니다.");
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "오류 발생";
       console.error("Processing error:", error);
       const currentStep = processingSteps.find(
         (s) => s.status === "in_progress"
       );
       if (currentStep) {
-        updateStep(currentStep.id, "error", error.message || "오류 발생");
+        updateStep(currentStep.id, "error", errorMessage);
       }
       setErrorMessage(
-        error.message || "메타데이터 처리 중 오류가 발생했습니다."
+        errorMessage || "메타데이터 처리 중 오류가 발생했습니다."
       );
     } finally {
       setIsProcessing(false);
+      // Reset steps after delay? No, keep result visible
     }
   };
 
@@ -304,12 +290,9 @@ export default function UploadPage() {
     (db) => `${db.database_sid}:${db.schema_name}` === selectedDbKey
   );
 
-  // 업로드 준비 완료 여부
+  // 업로드 준비 완료 여부 (누락된 변수 복구)
   const isReadyToProcess =
-    selectedDbKey &&
-    files.tableInfo.file &&
-    files.commonColumns.file &&
-    files.codeDefinitions.file;
+    selectedDbKey && files.tableMetadata.file && files.columnDefinitions.file;
 
   return (
     <div className="min-h-screen bg-background">
@@ -322,7 +305,7 @@ export default function UploadPage() {
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
             CSV 파일을 업로드하여 DB 스키마와 통합된 메타정보를 생성하고 Vector
-            DB에 저장합니다
+            DB에 저장합니다 (2종 통합 양식)
           </p>
         </div>
 
@@ -331,7 +314,8 @@ export default function UploadPage() {
           <AlertCircle className="h-4 w-4" />
           <AlertDescription>
             <strong>워크플로우 2단계:</strong> TNSNames에서 등록한 DB를
-            선택하고, CSV 3종을 업로드하여 메타정보를 생성합니다.
+            선택하고, <b>table_metadata.csv</b>와 <b>column_definitions.csv</b>
+            를 업로드하여 메타정보를 생성합니다.
           </AlertDescription>
         </Alert>
 
@@ -409,7 +393,7 @@ export default function UploadPage() {
                           연결 상태
                         </p>
                         <p className="font-medium">
-                          {selectedDb.connection_status}
+                          {selectedDb.is_connected ? "연결됨" : "연결 안됨"}
                         </p>
                       </div>
                     </div>
@@ -426,26 +410,27 @@ export default function UploadPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <FileText className="h-5 w-5" />
-                Step 2: CSV 파일 업로드 (3종)
+                Step 2: CSV 파일 업로드 (2종)
               </CardTitle>
               <CardDescription>
-                테이블 정보, 공통 컬럼, 코드 정의 파일을 업로드하세요
+                테이블 정의서(table_metadata.csv)와 컬럼
+                정의서(column_definitions.csv)를 업로드하세요
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4">
-                {/* Table Info CSV */}
+                {/* Table Metadata CSV */}
                 <div className="border rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div>
                       <h4 className="font-medium text-sm">
-                        1. 테이블 정보 (table_info_template.csv)
+                        1. 테이블 정보 (table_metadata.csv)
                       </h4>
                       <p className="text-xs text-muted-foreground">
-                        테이블명, 설명, 비즈니스 목적
+                        테이블명, 한글명, 설명, 도메인, 키워드, 샘플 쿼리
                       </p>
                     </div>
-                    {files.tableInfo.file && (
+                    {files.tableMetadata.file && (
                       <CheckCircle2 className="h-5 w-5 text-green-500" />
                     )}
                   </div>
@@ -453,32 +438,32 @@ export default function UploadPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => handleFileSelect("tableInfo")}
+                      onClick={() => handleFileSelect("tableMetadata")}
                       disabled={isProcessing}
                     >
                       <Upload className="h-4 w-4 mr-2" />
-                      {files.tableInfo.file ? "다시 선택" : "파일 선택"}
+                      {files.tableMetadata.file ? "다시 선택" : "파일 선택"}
                     </Button>
-                    {files.tableInfo.file && (
+                    {files.tableMetadata.file && (
                       <span className="text-sm text-muted-foreground">
-                        {files.tableInfo.file.name}
+                        {files.tableMetadata.file.name}
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Common Columns CSV */}
+                {/* Column Definitions CSV */}
                 <div className="border rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div>
                       <h4 className="font-medium text-sm">
-                        2. 공통 컬럼 (common_columns_template.csv)
+                        2. 컬럼/코드 정의 (column_definitions.csv)
                       </h4>
                       <p className="text-xs text-muted-foreground">
-                        컬럼명, 데이터 타입, 설명, 비즈니스 의미
+                        컬럼명, 한글명, 설명, 코드값(JSON)
                       </p>
                     </div>
-                    {files.commonColumns.file && (
+                    {files.columnDefinitions.file && (
                       <CheckCircle2 className="h-5 w-5 text-green-500" />
                     )}
                   </div>
@@ -486,48 +471,15 @@ export default function UploadPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => handleFileSelect("commonColumns")}
+                      onClick={() => handleFileSelect("columnDefinitions")}
                       disabled={isProcessing}
                     >
                       <Upload className="h-4 w-4 mr-2" />
-                      {files.commonColumns.file ? "다시 선택" : "파일 선택"}
+                      {files.columnDefinitions.file ? "다시 선택" : "파일 선택"}
                     </Button>
-                    {files.commonColumns.file && (
+                    {files.columnDefinitions.file && (
                       <span className="text-sm text-muted-foreground">
-                        {files.commonColumns.file.name}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Code Definitions CSV */}
-                <div className="border rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <div>
-                      <h4 className="font-medium text-sm">
-                        3. 코드 정의 (code_definitions_template.csv)
-                      </h4>
-                      <p className="text-xs text-muted-foreground">
-                        코드 컬럼명, 코드 값, 코드 의미
-                      </p>
-                    </div>
-                    {files.codeDefinitions.file && (
-                      <CheckCircle2 className="h-5 w-5 text-green-500" />
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleFileSelect("codeDefinitions")}
-                      disabled={isProcessing}
-                    >
-                      <Upload className="h-4 w-4 mr-2" />
-                      {files.codeDefinitions.file ? "다시 선택" : "파일 선택"}
-                    </Button>
-                    {files.codeDefinitions.file && (
-                      <span className="text-sm text-muted-foreground">
-                        {files.codeDefinitions.file.name}
+                        {files.columnDefinitions.file.name}
                       </span>
                     )}
                   </div>
