@@ -5,7 +5,20 @@ __pycache__/
 .claude/
 .gemini/
 .specify/
+.superdesign/
+.cursor/
 .env
-metadata/
-vector_db/
-credentials/
+
+# Data directories (ignore runtime data)
+data/credentials/
+data/metadata/
+data/vector_db/
+data/common_metadata/SMVNPDBext/
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/package-lock.json
+
+# Misc
+nul

@@ -1,0 +1,231 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IQ_ITEM_INSPECT_GROUP"
+  },
+  "table_info": {
+    "business_purpose": "Quality Management (품질 관리) - 검사 정보",
+    "usage_scenarios": [
+      "품질 데이터 수집",
+      "불량 분석",
+      "검사 결과 조회"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "INSPECT_PROCESS",
+      "position": 1,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "검사처리절차",
+      "description": "검사처리절차",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "SEQ_NO",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "항번",
+      "description": "항번",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 3,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INSPECT_PROCESS_DESC_LOCAL",
+      "position": 4,
+      "data_type": "VARCHAR2(1000)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사절차내용(중)",
+      "description": "검사절차내용(중)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INSPECT_PROCESS_DESC_ENG",
+      "position": 5,
+      "data_type": "VARCHAR2(1000)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사절차내용(영)",
+      "description": "검사절차내용(영)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INSPECT_PROCESS_DESC_KOR",
+      "position": 6,
+      "data_type": "VARCHAR2(1000)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사절차내용(한)",
+      "description": "검사절차내용(한)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INSPECT_SAMPLE_QTY",
+      "position": 7,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사시료수",
+      "description": "검사시료수 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "INSPECT_MACHINE",
+      "position": 8,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사설비",
+      "description": "검사설비",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 9,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 10,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 11,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 12,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "INSPECT_PROCESS",
+      "SEQ_NO",
+      "ORGANIZATION_ID"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKIQ_ITEM_INSPECT_GROUP",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "INSPECT_PROCESS, SEQ_NO, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:24:03.054405",
+    "version": "1.0"
+  }
+}

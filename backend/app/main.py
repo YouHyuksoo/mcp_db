@@ -109,13 +109,18 @@ async def health_check():
 
 
 # Import and include API routers
-from app.api import metadata, patterns, powerbuilder
+from app.api import metadata, patterns, powerbuilder, dashboard, tnsnames, databases, sql_rules
 
+app.include_router(dashboard.router, prefix="/api/v1/dashboard", tags=["dashboard"])
 app.include_router(metadata.router, prefix="/api/v1/metadata", tags=["metadata"])
 app.include_router(patterns.router, prefix="/api/v1/patterns", tags=["patterns"])
 app.include_router(powerbuilder.router, prefix="/api/v1/powerbuilder", tags=["powerbuilder"])
+app.include_router(tnsnames.router, prefix="/api/v1/tnsnames", tags=["tnsnames"])
+app.include_router(databases.router, prefix="/api/v1/databases", tags=["databases"])
+app.include_router(sql_rules.router, prefix="/api/v1/sql-rules", tags=["sql-rules"])
 
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+

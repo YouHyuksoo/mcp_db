@@ -1,0 +1,104 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "EBA_GRAPHVIZ_JOB_HISTORY"
+  },
+  "table_info": {
+    "business_purpose": "",
+    "usage_scenarios": [],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "EMPLOYEE_ID",
+      "position": 1,
+      "data_type": "NUMBER(6)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "START_DATE",
+      "position": 2,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "시작일자",
+      "description": "시작일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "END_DATE",
+      "position": 3,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "완료일자",
+      "description": "완료일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "JOB_ID",
+      "position": 4,
+      "data_type": "VARCHAR2(10)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "DEPARTMENT_ID",
+      "position": 5,
+      "data_type": "NUMBER(4)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [],
+    "foreign_keys": []
+  },
+  "indexes": [],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:19:31.154650",
+    "version": "1.0"
+  }
+}

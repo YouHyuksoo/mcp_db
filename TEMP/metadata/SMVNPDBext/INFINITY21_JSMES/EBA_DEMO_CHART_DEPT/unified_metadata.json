@@ -1,0 +1,81 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "EBA_DEMO_CHART_DEPT"
+  },
+  "table_info": {
+    "business_purpose": "",
+    "usage_scenarios": [],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "DEPTNO",
+      "position": 1,
+      "data_type": "NUMBER(2)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "DNAME",
+      "position": 2,
+      "data_type": "VARCHAR2(14)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LOC",
+      "position": 3,
+      "data_type": "VARCHAR2(13)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "LOC:",
+      "description": "Loc",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "DEPTNO"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "EBA_DEMO_CHART_DEPT_PK",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "DEPTNO"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:19:13.680503",
+    "version": "1.0"
+  }
+}

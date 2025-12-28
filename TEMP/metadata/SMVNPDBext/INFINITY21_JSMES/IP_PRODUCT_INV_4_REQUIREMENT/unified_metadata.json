@@ -1,0 +1,156 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IP_PRODUCT_INV_4_REQUIREMENT"
+  },
+  "table_info": {
+    "business_purpose": "Production Management (생산 관리)",
+    "usage_scenarios": [
+      "생산 계획 수립",
+      "생산 실적 집계",
+      "Work Order 관리"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "ITEM_CODE",
+      "position": 1,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "S-PARTS코드.",
+      "description": "@품목코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INVENTORY_QTY",
+      "position": 3,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "재고수량",
+      "description": "재고수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "SAFETY_INVENTORY_QTY",
+      "position": 4,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "안전재고수량",
+      "description": "안전재고수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "PRODUCT_LINE_TYPE",
+      "position": 5,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "라인타입",
+      "description": "라인타입",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "G",
+          "label": "상품",
+          "description": "상품",
+          "display_order": 1071,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M",
+          "label": "무상사급",
+          "description": "무상사급",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "P",
+          "label": "상품(수입)",
+          "description": "상품(수입)",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T",
+          "label": "자작",
+          "description": "자작",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "ITEM_CODE",
+      "ORGANIZATION_ID"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKHSRM_PRODUCT_INV_4_REQ",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "ITEM_CODE, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:22:46.733819",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IQ_OQC_REQUEST_QMS"
+  },
+  "table_info": {
+    "business_purpose": "Quality Management (품질 관리)",
+    "usage_scenarios": [
+      "품질 데이터 수집",
+      "불량 분석",
+      "검사 결과 조회"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "OQC_LOT_NO",
+      "position": 1,
+      "data_type": "VARCHAR2(30)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LOT_QTY",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": "0",
+      "is_primary_key": false,
+      "korean_name": "롯트수량",
+      "description": "롯트수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "REQUEST_DATE",
+      "position": 3,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "신청일자",
+      "description": "신청일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "REQUEST_STATUS",
+      "position": 4,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": "'W'",
+      "is_primary_key": false,
+      "korean_name": "신청상태",
+      "description": "신청상태",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "B",
+          "label": "신청",
+          "description": "신청",
+          "display_order": 1066,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "C",
+          "label": "완료",
+          "description": "완료",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "R",
+          "label": "신청",
+          "description": "신청",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "A"
+        },
+        {
+          "value": "W",
+          "label": "대기",
+          "description": "대기",
+          "display_order": 1087,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "P"
+        },
+        {
+          "value": "Y",
+          "label": "신청",
+          "description": "신청",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "MODEL_NAME",
+      "position": 5,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@model_name",
+      "description": "@model_name",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LINE_CODE",
+      "position": 6,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@line_code",
+      "description": "@line_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "01",
+          "label": "A",
+          "description": "A",
+          "display_order": 1,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "02",
+          "label": "B",
+          "description": "B",
+          "display_order": 2,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "03",
+          "label": "C",
+          "description": "C",
+          "display_order": 3,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "04",
+          "label": "D",
+          "description": "D",
+          "display_order": 4,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "05",
+          "label": "E",
+          "description": "E",
+          "display_order": 5,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "06",
+          "label": "F",
+          "description": "F",
+          "display_order": 6,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "07",
+          "label": "G",
+          "description": "G",
+          "display_order": 7,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "08",
+          "label": "H",
+          "description": "H",
+          "display_order": 8,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "09",
+          "label": "I",
+          "description": "I",
+          "display_order": 9,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "10",
+          "label": "J",
+          "description": "J",
+          "display_order": 10,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "11",
+          "label": "K",
+          "description": "K",
+          "display_order": 11,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "12",
+          "label": "L",
+          "description": "L",
+          "display_order": 12,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "13",
+          "label": "M",
+          "description": "M",
+          "display_order": 13,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "14",
+          "label": "N",
+          "description": "N",
+          "display_order": 14,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "15",
+          "label": "O",
+          "description": "O",
+          "display_order": 15,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "APPROVAL_DATE",
+      "position": 7,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "승인일자",
+      "description": "승인일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "APPROVAL_STATUS",
+      "position": 8,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "승인상태",
+      "description": "승인상태",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "NG",
+          "label": "NG",
+          "description": "NG",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "OK",
+          "label": "PASS",
+          "description": "PASS",
+          "display_order": 1079,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "PACK_BARCODE",
+      "position": 9,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "포장바코드",
+      "description": "포장바코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PACK_MODEL",
+      "position": 10,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PACK_PART_NO",
+      "position": 11,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PACK_QTY",
+      "position": 12,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": "0",
+      "is_primary_key": false,
+      "korean_name": "포장수량",
+      "description": "포장수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 13,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": "sysdate",
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 14,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 15,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": "sysdate",
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 16,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 17,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "IXIQ_OQC_REQUESTO2",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "NONUNIQUE",
+      "COLUMNS": "REQUEST_DATE, ORGANIZATION_ID"
+    },
+    {
+      "INDEX_NAME": "UKIQ_OQC_REQUESTO1",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "OQC_LOT_NO, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:25:22.744978",
+    "version": "1.0"
+  }
+}

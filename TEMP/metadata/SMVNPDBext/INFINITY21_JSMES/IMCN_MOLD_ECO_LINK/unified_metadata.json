@@ -1,0 +1,195 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IMCN_MOLD_ECO_LINK"
+  },
+  "table_info": {
+    "business_purpose": "Machine/Maintenance Management (설비/보전 관리) - 금형 정보",
+    "usage_scenarios": [
+      "설비 가동 현황",
+      "예방 보전",
+      "설비 이력 관리"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "REG_DATE",
+      "position": 1,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "등록일자",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "SEQ_NO",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "항번",
+      "description": "항번",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MOLD_CODE",
+      "position": 3,
+      "data_type": "VARCHAR2(30)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@S-PARTS번호",
+      "description": "@S-PARTS번호 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MOLD_VERSION",
+      "position": 4,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "S-PARTS버젼",
+      "description": "S-PARTS버젼",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 5,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MOLD_GROUP",
+      "position": 6,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "S-PARTS그룹",
+      "description": "S-PARTS그룹",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 7,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 8,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 9,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 10,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "INDXIMCN_MOLD_REPAIR_LINK",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "REG_DATE, SEQ_NO, MOLD_CODE, MOLD_VERSION, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:20:51.355266",
+    "version": "1.0"
+  }
+}

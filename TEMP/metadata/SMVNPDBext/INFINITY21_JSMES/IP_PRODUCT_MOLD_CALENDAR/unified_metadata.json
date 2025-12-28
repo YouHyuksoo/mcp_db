@@ -1,0 +1,235 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IP_PRODUCT_MOLD_CALENDAR"
+  },
+  "table_info": {
+    "business_purpose": "Production Management (생산 관리) - 금형 정보",
+    "usage_scenarios": [
+      "생산 계획 수립",
+      "생산 실적 집계",
+      "Work Order 관리"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "PLAN_DATE",
+      "position": 1,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "@계획일자",
+      "description": "@계획일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "MOLD_CODE",
+      "position": 2,
+      "data_type": "VARCHAR2(30)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "@S-PARTS번호",
+      "description": "@S-PARTS번호 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 3,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "HOLIDAY_YN",
+      "position": 4,
+      "data_type": "VARCHAR2(1)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "휴일유무",
+      "description": "휴일유무",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "N",
+          "label": "평일",
+          "description": "평일",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "휴일",
+          "description": "휴일",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "MOLD_REPAIR_YN",
+      "position": 5,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "S-PARTS수리유무",
+      "description": "S-PARTS수리유무",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MOLD_CARE_YN",
+      "position": 6,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "S-PARTS청소유무",
+      "description": "S-PARTS청소유무",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "CALENDAR_COMMENT",
+      "position": 7,
+      "data_type": "VARCHAR2(500)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "월력설명",
+      "description": "월력설명",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 8,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 9,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 10,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 11,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "PLAN_DATE",
+      "MOLD_CODE",
+      "ORGANIZATION_ID"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKIP_PRODUCT_MOLD_CALENDAR",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "PLAN_DATE, MOLD_CODE, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:23:04.444690",
+    "version": "1.0"
+  }
+}

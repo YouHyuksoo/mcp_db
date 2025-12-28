@@ -1,0 +1,145 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "EBA_DEMO_CARD_VEHICLE_SPEED"
+  },
+  "table_info": {
+    "business_purpose": "",
+    "usage_scenarios": [],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "ID",
+      "position": 1,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": "to_number(sys_guid(), 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')",
+      "is_primary_key": true,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "POSTED_SPEED",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "VEHICLE_SPEED",
+      "position": 3,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "DATE_OF_INCEDENT",
+      "position": 4,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LICENSE_PLATE",
+      "position": 5,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LOCATION",
+      "position": 6,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "위치관리",
+      "description": "위치관리",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "STATE",
+      "position": 7,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "ID"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "EBA_DEMO_CARD_VSPEED_PK",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:19:12.205053",
+    "version": "1.0"
+  }
+}

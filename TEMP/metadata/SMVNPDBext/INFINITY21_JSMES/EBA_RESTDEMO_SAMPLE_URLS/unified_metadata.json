@@ -1,0 +1,97 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "EBA_RESTDEMO_SAMPLE_URLS"
+  },
+  "table_info": {
+    "business_purpose": "",
+    "usage_scenarios": [],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "NAME",
+      "position": 1,
+      "data_type": "VARCHAR2(255)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "Name",
+      "description": "Name",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "URL",
+      "position": 2,
+      "data_type": "VARCHAR2(500)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "HTTPS_HOST",
+      "position": 3,
+      "data_type": "VARCHAR2(500)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_STATUS",
+      "position": 4,
+      "data_type": "VARCHAR2(500)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "NAME"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "SYS_C009855",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "NAME"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:19:34.789588",
+    "version": "1.0"
+  }
+}

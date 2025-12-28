@@ -1,0 +1,247 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IP_PRODUCT_PCB_DEPARTURE_LOAD"
+  },
+  "table_info": {
+    "business_purpose": "Production Management (생산 관리)",
+    "usage_scenarios": [
+      "생산 계획 수립",
+      "생산 실적 집계",
+      "Work Order 관리"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "NO",
+      "position": 1,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "번호.",
+      "description": "번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "SUPPLIER_CODE",
+      "position": 2,
+      "data_type": "VARCHAR2(50)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "공급상/제작처",
+      "description": "@소모품번호 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "J",
+          "label": "",
+          "description": "",
+          "display_order": 1074,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "INVOICE_NO",
+      "position": 3,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "전표번호",
+      "description": "전표번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MAGAZINE_NO",
+      "position": 4,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "매거진번호",
+      "description": "매거진번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ITEM_CODE",
+      "position": 5,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "S-PARTS코드.",
+      "description": "@품목코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "SERIAL_NO",
+      "position": 6,
+      "data_type": "VARCHAR2(50)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "PID번호",
+      "description": "PID번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "COMMENTS",
+      "position": 7,
+      "data_type": "VARCHAR2(4000)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "설명",
+      "description": "설명",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "UPLOAD_DATE",
+      "position": 8,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "업로드일자",
+      "description": "업로드일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "DEPARTURE_QTY",
+      "position": 9,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "출발수량",
+      "description": "출발수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "DEPARTURE_STATUS",
+      "position": 10,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "출발상태",
+      "description": "출발상태",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "A",
+          "label": "도착",
+          "description": "도착",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "C"
+        },
+        {
+          "value": "C",
+          "label": "취소",
+          "description": "취소",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "D",
+          "label": "출발",
+          "description": "출발",
+          "display_order": 1068,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "R",
+          "label": "입고",
+          "description": "입고",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "A"
+        }
+      ]
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "SUPPLIER_CODE",
+      "SERIAL_NO"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "IP_PRODUCT_PCB_DEPARTURE_LOAD_PK",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "SUPPLIER_CODE, SERIAL_NO"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:23:09.847950",
+    "version": "1.0"
+  }
+}

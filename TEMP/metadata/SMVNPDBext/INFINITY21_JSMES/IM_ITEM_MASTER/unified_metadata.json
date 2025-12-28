@@ -1,0 +1,752 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IM_ITEM_MASTER"
+  },
+  "table_info": {
+    "business_purpose": "Inventory/Material Management (재고/자재 관리) - 마스터 정보",
+    "usage_scenarios": [
+      "입출고 관리",
+      "재고 조회",
+      "자재 소요량 계산"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "SUPPLIER_CODE",
+      "position": 1,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "공급상/제작처",
+      "description": "@소모품번호 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "J",
+          "label": "",
+          "description": "",
+          "display_order": 1074,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "ITEM_CODE",
+      "position": 2,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "S-PARTS코드.",
+      "description": "@품목코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "DATESET",
+      "position": 3,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "시작일자",
+      "description": "시작일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 4,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORDER_TYPE",
+      "position": 5,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@생산계획타입",
+      "description": "@생산계획타입",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "A",
+          "label": "자동",
+          "description": "자동",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "C",
+          "label": "교환",
+          "description": "교환",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "D",
+          "label": "344대체",
+          "description": "344대체",
+          "display_order": 1068,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "F",
+          "label": "고정",
+          "description": "고정",
+          "display_order": 1070,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M",
+          "label": "311정규",
+          "description": "311정규",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "O",
+          "label": "직납입",
+          "description": "직납입",
+          "display_order": 1079,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "R",
+          "label": "931위탁수리",
+          "description": "931위탁수리",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "S",
+          "label": "부족분",
+          "description": "부족분",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T",
+          "label": "지입",
+          "description": "지입",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "X",
+          "label": "917무상",
+          "description": "917무상",
+          "display_order": 1088,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "941유상(유실)",
+          "description": "941유상(유실)",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "ORDER_RATE",
+      "position": 6,
+      "data_type": "NUMBER(3)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "발주율",
+      "description": "발주율",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "%",
+      "is_code_column": false,
+      "aggregation_functions": "AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORDER_LEADTIME",
+      "position": 7,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "주문리드타임",
+      "description": "주문리드타임",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORDER_BAD_RATE",
+      "position": 8,
+      "data_type": "NUMBER(3,1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "발주불량율",
+      "description": "발주불량율",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "%",
+      "is_code_column": false,
+      "aggregation_functions": "AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "MIM_ORDER_QTY",
+      "position": 9,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최소발주량",
+      "description": "최소발주량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "PACKING_QTY",
+      "position": 10,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "패킹수량",
+      "description": "패킹수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "LONGTERM_DELIVERY_YN",
+      "position": 11,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "장기수급구분",
+      "description": "장기수급구분",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "N",
+          "label": "NO",
+          "description": "NO",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "YES",
+          "description": "YES",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "WAREHOUSE_CHARGE",
+      "position": 12,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "창고담당자",
+      "description": "창고담당자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORDER_CHARGE",
+      "position": 13,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "주문담당자",
+      "description": "주문담당자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "DATEEND",
+      "position": 14,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "종료일자",
+      "description": "종료일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "MAIN_VENDOR_YN",
+      "position": 15,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "주거래선YN",
+      "description": "주거래선YN",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "N",
+          "label": "NO",
+          "description": "NO",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "YES",
+          "description": "YES",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "PAYMENT_TYPE",
+      "position": 16,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "지불유형 :",
+      "description": "지불유형",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "C",
+          "label": "현금",
+          "description": "현금",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "D",
+          "label": "전신화",
+          "description": "전신화",
+          "display_order": 1068,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "F",
+          "label": "무상",
+          "description": "무상",
+          "display_order": 1070,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "L",
+          "label": "지표",
+          "description": "지표",
+          "display_order": 1076,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T",
+          "label": "T/T",
+          "description": "T/T",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T/T30",
+          "label": "T/T30",
+          "description": "T/T30",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T/T35",
+          "label": "T/T30",
+          "description": "T/T30",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T/T40",
+          "label": "T/T40",
+          "description": "T/T40",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "INSPECT_METHOD",
+      "position": 17,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사방법",
+      "description": "검사방법",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INSPECT_RULE",
+      "position": 18,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사방법",
+      "description": "검사방법",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INCIDENTAL_EXPENSE_CODE",
+      "position": 19,
+      "data_type": "VARCHAR2(3)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "부대비용",
+      "description": "부대비용 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "C&F",
+          "label": "C&F",
+          "description": "C&F",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "C&I",
+          "label": "C&I",
+          "description": "C&I",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "CIF",
+          "label": "CIF",
+          "description": "CIF",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "FOB",
+          "label": "FOB",
+          "description": "FOB",
+          "display_order": 1070,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 20,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 21,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 22,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 23,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "INSPECT_PROCESS",
+      "position": 24,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사처리절차",
+      "description": "검사처리절차",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ESD_CHECK_CYCLE_VALUE",
+      "position": 25,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "SUPPLIER_CODE",
+      "ITEM_CODE",
+      "ORGANIZATION_ID"
+    ],
+    "foreign_keys": [
+      {
+        "COLUMN_NAME": "SUPPLIER_CODE",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "SUPPLIER_CODE",
+        "CONSTRAINT_NAME": "R_747"
+      },
+      {
+        "COLUMN_NAME": "SUPPLIER_CODE",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_747"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "SUPPLIER_CODE",
+        "CONSTRAINT_NAME": "R_747"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_747"
+      },
+      {
+        "COLUMN_NAME": "ITEM_CODE",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ITEM_CODE",
+        "CONSTRAINT_NAME": "R_436"
+      },
+      {
+        "COLUMN_NAME": "ITEM_CODE",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_436"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ITEM_CODE",
+        "CONSTRAINT_NAME": "R_436"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_436"
+      }
+    ]
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKIM_ITEM_MASTER",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "SUPPLIER_CODE, ITEM_CODE, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:21:42.426815",
+    "version": "1.0"
+  }
+}

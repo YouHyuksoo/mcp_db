@@ -1,0 +1,2906 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "ICOM_SUPPLIER"
+  },
+  "table_info": {
+    "business_purpose": "Vendor Master",
+    "usage_scenarios": [
+      "공통 코드 관리",
+      "문서 관리",
+      "고객/공급사 정보"
+    ],
+    "related_tables": [],
+    "table_comment": "Vendor Master"
+  },
+  "columns": [
+    {
+      "name": "SUPPLIER_CODE",
+      "position": 1,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "공급상/제작처",
+      "description": "@소모품번호 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "J",
+          "label": "",
+          "description": "",
+          "display_order": 1074,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "SUPPLIER_NAME",
+      "position": 3,
+      "data_type": "VARCHAR2(100)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@소모품품목",
+      "description": "@소모품품목",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "DATEEND",
+      "position": 4,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "종료일자",
+      "description": "종료일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "DATESET",
+      "position": 5,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "시작일자",
+      "description": "시작일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "SUPPLIER_NAME_ENG",
+      "position": 6,
+      "data_type": "VARCHAR2(100)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "공급상명(영)",
+      "description": "공급상명(영)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BUSINESS_NO",
+      "position": 7,
+      "data_type": "VARCHAR2(100)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "사업자번호",
+      "description": "사업자번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BUSINESS_CATEGORY",
+      "position": 8,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "사업영역",
+      "description": "사업영역",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BUSINESS_STATUS",
+      "position": 9,
+      "data_type": "VARCHAR2(1)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "거래상태",
+      "description": "거래상태",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "A",
+          "label": "거래중",
+          "description": "거래중",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "C"
+        },
+        {
+          "value": "D",
+          "label": "거래중지",
+          "description": "거래중지",
+          "display_order": 1068,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "BUSINESS_TYPE",
+      "position": 10,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "사업유형",
+      "description": "사업유형",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "C",
+          "label": "고객",
+          "description": "고객",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "D",
+          "label": "납품처",
+          "description": "납품처",
+          "display_order": 1068,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M",
+          "label": "제조사",
+          "description": "제조사",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "O",
+          "label": "자사",
+          "description": "자사",
+          "display_order": 1079,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "S",
+          "label": "공급처",
+          "description": "공급처",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T",
+          "label": "외주처",
+          "description": "외주처",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "W",
+          "label": "MRO",
+          "description": "MRO",
+          "display_order": 1087,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "SUPPLIER_CHARGE_NAME",
+      "position": 11,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "협력사담당자명",
+      "description": "협력사담당자명",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PAYMENT_TYPE",
+      "position": 12,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "지불유형 :",
+      "description": "지불유형",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "C",
+          "label": "현금",
+          "description": "현금",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "D",
+          "label": "전신화",
+          "description": "전신화",
+          "display_order": 1068,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "F",
+          "label": "무상",
+          "description": "무상",
+          "display_order": 1070,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "L",
+          "label": "지표",
+          "description": "지표",
+          "display_order": 1076,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T",
+          "label": "T/T",
+          "description": "T/T",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T/T30",
+          "label": "T/T30",
+          "description": "T/T30",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T/T35",
+          "label": "T/T30",
+          "description": "T/T30",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T/T40",
+          "label": "T/T40",
+          "description": "T/T40",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "BANK_ACCOUNT",
+      "position": 13,
+      "data_type": "VARCHAR2(100)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "은행계좌번호",
+      "description": "은행계좌번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "BANK_ADDRESS",
+      "position": 14,
+      "data_type": "VARCHAR2(200)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "은행주소",
+      "description": "은행주소",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "OWNER_NAME",
+      "position": 15,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "총경리",
+      "description": "총경리",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BANK_ADDRESS_ENG",
+      "position": 16,
+      "data_type": "VARCHAR2(200)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "은행주소(영)",
+      "description": "은행주소(영)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ADDRESS",
+      "position": 17,
+      "data_type": "VARCHAR2(100)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "주소",
+      "description": "주소",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BANK_NAME",
+      "position": 18,
+      "data_type": "VARCHAR2(100)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "은행명",
+      "description": "은행명",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "TEL_NO",
+      "position": 19,
+      "data_type": "VARCHAR2(40)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Tel No:",
+      "description": "전화번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BANK_NAME_ENG",
+      "position": 20,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "은행명(영)",
+      "description": "은행명(영)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "FAX_NO",
+      "position": 21,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "팩스번호:",
+      "description": "팩스번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 22,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "EMPLOYEE_QTY",
+      "position": 23,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "직원수",
+      "description": "직원수 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 24,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 25,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 26,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "HANDPHONE_NO",
+      "position": 27,
+      "data_type": "VARCHAR2(40)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "휴대폰번호",
+      "description": "휴대폰번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "HOME_PAGE",
+      "position": 28,
+      "data_type": "VARCHAR2(100)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "홈페이지",
+      "description": "홈페이지",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "EMAIL_ADDRESS",
+      "position": 29,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "전자메일주소",
+      "description": "전자메일주소",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "FOUND_DATE",
+      "position": 30,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "창립일자",
+      "description": "창립일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "CUSTOM_CODE",
+      "position": 31,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "세관코드",
+      "description": "세관코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "VIRTUAL_RECEIPT_YN",
+      "position": 32,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "가입고YN",
+      "description": "가입고YN",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "N",
+          "label": "정상",
+          "description": "정상",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "가입고",
+          "description": "가입고",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "BUSINESS_TAX_NO",
+      "position": 33,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "세무신고번호",
+      "description": "세무신고번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PAYMENT_CYCLE",
+      "position": 34,
+      "data_type": "VARCHAR2(2)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "지불주기",
+      "description": "지불주기",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "TRADE_TYPE",
+      "position": 35,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "경영회사유형",
+      "description": "경영회사유형",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "a",
+          "label": "",
+          "description": "",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "b",
+          "label": "",
+          "description": "",
+          "display_order": 1066,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "c",
+          "label": "",
+          "description": "",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "test",
+          "label": "test",
+          "description": "test",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "TRADE_CODE",
+      "position": 36,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "경영회사코드",
+      "description": "경영회사코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "NATION_CODE",
+      "position": 37,
+      "data_type": "VARCHAR2(3)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "국가코드",
+      "description": "국가코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "1",
+          "label": "미국본토",
+          "description": "미국본토",
+          "display_order": 1,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "7",
+          "label": "러시아",
+          "description": "러시아",
+          "display_order": 7,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "20",
+          "label": "이집트",
+          "description": "이집트",
+          "display_order": 20,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "27",
+          "label": "남아공화국",
+          "description": "남아공화국",
+          "display_order": 27,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "30",
+          "label": "그리스",
+          "description": "그리스",
+          "display_order": 30,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "31",
+          "label": "네델란드",
+          "description": "네델란드",
+          "display_order": 31,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "32",
+          "label": "벨지움",
+          "description": "벨지움",
+          "display_order": 32,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "33",
+          "label": "프랑스",
+          "description": "프랑스",
+          "display_order": 33,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "34",
+          "label": "스페인",
+          "description": "스페인",
+          "display_order": 34,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "36",
+          "label": "헝가리",
+          "description": "헝가리",
+          "display_order": 36,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "39",
+          "label": "이태리",
+          "description": "이태리",
+          "display_order": 39,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "40",
+          "label": "루마니아",
+          "description": "루마니아",
+          "display_order": 40,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "41",
+          "label": "스위스",
+          "description": "스위스",
+          "display_order": 41,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "43",
+          "label": "오스트리아",
+          "description": "오스트리아",
+          "display_order": 43,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "44",
+          "label": "영국",
+          "description": "영국",
+          "display_order": 44,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "45",
+          "label": "덴마크",
+          "description": "덴마크",
+          "display_order": 45,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "46",
+          "label": "스웨덴",
+          "description": "스웨덴",
+          "display_order": 46,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "47",
+          "label": "노르웨이",
+          "description": "노르웨이",
+          "display_order": 47,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "48",
+          "label": "폴랜드",
+          "description": "폴랜드",
+          "display_order": 48,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "49",
+          "label": "독일",
+          "description": "독일",
+          "display_order": 49,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "51",
+          "label": "페루",
+          "description": "페루",
+          "display_order": 51,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "52",
+          "label": "멕시코",
+          "description": "멕시코",
+          "display_order": 52,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "53",
+          "label": "쿠바",
+          "description": "쿠바",
+          "display_order": 53,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "54",
+          "label": "아르헨티나",
+          "description": "아르헨티나",
+          "display_order": 54,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "55",
+          "label": "브라질",
+          "description": "브라질",
+          "display_order": 55,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "56",
+          "label": "칠레",
+          "description": "칠레",
+          "display_order": 56,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "57",
+          "label": "콜롬비아",
+          "description": "콜롬비아",
+          "display_order": 57,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "58",
+          "label": "베네쥬엘라",
+          "description": "베네쥬엘라",
+          "display_order": 58,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "60",
+          "label": "말레이지아",
+          "description": "말레이지아",
+          "display_order": 60,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "61",
+          "label": "호주",
+          "description": "호주",
+          "display_order": 61,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "62",
+          "label": "인도네시아",
+          "description": "인도네시아",
+          "display_order": 62,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "63",
+          "label": "필리핀",
+          "description": "필리핀",
+          "display_order": 63,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "64",
+          "label": "뉴질랜드",
+          "description": "뉴질랜드",
+          "display_order": 64,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "65",
+          "label": "싱가폴",
+          "description": "싱가폴",
+          "display_order": 65,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "66",
+          "label": "태국",
+          "description": "태국",
+          "display_order": 66,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "81",
+          "label": "일본",
+          "description": "일본",
+          "display_order": 81,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "82",
+          "label": "한국",
+          "description": "한국",
+          "display_order": 82,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "84",
+          "label": "베트남",
+          "description": "베트남",
+          "display_order": 84,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "86",
+          "label": "중국",
+          "description": "중국",
+          "display_order": 86,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "90",
+          "label": "터키",
+          "description": "터키",
+          "display_order": 90,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "91",
+          "label": "인디아",
+          "description": "인디아",
+          "display_order": 91,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "92",
+          "label": "파키스탄",
+          "description": "파키스탄",
+          "display_order": 92,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "94",
+          "label": "스리랑카",
+          "description": "스리랑카",
+          "display_order": 94,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "95",
+          "label": "미얀마",
+          "description": "미얀마",
+          "display_order": 95,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "98",
+          "label": "이란",
+          "description": "이란",
+          "display_order": 98,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "212",
+          "label": "모로코",
+          "description": "모로코",
+          "display_order": 212,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "213",
+          "label": "알제리아",
+          "description": "알제리아",
+          "display_order": 213,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "218",
+          "label": "리비아",
+          "description": "리비아",
+          "display_order": 218,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "220",
+          "label": "감비아",
+          "description": "감비아",
+          "display_order": 220,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "221",
+          "label": "세네갈",
+          "description": "세네갈",
+          "display_order": 221,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "222",
+          "label": "모리타니아",
+          "description": "모리타니아",
+          "display_order": 222,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "223",
+          "label": "말리",
+          "description": "말리",
+          "display_order": 223,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "224",
+          "label": "기니아",
+          "description": "기니아",
+          "display_order": 224,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "225",
+          "label": "아이보리코스트",
+          "description": "아이보리코스트",
+          "display_order": 225,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "226",
+          "label": "브르키나파소",
+          "description": "브르키나파소",
+          "display_order": 226,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "227",
+          "label": "니제르",
+          "description": "니제르",
+          "display_order": 227,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "228",
+          "label": "토고",
+          "description": "토고",
+          "display_order": 228,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "229",
+          "label": "베넹",
+          "description": "베넹",
+          "display_order": 229,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "230",
+          "label": "모리셔스",
+          "description": "모리셔스",
+          "display_order": 230,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "231",
+          "label": "라이베리아",
+          "description": "라이베리아",
+          "display_order": 231,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "232",
+          "label": "씨에라네온",
+          "description": "씨에라네온",
+          "display_order": 232,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "233",
+          "label": "가나",
+          "description": "가나",
+          "display_order": 233,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "234",
+          "label": "나이제리아",
+          "description": "나이제리아",
+          "display_order": 234,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "235",
+          "label": "차드",
+          "description": "차드",
+          "display_order": 235,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "236",
+          "label": "중앙아프리카",
+          "description": "중앙아프리카",
+          "display_order": 236,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "237",
+          "label": "카메룬",
+          "description": "카메룬",
+          "display_order": 237,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "238",
+          "label": "카푸버데",
+          "description": "카푸버데",
+          "display_order": 238,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "240",
+          "label": "적도기니아",
+          "description": "적도기니아",
+          "display_order": 240,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "241",
+          "label": "가봉",
+          "description": "가봉",
+          "display_order": 241,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "242",
+          "label": "콩고",
+          "description": "콩고",
+          "display_order": 242,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "243",
+          "label": "자이레",
+          "description": "자이레",
+          "display_order": 243,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "244",
+          "label": "앙골라",
+          "description": "앙골라",
+          "display_order": 244,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "245",
+          "label": "가나아비쏘우",
+          "description": "가나아비쏘우",
+          "display_order": 245,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "246",
+          "label": "디에고가르시아",
+          "description": "디에고가르시아",
+          "display_order": 246,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "247",
+          "label": "아세손",
+          "description": "아세손",
+          "display_order": 247,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "248",
+          "label": "세이셀",
+          "description": "세이셀",
+          "display_order": 248,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "249",
+          "label": "수단",
+          "description": "수단",
+          "display_order": 249,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "250",
+          "label": "르완다",
+          "description": "르완다",
+          "display_order": 250,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "251",
+          "label": "이디오피아",
+          "description": "이디오피아",
+          "display_order": 251,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "252",
+          "label": "소말리아",
+          "description": "소말리아",
+          "display_order": 252,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "253",
+          "label": "지브타",
+          "description": "지브타",
+          "display_order": 253,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "254",
+          "label": "케냐",
+          "description": "케냐",
+          "display_order": 254,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "255",
+          "label": "탄자니아",
+          "description": "탄자니아",
+          "display_order": 255,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "256",
+          "label": "우간다",
+          "description": "우간다",
+          "display_order": 256,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "257",
+          "label": "브룬디",
+          "description": "브룬디",
+          "display_order": 257,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "258",
+          "label": "모잠비크",
+          "description": "모잠비크",
+          "display_order": 258,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "260",
+          "label": "잠비아",
+          "description": "잠비아",
+          "display_order": 260,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "261",
+          "label": "마다가스칼",
+          "description": "마다가스칼",
+          "display_order": 261,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "262",
+          "label": "레위니옹",
+          "description": "레위니옹",
+          "display_order": 262,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "263",
+          "label": "짐바브웨",
+          "description": "짐바브웨",
+          "display_order": 263,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "264",
+          "label": "나미비아",
+          "description": "나미비아",
+          "display_order": 264,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "265",
+          "label": "말라위",
+          "description": "말라위",
+          "display_order": 265,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "266",
+          "label": "레스토",
+          "description": "레스토",
+          "display_order": 266,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "267",
+          "label": "보츠와나",
+          "description": "보츠와나",
+          "display_order": 267,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "268",
+          "label": "스와질랜드",
+          "description": "스와질랜드",
+          "display_order": 268,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "269",
+          "label": "코모로",
+          "description": "코모로",
+          "display_order": 269,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "290",
+          "label": "세인트헬레나",
+          "description": "세인트헬레나",
+          "display_order": 290,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "291",
+          "label": "에리트리아",
+          "description": "에리트리아",
+          "display_order": 291,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "298",
+          "label": "파로군도",
+          "description": "파로군도",
+          "display_order": 298,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "299",
+          "label": "그린랜드",
+          "description": "그린랜드",
+          "display_order": 299,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "335",
+          "label": "알바니아",
+          "description": "알바니아",
+          "display_order": 335,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "350",
+          "label": "지브랄타",
+          "description": "지브랄타",
+          "display_order": 350,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "351",
+          "label": "포르투갈",
+          "description": "포르투갈",
+          "display_order": 351,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "352",
+          "label": "룩셈부르크",
+          "description": "룩셈부르크",
+          "display_order": 352,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "353",
+          "label": "아일랜드",
+          "description": "아일랜드",
+          "display_order": 353,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "354",
+          "label": "아이슬랜드",
+          "description": "아이슬랜드",
+          "display_order": 354,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "355",
+          "label": "알바니아",
+          "description": "알바니아",
+          "display_order": 355,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "356",
+          "label": "몰타",
+          "description": "몰타",
+          "display_order": 356,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "357",
+          "label": "싸이프러스",
+          "description": "싸이프러스",
+          "display_order": 357,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "358",
+          "label": "핀랜드",
+          "description": "핀랜드",
+          "display_order": 358,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "359",
+          "label": "불가리아",
+          "description": "불가리아",
+          "display_order": 359,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "369",
+          "label": "바티칸시티",
+          "description": "바티칸시티",
+          "display_order": 369,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "370",
+          "label": "리투아니아",
+          "description": "리투아니아",
+          "display_order": 370,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "371",
+          "label": "라트비아",
+          "description": "라트비아",
+          "display_order": 371,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "372",
+          "label": "에스토니아",
+          "description": "에스토니아",
+          "display_order": 372,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "373",
+          "label": "몰도바",
+          "description": "몰도바",
+          "display_order": 373,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "374",
+          "label": "아르메니아",
+          "description": "아르메니아",
+          "display_order": 374,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "375",
+          "label": "벨라루스",
+          "description": "벨라루스",
+          "display_order": 375,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "376",
+          "label": "안도라",
+          "description": "안도라",
+          "display_order": 376,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "377",
+          "label": "모나코",
+          "description": "모나코",
+          "display_order": 377,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "378",
+          "label": "산마리노",
+          "description": "산마리노",
+          "display_order": 378,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "379",
+          "label": "바티칸",
+          "description": "바티칸",
+          "display_order": 379,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "380",
+          "label": "우크라이나",
+          "description": "우크라이나",
+          "display_order": 380,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "381",
+          "label": "유고",
+          "description": "유고",
+          "display_order": 381,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "385",
+          "label": "크로아티아",
+          "description": "크로아티아",
+          "display_order": 385,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "386",
+          "label": "스로베니아",
+          "description": "스로베니아",
+          "display_order": 386,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "387",
+          "label": "보스니아",
+          "description": "보스니아",
+          "display_order": 387,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "389",
+          "label": "마케도니아",
+          "description": "마케도니아",
+          "display_order": 389,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "420",
+          "label": "체코",
+          "description": "체코",
+          "display_order": 420,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "421",
+          "label": "슬로바키아",
+          "description": "슬로바키아",
+          "display_order": 421,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "423",
+          "label": "리히텐슈타인",
+          "description": "리히텐슈타인",
+          "display_order": 423,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "500",
+          "label": "포클랜드섬",
+          "description": "포클랜드섬",
+          "display_order": 500,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "501",
+          "label": "벨리제",
+          "description": "벨리제",
+          "display_order": 501,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "502",
+          "label": "과테말라",
+          "description": "과테말라",
+          "display_order": 502,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "503",
+          "label": "엘살바도로",
+          "description": "엘살바도로",
+          "display_order": 503,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "504",
+          "label": "온듀라스",
+          "description": "온듀라스",
+          "display_order": 504,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "505",
+          "label": "니카라과",
+          "description": "니카라과",
+          "display_order": 505,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "506",
+          "label": "코스타리카",
+          "description": "코스타리카",
+          "display_order": 506,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "507",
+          "label": "파나마",
+          "description": "파나마",
+          "display_order": 507,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "508",
+          "label": "쌍피에르미켈론",
+          "description": "쌍피에르미켈론",
+          "display_order": 508,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "509",
+          "label": "아이티",
+          "description": "아이티",
+          "display_order": 509,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "590",
+          "label": "과델로프",
+          "description": "과델로프",
+          "display_order": 590,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "591",
+          "label": "볼리비아",
+          "description": "볼리비아",
+          "display_order": 591,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "592",
+          "label": "기이니아",
+          "description": "기이니아",
+          "display_order": 592,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "593",
+          "label": "에콰도르",
+          "description": "에콰도르",
+          "display_order": 593,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "594",
+          "label": "기아나",
+          "description": "기아나",
+          "display_order": 594,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "595",
+          "label": "파라과이",
+          "description": "파라과이",
+          "display_order": 595,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "596",
+          "label": "마르티니크",
+          "description": "마르티니크",
+          "display_order": 596,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "597",
+          "label": "수리남",
+          "description": "수리남",
+          "display_order": 597,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "598",
+          "label": "우르과이",
+          "description": "우르과이",
+          "display_order": 598,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "599",
+          "label": "안틸레스",
+          "description": "안틸레스",
+          "display_order": 599,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "670",
+          "label": "사이판",
+          "description": "사이판",
+          "display_order": 670,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "672",
+          "label": "호주남극기지",
+          "description": "호주남극기지",
+          "display_order": 672,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "673",
+          "label": "브루나이",
+          "description": "브루나이",
+          "display_order": 673,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "674",
+          "label": "나우르",
+          "description": "나우르",
+          "display_order": 674,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "675",
+          "label": "파푸뉴기니아",
+          "description": "파푸뉴기니아",
+          "display_order": 675,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "676",
+          "label": "통가",
+          "description": "통가",
+          "display_order": 676,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "677",
+          "label": "솔로몬제도",
+          "description": "솔로몬제도",
+          "display_order": 677,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "678",
+          "label": "바누아투",
+          "description": "바누아투",
+          "display_order": 678,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "679",
+          "label": "피지",
+          "description": "피지",
+          "display_order": 679,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "680",
+          "label": "팔라우",
+          "description": "팔라우",
+          "display_order": 680,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "682",
+          "label": "쿡 제도",
+          "description": "쿡 제도",
+          "display_order": 682,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "683",
+          "label": "니우에 섬",
+          "description": "니우에 섬",
+          "display_order": 683,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "684",
+          "label": "미국령 사모아",
+          "description": "미국령 사모아",
+          "display_order": 684,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "685",
+          "label": "서사모아",
+          "description": "서사모아",
+          "display_order": 685,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "686",
+          "label": "키리바티",
+          "description": "키리바티",
+          "display_order": 686,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "687",
+          "label": "뉴칼레도니아",
+          "description": "뉴칼레도니아",
+          "display_order": 687,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "688",
+          "label": "투발루",
+          "description": "투발루",
+          "display_order": 688,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "689",
+          "label": "타이티",
+          "description": "타이티",
+          "display_order": 689,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "691",
+          "label": "마이크로네시아",
+          "description": "마이크로네시아",
+          "display_order": 691,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "692",
+          "label": "마샬군도",
+          "description": "마샬군도",
+          "display_order": 692,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "852",
+          "label": "홍콩",
+          "description": "홍콩",
+          "display_order": 852,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "853",
+          "label": "마카오",
+          "description": "마카오",
+          "display_order": 853,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "855",
+          "label": "캄보디아",
+          "description": "캄보디아",
+          "display_order": 855,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "856",
+          "label": "라오스",
+          "description": "라오스",
+          "display_order": 856,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "880",
+          "label": "방글라데쉬",
+          "description": "방글라데쉬",
+          "display_order": 880,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "886",
+          "label": "대만",
+          "description": "대만",
+          "display_order": 886,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "960",
+          "label": "몰디브",
+          "description": "몰디브",
+          "display_order": 960,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "961",
+          "label": "레바논",
+          "description": "레바논",
+          "display_order": 961,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "962",
+          "label": "요르단",
+          "description": "요르단",
+          "display_order": 962,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "963",
+          "label": "시리아",
+          "description": "시리아",
+          "display_order": 963,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "964",
+          "label": "이라크",
+          "description": "이라크",
+          "display_order": 964,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "965",
+          "label": "쿠웨이트",
+          "description": "쿠웨이트",
+          "display_order": 965,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "966",
+          "label": "사우디아라비아",
+          "description": "사우디아라비아",
+          "display_order": 966,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "967",
+          "label": "북예멘",
+          "description": "북예멘",
+          "display_order": 967,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "968",
+          "label": "오만",
+          "description": "오만",
+          "display_order": 968,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "969",
+          "label": "예멘",
+          "description": "예멘",
+          "display_order": 969,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "971",
+          "label": "아랍에미레이트",
+          "description": "아랍에미레이트",
+          "display_order": 971,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "972",
+          "label": "이스라엘",
+          "description": "이스라엘",
+          "display_order": 972,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "973",
+          "label": "바레인",
+          "description": "바레인",
+          "display_order": 973,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "974",
+          "label": "카타르",
+          "description": "카타르",
+          "display_order": 974,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "975",
+          "label": "부탄",
+          "description": "부탄",
+          "display_order": 975,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "976",
+          "label": "몽골",
+          "description": "몽골",
+          "display_order": 976,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "977",
+          "label": "네팔",
+          "description": "네팔",
+          "display_order": 977,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "993",
+          "label": "투르크메니스탄",
+          "description": "투르크메니스탄",
+          "display_order": 993,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "994",
+          "label": "아제르바이젠",
+          "description": "아제르바이젠",
+          "display_order": 994,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "995",
+          "label": "그루지아",
+          "description": "그루지아",
+          "display_order": 995,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "996",
+          "label": "키르기즈스탄",
+          "description": "키르기즈스탄",
+          "display_order": 996,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "998",
+          "label": "우즈베키스탄",
+          "description": "우즈베키스탄",
+          "display_order": 998,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1242",
+          "label": "바하마",
+          "description": "바하마",
+          "display_order": 1242,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1246",
+          "label": "바베이도즈",
+          "description": "바베이도즈",
+          "display_order": 1246,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1264",
+          "label": "안퀼라",
+          "description": "안퀼라",
+          "display_order": 1264,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1345",
+          "label": "케이멘제도",
+          "description": "케이멘제도",
+          "display_order": 1345,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1441",
+          "label": "버뮤다",
+          "description": "버뮤다",
+          "display_order": 1441,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1649",
+          "label": "턱스케이코스제도",
+          "description": "턱스케이코스제도",
+          "display_order": 1649,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1664",
+          "label": "몬데세라토",
+          "description": "몬데세라토",
+          "display_order": 1664,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1758",
+          "label": "세인트루시아",
+          "description": "세인트루시아",
+          "display_order": 1758,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1767",
+          "label": "도미니카공화국",
+          "description": "도미니카공화국",
+          "display_order": 1767,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1787",
+          "label": "푸에르토리코",
+          "description": "푸에르토리코",
+          "display_order": 1787,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1808",
+          "label": "하와이",
+          "description": "하와이",
+          "display_order": 1808,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1809",
+          "label": "그레나다",
+          "description": "그레나다",
+          "display_order": 1809,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1868",
+          "label": "트리니다드토바고",
+          "description": "트리니다드토바고",
+          "display_order": 1868,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1876",
+          "label": "자마이카",
+          "description": "자마이카",
+          "display_order": 1876,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "1907",
+          "label": "알라스카",
+          "description": "알라스카",
+          "display_order": 1907,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "2696",
+          "label": "마요트",
+          "description": "마요트",
+          "display_order": 2696,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "3428",
+          "label": "카나리제도",
+          "description": "카나리제도",
+          "display_order": 3428,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "4175",
+          "label": "리히텐슈타인",
+          "description": "리히텐슈타인",
+          "display_order": 4175,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "6191",
+          "label": "코코스섬",
+          "description": "코코스섬",
+          "display_order": 6191,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "6721",
+          "label": "안타티카",
+          "description": "안타티카",
+          "display_order": 6721,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "6723",
+          "label": "노르폭섬",
+          "description": "노르폭섬",
+          "display_order": 6723,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "35191",
+          "label": "마데이라섬",
+          "description": "마데이라섬",
+          "display_order": 35191,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "PAYMENT_CONDITION",
+      "position": 38,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "지불조건",
+      "description": "지불조건",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BANK_ACCOUNT_RMB",
+      "position": 39,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "SUPPLIER_CODE",
+      "ORGANIZATION_ID"
+    ],
+    "foreign_keys": [
+      {
+        "COLUMN_NAME": "SUPPLIER_CODE",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "SUPPLIER_CODE",
+        "CONSTRAINT_NAME": "R_514"
+      },
+      {
+        "COLUMN_NAME": "SUPPLIER_CODE",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_514"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "SUPPLIER_CODE",
+        "CONSTRAINT_NAME": "R_514"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ICOM_SUPPLIER",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_514"
+      }
+    ]
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKICOM_SUPPLIER",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "SUPPLIER_CODE, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:20:04.953140",
+    "version": "1.0"
+  }
+}

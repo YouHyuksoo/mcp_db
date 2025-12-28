@@ -1,0 +1,906 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IP_PRODUCT_MOBILIZATION"
+  },
+  "table_info": {
+    "business_purpose": "Production Management (생산 관리)",
+    "usage_scenarios": [
+      "생산 계획 수립",
+      "생산 실적 집계",
+      "Work Order 관리"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "PLAN_YYYYMM",
+      "position": 1,
+      "data_type": "VARCHAR2(6)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@계획일기",
+      "description": "@계획일기",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PLAN_DATE",
+      "position": 3,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@계획일자",
+      "description": "@계획일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ITEM_CODE",
+      "position": 4,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "S-PARTS코드.",
+      "description": "@품목코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PRODUCT_LINE_TYPE",
+      "position": 5,
+      "data_type": "VARCHAR2(1)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "라인타입",
+      "description": "라인타입",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "G",
+          "label": "상품",
+          "description": "상품",
+          "display_order": 1071,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M",
+          "label": "무상사급",
+          "description": "무상사급",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "P",
+          "label": "상품(수입)",
+          "description": "상품(수입)",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "T",
+          "label": "자작",
+          "description": "자작",
+          "display_order": 1084,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "PLAN_PRIORITY",
+      "position": 6,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@중점계획",
+      "description": "@중점계획",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MODEL_DELIVERY_CODE",
+      "position": 7,
+      "data_type": "VARCHAR2(1)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "모델납선코드",
+      "description": "모델납선코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "1",
+          "label": "내수",
+          "description": "내수",
+          "display_order": 1,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "2",
+          "label": "수출",
+          "description": "수출",
+          "display_order": 2,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "LINE_CODE",
+      "position": 8,
+      "data_type": "VARCHAR2(10)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@line_code",
+      "description": "@line_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "01",
+          "label": "A",
+          "description": "A",
+          "display_order": 1,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "02",
+          "label": "B",
+          "description": "B",
+          "display_order": 2,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "03",
+          "label": "C",
+          "description": "C",
+          "display_order": 3,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "04",
+          "label": "D",
+          "description": "D",
+          "display_order": 4,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "05",
+          "label": "E",
+          "description": "E",
+          "display_order": 5,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "06",
+          "label": "F",
+          "description": "F",
+          "display_order": 6,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "07",
+          "label": "G",
+          "description": "G",
+          "display_order": 7,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "08",
+          "label": "H",
+          "description": "H",
+          "display_order": 8,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "09",
+          "label": "I",
+          "description": "I",
+          "display_order": 9,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "10",
+          "label": "J",
+          "description": "J",
+          "display_order": 10,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "11",
+          "label": "K",
+          "description": "K",
+          "display_order": 11,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "12",
+          "label": "L",
+          "description": "L",
+          "display_order": 12,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "13",
+          "label": "M",
+          "description": "M",
+          "display_order": 13,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "14",
+          "label": "N",
+          "description": "N",
+          "display_order": 14,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "15",
+          "label": "O",
+          "description": "O",
+          "display_order": 15,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "WORKSTAGE_CODE",
+      "position": 9,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@workstage_code",
+      "description": "@workstage_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MACHINE_CODE",
+      "position": 10,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "설비코드",
+      "description": "설비코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORDER_QTY",
+      "position": 11,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "계획수량",
+      "description": "계획수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "SHIPPING_ACCOUNT",
+      "position": 12,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "출하계정",
+      "description": "출하계정",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "CONFIRM_BY",
+      "position": 13,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "승인자",
+      "description": "승인자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "WORK_DIVISION",
+      "position": 14,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "작업구분",
+      "description": "작업구분",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "F",
+          "label": "피드백",
+          "description": "피드백",
+          "display_order": 1070,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "P",
+          "label": "생산",
+          "description": "생산",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "R",
+          "label": "수리",
+          "description": "수리",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "W",
+          "label": "가공",
+          "description": "가공",
+          "display_order": 1087,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "PLAN_TRANSFER_DATE",
+      "position": 15,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "계획반영일자",
+      "description": "계획반영일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "DELIVERY_DATE",
+      "position": 16,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@납기일자",
+      "description": "@납기일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "PLAN_TRANSFER_YN",
+      "position": 17,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "이동유무",
+      "description": "이동유무",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "N",
+          "label": "대기",
+          "description": "대기",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "반영됨",
+          "description": "반영됨",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "CONFIRM_YN",
+      "position": 18,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "승인YN",
+      "description": "승인YN",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "N",
+          "label": "아니오",
+          "description": "아니오",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "W",
+          "label": "대기",
+          "description": "대기",
+          "display_order": 1087,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "예",
+          "description": "예",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "CUSTOMER_ORDER_NO",
+      "position": 19,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "고객주문번호",
+      "description": "고객주문번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "TOTAL_INVENTORY_QTY",
+      "position": 20,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "총재고수량",
+      "description": "총재고수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "CONFIRM_DATE",
+      "position": 21,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "승인일자",
+      "description": "승인일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 22,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 23,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 24,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "SAFETY_INVENTORY_QTY",
+      "position": 25,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "안전재고수량",
+      "description": "안전재고수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "INVENTORY_QTY",
+      "position": 26,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "재고수량",
+      "description": "재고수량 (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "SALE_PLAN_TYPE",
+      "position": 27,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "판매유형",
+      "description": "판매유형",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "F",
+          "label": "확정",
+          "description": "확정",
+          "display_order": 1070,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "P",
+          "label": "계획",
+          "description": "계획",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "CUSTOMER_ORDER_NO_ORIGIN",
+      "position": 28,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "고객주문번호(원)",
+      "description": "고객주문번호(원)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 29,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "CUSTOMER_CODE",
+      "position": 30,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@고객번호",
+      "description": "@고객번호 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MFS",
+      "position": 31,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "제조번호",
+      "description": "제조번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [],
+    "foreign_keys": [
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ITEM_CODE",
+        "CONSTRAINT_NAME": "R_507"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_507"
+      },
+      {
+        "COLUMN_NAME": "ITEM_CODE",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ITEM_CODE",
+        "CONSTRAINT_NAME": "R_507"
+      },
+      {
+        "COLUMN_NAME": "ITEM_CODE",
+        "REF_TABLE": "ID_ITEM",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_507"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ICOM_CUSTOMER",
+        "REF_COLUMN": "CUSTOMER_CODE",
+        "CONSTRAINT_NAME": "R_506"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "ICOM_CUSTOMER",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_506"
+      },
+      {
+        "COLUMN_NAME": "CUSTOMER_CODE",
+        "REF_TABLE": "ICOM_CUSTOMER",
+        "REF_COLUMN": "CUSTOMER_CODE",
+        "CONSTRAINT_NAME": "R_506"
+      },
+      {
+        "COLUMN_NAME": "CUSTOMER_CODE",
+        "REF_TABLE": "ICOM_CUSTOMER",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_506"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "IP_PRODUCT_LINE",
+        "REF_COLUMN": "LINE_CODE",
+        "CONSTRAINT_NAME": "R_674"
+      },
+      {
+        "COLUMN_NAME": "ORGANIZATION_ID",
+        "REF_TABLE": "IP_PRODUCT_LINE",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_674"
+      },
+      {
+        "COLUMN_NAME": "LINE_CODE",
+        "REF_TABLE": "IP_PRODUCT_LINE",
+        "REF_COLUMN": "LINE_CODE",
+        "CONSTRAINT_NAME": "R_674"
+      },
+      {
+        "COLUMN_NAME": "LINE_CODE",
+        "REF_TABLE": "IP_PRODUCT_LINE",
+        "REF_COLUMN": "ORGANIZATION_ID",
+        "CONSTRAINT_NAME": "R_674"
+      }
+    ]
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKIP_PRODUCT_MOBILIZATION",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "PLAN_YYYYMM, PLAN_DATE, ORGANIZATION_ID, ITEM_CODE, CUSTOMER_ORDER_NO"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:22:59.210726",
+    "version": "1.0"
+  }
+}

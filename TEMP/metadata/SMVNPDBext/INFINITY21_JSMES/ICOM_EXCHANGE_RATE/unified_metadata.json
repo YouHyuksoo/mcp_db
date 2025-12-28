@@ -1,0 +1,251 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "ICOM_EXCHANGE_RATE"
+  },
+  "table_info": {
+    "business_purpose": "??????????????",
+    "usage_scenarios": [
+      "공통 코드 관리",
+      "문서 관리",
+      "고객/공급사 정보"
+    ],
+    "related_tables": [],
+    "table_comment": "??????????????"
+  },
+  "columns": [
+    {
+      "name": "DATESET",
+      "position": 1,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "시작일자",
+      "description": "시작일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "CURRENCY",
+      "position": 2,
+      "data_type": "VARCHAR2(3)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "통화.",
+      "description": "통화",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "EXCHANGE_RATE",
+      "position": 3,
+      "data_type": "NUMBER(10,4)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "환율",
+      "description": "환율",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "%",
+      "is_code_column": false,
+      "aggregation_functions": "AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "SELLING_RATE",
+      "position": 4,
+      "data_type": "NUMBER(10,4)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "매도율",
+      "description": "매도율",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "%",
+      "is_code_column": false,
+      "aggregation_functions": "AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "BUYING_RATE",
+      "position": 5,
+      "data_type": "NUMBER(10,4)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "매입율",
+      "description": "매입율",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "%",
+      "is_code_column": false,
+      "aggregation_functions": "AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 6,
+      "data_type": "VARCHAR2(20)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 7,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 8,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 9,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "BASIS_CURRENCY",
+      "position": 10,
+      "data_type": "VARCHAR2(3)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "사용할통화코드",
+      "description": "사용할통화코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "CNY",
+          "label": "인민페",
+          "description": "인민페",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "HKD",
+          "label": "홍콩달러",
+          "description": "홍콩달러",
+          "display_order": 1072,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "JPY",
+          "label": "엔화",
+          "description": "엔화",
+          "display_order": 1074,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "KRW",
+          "label": "원화",
+          "description": "원화",
+          "display_order": 1075,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "USD",
+          "label": "달러",
+          "description": "달러",
+          "display_order": 1085,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "VND",
+          "label": "동화",
+          "description": "동화",
+          "display_order": 1086,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    }
+  ],
+  "relationships": {
+    "primary_keys": [],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKICOM_EXCHANGE_RATE",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "DATESET, CURRENCY, BASIS_CURRENCY"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:20:00.346664",
+    "version": "1.0"
+  }
+}

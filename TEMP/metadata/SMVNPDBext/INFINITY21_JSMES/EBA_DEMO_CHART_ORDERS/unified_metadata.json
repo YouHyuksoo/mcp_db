@@ -1,0 +1,196 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "EBA_DEMO_CHART_ORDERS"
+  },
+  "table_info": {
+    "business_purpose": "",
+    "usage_scenarios": [],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "ORDER_ID",
+      "position": 1,
+      "data_type": "NUMBER",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "PRODUCT_ID",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "제품ID",
+      "description": "제품ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "QUANTITY",
+      "position": 3,
+      "data_type": "NUMBER(8)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "QUANTITY",
+      "description": "QUANTITY (수량)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "EA",
+      "is_code_column": false,
+      "aggregation_functions": "SUM,AVG",
+      "is_sensitive": false
+    },
+    {
+      "name": "CUSTOMER",
+      "position": 4,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "고객",
+      "description": "고객",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "SALES_DATE",
+      "position": 5,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "CREATED",
+      "position": 6,
+      "data_type": "TIMESTAMP(6) WITH TIME ZONE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "CREATED_BY",
+      "position": 7,
+      "data_type": "VARCHAR2(255)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "생성자",
+      "description": "생성자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "UPDATED",
+      "position": 8,
+      "data_type": "TIMESTAMP(6) WITH TIME ZONE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "UPDATED_BY",
+      "position": 9,
+      "data_type": "VARCHAR2(255)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "",
+      "description": null,
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "ORDER_ID"
+    ],
+    "foreign_keys": [
+      {
+        "COLUMN_NAME": "PRODUCT_ID",
+        "REF_TABLE": "EBA_DEMO_CHART_PRODUCTS",
+        "REF_COLUMN": "PRODUCT_ID",
+        "CONSTRAINT_NAME": "EBA_DEMO_CHART_ORDER_FK"
+      }
+    ]
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "EBA_DEMO_CHART_ORD_1",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "NONUNIQUE",
+      "COLUMNS": "QUANTITY"
+    },
+    {
+      "INDEX_NAME": "EBA_DEMO_CHART_ORD_2",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "NONUNIQUE",
+      "COLUMNS": "PRODUCT_ID"
+    },
+    {
+      "INDEX_NAME": "EBA_DEMO_CHART_ORDER_PK",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "ORDER_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:19:15.578884",
+    "version": "1.0"
+  }
+}

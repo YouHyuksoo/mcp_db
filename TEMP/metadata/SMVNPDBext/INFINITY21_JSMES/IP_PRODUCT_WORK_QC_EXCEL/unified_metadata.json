@@ -1,0 +1,178 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IP_PRODUCT_WORK_QC_EXCEL"
+  },
+  "table_info": {
+    "business_purpose": "Production Management (생산 관리)",
+    "usage_scenarios": [
+      "생산 계획 수립",
+      "생산 실적 집계",
+      "Work Order 관리"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "SERIAL_NO",
+      "position": 1,
+      "data_type": "VARCHAR2(50)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "PID번호",
+      "description": "PID번호",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "WORKSTAGE_CODE",
+      "position": 2,
+      "data_type": "VARCHAR2(10)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "@workstage_code",
+      "description": "@workstage_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "BAD_REASON_CODE",
+      "position": 3,
+      "data_type": "VARCHAR2(10)",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "@bad_reason_code",
+      "description": "@bad_reason_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "A",
+          "label": "외관불량",
+          "description": "외관불량",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "B",
+          "label": "기능불량",
+          "description": "기능불량",
+          "display_order": 1066,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "C",
+          "label": "규격불량",
+          "description": "규격불량",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "D",
+          "label": "1",
+          "description": "1",
+          "display_order": 1068,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "QC_DATE",
+      "position": 4,
+      "data_type": "DATE",
+      "nullable": false,
+      "default_value": null,
+      "is_primary_key": true,
+      "korean_name": "검사일자",
+      "description": "검사일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "SHIFT_CODE",
+      "position": 5,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "교대조",
+      "description": "교대조 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "A",
+          "label": "1교대",
+          "description": "1교대",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "B",
+          "label": "2교대",
+          "description": "2교대",
+          "display_order": 1066,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    }
+  ],
+  "relationships": {
+    "primary_keys": [
+      "SERIAL_NO",
+      "WORKSTAGE_CODE",
+      "QC_DATE",
+      "BAD_REASON_CODE"
+    ],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "PKIP_PRODUCT_WORK_QC_EXCEL",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "SERIAL_NO, WORKSTAGE_CODE, QC_DATE, BAD_REASON_CODE"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:23:46.458093",
+    "version": "1.0"
+  }
+}

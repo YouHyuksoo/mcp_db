@@ -1,0 +1,491 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IB_RECYCLE_CHECKHIST"
+  },
+  "table_info": {
+    "business_purpose": "SMT/Mounting Management (SMT 실장 관리)",
+    "usage_scenarios": [
+      "실장 계획",
+      "Feeder 관리",
+      "실장 데이터 모니터링"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "CHECK_DATE",
+      "position": 1,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사일자",
+      "description": "검사일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "CHECK_SEQUENCE",
+      "position": 2,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사항번",
+      "description": "검사항번",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "CHECK_STATUS",
+      "position": 3,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@check_status",
+      "description": "@check_status",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "C",
+          "label": "처리중",
+          "description": "처리중",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "E",
+          "label": "오류",
+          "description": "오류",
+          "display_order": 1069,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "P",
+          "label": "합격",
+          "description": "합격",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "C"
+        },
+        {
+          "value": "R",
+          "label": "대체",
+          "description": "대체",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "A"
+        },
+        {
+          "value": "W",
+          "label": "대기",
+          "description": "대기",
+          "display_order": 1087,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": "P"
+        }
+      ]
+    },
+    {
+      "name": "CHECK_MSG",
+      "position": 4,
+      "data_type": "VARCHAR2(200)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사메시지",
+      "description": "검사메시지",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "CHECK_BY",
+      "position": 5,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사자",
+      "description": "검사자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "SCAN_PARTNAME",
+      "position": 6,
+      "data_type": "VARCHAR2(200)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "자사바코드(스캔)",
+      "description": "자사바코드(스캔) (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 7,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 8,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LINE_CODE",
+      "position": 9,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": "'*'",
+      "is_primary_key": false,
+      "korean_name": "@line_code",
+      "description": "@line_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "01",
+          "label": "A",
+          "description": "A",
+          "display_order": 1,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "02",
+          "label": "B",
+          "description": "B",
+          "display_order": 2,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "03",
+          "label": "C",
+          "description": "C",
+          "display_order": 3,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "04",
+          "label": "D",
+          "description": "D",
+          "display_order": 4,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "05",
+          "label": "E",
+          "description": "E",
+          "display_order": 5,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "06",
+          "label": "F",
+          "description": "F",
+          "display_order": 6,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "07",
+          "label": "G",
+          "description": "G",
+          "display_order": 7,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "08",
+          "label": "H",
+          "description": "H",
+          "display_order": 8,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "09",
+          "label": "I",
+          "description": "I",
+          "display_order": 9,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "10",
+          "label": "J",
+          "description": "J",
+          "display_order": 10,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "11",
+          "label": "K",
+          "description": "K",
+          "display_order": 11,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "12",
+          "label": "L",
+          "description": "L",
+          "display_order": 12,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "13",
+          "label": "M",
+          "description": "M",
+          "display_order": 13,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "14",
+          "label": "N",
+          "description": "N",
+          "display_order": 14,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "15",
+          "label": "O",
+          "description": "O",
+          "display_order": 15,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "MODEL_NAME",
+      "position": 10,
+      "data_type": "VARCHAR2(50)",
+      "nullable": true,
+      "default_value": "'*'",
+      "is_primary_key": false,
+      "korean_name": "@model_name",
+      "description": "@model_name",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LOCATION_CODE",
+      "position": 11,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": "'*'",
+      "is_primary_key": false,
+      "korean_name": "@location_code",
+      "description": "@location_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "M01",
+          "label": "양품",
+          "description": "양품",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M02",
+          "label": "불량품",
+          "description": "불량품",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M03",
+          "label": "폐기품",
+          "description": "폐기품",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M04",
+          "label": "리볼대기",
+          "description": "리볼대기",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M05",
+          "label": "벌크",
+          "description": "벌크",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M06",
+          "label": "리볼양품",
+          "description": "리볼양품",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M07",
+          "label": "홀딩",
+          "description": "홀딩",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "M99",
+          "label": "기타",
+          "description": "기타",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "FEEDING_DATE",
+      "position": 12,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "릴장착일자",
+      "description": "릴장착일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    }
+  ],
+  "relationships": {
+    "primary_keys": [],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "INDXIB_RECYCLE_CHECKHIST",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "NONUNIQUE",
+      "COLUMNS": "SCAN_PARTNAME"
+    },
+    {
+      "INDEX_NAME": "INDXIB_RECYCLE_CHECKHIST1",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "NONUNIQUE",
+      "COLUMNS": "CHECK_DATE, LINE_CODE"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:19:51.528366",
+    "version": "1.0"
+  }
+}

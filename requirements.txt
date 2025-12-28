@@ -4,6 +4,9 @@ mcp>=1.0.0
 # Oracle Database Driver (최신)
 oracledb>=2.0.0
 
+# Vector Database (ChromaDB)
+chromadb>=0.4.0
+
 # 데이터 처리
 pandas>=2.0.0
 

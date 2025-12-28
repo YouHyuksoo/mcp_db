@@ -1,201 +1,36 @@
-# Oracle NL-SQL Frontend
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**Tier 3: React-based web UI for managing the Oracle NL-SQL MCP Server**
+## Getting Started
 
-## Features
+First, run the development server:
 
-- **Dashboard**: Overview of databases, patterns, and statistics
-- **File Upload**: Drag-and-drop PowerBuilder file upload
-- **Pattern Management**: View and manage learned SQL patterns
-- **Database Management**: Connect and explore databases
-- **Real-time Monitoring**: Track learning progress and jobs
-
-## Quick Start
-
-### 1. Install Dependencies
-```bash
-cd frontend
-npm install
-```
-
-### 2. Start Development Server
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Visit: http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### 3. Build for Production
-```bash
-npm run build
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Project Structure
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```
-frontend/
-├── src/
-│   ├── components/         # Reusable UI components
-│   │   ├── NavBar.tsx
-│   │   ├── StatsCard.tsx
-│   │   ├── FileUploadZone.tsx
-│   │   └── PatternTable.tsx
-│   ├── pages/              # Page components
-│   │   ├── Dashboard.tsx
-│   │   ├── Upload.tsx
-│   │   ├── Patterns.tsx
-│   │   ├── Databases.tsx
-│   │   └── Logs.tsx
-│   ├── services/           # API clients
-│   │   └── api.ts
-│   ├── types/              # TypeScript types
-│   │   └── index.ts
-│   ├── App.tsx             # Main app component
-│   └── main.tsx            # Entry point
-├── public/                 # Static assets
-├── index.html
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
-```
+## Learn More
 
-## Technology Stack
+To learn more about Next.js, take a look at the following resources:
 
-- **React 18** - UI framework
-- **TypeScript** - Type safety
-- **Vite** - Build tool (fast HMR)
-- **Material-UI (MUI)** - Component library
-- **React Router** - Routing
-- **Axios** - HTTP client
-- **React Dropzone** - File upload
-- **Recharts** - Charts and visualizations
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## API Integration
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-The frontend connects to the FastAPI backend at `http://localhost:8000`:
+## Deploy on Vercel
 
-```typescript
-// src/services/api.ts
-import axios from 'axios';
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-const api = axios.create({
-  baseURL: '/api/v1',  // Proxied to http://localhost:8000/api/v1
-});
-
-export const searchMetadata = (question: string) => {
-  return api.post('/metadata/search', { question });
-};
-```
-
-Vite proxy configuration handles CORS automatically.
-
-## Pages
-
-### 1. Dashboard (`/`)
-- System health status
-- Learning statistics
-- Recent patterns
-- Quick actions
-
-### 2. Upload (`/upload`)
-- PowerBuilder file upload (drag-and-drop)
-- CSV metadata upload
-- Job status monitoring
-- Upload history
-
-### 3. Patterns (`/patterns`)
-- Learned SQL patterns table
-- Search and filter
-- View pattern details
-- Delete patterns
-
-### 4. Databases (`/databases`)
-- Connected databases list
-- Schema explorer
-- Connection management
-- Metadata migration
-
-### 5. Logs (`/logs`)
-- Real-time backend logs
-- Filter by level (info, warn, error)
-- Search logs
-- Export logs
-
-## Development
-
-### Run Linter
-```bash
-npm run lint
-```
-
-### Type Checking
-```bash
-npx tsc --noEmit
-```
-
-### Environment Variables
-Create `.env` file:
-```env
-VITE_API_URL=http://localhost:8000
-```
-
-## Deployment
-
-### Option 1: Static Hosting
-```bash
-npm run build
-# Deploy dist/ folder to Netlify, Vercel, etc.
-```
-
-### Option 2: Docker
-```bash
-docker build -t oracle-nlsql-frontend .
-docker run -p 3000:3000 oracle-nlsql-frontend
-```
-
-### Option 3: Docker Compose
-```bash
-# From project root
-docker-compose up
-```
-
-## Browser Support
-
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-
-## Troubleshooting
-
-### API Connection Errors
-```
-Error: Network Error
-
-Solution:
-1. Check backend is running: http://localhost:8000/api/health
-2. Check CORS configuration in backend
-3. Check Vite proxy configuration
-```
-
-### Build Errors
-```
-Error: Module not found
-
-Solution:
-rm -rf node_modules package-lock.json
-npm install
-```
-
-## Contributing
-
-1. Create feature branch
-2. Make changes
-3. Run linter: `npm run lint`
-4. Test locally
-5. Submit PR
-
----
-
-**Version**: 2.0.0
-**React**: 18.2.0
-**Last Updated**: 2025-11-07
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

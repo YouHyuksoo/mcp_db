@@ -1,0 +1,1419 @@
+{
+  "database": {
+    "sid": "SMVNPDBext",
+    "schema": "INFINITY21_JSMES",
+    "table": "IQ_INTERLOCK_CHECK_CONDITION"
+  },
+  "table_info": {
+    "business_purpose": "Quality Management (품질 관리)",
+    "usage_scenarios": [
+      "품질 데이터 수집",
+      "불량 분석",
+      "검사 결과 조회"
+    ],
+    "related_tables": [],
+    "table_comment": ""
+  },
+  "columns": [
+    {
+      "name": "LINE_CODE",
+      "position": 1,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@line_code",
+      "description": "@line_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "01",
+          "label": "A",
+          "description": "A",
+          "display_order": 1,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "02",
+          "label": "B",
+          "description": "B",
+          "display_order": 2,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "03",
+          "label": "C",
+          "description": "C",
+          "display_order": 3,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "04",
+          "label": "D",
+          "description": "D",
+          "display_order": 4,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "05",
+          "label": "E",
+          "description": "E",
+          "display_order": 5,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "06",
+          "label": "F",
+          "description": "F",
+          "display_order": 6,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "07",
+          "label": "G",
+          "description": "G",
+          "display_order": 7,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "08",
+          "label": "H",
+          "description": "H",
+          "display_order": 8,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "09",
+          "label": "I",
+          "description": "I",
+          "display_order": 9,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "10",
+          "label": "J",
+          "description": "J",
+          "display_order": 10,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "11",
+          "label": "K",
+          "description": "K",
+          "display_order": 11,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "12",
+          "label": "L",
+          "description": "L",
+          "display_order": 12,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "13",
+          "label": "M",
+          "description": "M",
+          "display_order": 13,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "14",
+          "label": "N",
+          "description": "N",
+          "display_order": 14,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "15",
+          "label": "O",
+          "description": "O",
+          "display_order": 15,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "WORKSTAGE_CODE",
+      "position": 2,
+      "data_type": "VARCHAR2(10)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "@workstage_code",
+      "description": "@workstage_code (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "MACHINE_CODE",
+      "position": 3,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "설비코드",
+      "description": "설비코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "INTERLOCK_CHECK_TYPE",
+      "position": 4,
+      "data_type": "VARCHAR2(30)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "인터락체크타입",
+      "description": "인터락체크타입",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "3IN1_ATE_CHECK",
+          "label": "SMPS ATE 검사이력 확인",
+          "description": "SMPS ATE 검사이력 확인",
+          "display_order": 1051,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "3IN1_BURNIN_CHECK",
+          "label": "SMPS BURNIN 검사이력 확인",
+          "description": "SMPS BURNIN 검사이력 확인",
+          "display_order": 1051,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "3IN1_ICT_CHECK",
+          "label": "SMPS ICT 검사이력 확인",
+          "description": "SMPS ICT 검사이력 확인",
+          "display_order": 1051,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "3IN1_IMAGE_CHECK",
+          "label": "SMPS IMAGE 검사이력 확인",
+          "description": "SMPS IMAGE 검사이력 확인",
+          "display_order": 1051,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "3IN1_SETTV_CHECK",
+          "label": "SMPS SETV 검사이력 확인",
+          "description": "SMPS SETV 검사이력 확인",
+          "display_order": 1051,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "3iIN1_HIPOT_CHECK",
+          "label": "SMPS HIPOT Download 확인",
+          "description": "SMPS HIPOT Download 확인",
+          "display_order": 1051,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_EXISTS_CHECK",
+          "label": "AOI 작업유무",
+          "description": "AOI 작업유무",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_NG_COUNT_CHECK",
+          "label": "AOI 검사 NG COUNT 확인 (NG 1회 초과)",
+          "description": "AOI 검사 NG COUNT 확인 (NG 1회 초과)",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_NG_EXISTS_CHECK",
+          "label": "AOI 검사 NG에 대한 수리이력  확인",
+          "description": "AOI 검사 NG에 대한 수리이력  확인",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_NG_EXISTS_CHECK_TB",
+          "label": "AOI 검사 NG에 대한 수리이력  확인, TOP 확인 후 BOT 확인",
+          "description": "AOI 검사 NG에 대한 수리이력  확인, TOP 확인 후 BOT 확인",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_OK_EXISTS_CHECK",
+          "label": "AOI 검사 OK 유무 (양품)",
+          "description": "AOI 검사 OK 유무 (양품)",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_OK_EXISTS_CHECK2",
+          "label": "AOI 검사 OK 유무 (USEROK 포함)",
+          "description": "AOI 검사 OK 유무 (USEROK 포함)",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_OK_EXISTS_CHECK2_TB",
+          "label": "AOI 검사 OK 유무 (USEROK 포함), TOP 확인 후 BOT 확인",
+          "description": "AOI 검사 OK 유무 (USEROK 포함), TOP 확인 후 BOT 확인",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "AOI_OK_EXISTS_CHECK_TB",
+          "label": "AOI 검사 OK 유무 (양품), TOP 확인 후 BOT 확인",
+          "description": "AOI 검사 OK 유무 (양품), TOP 확인 후 BOT 확인",
+          "display_order": 1065,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "CCS_STATUS_CHECK",
+          "label": "초기체크 상태확인",
+          "description": "초기체크 상태확인",
+          "display_order": 1067,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "EPOXY_STATUS_CHECK",
+          "label": "Epoxy 상태확인",
+          "description": "Epoxy 상태확인",
+          "display_order": 1069,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "EXISTS_PID_CHECK",
+          "label": "바코드 등록여부",
+          "description": "바코드 등록여부",
+          "display_order": 1069,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "FULL_STATUS_CHECK",
+          "label": "중간체크 상태확인",
+          "description": "중간체크 상태확인",
+          "display_order": 1070,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "HYBRID_BURNIN_CHECK",
+          "label": "SMPS BURNIN 검사이력 확인인",
+          "description": "SMPS BURNIN 검사이력 확인인",
+          "display_order": 1072,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "HYBRID_IMAGE_CHECK",
+          "label": "SMPS IMAGE 검사이력 확인",
+          "description": "SMPS IMAGE 검사이력 확인",
+          "display_order": 1072,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "HYBRID_SETTV_CHECK",
+          "label": "SMPS SETTV 검사이력 확인",
+          "description": "SMPS SETTV 검사이력 확인",
+          "display_order": 1072,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "ICT_EXISTS_CHECK",
+          "label": "ICT 작업유무",
+          "description": "ICT 작업유무",
+          "display_order": 1073,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "ICT_OK_EXISTS_CHECK",
+          "label": "ICT 검사 OK 유무",
+          "description": "ICT 검사 OK 유무",
+          "display_order": 1073,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "JIG_FIXTURE_STATUS_CHECK",
+          "label": "Fixture 상태확인",
+          "description": "Fixture 상태확인",
+          "display_order": 1074,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "JIG_METALMAKS_STATUS_CHECK",
+          "label": "Metal Mask 상태확인",
+          "description": "Metal Mask 상태확인",
+          "display_order": 1074,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "JIG_SQUEEZE_STATUS_CHECK",
+          "label": "Squeeze 상태확인",
+          "description": "Squeeze 상태확인",
+          "display_order": 1074,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "LCR_STATUS_CHECK",
+          "label": "LCR 상태확인",
+          "description": "LCR 상태확인",
+          "display_order": 1076,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "LINE_MSL_CHECK",
+          "label": "라인단위 MSL 상태확인(99% Over)",
+          "description": "라인단위 MSL 상태확인(99% Over)",
+          "display_order": 1076,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "LINE_NOZZLE_CHECK",
+          "label": "노즐 확인 유무",
+          "description": "노즐 확인 유무",
+          "display_order": 1076,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "LINE_PROFILE_CHECK",
+          "label": "프로파일 측정유무",
+          "description": "프로파일 측정유무",
+          "display_order": 1076,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "LOT_MATCH_CHECK",
+          "label": "장착대비 투입롯트 확인",
+          "description": "장착대비 투입롯트 확인",
+          "display_order": 1076,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MAGAZINE_AOI_CHECK",
+          "label": "MAGAZINE AOI 결과 확인",
+          "description": "MAGAZINE AOI 결과 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MAGAZINE_FIFO_A_IN_CHECK",
+          "label": "MAGAZINE FIFO A 입고 확인",
+          "description": "MAGAZINE FIFO A 입고 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MAGAZINE_FIFO_A_OUT_CHECK",
+          "label": "MAGAZINE FIFO A 출고 확인",
+          "description": "MAGAZINE FIFO A 출고 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MAGAZINE_FIFO_B_IN_CHECK",
+          "label": "MAGAZINE FIFO B 입고 확인",
+          "description": "MAGAZINE FIFO B 입고 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MAGAZINE_REPAIR_CHECK",
+          "label": "MAGAZINE 수리이력 확인",
+          "description": "MAGAZINE 수리이력 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MAGAZINE_SPI_CHECK",
+          "label": "MAGAZINE SPI 결과 확인",
+          "description": "MAGAZINE SPI 결과 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MAOI_OK_EXISTS_CHECK",
+          "label": "MAOI 검사 OK 유무 (양품)",
+          "description": "MAOI 검사 OK 유무 (양품)",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MARKING_DUP_CHECK",
+          "label": "바코드 마킹 중복체크 (count > 1)",
+          "description": "바코드 마킹 중복체크 (count > 1)",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MARKING_DUP_CHECK2",
+          "label": "바코드 마킹 중복체크 (count >=4)",
+          "description": "바코드 마킹 중복체크 (count >=4)",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MODEL_MATCH_CHECK",
+          "label": "장착대비 투입모델 확인",
+          "description": "장착대비 투입모델 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "MOUNTER_FEEDING_QTY_CHECK",
+          "label": "MOUNTER FEEDING 수량 확인",
+          "description": "MOUNTER FEEDING 수량 확인",
+          "display_order": 1077,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_ASSEMBLY_CHECK",
+          "label": "PBA ASSEMLY 공정, 이전 검사이력 확인",
+          "description": "PBA ASSEMLY 공정, 이전 검사이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_FUNCTION_TEST_CHECK",
+          "label": "PBA 기능검사결과 확인",
+          "description": "PBA 기능검사결과 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_PACKING_CHECK",
+          "label": "PBA PACKING 공정, 이전 검사이력 확인",
+          "description": "PBA PACKING 공정, 이전 검사이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_ASSEMBLY2_CHECK",
+          "label": "POWER ASSEMBLY2 공정, 이전검사이력 조회",
+          "description": "POWER ASSEMBLY2 공정, 이전검사이력 조회",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_ASSEMBLY2_CHECK_SCR1",
+          "label": "POWER ASSEMBLY2 공정, MANUAL SCREW1 이력 조회",
+          "description": "POWER ASSEMBLY2 공정, MANUAL SCREW1 이력 조회",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_ASSEMBLY2_CHECK_SCR2",
+          "label": "POWER ASSEMBLY2 공정, MANUAL SCREW2 이력 조회",
+          "description": "POWER ASSEMBLY2 공정, MANUAL SCREW2 이력 조회",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_ASSY_CHECK",
+          "label": "POWER ASSY 공정, 검사이력 조회",
+          "description": "POWER ASSY 공정, 검사이력 조회",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_ASSY_CHECK_CASE_S_A",
+          "label": "POWER ASSY 공정, CASE조립 SCREW 이력 조회 (자동)",
+          "description": "POWER ASSY 공정, CASE조립 SCREW 이력 조회 (자동)",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_ASSY_CHECK_CASE_S_M",
+          "label": "POWER ASSY 공정, CASE조립 SCREW 이력 조회 (수동)",
+          "description": "POWER ASSY 공정, CASE조립 SCREW 이력 조회 (수동)",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_ASSY_CHECK_COATING",
+          "label": "POWER ASSY 공정, 컨포멀코팅 이력 조회",
+          "description": "POWER ASSY 공정, 컨포멀코팅 이력 조회",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_CALIBRATION_CHECK",
+          "label": "PBA POWER CALIBRATION CHECK",
+          "description": "PBA POWER CALIBRATION CHECK",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_CASESCREW_CHECK",
+          "label": "PBA POWER CASE SCREW 작업 이력 확인",
+          "description": "PBA POWER CASE SCREW 작업 이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_PACKING_CHECK",
+          "label": "POWER PACKING 공정,  검사이력 확인",
+          "description": "POWER PACKING 공정,  검사이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_PACKING_CHECK_DIMEN",
+          "label": "POWER PACKING 공정,  DIMENTION 이력 확인",
+          "description": "POWER PACKING 공정,  DIMENTION 이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_PACKING_CHECK_SCR3",
+          "label": "POWER PACKING 공정,  MANUAL SCREW3 이력 확인",
+          "description": "POWER PACKING 공정,  MANUAL SCREW3 이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_PACKING_CHECK_SURGE",
+          "label": "POWER PACKING 공정,  SURGE SCREW 이력 확인",
+          "description": "POWER PACKING 공정,  SURGE SCREW 이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_POWER_SURGESCREW_CHECK",
+          "label": "PBA POWER SURGE SCREW 작업 이력 확인",
+          "description": "PBA POWER SURGE SCREW 작업 이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_PRE_WS_RESULT_CHECK",
+          "label": "PBA 전공정 실적 확인",
+          "description": "PBA 전공정 실적 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_PRE_WS_RESULT_CHECK_MEDI",
+          "label": "PBA 전공정 실적 확인 ( MEDISON )",
+          "description": "PBA 전공정 실적 확인 ( MEDISON )",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_PRE_WS_RESULT_CHECK_RT2ST",
+          "label": "PBA 전공정 실적 확인 ( Rating > Set )",
+          "description": "PBA 전공정 실적 확인 ( Rating > Set )",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_PRE_WS_RESULT_CHECK_TR2ST",
+          "label": "PBA 전공정 실적 확인 ( PID > Trace )",
+          "description": "PBA 전공정 실적 확인 ( PID > Trace )",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_REPAIR_STATUS_CHECK",
+          "label": "PBA 수리상태 확인",
+          "description": "PBA 수리상태 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SCAN_DUP_CHECK",
+          "label": "PBA 중복투입 확인",
+          "description": "PBA 중복투입 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_ASSEMBLY2_CHECK",
+          "label": "SERVER POWER 라인 ASSEMBLY2 CHECK (FT#1, BURNING, HIPOT)",
+          "description": "SERVER POWER 라인 ASSEMBLY2 CHECK (FT#1, BURNING, HIPOT)",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_ASSEMBLY_CHECK",
+          "label": "SERVER POWER 라인 ASSEMBLY CHECK (ICT)",
+          "description": "SERVER POWER 라인 ASSEMBLY CHECK (ICT)",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_ATE_CHECK",
+          "label": "SERVER POWER 라인 ATE CHECK",
+          "description": "SERVER POWER 라인 ATE CHECK",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_BURING_CHECK",
+          "label": "SERVER POWER 라인 BURING CHECK",
+          "description": "SERVER POWER 라인 BURING CHECK",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_EEPROM_CHECK",
+          "label": "SERVER POWER 라인 EEPROM CHECK",
+          "description": "SERVER POWER 라인 EEPROM CHECK",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_FT#1_CHECK",
+          "label": "SERVER POWER 라인 FT#1 CHECK",
+          "description": "SERVER POWER 라인 FT#1 CHECK",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_HIPOT_CHECK",
+          "label": "SERVER POWER 라인 HIPOT CHECK",
+          "description": "SERVER POWER 라인 HIPOT CHECK",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_ICT_CHECK",
+          "label": "SERVER POWER 라인 ICT CHECK",
+          "description": "SERVER POWER 라인 ICT CHECK",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SERVER_PACKING_CHECK",
+          "label": "SERVER POWER 라인 PACKING CHECK (FT#1, HIPOT, ATE)",
+          "description": "SERVER POWER 라인 PACKING CHECK (FT#1, HIPOT, ATE)",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SMD_FL_CHECK",
+          "label": "PBA SMD FL 작업이력 확인",
+          "description": "PBA SMD FL 작업이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_SMPS_FL_CHECK",
+          "label": "PBA SMPS FL 작업이력 확인",
+          "description": "PBA SMPS FL 작업이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_TARGET_QC_CHECK",
+          "label": "PBA Target QC check",
+          "description": "PBA Target QC check",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PBA_TVSET_TEST_CHECK",
+          "label": "PBA TVSET 검사결과 확인",
+          "description": "PBA TVSET 검사결과 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "PCB_INPUT_QTY_CHECK",
+          "label": "PCB 투입수량 확인",
+          "description": "PCB 투입수량 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "POWER_FAN_TEST_CHECK",
+          "label": "POWER FAN TEST 검사이력  확인",
+          "description": "POWER FAN TEST 검사이력  확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "POWER_SUB_ATE_CHECK",
+          "label": "POWER SUB ATE 검사이력 확인",
+          "description": "POWER SUB ATE 검사이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "POWER_SUB_FWDN_FCT_CHECK",
+          "label": "POWER SUB F/W Down & FCT 검사이력 확인",
+          "description": "POWER SUB F/W Down & FCT 검사이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "POWER_SUB_LED_FWDN_CHECK",
+          "label": "POWER SUB LED FW Download Check",
+          "description": "POWER SUB LED FW Download Check",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "POWER_SUB_PRE_WS_RESULT_CHECK",
+          "label": "POWER SUB 전 공정 통과이력 확인",
+          "description": "POWER SUB 전 공정 통과이력 확인",
+          "display_order": 1080,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REFLOW_OXYGEN_CHECK",
+          "label": "리플러 산소농도 확인 (400~1800ppm)",
+          "description": "리플러 산소농도 확인 (400~1800ppm)",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REFLOW_STATUS_CHECK",
+          "label": "리플로우상태체크(로그20분간없을경우)",
+          "description": "리플로우상태체크(로그20분간없을경우)",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REPAIR_AOI_STATUS_CHECK",
+          "label": "수리 후 AOI 검사 OK, USEROK 확인",
+          "description": "수리 후 AOI 검사 OK, USEROK 확인",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REPAIR_AOI_STATUS_CHECK2",
+          "label": "수리 후 AOI 검사 OK 만 확인",
+          "description": "수리 후 AOI 검사 OK 만 확인",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REPAIR_AOI_STATUS_CHECK_TB",
+          "label": "수리 후 AOI 검사 OK, USEROK 확인, TOP 확인 후 BOT 확인",
+          "description": "수리 후 AOI 검사 OK, USEROK 확인, TOP 확인 후 BOT 확인",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REPAIR_AOI_STATUS_CHECK_TB2",
+          "label": "수리 후 AOI 검사 OK 만 확인, TOP 확인 후 BOT 확인",
+          "description": "수리 후 AOI 검사 OK 만 확인, TOP 확인 후 BOT 확인",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REPAIR_MAOI_STATUS_CHECK",
+          "label": "수리 후 MAOI 검사 OK, USEROK 확인",
+          "description": "수리 후 MAOI 검사 OK, USEROK 확인",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REPAIR_STATUS_CHECK",
+          "label": "수리상태 확인",
+          "description": "수리상태 확인",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "REPAIR_STATUS_CHECK_TB",
+          "label": "수리상태 확인, TOP 확인 후 BOT 확인",
+          "description": "수리상태 확인, TOP 확인 후 BOT 확인",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "ROMWRITE_OK_EXISTS_CHECK",
+          "label": "ROMWRITE 검사 OK 유무",
+          "description": "ROMWRITE 검사 OK 유무",
+          "display_order": 1082,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SAMPLE_INPUT_CHECK",
+          "label": "Master Sample 장착과 투입 이력확인",
+          "description": "Master Sample 장착과 투입 이력확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SAMPLE_STATUS_CHECK",
+          "label": "Master Sample 장착이력확인",
+          "description": "Master Sample 장착이력확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_AOI_LGE_CHECK",
+          "label": "SMPS AOI LGE 검사이력  확인",
+          "description": "SMPS AOI LGE 검사이력  확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_ATE_CHECK",
+          "label": "SMPS ATE 검사이력  확인",
+          "description": "SMPS ATE 검사이력  확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_BURNIN_CHECK",
+          "label": "SMPS BURNIN 검사이력  확인",
+          "description": "SMPS BURNIN 검사이력  확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_FT1_CHECK",
+          "label": "SMPS FT1 검사이력  확인",
+          "description": "SMPS FT1 검사이력  확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_FWDN_CHECK",
+          "label": "SMPS FW Download 확인",
+          "description": "SMPS FW Download 확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_HIPOT2_CHECK",
+          "label": "SMPS HIPOT2 검사이력  확인",
+          "description": "SMPS HIPOT2 검사이력  확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_HIPOT_CHECK",
+          "label": "SMPS HIPOT 검사이력  확인",
+          "description": "SMPS HIPOT 검사이력  확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SMPS_ICT_CHECK",
+          "label": "SMPS ICT 검사이력  확인",
+          "description": "SMPS ICT 검사이력  확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SOLDER_STATUS_CHECK",
+          "label": "Solder 상태확인",
+          "description": "Solder 상태확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SPI_EXISTS_CHECK",
+          "label": "SPI 작업유무",
+          "description": "SPI 작업유무",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SPI_OK_EXISTS_CHECK",
+          "label": "SPI 검사 OK 유무 (양품)",
+          "description": "SPI 검사 OK 유무 (양품)",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SPI_OK_EXISTS_CHECK2",
+          "label": "SPI 검사 OK 유무 (USEROK 포함)",
+          "description": "SPI 검사 OK 유무 (USEROK 포함)",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "SPI_OK_EXISTS_CHECK_TB",
+          "label": "SPI 검사 OK 유무 (양품), TOP 확인 후 BOT 확인",
+          "description": "SPI 검사 OK 유무 (양품), TOP 확인 후 BOT 확인",
+          "display_order": 1083,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "VISUAL_NG_RECHECK",
+          "label": "외관검사 재 검사이력 확인",
+          "description": "외관검사 재 검사이력 확인",
+          "display_order": 1086,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "VISUAL_NG_RECHECK_TB",
+          "label": "외관검사 재 검사이력 확인, TOP 확인 후 BOT 확인",
+          "description": "외관검사 재 검사이력 확인, TOP 확인 후 BOT 확인",
+          "display_order": 1086,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "VISUAL_NG_REPAIR",
+          "label": "외관검사 수리이력 확인",
+          "description": "외관검사 수리이력 확인",
+          "display_order": 1086,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "VISUAL_NG_REPAIR_TB",
+          "label": "외관검사 수리이력 확인, TOP 확인 후 BOT 확인",
+          "description": "외관검사 수리이력 확인, TOP 확인 후 BOT 확인",
+          "display_order": 1086,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    },
+    {
+      "name": "CHECK_LIMT_TIME",
+      "position": 5,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사한계시간",
+      "description": "검사한계시간",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_DATE",
+      "position": 6,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter Date:",
+      "description": "등록일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "ENTER_BY",
+      "position": 7,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "Enter By:",
+      "description": "등록자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_DATE",
+      "position": 8,
+      "data_type": "DATE",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정일자:",
+      "description": "최종수정일자 (날짜)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "MIN,MAX",
+      "is_sensitive": false
+    },
+    {
+      "name": "LAST_MODIFY_BY",
+      "position": 9,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "최종수정자:",
+      "description": "최종수정자",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ORGANIZATION_ID",
+      "position": 10,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "조직ID:",
+      "description": "조직ID",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "CHECK_SEQUENCE",
+      "position": 11,
+      "data_type": "NUMBER",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "검사항번",
+      "description": "검사항번",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": false,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "ITEM_CODE",
+      "position": 12,
+      "data_type": "VARCHAR2(20)",
+      "nullable": true,
+      "default_value": null,
+      "is_primary_key": false,
+      "korean_name": "S-PARTS코드.",
+      "description": "@품목코드 (코드 값)",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false
+    },
+    {
+      "name": "USE_YN",
+      "position": 13,
+      "data_type": "VARCHAR2(1)",
+      "nullable": true,
+      "default_value": "'Y'",
+      "is_primary_key": false,
+      "korean_name": "사용YN",
+      "description": "사용YN",
+      "business_rule": "",
+      "sample_values": "",
+      "unit": "",
+      "is_code_column": true,
+      "aggregation_functions": "",
+      "is_sensitive": false,
+      "codes": [
+        {
+          "value": "N",
+          "label": "미사용",
+          "description": "미사용",
+          "display_order": 1078,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        },
+        {
+          "value": "Y",
+          "label": "사용",
+          "description": "사용",
+          "display_order": 1089,
+          "is_active": true,
+          "parent_code": "",
+          "state_transition": ""
+        }
+      ]
+    }
+  ],
+  "relationships": {
+    "primary_keys": [],
+    "foreign_keys": []
+  },
+  "indexes": [
+    {
+      "INDEX_NAME": "XPKIQ_INTERLOCK_CHECK_COND",
+      "INDEX_TYPE": "NORMAL",
+      "UNIQUENESS": "UNIQUE",
+      "COLUMNS": "LINE_CODE, WORKSTAGE_CODE, MACHINE_CODE, INTERLOCK_CHECK_TYPE, ORGANIZATION_ID"
+    }
+  ],
+  "metadata_info": {
+    "created_at": "2025-11-07T02:23:57.106392",
+    "version": "1.0"
+  }
+}
