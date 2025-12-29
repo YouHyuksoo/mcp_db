@@ -94,10 +94,15 @@ class VectorDBClient:
         question: str,
         database_sid: str,
         schema_name: str,
-        n_results: int = 10
+        n_results: int = 10,
+        weights: Optional[Dict[str, float]] = None
     ) -> List[Dict[str, Any]]:
         """
-        의미 기반 테이블 검색 (백엔드와 동일한 임베딩 사용)
+        ★ 의미 기반 테이블 검색 (가중치 적용)
+
+        Args:
+            weights: 테이블별 가중치 {"TABLE_NAME": 0.92, ...}
+                    피드백에서 계산된 가중치로 검색 결과 재정렬
         """
         if not self.is_available():
             raise RuntimeError("Vector DB or Embedding model not available.")
@@ -105,11 +110,10 @@ class VectorDBClient:
         # 1. 태스크에 맞는 임베딩 생성 (백엔드와 동일한 로직)
         query_embedding = self.model.encode(question).tolist()
 
-        # 2. 직접 생성한 임베딩으로 검색
-        # ChromaDB에서 여러 조건 사용 시 $and 연산자로 감싸야 함
+        # 2. 직접 생성한 임베딩으로 검색 (더 많이 가져옴)
         results = self.metadata_collection.query(
             query_embeddings=[query_embedding],
-            n_results=n_results,
+            n_results=min(n_results * 2, 50),  # 최대 50개, 가중치로 정렬 후 상위 반환
             where={
                 "$and": [
                     {"database_sid": database_sid},
@@ -152,12 +156,24 @@ class VectorDBClient:
                     except:
                         pass
 
+                table_name = metadata.get("table_name", "")
+
+                # ★ 가중치 적용 (피드백 기반)
+                feedback_weight = 1.0  # 기본값
+                if weights and table_name in weights:
+                    feedback_weight = weights[table_name]
+
+                # 최종 점수 = 의미 기반 유사도 × 피드백 가중치
+                final_score = similarity * feedback_weight
+
                 table_info = {
                     "table_id": table_id,
-                    "table_name": metadata.get("table_name", ""),
+                    "table_name": table_name,
                     "korean_name": metadata.get("korean_name", ""),
                     "description": metadata.get("description", ""),
                     "similarity": similarity,
+                    "feedback_weight": round(feedback_weight, 4),  # 가중치 표시
+                    "final_score": round(final_score, 4),         # 최종 점수
                     "column_count": metadata.get("column_count", 0),
                     "has_primary_key": metadata.get("has_primary_key", False),
                     "has_foreign_keys": metadata.get("has_foreign_keys", False)
@@ -173,6 +189,12 @@ class VectorDBClient:
 
                 tables.append(table_info)
 
+            # ★ 최종 점수로 정렬
+            tables.sort(key=lambda x: x["final_score"], reverse=True)
+
+            # 요청한 개수만 반환
+            tables = tables[:n_results]
+
         logger.info(
             f"Vector DB search: '{question}' in {database_sid}.{schema_name} "
             f"→ {len(tables)} tables found"
@@ -186,10 +208,12 @@ class VectorDBClient:
         database_sid: str,
         schema_name: str,
         table_name: Optional[str] = None,
-        n_results: int = 10
+        n_results: int = 10,
+        table_weights: Optional[Dict[str, float]] = None,
+        column_weights: Optional[Dict[str, Dict[str, float]]] = None
     ) -> List[Dict[str, Any]]:
         """
-        ★ 의미 기반 컬럼 검색 (자연어 검색)
+        ★ 의미 기반 컬럼 검색 (가중치 적용)
 
         Args:
             query: 자연어 검색어 (예: "라인", "일자", "수량")
@@ -197,6 +221,8 @@ class VectorDBClient:
             schema_name: 스키마 이름
             table_name: 특정 테이블로 제한 (선택)
             n_results: 반환할 컬럼 수
+            table_weights: 테이블별 가중치 {"TABLE_NAME": 0.92, ...}
+            column_weights: 컬럼별 가중치 {"TABLE_NAME": {"COLUMN_NAME": 0.95, ...}, ...}
 
         Returns:
             관련 컬럼 정보 리스트
@@ -219,14 +245,14 @@ class VectorDBClient:
         if table_name:
             where_filter["$and"].append({"table_name": table_name})
 
-        # ChromaDB 검색
+        # ChromaDB 검색 (더 많이 가져온 후 가중치 적용)
         results = self.columns_collection.query(
             query_embeddings=[query_embedding],
-            n_results=n_results,
+            n_results=min(n_results * 2, 50),  # 최대 50개
             where=where_filter
         )
 
-        # 결과 포맷팅
+        # 결과 포맷팅 (가중치 적용)
         columns = []
         if results["ids"] and results["ids"][0]:
             for i, col_id in enumerate(results["ids"][0]):
@@ -234,18 +260,44 @@ class VectorDBClient:
                 distance = results["distances"][0][i]
                 similarity = max(0, 1 - (distance / 2))
 
+                col_table_name = metadata.get("table_name", "")
+                col_column_name = metadata.get("column_name", "")
+
+                # ★ 가중치 적용
+                table_weight = 1.0
+                column_weight = 1.0
+
+                if table_weights and col_table_name in table_weights:
+                    table_weight = table_weights[col_table_name]
+
+                if (column_weights and col_table_name in column_weights and
+                    col_column_name in column_weights[col_table_name]):
+                    column_weight = column_weights[col_table_name][col_column_name]
+
+                # 최종 점수 = 유사도 × 테이블 가중치 × 컬럼 가중치
+                final_score = similarity * table_weight * column_weight
+
                 columns.append({
                     "column_id": col_id,
-                    "table_name": metadata.get("table_name", ""),
-                    "column_name": metadata.get("column_name", ""),
+                    "table_name": col_table_name,
+                    "column_name": col_column_name,
                     "korean_name": metadata.get("korean_name", ""),
                     "description": metadata.get("description", ""),
                     "data_type": metadata.get("data_type", ""),
                     "is_pk": metadata.get("is_pk", False),
                     "column_comment": metadata.get("column_comment", ""),
                     "table_comment": metadata.get("table_comment", ""),
-                    "similarity": round(similarity * 100, 1)
+                    "similarity": round(similarity * 100, 1),
+                    "table_weight": round(table_weight, 4),
+                    "column_weight": round(column_weight, 4),
+                    "final_score": round(final_score * 100, 1)
                 })
+
+        # ★ 최종 점수로 정렬
+        columns.sort(key=lambda x: x["final_score"], reverse=True)
+
+        # 요청한 개수만 반환
+        columns = columns[:n_results]
 
         logger.info(
             f"Vector DB column search: '{query}' in {database_sid}.{schema_name} "

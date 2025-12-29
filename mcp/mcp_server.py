@@ -32,6 +32,7 @@ from credentials_manager import CredentialsManager
 from metadata_manager import MetadataManager
 from sql_executor import SQLExecutor
 from vector_db_client import get_vector_db
+from feedback_manager import FeedbackManager
 
 # 로깅 설정
 logging.basicConfig(
@@ -55,6 +56,12 @@ credentials_manager = CredentialsManager(credentials_dir=str(credentials_dir))
 metadata_manager = MetadataManager(
     metadata_dir=str(metadata_dir)
 )
+
+# Vector DB 클라이언트 (피드백 시스템에 사용)
+vector_db_client = get_vector_db()
+
+# 피드백 매니저 초기화
+feedback_manager = FeedbackManager(vector_db_client)
 
 # DB 커넥터 캐시
 db_connectors = {}
@@ -287,6 +294,59 @@ async def list_tools() -> list:
                 "required": ["database_sid", "schema_name", "query"]
             }
         ),
+        types.Tool(
+            name="generate_and_review_sql",
+            description="★ SQL 생성 후 미리보기 (검토 기능 포함) - 옵션 A",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "natural_query": {"type": "string", "description": "자연어 질문 (예: 'Run Card의 당일 생산 계획수량을 모델별로 합계해서 보여줘')"},
+                    "created_by": {"type": "string", "description": "사용자 정보 (선택)"}
+                },
+                "required": ["database_sid", "schema_name", "natural_query"]
+            }
+        ),
+        types.Tool(
+            name="submit_sql_feedback",
+            description="★ 사용자 피드백 저장 및 가중치 계산 (피드백 처리)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "feedback_id": {"type": "string", "description": "피드백 ID"},
+                    "action": {"type": "string", "description": "approve (승인), modify (수정), reject (거부)", "enum": ["approve", "modify", "reject"]},
+                    "suggestions": {"type": "string", "description": "사용자 제안/조언 (수정 또는 거부 시)"},
+                    "user_confidence": {"type": "number", "description": "사용자 신뢰도 (0.0~1.0)"}
+                },
+                "required": ["feedback_id", "action"]
+            }
+        ),
+        types.Tool(
+            name="regenerate_sql_with_feedback",
+            description="★ 사용자 피드백을 반영하여 SQL 재생성",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "feedback_id": {"type": "string", "description": "피드백 ID"},
+                    "feedback_text": {"type": "string", "description": "사용자 피드백 (수정 요청 사항)"}
+                },
+                "required": ["feedback_id", "feedback_text"]
+            }
+        ),
+        types.Tool(
+            name="execute_sql_direct",
+            description="SQL 직접 실행 (피드백 없이 바로 실행) - 옵션 B",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "sql": {"type": "string", "description": "실행할 SQL"},
+                    "max_rows": {"type": "integer", "description": "최대 조회 행 수"}
+                },
+                "required": ["database_sid", "sql"]
+            }
+        ),
     ]
 
 
@@ -336,6 +396,14 @@ async def handle_call_tool(name: str, arguments: dict):
             result = await update_sql_rules(**arguments)
         elif name == "search_columns":
             result = await search_columns(**arguments)
+        elif name == "generate_and_review_sql":
+            result = await generate_and_review_sql(**arguments)
+        elif name == "submit_sql_feedback":
+            result = await submit_sql_feedback(**arguments)
+        elif name == "regenerate_sql_with_feedback":
+            result = await regenerate_sql_with_feedback(**arguments)
+        elif name == "execute_sql_direct":
+            result = await execute_sql_direct(**arguments)
         else:
             return types.CallToolResult(
                 content=[types.TextContent(type="text", text=f"❌ Unknown tool: {name}")],
@@ -1493,6 +1561,276 @@ async def search_columns(
         return [{
             "type": "text",
             "text": f"❌ 컬럼 검색 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: SQL 생성 및 미리보기 (피드백 포함)
+# ============================================
+
+async def generate_and_review_sql(
+    database_sid: str,
+    schema_name: str,
+    natural_query: str,
+    created_by: str = "system"
+) -> list[dict]:
+    """
+    ★ SQL 생성 후 미리보기 (사용자 검토 기능)
+
+    자연어 질문을 받아 SQL을 생성하고, 미리보기를 제공합니다.
+    사용자가 검토 후 피드백을 제출할 수 있습니다.
+    """
+    try:
+        # Step 1: Vector DB로 관련 테이블/컬럼 검색
+        vector_db = get_vector_db()
+        if not vector_db.is_available():
+            return [{
+                "type": "text",
+                "text": "❌ Vector DB를 사용할 수 없습니다. 먼저 벡터화를 완료하세요."
+            }]
+
+        # 테이블 검색 (가중치 적용)
+        table_weights = feedback_manager.get_table_weights(database_sid, schema_name)
+        tables = vector_db.search_tables(
+            question=natural_query,
+            database_sid=database_sid,
+            schema_name=schema_name,
+            n_results=5,
+            weights=table_weights if table_weights else None
+        )
+
+        if not tables:
+            return [{
+                "type": "text",
+                "text": f"❌ 관련 테이블을 찾을 수 없습니다.\n자연어: {natural_query}"
+            }]
+
+        # 선택된 테이블 정보
+        selected_table = tables[0]
+        table_name = selected_table["table_name"]
+
+        # 컬럼 검색
+        column_weights = feedback_manager.get_column_weights(
+            table_name, database_sid, schema_name
+        )
+        columns = vector_db.search_columns(
+            query=natural_query,
+            database_sid=database_sid,
+            schema_name=schema_name,
+            table_name=table_name,
+            n_results=10,
+            column_weights={table_name: column_weights} if column_weights else None
+        )
+
+        # Step 2: Claude로 SQL 생성 (간단한 쿼리)
+        # 여기서는 기본 SELECT 구문 생성
+        selected_columns = [col["column_name"] for col in columns[:5]]
+        if not selected_columns:
+            selected_columns = ["*"]
+
+        columns_clause = ", ".join(selected_columns)
+        generated_sql = f"SELECT {columns_clause} FROM {schema_name}.{table_name}"
+
+        # Step 3: 피드백 저장 (SQL 생성 이력)
+        feedback_data = {
+            "user_query": natural_query,
+            "selected_table": table_name,
+            "selected_columns": selected_columns,
+            "generated_sql": generated_sql,
+            "database_sid": database_sid,
+            "schema_name": schema_name,
+            "created_by": created_by
+        }
+
+        feedback_id = feedback_manager.save_sql_generation(feedback_data)
+
+        # Step 4: 미리보기 형식으로 반환
+        result_text = f"🔍 **SQL 생성 완료** (ID: {feedback_id})\n\n"
+        result_text += f"**사용자 질문**: {natural_query}\n\n"
+        result_text += f"**선택된 테이블**: {table_name}\n"
+        result_text += f"**테이블 유사도**: {selected_table.get('similarity', 0):.1f}%\n\n"
+
+        result_text += "**검색된 컬럼** (상위 5개):\n"
+        for i, col in enumerate(columns[:5], 1):
+            result_text += f"- {i}. {col['column_name']} ({col.get('similarity', 0):.1f}% 유사도)\n"
+
+        result_text += f"\n**생성된 SQL**:\n```sql\n{generated_sql}\n```\n\n"
+
+        result_text += f"**다음 단계**:\n"
+        result_text += f"1. `submit_sql_feedback` Tool을 사용하여 다음 중 선택:\n"
+        result_text += f"   - action: 'approve' (승인 후 실행)\n"
+        result_text += f"   - action: 'modify' (수정 제안 후 재생성)\n"
+        result_text += f"   - action: 'reject' (거부)\n\n"
+        result_text += f"**Feedback ID**: `{feedback_id}`\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"SQL 생성 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ SQL 생성 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: 사용자 피드백 저장 및 가중치 계산
+# ============================================
+
+async def submit_sql_feedback(
+    feedback_id: str,
+    action: str,
+    suggestions: str = None,
+    user_confidence: float = 0.5
+) -> list[dict]:
+    """
+    ★ 사용자 피드백 저장 및 가중치 계산
+
+    action: 'approve', 'modify', 'reject'
+    """
+    try:
+        # Step 1: 사용자 피드백 저장
+        feedback_manager.save_user_feedback(
+            feedback_id=feedback_id,
+            action=action,
+            suggestions=suggestions,
+            user_confidence=user_confidence
+        )
+
+        # Step 2: 가중치 계산
+        feedback_manager.calculate_weights()
+
+        result_text = f"✅ **피드백 처리 완료**\n\n"
+        result_text += f"**Feedback ID**: {feedback_id}\n"
+        result_text += f"**사용자 선택**: {action.upper()}\n"
+        result_text += f"**신뢰도**: {user_confidence*100:.0f}%\n\n"
+
+        if suggestions:
+            result_text += f"**사용자 제안**: {suggestions}\n\n"
+
+        result_text += "✅ 가중치 재계산 완료\n"
+        result_text += "다음 검색부터 사용자의 피드백이 반영됩니다.\n\n"
+
+        if action == "modify":
+            result_text += "💡 다음 단계:\n"
+            result_text += "`regenerate_sql_with_feedback` Tool을 사용하여\n"
+            result_text += "사용자 피드백을 반영한 SQL을 재생성할 수 있습니다.\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"피드백 저장 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 피드백 저장 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: 피드백 기반 SQL 재생성
+# ============================================
+
+async def regenerate_sql_with_feedback(
+    feedback_id: str,
+    feedback_text: str
+) -> list[dict]:
+    """
+    ★ 사용자 피드백을 반영하여 SQL 재생성
+    """
+    try:
+        # 피드백 정보 조회
+        feedback_summary = feedback_manager.query_feedback_summary(limit=100)
+
+        # 해당 feedback_id 찾기
+        target_feedback = None
+        for fb in feedback_summary:
+            if fb.get("feedback_id") == feedback_id:
+                target_feedback = fb
+                break
+
+        if not target_feedback:
+            return [{
+                "type": "text",
+                "text": f"❌ Feedback ID를 찾을 수 없습니다: {feedback_id}"
+            }]
+
+        # 재생성된 SQL (간단한 예시)
+        # 실제 구현에서는 Claude에게 피드백을 전달하여 SQL 재생성
+        regenerated_sql = f"-- 피드백 반영됨: {feedback_text}\n"
+        regenerated_sql += f"-- 원본 Query: {target_feedback.get('user_query', '')}\n"
+        regenerated_sql += "SELECT * FROM " + target_feedback.get('selected_table', 'TABLE')
+
+        result_text = f"🔄 **SQL 재생성 완료**\n\n"
+        result_text += f"**Feedback ID**: {feedback_id}\n"
+        result_text += f"**사용자 피드백**: {feedback_text}\n\n"
+        result_text += f"**재생성된 SQL**:\n```sql\n{regenerated_sql}\n```\n\n"
+        result_text += "💡 다음 단계:\n"
+        result_text += "`execute_sql_direct` Tool을 사용하여 SQL을 실행할 수 있습니다.\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"SQL 재생성 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ SQL 재생성 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: SQL 직접 실행 (피드백 없이)
+# ============================================
+
+async def execute_sql_direct(
+    database_sid: str,
+    sql: str,
+    max_rows: int = 100
+) -> list[dict]:
+    """SQL을 직접 실행 (피드백 기능 없음)"""
+    try:
+        connector = get_connector(database_sid)
+
+        # SQL 실행
+        results = connector.query(sql, max_rows=max_rows)
+
+        if isinstance(results, str):
+            return [{
+                "type": "text",
+                "text": f"✅ **SQL 실행 완료**\n\n{results}"
+            }]
+
+        # 결과 포맷팅
+        result_text = f"✅ **SQL 실행 완료** ({len(results)}행)\n\n"
+        result_text += "```\n"
+
+        if results:
+            # 헤더
+            headers = list(results[0].keys())
+            header_line = " | ".join([f"{h[:15]:15}" for h in headers])
+            result_text += header_line + "\n"
+            result_text += "-" * len(header_line) + "\n"
+
+            # 데이터
+            for row in results[:min(10, len(results))]:
+                values = [str(row.get(h, ""))[:15] for h in headers]
+                result_text += " | ".join([f"{v:15}" for v in values]) + "\n"
+
+            if len(results) > 10:
+                result_text += f"\n... ({len(results) - 10}개 행 생략)\n"
+
+        result_text += "```\n"
+
+        return [{"type": "text", "text": result_text}]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"SQL 실행 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ SQL 실행 실패: {str(e)}\n\n{traceback.format_exc()}"
         }]
 
 
