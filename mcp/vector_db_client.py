@@ -70,10 +70,20 @@ class VectorDBClient:
                 logger.warning(f"⚠️ oracle_metadata collection not found: {collection_error}")
                 self.metadata_collection = None
 
+            # ★ 컬럼 컬렉션 연결
+            try:
+                self.columns_collection = self.client.get_collection("oracle_columns")
+                column_count = self.columns_collection.count()
+                logger.info(f"✓ Columns collection connected: {column_count} columns")
+            except Exception as collection_error:
+                logger.warning(f"⚠️ oracle_columns collection not found: {collection_error}")
+                self.columns_collection = None
+
         except Exception as e:
             logger.error(f"✗ Vector DB connection failed: {e}")
             self.client = None
             self.metadata_collection = None
+            self.columns_collection = None
 
     def is_available(self) -> bool:
         """Vector DB와 임베딩 모델이 모두 사용 가능한지 확인"""
@@ -96,12 +106,15 @@ class VectorDBClient:
         query_embedding = self.model.encode(question).tolist()
 
         # 2. 직접 생성한 임베딩으로 검색
+        # ChromaDB에서 여러 조건 사용 시 $and 연산자로 감싸야 함
         results = self.metadata_collection.query(
             query_embeddings=[query_embedding],
             n_results=n_results,
             where={
-                "database_sid": database_sid,
-                "schema_name": schema_name
+                "$and": [
+                    {"database_sid": database_sid},
+                    {"schema_name": schema_name}
+                ]
             }
         )
 
@@ -167,14 +180,91 @@ class VectorDBClient:
 
         return tables
 
+    def search_columns(
+        self,
+        query: str,
+        database_sid: str,
+        schema_name: str,
+        table_name: Optional[str] = None,
+        n_results: int = 10
+    ) -> List[Dict[str, Any]]:
+        """
+        ★ 의미 기반 컬럼 검색 (자연어 검색)
+
+        Args:
+            query: 자연어 검색어 (예: "라인", "일자", "수량")
+            database_sid: DB SID
+            schema_name: 스키마 이름
+            table_name: 특정 테이블로 제한 (선택)
+            n_results: 반환할 컬럼 수
+
+        Returns:
+            관련 컬럼 정보 리스트
+        """
+        if self.columns_collection is None or self.model is None:
+            raise RuntimeError("Columns collection or Embedding model not available.")
+
+        # 쿼리 임베딩 생성
+        query_embedding = self.model.encode(query).tolist()
+
+        # 필터 조건 생성
+        where_filter = {
+            "$and": [
+                {"database_sid": database_sid},
+                {"schema_name": schema_name}
+            ]
+        }
+
+        # 특정 테이블로 제한
+        if table_name:
+            where_filter["$and"].append({"table_name": table_name})
+
+        # ChromaDB 검색
+        results = self.columns_collection.query(
+            query_embeddings=[query_embedding],
+            n_results=n_results,
+            where=where_filter
+        )
+
+        # 결과 포맷팅
+        columns = []
+        if results["ids"] and results["ids"][0]:
+            for i, col_id in enumerate(results["ids"][0]):
+                metadata = results["metadatas"][0][i]
+                distance = results["distances"][0][i]
+                similarity = max(0, 1 - (distance / 2))
+
+                columns.append({
+                    "column_id": col_id,
+                    "table_name": metadata.get("table_name", ""),
+                    "column_name": metadata.get("column_name", ""),
+                    "korean_name": metadata.get("korean_name", ""),
+                    "description": metadata.get("description", ""),
+                    "data_type": metadata.get("data_type", ""),
+                    "is_pk": metadata.get("is_pk", False),
+                    "column_comment": metadata.get("column_comment", ""),
+                    "table_comment": metadata.get("table_comment", ""),
+                    "similarity": round(similarity * 100, 1)
+                })
+
+        logger.info(
+            f"Vector DB column search: '{query}' in {database_sid}.{schema_name} "
+            f"→ {len(columns)} columns found"
+        )
+
+        return columns
+
     def get_stats(self) -> Dict[str, int]:
         """Vector DB 통계"""
         if not self.is_available():
-            return {"table_count": 0}
+            return {"table_count": 0, "column_count": 0}
 
-        return {
-            "table_count": self.metadata_collection.count()
+        stats = {
+            "table_count": self.metadata_collection.count() if self.metadata_collection else 0,
+            "column_count": self.columns_collection.count() if self.columns_collection else 0
         }
+
+        return stats
 
 
 # Singleton instance

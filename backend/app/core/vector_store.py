@@ -145,13 +145,8 @@ class VectorStore:
             Dict with 'ids', 'documents', 'metadatas', 'distances'
         """
         # Build filter with database_sid and schema_name
-        where_filter = filter_dict.copy() if filter_dict else {}
-
-        # Add database_sid and schema_name to filter
-        if database_sid:
-            where_filter["database_sid"] = database_sid
-        if schema_name:
-            where_filter["schema_name"] = schema_name
+        # ★ ChromaDB에서 여러 조건 사용 시 $and 연산자로 감싸야 함 (MCP 서버와 동일)
+        where_filter = None
 
         # Log warning if searching without DB/Schema filter (위험!)
         if not database_sid or not schema_name:
@@ -159,11 +154,21 @@ class VectorStore:
                 "⚠️  Searching Vector DB without database_sid/schema_name filter! "
                 "This may return results from wrong databases in multi-DB environment."
             )
+            # 기존 filter_dict 사용 (deprecated)
+            where_filter = filter_dict.copy() if filter_dict else None
+        else:
+            # ★ $and 연산자로 명시적 AND 조건 사용 (MCP 서버와 일관성 유지)
+            where_filter = {
+                "$and": [
+                    {"database_sid": database_sid},
+                    {"schema_name": schema_name}
+                ]
+            }
 
         results = self.metadata_collection.query(
             query_embeddings=[query_embedding],
             n_results=n_results,
-            where=where_filter if where_filter else None
+            where=where_filter
         )
 
         return {
@@ -419,15 +424,23 @@ class VectorStore:
             List of metadata items
         """
         # Build filter
-        where_filter = {}
-        if database_sid:
-            where_filter["database_sid"] = database_sid
-        if schema_name:
-            where_filter["schema_name"] = schema_name
+        # ★ ChromaDB에서 여러 조건 사용 시 $and 연산자로 감싸야 함 (MCP 서버와 동일)
+        where_filter = None
+        if database_sid and schema_name:
+            where_filter = {
+                "$and": [
+                    {"database_sid": database_sid},
+                    {"schema_name": schema_name}
+                ]
+            }
+        elif database_sid:
+            where_filter = {"database_sid": database_sid}
+        elif schema_name:
+            where_filter = {"schema_name": schema_name}
 
         # Get metadata
         result = self.metadata_collection.get(
-            where=where_filter if where_filter else None,
+            where=where_filter,
             limit=limit
         )
 

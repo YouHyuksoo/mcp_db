@@ -1,6 +1,10 @@
 """
 Oracle Database MCP 서버 메인
-17개 Tools 제공 (SQL 생성/실행 전용, 데이터 관리는 Backend로 이관)
+18개 Tools 제공
+- SQL 생성/실행 Tools (9개)
+- 메타데이터 조회 Tools (6개)
+- Vector DB 기반 검색 Tools (2개) ★ 컬럼 검색 추가
+- 유틸리티 Tools (1개)
 """
 
 import os
@@ -268,6 +272,21 @@ async def list_tools() -> list:
                 "required": ["rules_content"]
             }
         ),
+        types.Tool(
+            name="search_columns",
+            description="★ 자연어로 컬럼 검색 (의미 기반, Vector DB 사용)",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "database_sid": {"type": "string", "description": "Database SID"},
+                    "schema_name": {"type": "string", "description": "스키마 이름"},
+                    "query": {"type": "string", "description": "자연어 검색어 (예: '라인', '일자', '수량', '모델명')"},
+                    "table_name": {"type": "string", "description": "특정 테이블로 제한 (선택사항)"},
+                    "n_results": {"type": "integer", "description": "반환할 컬럼 수 (기본값: 10)"}
+                },
+                "required": ["database_sid", "schema_name", "query"]
+            }
+        ),
     ]
 
 
@@ -315,6 +334,8 @@ async def handle_call_tool(name: str, arguments: dict):
             result = await view_sql_rules(**arguments)
         elif name == "update_sql_rules":
             result = await update_sql_rules(**arguments)
+        elif name == "search_columns":
+            result = await search_columns(**arguments)
         else:
             return types.CallToolResult(
                 content=[types.TextContent(type="text", text=f"❌ Unknown tool: {name}")],
@@ -1338,6 +1359,140 @@ async def update_sql_rules(rules_content: str) -> list[dict]:
         return [{
             "type": "text",
             "text": f"❌ SQL 규칙 업데이트 실패: {str(e)}\n\n{traceback.format_exc()}"
+        }]
+
+
+# ============================================
+# Tool: 자연어로 컬럼 검색 (의미 기반)
+# ============================================
+
+async def search_columns(
+    database_sid: str,
+    schema_name: str,
+    query: str,
+    table_name: str = None,
+    n_results: int = 10
+) -> list[dict]:
+    """
+    ★ 자연어로 컬럼 검색 (Vector DB 기반 의미 검색)
+
+    사용자의 자연어 질문을 벡터로 변환하여
+    가장 관련 있는 Oracle 컬럼들을 찾아줍니다.
+
+    Args:
+        database_sid: Database SID
+        schema_name: 스키마 이름
+        query: 자연어 검색어 (예: "라인", "일자", "수량", "모델명")
+        table_name: 특정 테이블로 제한 (선택)
+        n_results: 반환할 컬럼 수 (기본값: 10)
+
+    Returns:
+        관련 컬럼 정보 리스트
+    """
+    try:
+        vector_db = get_vector_db()
+
+        # Vector DB 컬럼 컬렉션 확인
+        if vector_db.columns_collection is None:
+            return [{
+                "type": "text",
+                "text": (
+                    "❌ **컬럼 Vector DB를 사용할 수 없습니다**\n\n"
+                    f"**Database**: {database_sid}\n"
+                    f"**Schema**: {schema_name}\n"
+                    f"**검색어**: {query}\n\n"
+                    "**원인**: 컬럼 벡터화가 완료되지 않았습니다.\n\n"
+                    "**해결 방법**:\n"
+                    "1. 루트 디렉토리에서 컬럼 벡터화 스크립트 실행:\n"
+                    "   ```bash\n"
+                    "   python vectorize_columns.py\n"
+                    "   ```\n\n"
+                    "2. 벡터화 완료 후 다시 시도하세요.\n"
+                    "   (21,515개 컬럼을 벡터화하는 데 시간이 걸릴 수 있습니다)\n\n"
+                    "💡 **참고**: 이후에는 자동으로 진행 상황을 추적하여 빠르게 처리됩니다."
+                )
+            }]
+
+        # 컬럼 검색 수행
+        columns = vector_db.search_columns(
+            query=query,
+            database_sid=database_sid,
+            schema_name=schema_name,
+            table_name=table_name,
+            n_results=n_results
+        )
+
+        if not columns:
+            return [{
+                "type": "text",
+                "text": (
+                    f"ℹ️ **검색 결과가 없습니다**\n\n"
+                    f"**검색어**: {query}\n"
+                    f"**Database**: {database_sid}\n"
+                    f"**Schema**: {schema_name}\n"
+                    f"{'**테이블**: ' + table_name if table_name else ''}\n\n"
+                    "이 조건에 맞는 컬럼이 없습니다.\n"
+                    "다른 검색어로 시도해보세요."
+                )
+            }]
+
+        # 결과 포맷팅
+        result_text = f"🔍 **컬럼 검색 결과** (의미 기반)\n\n"
+        result_text += f"**검색어**: {query}\n"
+        result_text += f"**Database**: {database_sid}\n"
+        result_text += f"**Schema**: {schema_name}\n"
+        if table_name:
+            result_text += f"**테이블**: {table_name}\n"
+        result_text += f"**발견된 컬럼**: {len(columns)}개\n\n"
+        result_text += "**검색 결과 (유사도 순)**:\n\n"
+
+        for i, col in enumerate(columns, 1):
+            result_text += f"### {i}. {col['table_name']}.{col['column_name']}"
+            if col.get('is_pk'):
+                result_text += " [PK]"
+            result_text += f" ({col['similarity']}% 유사도)\n"
+
+            if col.get('korean_name'):
+                result_text += f"- **한글명**: {col['korean_name']}\n"
+
+            if col.get('data_type'):
+                result_text += f"- **데이터타입**: {col['data_type']}\n"
+
+            if col.get('description'):
+                desc = col['description'][:100]
+                if len(col['description']) > 100:
+                    desc += "..."
+                result_text += f"- **설명**: {desc}\n"
+
+            if col.get('column_comment'):
+                result_text += f"- **컬럼 주석**: {col['column_comment']}\n"
+
+            result_text += "\n"
+
+        result_text += "---\n\n"
+        result_text += "**다음 단계**:\n"
+        result_text += "1. 위 컬럼들을 SELECT 절에 포함시켜 SQL 작성\n"
+        result_text += "2. `execute_sql` Tool로 SQL 실행\n\n"
+        result_text += "💡 **TIP**: 유사도가 높은(>70%) 컬럼부터 선택하세요."
+
+        return [{
+            "type": "text",
+            "text": result_text
+        }]
+
+    except RuntimeError as e:
+        logger.error(f"Vector DB error: {e}")
+        return [{
+            "type": "text",
+            "text": f"❌ Vector DB 오류: {str(e)}"
+        }]
+
+    except Exception as e:
+        import traceback
+        logger.error(f"컬럼 검색 실패: {e}\n{traceback.format_exc()}")
+        return [{
+            "type": "text",
+            "text": f"❌ 컬럼 검색 실패: {str(e)}\n\n{traceback.format_exc()}"
         }]
 
 
